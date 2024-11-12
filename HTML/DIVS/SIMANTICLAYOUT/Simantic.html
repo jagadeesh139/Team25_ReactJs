@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .container {
+        border: 2px solid;
+        width: 900px;
+        margin: auto;
+      }
+      header {
+        border: 2px solid;
+        margin: 10px;
+        height: 50px;
+        text-align: center;
+      }
+      nav {
+        border: 2px solid;
+        height: 40px;
+        margin: 10px;
+        text-align: center;
+      }
+      nav ul li {
+        display: inline;
+        margin-right: 30px;
+      }
+      div#middileParentSec {
+        /* border: 2px solid; */
+        /* margin: 10px; */
+        overflow: auto;
+      }
+      div#subparent {
+        width: 550px;
+        float: left;
+      }
+      section {
+        border: 2px solid;
+        margin: 10px;
+        height: 100px;
+        text-align: center;
+      }
+      article {
+        border: 2px solid;
+        height: 100px;
+        text-align: center;
+        margin: 0 10px 10px 10px;
+      }
+      aside {
+        width: 300px;
+        float: right;
+        height: 214px;
+        text-align: center;
+        border: 2px solid;
+        margin: 10px;
+      }
+      aside img {
+        width: 293px;
+        padding: 4px;
+        height: 205px;
+      }
+      footer {
+        height: 40px;
+        text-align: center;
+        border: 2px solid;
+        margin: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header>Header</header>
+      <nav>
+        <ul>
+          <li>Items</li>
+          <li>Items</li>
+          <li>Items</li>
+          <li>Items</li>
+          <li>Items</li>
+        </ul>
+      </nav>
+      <div id="middileParentSec">
+        <div id="subparent">
+          <section>Section</section>
+          <article>Article</article>
+        </div>
+        <aside><img src="./nature.webp" alt="" /></aside>
+      </div>
+      <footer>Footer</footer>
+    </div>
+  </body>
+</html>
