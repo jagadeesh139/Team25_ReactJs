@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Div-Layout</title>
+  </head>
+  <style>
+    .container {
+      border: 2px solid;
+      width: 950px;
+      margin: auto;
+      margin-top: 40px;
+    }
+    div#heading {
+      background: black;
+      margin: 10px;
+      padding: 15px;
+    }
+    #heading h1 {
+      color: white;
+      text-align: center;
+    }
+    .middleSection {
+      margin: 10px;
+      overflow: auto;
+    }
+    .chaild1 {
+      width: 300px;
+      float: left;
+      background: lightblue;
+    }
+    .chaild1 ul {
+      list-style-type: none;
+    }
+    .chaild1 ul li {
+      line-height: 2;
+    }
+    .child2 {
+      width: 600px;
+      float: right;
+    }
+    div#footer {
+      background: black;
+      height: 40px;
+      margin: 10px;
+      color: white;
+      text-align: center;
+    }
+  </style>
+  <body>
+    <div class="container">
+      <div id="heading">
+        <h1>Andhra Pradesh</h1>
+      </div>
+      <div class="middleSection">
+        <div class="chaild1">
+          <ul>
+            <li>Chittoor</li>
+            <li>Kadapa</li>
+            <li>Tirupati</li>
+            <li>ongole</li>
+            <li>nandyal</li>
+          </ul>
+        </div>
+        <div class="child2">
+          <h2>District dtails</h2>
+          <p>
+            The state of Andhra Pradesh has 26 districts. Visakhapatnam district is the smallest district in area while Prakasam district is the largest. Nellore district is the most populous whereas Parvathipuram Manyam district is the least populous district. The districts are further divided into two or more revenue divisions, which are further subdivided into mandals for administrative purposes.
+          </p>
+        </div>
+      </div>
+      <div id="footer">copyRights @ AndhraPradesh</div>
+    </div>
+  </body>
+</html>
