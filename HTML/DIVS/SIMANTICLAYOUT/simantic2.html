@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simantic Layout</title>
+</head>
+<style>
+    .container {
+    border: 2px solid;
+    width: 900px;
+    margin: auto;
+}
+header {
+    border: 2px solid;
+    margin: 10px;
+    height: 40px;
+    text-align: center;
+    background-color: sandybrown;
+    font-weight: bold;
+}
+nav {
+    border: 2px solid;
+    margin: 10px;
+    height: 40px;
+    text-align: center;
+}
+ nav ul li {
+    display: inline;
+    margin-right: 30px;
+}
+div#middileParentSec {
+    overflow: auto;
+}
+div#subparent {
+    width: 550px;
+    float: left;
+}
+section {
+    border: 2px solid;
+    margin: 10px;
+    height: 100px;
+    text-align: center;
+}
+article {
+    border: 2px solid;
+    margin: 0 10px 10px 10px;
+    height: 100px;
+    text-align: center;
+}
+aside {
+    border: 2px solid;
+    margin: 10px;
+    text-align: center;
+    float: right;
+    width: 300px;
+    height: 214px;
+}
+aside img {
+    width: 293px;
+    padding: 4px;
+    height: 205px;
+}
+footer {
+    border: 2px solid;
+    height: 40px;
+    margin: 10px;
+    text-align: center;
+    background-color: aqua;
+}
+</style>
+<body>
+    <div class="container">
+        <header>Amazon</header>
+        <nav>
+            <ul>
+                <li>Bazaar</li>
+                <li>Mobiles</li>
+                <li>Electronics</li>
+                <li>Home</li>
+                <li>fashion</li>
+                <li>Beauty</li>
+                <li>grocery</li>
+            </ul>
+        </nav>
+        <div id="middileParentSec">
+            <div id="subparent">
+                <section>Amazon Categories List
+                    Amazon Category Requirements
+                    Categories That Require Approval
+                    Classifying Your Products on Amazon
+                    Best Products to Sell on Amazon
+                    How to Find Products to Sell on Amazon</section>
+                <article>Amazon uses categories for product classification. Classifying your products is an important step in creating an Amazon listing. The category is used to ensure that customers can find your product when searching on Amazon. Since many product searches begin on Amazon and search is the main way shoppers find products, Amazon categories are incredibly important.</article>
+            </div>
+            <aside><img src="../download.jpg"></aside>
+        </div>
+        <footer>@copyRights <i>Amazon</i></footer>
+    </div>
+    
+</body>
+</html>
