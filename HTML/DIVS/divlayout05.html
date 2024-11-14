@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Div Layout</title>
+</head>
+<style>
+    .container {
+    border: 2px solid;
+    margin: auto;
+    width: 950px;
+    margin-top: 40px;
+}
+div#heading {
+    margin: 10px;
+    background: blueviolet;
+    text-align: center;
+    padding: 15px;
+}
+.middleSection {
+    margin: 10px;
+    overflow: auto;
+}
+.child1 {
+    width: 300px;
+    float: left;
+    background-color: darkcyan;
+}
+ul {
+    list-style-type: none;
+}
+li {
+    line-height: 2;
+}
+.child2 {
+    float: right;
+    width: 600px;
+}
+div#footer {
+    text-align: center;
+    background-color: darkmagenta;
+    height: 40px;
+    margin: 10px;
+}
+</style>
+<body>
+    <div class="container">
+        <div id="heading">
+            <h1>Karnataka</h1>
+        </div>
+       <div class="middleSection">
+        <div class="child1">
+                <ul>
+                    <li>bengaluru</li>
+                    <li>ballari</li>
+                    <li>belagavi</li>
+                    <li>bidar</li>
+                    <li>dharwad</li>
+                </ul>
+        </div>
+        <div class="child2">
+            <h2>District details</h2>
+            <p>
+                Karnataka took its present shape in 1956, when the former states of Mysore and Coorg were unified into a linguistically homogenous Kannada-speaking state along with agglomeration of districts of the former states of Bombay, Hyderabad, and Madras as part of the States Reorganisation Act of 1956. The unified Mysore State was made up of ten districts, viz., Bangalore, Kolar, Tumkur, Mandya, Mysore, Hassan, Chikkamagalur, Shimoga, Chitradurga, and Ballari which had been transferred from Madras Presidency to Mysore State earlier in 1953, when the new state of Andhra Pradesh was created out of Madras' northern districts.[1] Coorg State became Kodagu district,[2] South Canara was transferred from Madras State, North Canara, Dharwad, Belgaum, and Bijapur from Bombay State. Bidar, Gulbarga, and Raichur from Hyderabad State. The state received its new name of Karnataka in the year 1973.
+            </p>
+        </div>
+       </div>
+       <div id="footer">@karnataka copyRights</div>
+
+    </div>
+</body>
+</html>
