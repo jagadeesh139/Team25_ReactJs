@@ -1,0 +1,54 @@
+.row1 {
+    background: black;
+    color: white;
+  }
+  header {
+    width: 850px;
+    margin: auto;
+    overflow: auto;
+  }
+  .AJIO {
+    width: 300px;
+    float: left;
+    margin: 20px 20px 20px 0;
+  }
+  .AJIO h2 {
+    margin: 0;
+  }
+  .AJIO p {
+    margin: 0;
+  }
+  header nav {
+    width: 450px;
+    float: right;
+    margin: 20px 0 20px 20px;
+  }
+  nav ul li {
+    display: inline;
+    margin-right: 15px;
+  }
+  .row2 {
+    width: 850px;
+    margin: auto;
+    margin-top: 15px;
+  }
+  .row2 img {
+    width: 850px;
+    height: 300px;
+  }
+  .row3 {
+    width: 850px;
+    margin: auto;
+  }
+  .Ajio {
+    width: 250px;
+    float: left;
+  }
+  figure img {
+    width: 240px;
+    padding-left: 0;
+  }
+  
+  figure {
+    margin: 0;
+  }
