@@ -94,10 +94,11 @@
   .childsPara {
     float: right;
   }
-  .childsPara a {
+  a {
     color: orange;
+    font-size: 13px;
     text-decoration: none;
-  }
+}
   .row4 {
     width: 800px;
     margin: auto;

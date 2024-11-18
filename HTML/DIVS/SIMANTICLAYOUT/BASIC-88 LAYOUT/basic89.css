@@ -1,266 +1,200 @@
 .row1 {
-    background: black;
-    color: #989898;
-    overflow: auto;
-  }
-  header {
-    width: 850px;
-    margin: auto;
-    overflow: auto;
-  }
-  .basic89 {
-    width: 300px;
-    float: left;
-    margin: 20px 20px 20px 0;
-  }
-  .basic89 h2 {
-    margin: 0;
-  }
-  .basic89 p {
-    margin: 0;
-  }
-  header nav {
-    width: 450px;
-    float: right;
-    margin: 20px 0 20px 20px;
-  }
-  nav ul li {
-    display: inline;
-    margin: 30px;
-  }
-  .row2 {
-    width: 775px;
-    height: 375px;
-    border: 2px solid;
-    margin: 30px 120px 20px 195px;
-  }
-  .row2 img{
-    width: 775px;
-    height: 375px;
-  }
-  .row3 {
-    width: 796px;
-    height: 225px;
-    margin: 0px 15px 35px 192px;
-    overflow: auto;
-    border-bottom: 1px solid black;
+  background: black;
+  color: #989898;
+  overflow: auto;
+}
+header {
+  width: 850px;
+  margin: auto;
+  overflow: auto;
+}
+.basic89 {
+  width: 300px;
+  float: left;
+  margin: 20px 20px 20px 0;
+}
+.basic89 h2 {
+  margin: 0;
+}
+.basic89 p {
+  margin: 0;
+}
+header nav {
+  width: 450px;
+  float: right;
+  margin: 20px 0 20px 20px;
+}
+nav ul li {
+  display: inline;
+  margin: 30px;
+}
+.row2 {
+  width: 775px;
+  height: 375px;
+  border: 2px solid;
+  margin: 30px 120px 20px 195px;
+}
+.row2 img {
+  width: 775px;
+  height: 375px;
+}
+.row3 {
+  width: 800px;
+  margin: auto;
+  overflow: auto;
+  border-bottom: 1px solid black;
 }
 .childs {
-    width: 194px;
-    float: left;
-    margin: 16px 0px 0px 0px;
-    color: #989898;
+  width: 185px;
+  float: left;
+  margin-right: 15px;
 }
-  .childs figure {
-    margin-left: 0;
-  }
-  .childs figure img {
-    width: 25px;
-    height: 25px;
-    float: left;
-    border: 1px solid;
-    padding: 2px;
-  }
-   .childs figcaption strong{
-    font-size: 13px;
-  }
-  .childs figcaption p {
-    font-size: 14px;
-    line-height: 1.5;
-    text-align: left;
-    padding: 0px;
-    margin: 13px 0px 0px 0px;
+.childs figure {
+  margin-left: 0;
 }
-.childs figcaption {
-  margin: 0px 17px 0px 0px;
+.childs figure img {
+  width: 28px;
+  height: 28px;
+  float: left;
+  border: 1px solid;
+  padding: 2px;
 }
-  .childsPara a {
-    color: orange;
-    text-decoration: none;
-    margin: 0px;
-  }
-  .child4 {
-    width: 195px;
-    float: right;
-    margin: 16px 0px 0px 2px;
-    color: #989898;
+span {
+  font-size: 15px;
+  margin-left: 14px;
+}
+.childs figcaption p {
+  font-size: 13px;
+}
+.childsPara a {
+  color: orange;
+  text-decoration: none;
+}
+.child4 {
+  width: 185px;
+  float: right;
 }
 .child4 figure {
   margin-left: 0;
 }
 .child4 figure img {
-  width: 25px;
-  height: 25px;
+  width: 28px;
+  height: 28px;
   float: left;
   border: 1px solid;
   padding: 2px;
 }
-.child4 figcaption strong {
-  font-size: 13px;
+span {
+  font-size: 15px;
+  margin-left: 14px;
 }
 .child4 figcaption p {
-  font-size: 14px;
-  line-height: 1.5;
-  text-align: left;
-  padding: 0px;
-  margin: 13px 0px 0px 0px;
+  font-size: 13px;
 }
-.child4 figcaption {
-  margin: 0px 18px 0px 0px;
+.childsPara {
+  float: right;
 }
-  .childsPara {
-    float: right;
-  }
-  .childsPara a {
-    color: orange;
-    text-decoration: none;
-    margin: 0px;
-  }
-  .row4 {
-    width: 794px;
-    margin: auto;
-    overflow: auto;
-    margin:28px 50px 31px 192px;
-    border-bottom: 1px solid gray;
-    padding-bottom: 12px;
+a {
+  float:right;
+  color: orange;
+  text-decoration: none;
 }
-  .virat {
-    width: 279px;
-    float: left;
-  }
-  .virat img {
-    width: 225px;
-    height: 180px;
-    border: 1px solid;
-    padding: 3px;
-  }
-  .virat3 {
-    width: 234px;
-    float: right;
+.row4 {
+  width: 800px;
+  margin: auto;
+  overflow: auto;
+  margin-top: 20px;
+  border-bottom: 1px solid gray;
+  padding-bottom: 40px;
 }
-.virat3 img {
-  width: 225px;
-  height: 180px;
+.Meesho {
+  width: 250px;
+  float: left;
+}
+.Meesho img {
+  width: 220px;
+  height: 120px;
   border: 1px solid;
   padding: 3px;
 }
-p#child1para {
+.Meesho {
+  width: 250px;
+  float: left;
+}
+.Meesho3 {
+  width: 250px;
   float: right;
-  margin: 17px 0px 20px 0px;
+}
+.Meesho3 img {
+  width: 220px;
+  height: 120px;
+  padding: 3px;
+  border: 1px solid;
 }
 .row5 {
   width: 800px;
-  height: 420px;
+  margin: auto;
   overflow: auto;
-  margin-top: 15px;
-  margin-left: 190px;
+  margin-top: 20px;
 }
-  .row5 article {
-    width: 575px;
-    float: left;
-    color: #989898;
-  }
-  .child1 {
-    overflow: auto;
-    margin-top: 20px;
-  }
-  .child1Img {
-    width: 180px;
-    float: left;
-  }
-  .child1Img img {
-    width: 180px;
-    height: 160px;
-    border: 1px solid;
-    padding: 3px;
-  }
-  .child1Cap {
-    width: 369px;
-    float: right;
-    margin-top: 0px;
-    padding-bottom: 15px;
-  }
-  .child1Cap h4 {
-  font-weight: bold;
-  font-style: normal;
-  text-transform: uppercase;
-  margin: 0px 10px 0px 0px;
-  }
- 
-  .child1Cap p a {
-    color: orange;
-    text-decoration: none;
-    font-size: 14px;
+.row5 article {
+  width: 580px;
+  float: left;
+}
+.child1 {
+  overflow: auto;
+}
+.child1Img {
+  width: 170px;
+  float: left;
+}
+.child1Img img {
+  width: 170px;
+  height: 150px;
+  border: 1px solid;
+  padding: 3px;
+}
+.child1Cap {
+  width: 390px;
+  float: right;
+  margin-left: 10px;
 }
 .child1Cap p {
+  font-size: 15px;
+}
+p#child1Para {
+  float: right;
+}
+#child1Para a {
+  color: orange;
+  text-decoration: none;
+  font-size: 13px;
+}
+aside {
+  width: 198px;
+  float: right;
+}
+aside ul {
+  list-style: none;
+  padding: 0;
+}
+aside ul li {
+  line-height: 2;
+  border-bottom: 1px solid lightgrey;
+  font-size: 15px;
+  color: gray;
+}
+.row6-footer {
+  margin: 0px 5px 0px 185px;
+}
+.row6-footer p {
+  width: 400px;
+  float: right;
+  margin: 20px 0px 15px 0px;
   font-size: 14px;
-  line-height: 1.6;
-  line-height: 1.6;
-  margin: 11px 35px 0px 0px;
+  font-weight: normal;
 }
-  .child2 {
-    margin-top:25px;
+.row6-footer h5 {
+  float: left;
+  font-weight: normal;
 }
-  p#child1Para {
-    float: right;
-    margin: 10px 65px 20px 20px;
-  }
-  p#read {
-    margin: 15px 50px 0px 0px;
-    float: right;
-}
-  #child1Para a {
-    color: orange;
-    text-decoration: none;
-    font-size: 14px;
-  }
-  aside {
-    width: 200px;
-    float: right;
-    color: #989898;
-  }
-  aside h4{
-  font-weight: bold;
-  font-style: normal;
-  text-transform: uppercase;
-  }
-  aside ul {
-    list-style: none;
-    padding: 0;
-  }
-  aside ul li {
-    line-height: 2;
-    font-size: 14px;
-    border-bottom: 1px dotted;
-    color: gray;
-  }
-  aside ul a{
-    color:#232323;
-   text-decoration-line: none;
-  }
-  .row5-footer {
-    overflow: auto;
-    background-color: #232323;
-    color: #989898;
-  }
-  .copyright {
-  
-    float: left;
-    padding-left: 188px;
-    font-size: small;
-  }
-  .tempelate {
-    float: right;
-    padding-right: 250px;
-    margin-top: 10px;
-}
-  .copyright h5 {
-    font-weight: lighter;
-    font-size: 14px;
-    
-  }
-  .template p {
-    font-weight: lighter;
-    font-size: 14px;
-  }
-  
