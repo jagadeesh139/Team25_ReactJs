@@ -1,0 +1,229 @@
+body {
+    background: #584949;
+    margin-top: 0px;
+}
+.container
+{
+    width: 900px;
+    overflow: auto;
+    margin: auto;
+    background-color: azure;
+}
+.row1 
+{
+        overflow: auto;
+        background-color: blueviolet;
+        width: auto;
+        color: wheat;
+        background-image: url(./bird.jpeg);
+}
+.title {
+    margin: 0px 25px 0px 40px;
+    float: left;
+}
+.row1 h1 {
+    /* padding-top: 0px; */
+    margin-top: 0px;
+    font-size: 60px;
+    font-family: cursive;
+}
+.row1 p {
+    /* padding-bottom: 0px; */
+    margin-bottom: 0;
+}
+.keyword {
+    margin-top: 93px;
+    float: right;
+    padding: 30px;
+}
+.row2
+{
+    width: auto;
+    height: 42px;
+    background-color: #584949;
+}
+.row2 ul {
+        margin-top: 0px;
+        margin-left: 0px;
+    }
+.row2 li {
+    
+    list-style-type: none;
+    display: inline-block;
+    padding-top: 10px;
+    margin-right: 90px;
+    border-radius: 10px;
+    
+}
+.row2 a{
+    text-decoration-line: none;
+    color: aliceblue;
+    
+
+}
+
+.row2 a:hover{
+    background-color: black;
+    padding: 5px 15px;
+    border-radius: 10px;
+}
+.row2 button {
+    border-radius: 10px;
+}
+.row3 {
+    overflow: auto;
+    /* margin-top: 25px; */
+    margin-bottom: 30px;
+    background-color: bisque;
+    border-bottom: 1px solid grey;
+}
+.middle {
+    /* float: left; */
+    overflow: auto;
+    margin-top: 20px;
+}
+.middlepart1 {
+    float: left;
+    width: 660px;
+    margin-top: 20px;
+    margin-left: 40px;
+}
+.blog {
+    float: left;
+    width: 185px;
+    margin-top: 10px;
+    border-right: 1px solid grey;
+    
+}
+.pic {
+    float: right;
+    width: 430px;
+    margin-top: 20px;
+    margin-right: 30px;
+    border-right: 1px solid grey;
+    height: 312px
+}
+.middlepart2 {
+    float: right;
+    width: 185px;
+    margin-right: 15px;
+}
+.middle h2
+{
+ 
+    font-size: 16px;
+}
+.middle h3
+{
+ 
+    font-size: 16px;
+    margin-left: 20px;
+    padding-left: 17px;
+}
+.list {
+    font-size: 14px;
+    /* line-height: 27px; */
+}
+.middle p{
+    font-size: 13px;
+    }
+ .list a {
+        text-decoration-line: none;
+        line-height: 1px;
+    }
+.catgr {
+        margin-top: 35px;
+    }
+
+ .blog button {
+            margin-left: 110px;
+        }
+  .row4 {
+            margin: 0px 0px 5px 25px;
+            overflow: auto;
+        }
+        .nat {
+            width: 208px;
+            float: left;
+            margin-left: 10px;
+            color: rgb(206, 148, 40);
+        }
+
+          .nat figcaption p {
+            font-size: 14px;
+            line-height: 1.5;
+            text-align: left;
+            padding: 0px;
+            margin: 13px 0px 20px 0px;
+        }
+        .nat figcaption {
+          margin: 0px 13px 0px 0px;
+        }
+          .natPara a {
+            color: orange;
+            text-decoration: none;
+            margin: 0px;
+          }
+          .natPara {
+            float: right;
+          }
+          .nat4 {
+            width: 212px;
+            float: right;
+            color: rgb(206, 148, 40);
+          }
+          .nat4 figcaption p {
+            font-size: 14px;
+            line-height: 1.5;
+            text-align: left;
+            padding: 0px;
+            margin: 13px 0px 0px 0px;
+        }
+        .nat4 figcaption {
+          margin: 0px 18px 0px 0px;
+        }
+                  .nat4Para {
+            float: right;
+          }
+          .row5 {
+            overflow: auto;
+            background-color: rgb(50, 47, 47);
+            color: white;
+            text-align: center;
+        }
+
+          .copy a{
+            color: yellow;
+        }
+        .copy p{
+            font-size: 14px;
+
+        }
+        .ftrlist li {
+            display: inline;
+            border-right: 1px solid white;
+            font-size: 14px;
+            padding-right: 10px;
+        }
+        .list ul {
+            list-style-type: none;
+        }
+        .ftrlist li a {
+            text-decoration-line: none;
+            color:white
+        }
+        .ftrlist li a:hover{
+            color: rgb(194, 192, 56);
+           
+        }
+        .list li
+         {
+            display: inline-block;
+            height: 15px;
+            padding: 4px 0 0 18px;
+            margin: 0 0 5px 0;
+            background: url(images/templatemo_list_icon.jpg) top left no-repeat;
+       }
+
+
+    
