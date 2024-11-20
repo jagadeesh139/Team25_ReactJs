@@ -20,8 +20,8 @@ body {
 }
 .row1 h1 {
     margin-top: 0px;
-    font-size: 50px;
-    font-style: oblique;
+    font-size: 60px;
+    font-family: cursive;
 }
 .row1 p {
     margin-bottom: 0px;
@@ -32,24 +32,23 @@ body {
     padding: 30px;
 }
 }
-.row2
-{
+.row2 {
     width: auto;
     height: 42px;
-    background-color: #584949;
+    background-color: aqua;
+}
 }
 .row2 ul {
-        margin-top: 0px;
-        margin-left: 0px;
-    }
+    margin-top: 0px;
+    margin-left: 0px;
+}
 .row2 li {
-    
     list-style-type: none;
     display: inline-block;
     padding-top: 10px;
     margin-right: 90px;
     border-radius: 10px;
-    
+}
 }
 .row2 a{
     text-decoration-line: none;
@@ -57,7 +56,6 @@ body {
     
 
 }
-
 .row2 a:hover{
     background-color: black;
     padding: 5px 15px;
@@ -68,13 +66,11 @@ body {
 }
 .row3 {
     overflow: auto;
-    /* margin-top: 25px; */
     margin-bottom: 30px;
     background-color: bisque;
     border-bottom: 1px solid grey;
 }
-.middle {
-    /* float: left; */
+.miiddle {
     overflow: auto;
     margin-top: 20px;
 }
@@ -89,15 +85,14 @@ body {
     width: 185px;
     margin-top: 10px;
     border-right: 1px solid grey;
-    
 }
-.pic {
+.Photo {
     float: right;
     width: 430px;
     margin-top: 20px;
     margin-right: 30px;
     border-right: 1px solid grey;
-    height: 312px
+    height: 312px;
 }
 .middlepart2 {
     float: right;
@@ -118,7 +113,6 @@ body {
 }
 .list {
     font-size: 14px;
-    /* line-height: 27px; */
 }
 .middle p{
     font-size: 13px;
@@ -127,10 +121,10 @@ body {
         text-decoration-line: none;
         line-height: 1px;
     }
-.catgr {
+    .catgiry {
         margin-top: 35px;
     }
-
+    }
  .blog button {
             margin-left: 110px;
         }
@@ -166,7 +160,7 @@ body {
           .nat4 {
             width: 212px;
             float: right;
-            color: brown;
+            color:orange;
         }
         .nat4 figcaption p {
             font-size: 14px;
@@ -206,7 +200,7 @@ body {
             text-decoration-line: none;
             color:white
         }
-        .ftrlist li a:hover{
+        .Availlist li a:hover{
             color: rgb(194, 192, 56);
            
         }
