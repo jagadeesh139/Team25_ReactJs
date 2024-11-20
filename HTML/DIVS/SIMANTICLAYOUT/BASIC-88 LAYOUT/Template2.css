@@ -1,0 +1,135 @@
+body {
+    background-color: chocolate;
+}
+.container {
+    width: 900px;
+    margin: auto;
+    background-color: beige;
+    overflow: auto;
+    border: 1px solid black;
+    border-radius: 4px;
+}
+.Tittle {
+    float: right;
+    margin-right: 175px;
+}
+h1 {
+    margin-bottom: 0px;
+}
+h2, h3 {
+    font-size: 15px;
+}
+header {
+    overflow: auto;
+    border: 1px solid blue;
+    border-radius: 10px;
+    color: black;
+    background-size: cover;
+    width: 898px;
+    margin: auto;
+}
+nav {
+    overflow: auto;
+    margin: 8px 15px;
+}
+.List li {
+    display: inline;
+    margin: 25px;
+    font-size: 15px;
+    border-right: 2px dashed darkgreen;
+}
+.List a {
+    text-decoration: none;
+    padding-right: 10px;
+}
+ul {
+    height: 20px;
+}
+.List {
+    margin: auto;
+    background-color: #eb9b97;
+    border: 1px solid forestgreen;
+    color: white;
+}
+.desk {
+    overflow: auto;
+    float: left;
+    margin: 1px 18px 43px 41px;
+}
+aside {
+    float: right;
+    width: 275px;
+}
+section {
+    width: 550px;
+    overflow: auto;
+    height: 275px;
+}
+article {
+    overflow: auto;
+    width: 550px;
+    height: 354px;
+}
+.middleright {
+    float: right;
+    width: 234px;
+    text-align: justify;
+    height: 340px;
+}
+.middleleft {
+    float: left;
+    width: 275px;
+    height: 340px;
+    border-right: 1px solid darkslategrey;
+    text-align: justify;
+    padding-right: 19px;
+}
+.list2 {
+    overflow: auto;
+    height: 325px;
+    margin: 3px 2px 0px 15px;
+    width: 195px;
+}
+.item.dec {
+    overflow: auto;
+    margin: 4px 25px 31px 54px;
+    text-align: justify;
+}
+.tittle2 {
+    margin-left: 35px;
+}
+.items ul {
+    list-style-type: none;
+    line-height: 1px;
+}
+.items li {
+    display: inline-block;
+    margin-bottom: 0px;
+    height: 2px;
+    padding: 14px;
+}
+footer {
+    float: right;
+    width: 854px;
+    border: 1px solid black;
+    height: 75px;
+    margin: 0px 20px 10px 0px;
+    text-align: center;
+    color: #0b0b0b;
+    font-size: 14px;
+    background-color: rgb(215, 110, 131);
+}
+.large p {
+    text-align: justify;
+}
+footer li {
+    display: inline;
+}
+li :hover {
+    background-color: darkgoldenrod;
+}
+footer a {
+    text-decoration: none;
+    padding: 10px;
+    color: rgb(1, 17, 29);
+}
