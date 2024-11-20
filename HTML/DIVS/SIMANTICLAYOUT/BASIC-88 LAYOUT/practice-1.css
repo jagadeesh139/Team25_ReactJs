@@ -125,93 +125,106 @@ body {
         margin-top: 35px;
     }
     }
- .blog button {
-            margin-left: 110px;
-        }
-        .row4 {
-            margin: 0px 0px 5px 25px;
-            overflow: auto;
-        }
-        .nat {
-            width: 208px;
-            float: left;
-            margin-left: 10px;
-            color: rgb(206, 148, 40);
-        }
+    .blog button {
+        margin-left: 110px;
+    }
+    .row4 {
+        margin: 0px 0px 5px 25px;
+        overflow: auto;
+    }
+    .nat {
+        width: 208px;
+        float: left;
+        margin-left: 10px;
+        color: rgb(206, 148, 40);
+    }
+    .nat figcaption p {
+        font-size: 14px;
+        line-height: 1.5;
+        text-align: left;
+        padding: 0px;
+        margin: 13px 0px 20px 0px;
+    }
+    .nat figcaption {
+        margin: 0px 13px 0px 0px;
+    }
+    .natPara a {
+        color: orange;
+        text-decoration: none;
+        margin: 0px;
+      }
+      .natPara {
+        float: right;
+      }
+      .nat4 {
+        width: 212px;
+        float: right;
+        color:brown;
+    }
+    .nat4 figcaption p {
+        font-size: 14px;
+        line-height: 1.5;
+        text-align: left;
+        padding: 0px;
+        margin: 13px 0px 0px 0px;
+    }
+    
+    .nat4 figcaption {
+        margin: 0px 18px 0px 0px;
+    }
+    .nat4 p {
+        float: right;
+    }
+    .row5 {
+        overflow: auto;
+        background-color: cornflowerblue;
+        color: white;
+        text-align: center;
+    }
+    .copy a{
+        color: yellow;
+    }
+    .copy p{
+        font-size: 14px;
 
-        .nat figcaption p {
-            font-size: 14px;
-            line-height: 1.5;
-            text-align: left;
-            padding: 0px;
-            margin: 13px 0px 20px 0px;
-        }
-        .nat figcaption {
-            margin: 0px 13px 0px 0px;
-        }
-          .natPara a {
-            color: orange;
-            text-decoration: none;
-            margin: 0px;
-          }
-          .natPara {
-            float: right;
-          }
-          .nat4 {
-            width: 212px;
-            float: right;
-            color:orange;
-        }
-        .nat4 figcaption p {
-            font-size: 14px;
-            line-height: 1.5;
-            text-align: left;
-        }
-        .nat4 figcaption {
-          margin: 0px 18px 0px 0px;
-        }
-                  .nat4Para {
-            float: right;
-          }
-          .row5 {
-            overflow: auto;
-            background-color: rgb(50, 47, 47);
-            color: white;
-            text-align: center;
-        }
+    }
+    .Avail.List ul li {
+        display: inline;
+        border-right: 1px solid white;
+        font-size: 14px;
+        padding-right: 10px;
+    }
+    .Avail.List ul {
+        list-style-type: none;
+    }
+    .Availlist li a {
+        text-decoration-line: none;
+        color:white
+    }
+    .Availlist li a:hover{
+        color: rgb(194, 192, 56);
+       
+    }
+ 
+        
+        
 
-          .copy a{
-            color: yellow;
-        }
-        .copy p{
-            font-size: 14px;
+        
+        
+          
+          
+          
+        
+        
+        
 
-        }
-        .Avail.List li {
-            display: inline;
-            border-right: 1px solid white;
-            font-size: 14px;
-            padding-right: 10px;
-        }
-        .list ul {
-            list-style-type: none;
-        }
-        .Availlist li a {
-            text-decoration-line: none;
-            color:white
-        }
-        .Availlist li a:hover{
-            color: rgb(194, 192, 56);
-           
-        }
-        .list li
-         {
-            display: inline-block;
-            height: 15px;
-            padding: 4px 0 0 18px;
-            margin: 0 0 5px 0;
-
-       }
+          
+        
+        
+       
+        
+        
+        
 
 
     
