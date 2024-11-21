@@ -34,7 +34,7 @@ body {
 }
 .row2 {
     width: auto;
-    height: 42px;
+    height: 38px;
     background-color: aqua;
 }
 }
@@ -57,16 +57,17 @@ body {
 
 }
 .row2 a:hover{
-    background-color: black;
+    background-color: red;
     padding: 5px 15px;
     border-radius: 10px;
 }
-.row2 button {
+.row2 button:hover {
     border-radius: 10px;
+    background-color: red;
 }
 .row3 {
     overflow: auto;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
     background-color: bisque;
     border-bottom: 1px solid grey;
 }
@@ -76,17 +77,19 @@ body {
 }
 .middlepart1 {
     float: left;
-    width: 660px;
+    width: 700px;
     margin-top: 20px;
     margin-left: 40px;
+    margin-bottom: 20px;
 }
-.blog {
+.blog{
     float: left;
     width: 185px;
     margin-top: 10px;
     border-right: 1px solid grey;
+    
 }
-.Photo {
+.Photo{
     float: right;
     width: 430px;
     margin-top: 20px;
@@ -123,14 +126,17 @@ body {
     }
     .catgiry {
         margin-top: 35px;
+        line-height: 2;
     }
     }
-    .blog button {
+    .blog button:hover{
         margin-left: 110px;
+        background-color:black;
     }
     .row4 {
         margin: 0px 0px 5px 25px;
         overflow: auto;
+        width: 867px;
     }
     .nat {
         width: 208px;
@@ -138,12 +144,14 @@ body {
         margin-left: 10px;
         color: rgb(206, 148, 40);
     }
-    .nat figcaption p {
+    .nat figcaption p:hover {
         font-size: 14px;
         line-height: 1.5;
         text-align: left;
         padding: 0px;
         margin: 13px 0px 20px 0px;
+        background-color: cyan;
+
     }
     .nat figcaption {
         margin: 0px 13px 0px 0px;
@@ -159,14 +167,15 @@ body {
       .nat4 {
         width: 212px;
         float: right;
-        color:brown;
+        color:rgb(199, 131, 6);
     }
-    .nat4 figcaption p {
+    .nat4 figcaption p::first-letter {
         font-size: 14px;
         line-height: 1.5;
         text-align: left;
         padding: 0px;
         margin: 13px 0px 0px 0px;
+        font-size:40px
     }
     
     .nat4 figcaption {
