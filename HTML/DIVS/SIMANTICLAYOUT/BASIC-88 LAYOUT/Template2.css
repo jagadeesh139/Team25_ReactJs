@@ -28,9 +28,10 @@ header {
     width: 898px;
     margin: auto;
 }
-nav {
+nav :hover{
     overflow: auto;
     margin: 8px 15px;
+    background-color: chartreuse;
 }
 .List li {
     display: inline;

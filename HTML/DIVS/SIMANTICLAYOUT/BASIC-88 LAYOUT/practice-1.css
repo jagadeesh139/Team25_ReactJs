@@ -33,10 +33,10 @@ body {
 }
 }
 .row2 {
-    width: auto;
+    width: 940px;
     height: 38px;
     background-color: aqua;
-}
+    margin: auto;
 }
 .row2 ul {
     margin-top: 0px;
@@ -50,9 +50,10 @@ body {
     border-radius: 10px;
 }
 }
-.row2 a{
+.row2 a:hover{
     text-decoration-line: none;
     color: aliceblue;
+    background-color: blue;
     
 
 }
@@ -60,6 +61,7 @@ body {
     background-color: red;
     padding: 5px 15px;
     border-radius: 10px;
+    width:
 }
 .row2 button:hover {
     border-radius: 10px;
@@ -67,7 +69,8 @@ body {
 }
 .row3 {
     overflow: auto;
-    margin-bottom: 20px;
+
+    margin-bottom: 30px;
     background-color: bisque;
     border-bottom: 1px solid grey;
 }
@@ -87,6 +90,7 @@ body {
     width: 185px;
     margin-top: 10px;
     border-right: 1px solid grey;
+    
     
 }
 .Photo{
@@ -133,10 +137,11 @@ body {
         margin-left: 110px;
         background-color:black;
     }
-    .row4 {
-        margin: 0px 0px 5px 25px;
+    .row4{
+        margin: auto;
         overflow: auto;
         width: 867px;
+
     }
     .nat {
         width: 208px;
@@ -144,13 +149,12 @@ body {
         margin-left: 10px;
         color: rgb(206, 148, 40);
     }
-    .nat figcaption p:hover {
+    .nat figcaption p {
         font-size: 14px;
         line-height: 1.5;
         text-align: left;
         padding: 0px;
         margin: 13px 0px 20px 0px;
-        background-color: cyan;
 
     }
     .nat figcaption {
@@ -164,10 +168,14 @@ body {
       .natPara {
         float: right;
       }
-      .nat4 {
+      .nat4{
         width: 212px;
         float: right;
         color:rgb(199, 131, 6);
+        
+    }
+    .nat4 p:hover{
+        background-color: blue;
     }
     .nat4 figcaption p::first-letter {
         font-size: 14px;
@@ -189,6 +197,8 @@ body {
         background-color: cornflowerblue;
         color: white;
         text-align: center;
+        width: 900px;
+        margin: auto;
     }
     .copy a{
         color: yellow;
