@@ -6,29 +6,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>pseudo</title>
     <style>
-        P:hover{
+        P:hover {
             background-color: aqua;
             font-size: 30px;
-            
+
         }
-        h1::before{
+
+        h1::before {
             content: url(../Screenshot_2021-03-27-22-15-57-73\ \(2\).jpg);
         }
-        h1::after{
+
+        h1::after {
             content: url(./download.png);
-            
+
         }
-        h2::before{
+
+        h2::before {
             content: url(./download.png);
         }
-        h1::first-letter{
+
+        h1::first-letter {
             font-size: 50px;
         }
-        
-        div.image img:hover{
-            width:20px;
+
+        p::first-letter {
+            font-size: 50px;
         }
-        
+
+        button:hover {
+            background-color: blue;
+        }
+
+        h3:hover {
+            font-family: Arial, Helvetica, sans-serif;
+            color: brown;
+        }
     </style>
 </head>
 
@@ -45,10 +57,9 @@
     <h3>welcome to industries</h3>
     <h4>Amazon is a E-Comerce platform</h4>
 
-    
-    <div class="image">
-        <img src="../view-old-tree-lake-with-snow-covered-mountains-cloudy-day_181624-28954.avif">
-    </div>
+
+    <button>Click Here</button>
+
 </body>
 
 </html>
