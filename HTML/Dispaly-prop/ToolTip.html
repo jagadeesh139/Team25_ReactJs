@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToolTip</title>
+    <style>
+        .tooltip{
+            position:relative;
+            display:inline-block;
+            border-bottom: 1px dotted red;
+        }
+        .tooltip .tooltipText {
+            visibility: hidden;
+            width: 150px;
+            background-color: black;
+            color: aliceblue;
+            text-align: center;
+            border-radius: 8px;
+            position: absolute;
+            bottom: 110px;
+            
+        }
+        .tooltip:hover .tooltipText {
+            visibility: visible;
+        }
+        .Cen .abrivation {
+            visibility: hidden;
+        }
+        .Cen:hover .abrivation {
+            visibility: visible;
+        }
+
+    </style>
+</head>
+<body>
+    <h2>Welcome to Tool Tip</h2>
+    <p>Click the mouse below the text</p>
+
+    <div class="tooltip">
+        Click on me 
+        <span class="tooltipText">ToolTipText</span>
+    </div>
+    <div class="Cen">
+        CEN 
+        <span class="abrivation">Central</span>
+    </div>
+</body>
+</html>
