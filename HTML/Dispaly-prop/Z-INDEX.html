@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Z-Index</title>
+    <style>
+        /* .parent1{
+            position: absolute;
+            width: 500px;
+            background-color: aqua;
+            height: 200px;
+            text-align: center;
+            border: 2px solid;
+            z-index: -1;
+
+        } */
+        /* .child1{
+            height: 100px;
+            width:300px;
+            margin: 20px;
+            z-index: -1;
+        } */
+        .parent2{
+            position: absolute;
+            width:300px;
+            /* background-color: burlywood; */
+            left: 1px;;
+            top:0;
+            z-index: -1;
+            /* right: 2px; */
+        }
+        img{
+            position:absolute;
+            left: 20px;
+            top:2px;
+            z-index: -3;
+            
+        }
+    </style>
+</head>
+<body>
+    <div class="parent1">
+        <div class="child1">
+            <h3>Hi iam Z-Index</h3>
+        </div>
+    </div>
+
+    <div class="parent2">
+        <div class="child2">
+            <h1>Hi</h1>
+        </div>
+    </div>
+
+    <h1> I am From Z-index Property</h1>
+
+    <img src="../view-old-tree-lake-with-snow-covered-mountains-cloudy-day_181624-28954.avif" alt="" width="400px" height="250px" />
+    
+</body>
+</html>

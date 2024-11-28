@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loader</title>
+    <style>
+        body{
+            background-color: aliceblue;
+        }
+        .loader{
+            position: relative;
+            width: 80px;
+            height: 80px;
+            border: 5px solid black;
+            -webkit-animation: mid 1.5s linear infinite;
+            border-radius:45%;
+
+
+        }
+        @-webkit-keyframes mid {
+            0%{
+                transform: rotateZ('35deg');
+                -webkit-transform: rotate(45deg);
+            }
+
+        }
+    </style>
+</head>
+<body>
+    <div class="loader"></div>
+    
+</body>
+</html>
