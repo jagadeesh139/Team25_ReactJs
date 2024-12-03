@@ -14,7 +14,7 @@
             border: 10px dotted red;
             width: 300px;
             height: 250px;
-            position: relative;
+            position: fixed;
             animation-name: rotate;
             animation-duration: 8s;
             border-radius: 30%;
@@ -23,30 +23,35 @@
             animation: rotate 5s linear infinite;
 
         }
-        .dotted1 {
-                border: 10px dotted rgb(51, 182, 14);
+        /* .dotted1 { */
+        .dottedcircle::after{
+            border: 10px dotted rgb(51, 182, 14);
                 width: 326px;
                 height: 222px;
                 position: absolute;
                 animation-name: rotate;
                 animation-duration: 8s;
-                border-radius: 55%;
+                border-radius: 40%;
                 top: 146px;
                 left: 52px;
                 animation: rotate 5s linear infinite;
-            }
-              .dotted2 {
-                    border: 10px dotted rgb(12, 54, 64);
+
+        }
+              /* .dotted2 {
+              .dottedcircle::before{
+                border: 10px dotted rgb(12, 54, 64);
                     width: 291px;
                     height: 240px;
-                    position: absolute;
+                    position: relative;
                     animation-name: rotate;
                     animation-duration: 8s;
-                    border-radius: 75%;
+                    border-radius: 50%;
                     top: 148px;
                     left: 732px;
-                    animation: rotate 5s linear infinite;
-                }
+                    animation: rotate 5s linear infinite; */
+
+              }
+
 
 
                 @keyframes rotate {
@@ -88,7 +93,7 @@
 <body>
     <div class="dottedcircle"></div>
     <div class="dotted1"></div>
-    <div class="dotted2"></div>
+    <!-- <div class="dotted2"></div> -->
 
 </body>
 
