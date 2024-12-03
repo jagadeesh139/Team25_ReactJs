@@ -1,0 +1,51 @@
+* {
+    margin: 2px;
+}
+
+body {
+    font-size: 18px;
+    color: black;
+    height: 100px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    width: 900px;
+}
+
+header {
+    background-color: skyblue;
+    padding: 3rem;
+    padding-bottom: 3rem;
+}
+
+main {
+    display: flex;
+    flex: 1;
+}
+
+nav {
+    background-color: green;
+    padding: 3rem;
+    font-size: 20px;
+    flex: 1 1 5rem
+}
+
+article {
+    background-color: beige;
+    padding-top: 3rem;
+    flex: 1 1 5rem
+}
+
+p {
+    line-height: 1.2;
+}
+
+img {
+    height: 497px;
+}
+
+footer {
+    background-color: cadetblue;
+    padding-top: 6px;
+    padding-bottom: 0px;
+}
