@@ -1,0 +1,148 @@
+.row1 {
+    /* background: rgb(13, 201, 189); */
+    overflow: auto;
+}
+
+header {
+    /* width: 950px; */
+    margin: auto;
+    overflow: auto;
+    background-image: url(./amm.jpg);
+    /* opacity: 0.7; */
+}
+
+.row1 h2 {
+    margin-left: 35px;
+    margin-top: 39px;
+}
+
+h2 {
+    font-size: 35px;
+    color: whitesmoke;
+}
+
+.row1 form input[type="text"] {
+    width: 210px;
+    height: 25px;
+    border-radius: 15px;
+}
+
+.row1 form button {
+    height: 25px;
+    border-radius: 20px;
+}
+
+.America {
+    width: 300px;
+    float: left;
+    margin: 20px 20px 20px 0;
+}
+
+nav {
+    width: 450px;
+    float: right;
+    margin: 20px 20px 20px 20px;
+    margin-top: 50px;
+    padding-left: 25px;
+    margin-right: 55px;
+}
+
+header nav ul li {
+    display: inline;
+    justify-content: space-between;
+    margin: 17px;
+    border-radius: 15px;
+}
+
+header form {
+    margin-top: 70px;
+    float: left;
+}
+
+li a {
+    color: white;
+}
+
+li:hover {
+    background-color: black;
+}
+
+.row2 {
+    /* width: 950px; */
+    /* background: #1094a2; */
+    margin: auto;
+    text-align: center;
+    color: white;
+    background-image: url(./banner.jpg.crdownload);
+    height: 800px;
+}
+
+.row2 h1 {
+    color: aqua;
+    font-size: 40px;
+}
+
+.row2 button {
+    height: 50px;
+    color: black;
+    border-radius: 35px;
+    width: 120px;
+    background-color: orange;
+    font-size: 15px;
+    margin-right: 220px;
+}
+
+.row2 button a {
+    color: white;
+}
+
+.form {
+    padding: 15px;
+    float: left;
+    margin-left: 98px;
+    border: 1px solid;
+    background: white;
+    color: black;
+    margin-top: 26px;
+    margin-top: 60px;
+}
+
+.row2 .About.Tourisam p {
+    font-size: 20px;
+}
+
+.About.Tourisam {
+    display: flex;
+    flex-direction: row;
+}
+
+aside img {
+    height: 250px;
+    opacity: 0.8;
+}
+.C1 {
+    display: flex;
+    width: 710px;
+    margin-top: 60px;
+    margin-left: 50px;
+    justify-content: space-between;
+    font-size: 20px;
+}
+
+.C2 {
+    display: flex;
+    margin-top: 25px;
+    margin-left: 49px;
+    font-size: 20px;
+    justify-content: space-between;
+    width: 666px;
+}
+
+button {
+    margin-top: 20px;
+}
+.row3 {
+    margin: auto;
+    /* box-shadow: antiquewhite; */
+    padding-top: 20px;
+}
