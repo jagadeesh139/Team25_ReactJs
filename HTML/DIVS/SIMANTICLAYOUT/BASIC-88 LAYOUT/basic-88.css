@@ -3,11 +3,12 @@
   color: #989898;
   overflow: auto;
 }
-  header {
-    width: 850px;
-    margin: auto;
-    overflow: auto;
-  }
+header {
+  width: 850px;
+  margin: auto;
+  overflow: auto;
+  display: flex;
+}
   .AJIO {
     width: 300px;
     float: left;
@@ -40,7 +41,9 @@
   .row3 {
     width: 850px;
     margin: auto;
-  }
+    display: flex;
+    justify-content: space-between;
+}
   .Ajio {
     width: 250px;
     float: left;
@@ -69,22 +72,24 @@ figcaption i {
     color: #989898;
 }
   a {
-    float: right;
+    /* float: right; */
     font-size: 12px;
 }
 .row4 {
-    width: 850px;
-    overflow: auto;
-    margin: auto;
+  width: 850px;
+  overflow: auto;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
 }
 article {
     width: 420px;
-    float: left;
+    /* float: left; */
     font-size: 14px;
 }
 aside {
     width: 420px;
-    float: right;
+    /* float: right; */
 }
 aside img {
     width: 340px;
@@ -108,13 +113,15 @@ article h3 {
     color: white;
 }
 .sub.section {
-    width: 850px;
-    margin: auto;
-    overflow: auto;
+  width: 850px;
+  margin: auto;
+  overflow: auto;
+  display: flex;
+  justify-content: space-evenly;
 }
 section {
     width: 190px;
-    float: left;
+    /* float: left; */
     margin: 20px 11px 20px;
 }
 section i {
@@ -136,9 +143,11 @@ a {
     outline: none;
 }
 .row5-footer {
-    overflow: auto;
-    background: #232323;
-    color: #989898;
+  overflow: auto;
+  background: #232323;
+  color: #989898;
+  display: flex;
+  justify-content: space-evenly;
 }
 .child1 {
     float: left;

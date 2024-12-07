@@ -70,9 +70,10 @@ span {
   color: orange;
   text-decoration: none;
 }
-.child4 {
+.childs4 {
   width: 185px;
-  float: right;
+  display: flex;
+  flex-direction: inherit;
 }
 .child4 figure {
   margin-left: 0;
@@ -80,7 +81,7 @@ span {
 .child4 figure img {
   width: 28px;
   height: 28px;
-  float: left;
+  /* float: left; */
   border: 1px solid;
   padding: 2px;
 }

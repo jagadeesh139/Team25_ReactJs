@@ -21,9 +21,10 @@
   }
   header nav {
     width: 450px;
-    float: right;
+    /* float: right; */
     margin: 20px 0 20px 20px;
-  }
+    display: flex;
+}
   nav ul li {
     display: inline;
     margin: 30px;
@@ -33,21 +34,26 @@
     height: 375px;
     border: 2px solid;
     margin: 30px 120px 20px 195px;
-  }
+    margin-left: 294px;
+}
   .row2 img {
     width: 775px;
     height: 375px;
 }
-  .row3 {
-    width: 800px;
-    margin: auto;
-    overflow: auto;
-    border-bottom: 1px solid black;
+.row3 {
+  width: 800px;
+  /* margin: auto; */
+  /* overflow: auto; */
+  border-bottom: 1px solid black;
+  display: flex;
+  flex-direction: row;
+  margin-left: 295px;
 }
   .childs {
     width: 185px;
-    float: left;
+    /* float: left; */
     margin-right: 15px;
+    display: flex;
   }
   .childs figure {
     margin-left: 0;
@@ -72,7 +78,8 @@
   }
   .childs4 {
     width: 185px;
-    float: right;
+    display:flex;
+    flex-direction: inherit;
   }
   .childs4 figure {
     margin-left: 0;
@@ -99,14 +106,17 @@
     font-size: 13px;
     text-decoration: none;
 }
-  .row4 {
-    width: 800px;
-    margin: auto;
-    overflow: auto;
-    margin-top: 20px;
-    border-bottom: 1px solid gray;
-    padding-bottom: 40px;
-  }
+.row4 {
+  width: 800px;
+  /* margin: auto; */
+  /* overflow: auto; */
+  margin-top: 20px;
+  border-bottom: 1px solid gray;
+  /* padding-bottom: 40px; */
+  display: flex;
+  flex-direction: row;
+  margin-left: 329px;
+}
   .Virat {
     width: 250px;
     float: left;
@@ -134,13 +144,16 @@
   .row5 {
     width: 800px;
     margin: auto;
-    overflow: auto;
-    margin-top: 20px;
-  }
-  .row5 article {
-    width: 580px;
-    float: left;
-  }
+    /* overflow: auto; */
+    /* margin-top: 20px; */
+    display: flex;
+    flex-direction: row;
+}
+.row5 article {
+  width: 580px;
+  display: flex;
+  flex-direction: column;
+}
   .child1 {
     overflow: auto;
   }
@@ -181,12 +194,15 @@
   }
   aside ul li {
     line-height: 2;
-    border-bottom: 1px solid lightgrey;
+    /* border-bottom: 1px solid lightgrey; */
     font-size: 15px;
     color: gray;
-  }
-  .row6-footer {
-    margin: 0px 5px 0px 185px;
+    height: 26px;
+}
+.row6-footer {
+  margin: 0px 5px 0px 185px;
+  display: flex;
+  justify-content: space-around;
 }
 .row6-footer p {
     width: 400px;
@@ -198,4 +214,7 @@
 .row6-footer h5 {
     float: left;
     font-weight: normal;
+}
+h4 {
+  margin-left: 89px;
 }
