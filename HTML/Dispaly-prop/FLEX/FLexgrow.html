@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .main {
+            width: 750px;
+            background-color: cadetblue;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .content-box {
+            display: flex;
+        }
+
+        .content-box:nth-child(7) {
+            align-self: center;
+        }
+
+        .content-box:nth-child(4) {
+            align-self: flex-end;
+        }
+        .box{
+            width: 80px;
+            height:80px;
+            background-color: burlywood;
+            margin: 7px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <div class="content-box">
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+        </div>
+        <div class="content-box">
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+        </div>
+        <div class="content-box">
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+        </div>
+    </div>
+
+</body>
+
+</html>
