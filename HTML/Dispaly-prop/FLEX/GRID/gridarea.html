@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>grid layout</title>
+    <style>
+        .container{
+            display:grid;
+            grid-template-columns: repeat(3,auto );
+            /* border:2px solid black; */
+            column-gap: 20px;
+            row-gap: 20px;
+
+        }
+        .grid{
+            border: 1px solid;
+            background-color: aquamarine;
+            text-align: center;
+            /* display: flex; */
+            /* height: 55px; */
+            padding: 15px;
+        }
+        .box1{
+            grid-column: 1/span 5;
+        }
+        .box2{
+            grid-column: 1/span 5;
+        }
+        .box3{
+            grid-column: 1/4;
+        }
+        .box4{
+            grid-column: 1/4;
+        }
+        .box5{
+            grid-column: 4/6;
+            grid-row: 3/5;
+        }
+        .box6{
+            grid-column: 1/6;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box1 grid"><h1>Header</h1></div>
+        <div class="box2 grid">Nav section</div>
+        <div class="box3 grid">Section</div>
+        <div class="box4 grid">Article</div>
+        <div class="box5 grid">Aside</div>
+        <div class="box6 grid">Footer</div>
+        <!-- <div class="box7 grid">t7</div>
+        <div class="box8 grid">t8</div>
+        <div class="box9 grid">t9</div>
+        <div class="box10 grid">t10</div> -->
+    </div>
+    
+</body>
+</html>
