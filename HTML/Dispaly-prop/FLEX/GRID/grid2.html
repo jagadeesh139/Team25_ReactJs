@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid</title>
+    <style>
+        .container{
+            display: grid;
+            border: 1px solid black;
+            grid-template-columns: repeat(3,auto);
+            column-gap: 20px;
+            row-gap: 20px;
+
+        }
+        .child{
+            border:2px solid;
+            background-color: aquamarine;
+            text-align: center;
+
+        }
+        .child:nth-of-type(1){
+            /* grid-row: 3/7; */
+            /* grid-column: 1/4; */
+            /* grid-column: 4/span 4; */
+              /* grid-row: 7/span 8;  */
+              grid-column: 2/span 5;
+              /* grid-column: 3/span 3; */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="child"><h2>Grid Topic1</h2></div>
+        <div class="child"><h2>Grid Topic2</h2></div>
+        <div class="child"><h2>Grid Topic3</h2></div>
+        <div class="child"><h2>Grid Topic4</h2></div>
+        <div class="child"><h2>Grid Topic5</h2></div>
+        <div class="child"><h2>Grid Topic</h2></div>
+        <div class="child"><h2>Grid Topic</h2></div>
+        <div class="child"><h2>Grid Topic</h2></div>
+        <div class="child"><h2>Grid Topic</h2></div>
+        <div class="child"><h2>Grid Topic</h2></div>
+        <div class="child"><h2>Grid Topic</h2></div>
+        <div class="child"><h2>Grid Topic</h2></div>
+        <div class="child"><h2>Grid Topic</h2></div>
+        <div class="child"><h2>Grid Topic</h2></div>
+        <div class="child"><h2>Grid Topic</h2></div>
+    </div>
+    
+</body>
+</html>

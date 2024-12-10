@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>grid</title>
+    <style>
+        .container{
+            display:grid;
+             grid-template-columns: auto auto auto auto;
+            /* grid-template-rows: 3,1fr; */
+            /* column-count: 3; */
+            /* grid-template-rows: auto ; */
+            row-gap: 15px;
+            column-gap: 25px;
+            grid-template-columns: repeat(3,auto);
+            /* grid-template-rows:20px 30px 10px 50px ; */
+            /* justify-content: center; */
+            /* justify-content: end; */
+            /* justify-content: flex-start; */
+            /* justify-content: last baseline;/// */
+            /* justify-content: space-around; */
+            /* justify-content: space-between; */
+            /* justify-content: space-evenly;  */
+            /* align-items:stretch; */
+            row-gap: 20px;
+            column-gap: 20px;
+
+
+
+        }
+        .text{
+            border:1px solid black;
+            text-align: center;
+            display: flex;
+            background-color: cadetblue;
+        }
+        .text img{
+            padding:20px;
+            /* border: 1px solid; */
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="text"><img src="../statue-of-liberty.webp" width="50px" height="50px" alt=""/><h1>Welcome to grid</h1> </div>
+        <div class="text"><img src="../statue-of-liberty.webp" width="50px" height="50px" alt=""/><h1>Welcome to grid</h1></div>
+        <div class="text"><img src="../statue-of-liberty.webp" width="50px" height="50px" alt=""/><h1>Welcome to grid</h1></div>
+        <div class="text"><img src="../statue-of-liberty.webp" width="50px" height="50px" alt=""/><h1>Welcome to grid</h1></div>
+        <div class="text"><img src="../statue-of-liberty.webp" width="50px" height="50px" alt=""/><h1>Welcome to grid</h1></div>
+        <div class="text"><img src="../statue-of-liberty.webp" width="50px" height="50px" alt=""/><h1>Welcome to grid</h1></div>
+        <div class="text"><img src="../statue-of-liberty.webp" width="50px" height="50px" alt=""/><h1>Welcome to grid</h1></div>
+        <div class="text"><img src="../statue-of-liberty.webp" width="50px" height="50px" alt=""/><h1>Welcome to grid</h1></div>
+        <div class="text"><img src="../statue-of-liberty.webp" width="50px" height="50px" alt=""/><h1>Welcome to grid</h1></div>
+        <div class="text"><img src="../statue-of-liberty.webp" width="50px" height="50px" alt=""/><h1>Welcome to grid</h1></div>
+    </div>
+    
+</body>
+</html>
