@@ -7,10 +7,13 @@ header {
   width: 850px;
   margin: auto;
   overflow: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 .basic89 {
   width: 300px;
-  float: left;
+  /* float: left; */
   margin: 20px 20px 20px 0;
 }
 .basic89 h2 {
@@ -21,7 +24,7 @@ header {
 }
 header nav {
   width: 450px;
-  float: right;
+  /* float: right; */
   margin: 20px 0 20px 20px;
 }
 nav ul li {
@@ -33,6 +36,7 @@ nav ul li {
   height: 375px;
   border: 2px solid;
   margin: 30px 120px 20px 195px;
+  margin-left: 345px;
 }
 .row2 img {
   width: 775px;

@@ -11,7 +11,7 @@ header {
 }
   .AJIO {
     width: 300px;
-    float: left;
+    /* float: left; */
     margin: 20px 20px 20px 0;
   }
   .AJIO h2 {
@@ -46,7 +46,7 @@ header {
 }
   .Ajio {
     width: 250px;
-    float: left;
+    /* float: left; */
   }
   figure img {
     width: 240px;
@@ -150,12 +150,12 @@ a {
   justify-content: space-evenly;
 }
 .child1 {
-    float: left;
+    /* float: left; */
     padding-left: 200px;
     font-size: small;
 }
 .child2 {
-    float: right;
+    /* float: right; */
     padding-right: 225px;
 }
 child1 h4 {

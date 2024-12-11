@@ -7,10 +7,12 @@ header {
     width: 850px;
     margin: auto;
     overflow: auto;
+    display: flex;
+    flex-direction: row;
 }
 .Meesho {
     width: 250px;
-    float: left;
+    /* float: left; */
     margin: 20px 20px 20px 0;
 }
 Meesho h2{
@@ -21,11 +23,16 @@ Meesho h2{
 }
 header nav {
     width: 450px;
-    float: right;
+    /* float: right; */
     margin: 20px 0 20px 20px;
 }
+nav ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
 nav ul li {
-    display: inline;
+    /* display: inline; */
     margin-right: 15px;
 }
 .row2 {
@@ -40,10 +47,12 @@ img {
 .row3 {
     width: 850px;
     margin: auto;
+    display: flex;
+    justify-content: space-between;
 }
 .Meesho {
     width: 250px;
-    float: left;
+    /* float: left; */
 }
 figure img {
     width: 240px;
@@ -53,22 +62,25 @@ figure{
     margin: 0;
 }
  a {
-    float: right;
+    /* float: right; */
     font-size: 12px;
 }
 .row4 {
     width: 850px;
     overflow: auto;
     margin: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 article {
     width: 420px;
-    float: left;
+    /* float: left; */
     font-size: 14px;
 }
 aside {
     width: 420px;
-    float: right;
+    /* float: right; */
 }
 aside img {
     width: 340px;
@@ -95,10 +107,12 @@ article h3 {
     width: 850px;
     margin: auto;
     overflow: auto;
+    display: flex;
+    flex-direction: row;
 }
 section {
     width: 190px;
-    float: left;
+    /* float: left; */
     margin: 20px 11px 20px;
 }
 section i {
@@ -123,14 +137,16 @@ a {
     overflow: auto;
     background: #232323;
     color: #989898;
+    display: flex;
+    justify-content: space-between;
 }
 .child1 {
-    float: left;
+    /* float: left; */
     padding-left: 200px;
     font-size: small;
 }
 .child2 {
-    float: right;
+    /* float: right; */
     padding-right: 225px;
 }
 child1 h4 {

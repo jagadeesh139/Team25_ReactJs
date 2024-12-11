@@ -1,45 +1,54 @@
 .row1 {
-    background: black;
-    color: #989898;
-    overflow: auto;
-  }
-  header {
-    width: 850px;
-    margin: auto;
-    overflow: auto;
-  }
-  .basic89 {
-    width: 300px;
-    float: left;
-    margin: 20px 20px 20px 0;
-  }
-  .basic89 h2 {
-    margin: 0;
-  }
-  .basic89 p {
-    margin: 0;
-  }
-  header nav {
-    width: 450px;
-    /* float: right; */
-    margin: 20px 0 20px 20px;
-    display: flex;
+  background: black;
+  color: #989898;
+  overflow: auto;
 }
-  nav ul li {
-    display: inline;
-    margin: 30px;
-  }
-  .row2 {
-    width: 775px;
-    height: 375px;
-    border: 2px solid;
-    margin: 30px 120px 20px 195px;
-    margin-left: 294px;
+
+header {
+  width: 850px;
+  margin: auto;
+  overflow: auto;
 }
-  .row2 img {
-    width: 775px;
-    height: 375px;
+
+.basic89 {
+  width: 300px;
+  float: left;
+  margin: 20px 20px 20px 0;
 }
+
+.basic89 h2 {
+  margin: 0;
+}
+
+.basic89 p {
+  margin: 0;
+}
+
+header nav {
+  width: 450px;
+  /* float: right; */
+  margin: 20px 0 20px 20px;
+  display: flex;
+}
+
+nav ul li {
+  display: inline;
+  margin: 30px;
+}
+
+.row2 {
+  width: 775px;
+  height: 375px;
+  border: 2px solid;
+  margin: 30px 120px 20px 195px;
+  margin-left: 341px;
+}
+
+.row2 img {
+  width: 775px;
+  height: 375px;
+}
+
 .row3 {
   width: 800px;
   /* margin: auto; */
@@ -47,65 +56,79 @@
   border-bottom: 1px solid black;
   display: flex;
   flex-direction: row;
-  margin-left: 295px;
+  margin-left: 344px;
 }
-  .childs {
-    width: 185px;
-    /* float: left; */
-    margin-right: 15px;
-    display: flex;
-  }
-  .childs figure {
-    margin-left: 0;
-  }
-  .childs figure img {
-    width: 28px;
-    height: 28px;
-    float: left;
-    border: 1px solid;
-    padding: 2px;
-  }
-  span {
-    font-size: 15px;
-    margin-left: 14px;
-  }
-  .childs figcaption p {
-    font-size: 13px;
-  }
-  .childsPara a {
-    color: orange;
-    text-decoration: none;
-  }
-  .childs4 {
-    width: 185px;
-    display:flex;
-    flex-direction: inherit;
-  }
-  .childs4 figure {
-    margin-left: 0;
-  }
-  .childs4 figure img {
-    width: 28px;
-    height: 28px;
-    float: left;
-    border: 1px solid;
-    padding: 2px;
-  }
-  span {
-    font-size: 15px;
-    margin-left: 14px;
-  }
-  .childs4 figcaption p {
-    font-size: 13px;
-  }
-  .childsPara {
-    float: right;
-  }
-  a {
-    color: orange;
-    font-size: 13px;
-    text-decoration: none;
+
+.childs {
+  width: 185px;
+  /* float: left; */
+  margin-right: 15px;
+  display: flex;
 }
+
+.childs figure {
+  margin-left: 0;
+}
+
+.childs figure img {
+  width: 28px;
+  height: 28px;
+  float: left;
+  border: 1px solid;
+  padding: 2px;
+}
+
+span {
+  font-size: 15px;
+  margin-left: 14px;
+}
+
+.childs figcaption p {
+  font-size: 13px;
+}
+
+.childsPara a {
+  color: orange;
+  text-decoration: none;
+}
+
+.childs4 {
+  width: 185px;
+  display: flex;
+  flex-direction: inherit;
+}
+
+.childs4 figure {
+  margin-left: 0;
+}
+
+.childs4 figure img {
+  width: 28px;
+  height: 28px;
+  float: left;
+  border: 1px solid;
+  padding: 2px;
+}
+
+span {
+  font-size: 15px;
+  margin-left: 14px;
+}
+
+.childs4 figcaption p {
+  font-size: 13px;
+}
+
+.childsPara {
+  float: right;
+}
+
+a {
+  color: orange;
+  font-size: 13px;
+  text-decoration: none;
+}
+
 .row4 {
   width: 800px;
   /* margin: auto; */
@@ -117,104 +140,125 @@
   flex-direction: row;
   margin-left: 329px;
 }
-  .Virat {
-    width: 250px;
-    float: left;
-  }
-  .Virat img {
-    width: 220px;
-    height: 120px;
-    border: 1px solid;
-    padding: 3px;
-  }
-  .Virat {
-    width: 250px;
-    float: left;
-  }
-  .Virat3 {
-    width: 250px;
-    float: right;
-  }
-  .Virat3 img {
-    width: 220px;
-    height: 120px;
-    padding: 3px;
-    border: 1px solid;
-  }
-  .row5 {
-    width: 800px;
-    margin: auto;
-    /* overflow: auto; */
-    /* margin-top: 20px; */
-    display: flex;
-    flex-direction: row;
+
+.Virat {
+  width: 250px;
+  float: left;
 }
+
+.Virat img {
+  width: 220px;
+  height: 120px;
+  border: 1px solid;
+  padding: 3px;
+}
+
+.Virat {
+  width: 250px;
+  float: left;
+}
+
+.Virat3 {
+  width: 250px;
+  float: right;
+}
+
+.Virat3 img {
+  width: 220px;
+  height: 120px;
+  padding: 3px;
+  border: 1px solid;
+}
+
+.row5 {
+  width: 800px;
+  margin: auto;
+  /* overflow: auto; */
+  /* margin-top: 20px; */
+  display: flex;
+  flex-direction: row;
+}
+
 .row5 article {
   width: 580px;
   display: flex;
   flex-direction: column;
 }
-  .child1 {
-    overflow: auto;
-  }
-  .child1Img {
-    width: 170px;
-    float: left;
-  }
-  .child1Img img {
-    width: 170px;
-    height: 150px;
-    border: 1px solid;
-    padding: 3px;
-  }
-  .child1Cap {
-    width: 390px;
-    float: right;
-    margin-left: 10px;
-  }
-  .child1Cap p {
-    font-size: 15px;
-  }
-  p#child1Para {
-    float: right;
-  }
-   a {
-    color: orange;
-    text-decoration: none;
-    font-size: 13px;
-    float: right;
-  }
-  aside {
-    width: 198px;
-    float: right;
-  }
-  aside ul {
-    list-style: none;
-    padding: 0;
-  }
-  aside ul li {
-    line-height: 2;
-    /* border-bottom: 1px solid lightgrey; */
-    font-size: 15px;
-    color: gray;
-    height: 26px;
+
+.child1 {
+  overflow: auto;
 }
+
+.child1Img {
+  width: 170px;
+  float: left;
+}
+
+.child1Img img {
+  width: 170px;
+  height: 150px;
+  border: 1px solid;
+  padding: 3px;
+}
+
+.child1Cap {
+  width: 390px;
+  float: right;
+  margin-left: 10px;
+}
+
+.child1Cap p {
+  font-size: 15px;
+}
+
+p#child1Para {
+  float: right;
+}
+
+a {
+  color: orange;
+  text-decoration: none;
+  font-size: 13px;
+  float: right;
+}
+
+aside {
+  width: 198px;
+  float: right;
+}
+
+aside ul {
+  list-style: none;
+  padding: 0;
+}
+
+aside ul li {
+  line-height: 2;
+  /* border-bottom: 1px solid lightgrey; */
+  font-size: 15px;
+  color: gray;
+  height: 26px;
+}
+
 .row6-footer {
   margin: 0px 5px 0px 185px;
   display: flex;
   justify-content: space-around;
 }
+
 .row6-footer p {
-    width: 400px;
-    float: right;
-    margin: 20px 0px 15px 0px;
-    font-size: 14px;
-    font-weight: normal;
+  width: 400px;
+  float: right;
+  margin: 20px 0px 15px 0px;
+  font-size: 14px;
+  font-weight: normal;
 }
+
 .row6-footer h5 {
-    float: left;
-    font-weight: normal;
+  float: left;
+  font-weight: normal;
 }
+
 h4 {
   margin-left: 89px;
 }
