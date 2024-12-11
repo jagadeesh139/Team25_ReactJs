@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>grid row</title>
+    <style>
+        .container {
+            display: grid;
+            gap: 20px;
+            /* border:2px solid; */
+            /* grid-template-columns: repeat(3,auto); */
+
+        }
+
+        .tem {
+            border: 2px solid;
+            /* background-color: blue; */
+            /* height: 50px; */
+            text-align: center;
+            padding: 10px;
+        }
+
+        .box1 {
+            grid-area: 1 / 1 / 2 / span 6;
+            background-color: olivedrab;
+            background-image: url(../view-old-tree-lake-with-snow-covered-mountains-cloudy-day_181624-28954.avif);
+        }
+
+        .box2 {
+            grid-area: 2 / 1 / 11 / span 2;
+        }
+
+        .box3 {
+            grid-area: 2 / 3 / 11 / span 2;
+        }
+
+        .box4 {
+            grid-area: 2 / 5 / 11 / span 2;
+        }
+
+        .box5 {
+            grid-area: 11 / 1 / 14 / 7;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="tem box1">
+            <h2>Nature</h2>
+        </div>
+        <div class="tem box2">
+        </div>
+        <div class="tem box3 ">
+            <p>box3</p>
+        </div>
+        <div class="tem box4">box4</div>
+        <div class="tem box5 ">box5</div>
+        <!-- <div class="box6 tem "></div>
+        <div class="box7 tem"></div>
+        <div class="box8 tem"></div>
+        <div class="box9 tem "></div>
+        <div class="box10 tem "></div> -->
+    </div>
+
+</body>
+
+</html>

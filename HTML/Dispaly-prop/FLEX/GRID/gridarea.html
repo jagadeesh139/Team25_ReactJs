@@ -1,60 +1,135 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>grid layout</title>
     <style>
-        .container{
-            display:grid;
-            grid-template-columns: repeat(3,auto );
+        .container {
+            display: grid;
+            grid-template-columns: repeat(3, auto);
             /* border:2px solid black; */
-            column-gap: 20px;
-            row-gap: 20px;
+            /* column-gap: 20px;
+            row-gap: 20px; */
+            /* width: 900px; */
+            gap:20px;
+
 
         }
-        .grid{
+
+        .grid {
             border: 1px solid;
             background-color: aquamarine;
             text-align: center;
             /* display: flex; */
             /* height: 55px; */
             padding: 15px;
+
         }
-        .box1{
+
+        .box1 {
             grid-column: 1/span 5;
+            background-color: aliceblue;
+            background-image: url(../view-old-tree-lake-with-snow-covered-mountains-cloudy-day_181624-28954.avif );
         }
-        .box2{
+
+        .box2 {
             grid-column: 1/span 5;
+            background-color: cadetblue;
         }
-        .box3{
+
+        .box3 {
             grid-column: 1/4;
+            height: 120px;
         }
-        .box4{
+
+        .box4 {
             grid-column: 1/4;
+            height: 120px;
         }
-        .box5{
+
+        .box5 {
             grid-column: 4/6;
             grid-row: 3/5;
+            /* height: 150px; */
+            grid-area: ;
         }
-        .box6{
+
+        .box6 {
             grid-column: 1/6;
+            height: 50px;
+            font-size: 35px;
+            background-color: beige;
+        }
+
+        ul {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+        }
+
+        li:hover {
+            background-color: red;
+            border-radius: 35px;
         }
     </style>
 </head>
+
 <body>
     <div class="container">
-        <div class="box1 grid"><h1>Header</h1></div>
-        <div class="box2 grid">Nav section</div>
-        <div class="box3 grid">Section</div>
-        <div class="box4 grid">Article</div>
-        <div class="box5 grid">Aside</div>
-        <div class="box6 grid">Footer</div>
+        <div class="box1 grid">
+            <h1>GRID LAYOUT TEMPLATE</h1>
+        </div>
+        <div class="box2 grid">
+            <ul>
+                <a href="#">
+                    <li>Home</li>
+                </a>
+                <a href="#">
+                    <li>About</li>
+                </a>
+                <a href="#">
+                    <li>Profile</li>
+                </a>
+                <a href="#">
+                    <li>offers</li>
+                </a>
+                <a href="#">
+                    <li>latest</li>
+                </a>
+                <a href="#">
+                    <li>Profile</li>
+                </a>
+                <a href="#">
+                    <li>offers</li>
+                </a>
+                <a href="#">
+                    <li>latest</li>
+                </a>
+            </ul>
+        </div>
+        <div class="box3 grid"><h2>Section</h2>none Default value. No specific sizing of the columns or rows
+            grid-template rows / grid-template-columns Specifies the size(s) of the columns and rows
+            grid-template-areas Specifies the grid layout using named items
+            initial Sets this property to its default value. Read about initial
+            inherit Inherits this property from its parent element. Read about inheri</div>
+
+        <div class="box4 grid"><h2>Article</h2>The CSS Grid Layout Module makes browsers display the selected HTML elements as grid box
+            models. Grid allows you to easily resize and reposition a grid container and its items two-dimensionally.
+            Note: "Two-dimensionally" means grid modules allow simultaneous laying out of box models in rows and
+            columns.</div>
+        <div class="box5 grid">
+            <h2>aside</h2>
+            <img src="../New_York_City.jpg" width="500px" height="255px" alt="" />
+        </div>
+        <div class="box6 grid">@copy rights 1232 @reserved</div>
         <!-- <div class="box7 grid">t7</div>
         <div class="box8 grid">t8</div>
         <div class="box9 grid">t9</div>
         <div class="box10 grid">t10</div> -->
     </div>
-    
+
 </body>
+
 </html>
