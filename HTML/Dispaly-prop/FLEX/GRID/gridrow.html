@@ -11,6 +11,8 @@
             gap: 20px;
             /* border:2px solid; */
             /* grid-template-columns: repeat(3,auto); */
+            /* width: 900px; */
+            margin: auto;
 
         }
 
@@ -29,19 +31,38 @@
         }
 
         .box2 {
-            grid-area: 2 / 1 / 11 / span 2;
+            grid-area: 2 / 1 / 11 / span 1;
+        }
+
+        .box2 p {
+            width: 350px;
         }
 
         .box3 {
-            grid-area: 2 / 3 / 11 / span 2;
+            grid-area: 2 / 2 / 11 / span 2;
+            background-color: bisque;
+
         }
 
         .box4 {
             grid-area: 2 / 5 / 11 / span 2;
+            background-color: chartreuse;
         }
 
         .box5 {
             grid-area: 11 / 1 / 14 / 7;
+            font-size: 30px;
+            background-color: aquamarine;
+        }
+
+        ul {
+            line-height: 2;
+
+        }
+
+        li {
+            grid-column: 1;
+            list-style-type: none;
         }
     </style>
 </head>
@@ -52,12 +73,35 @@
             <h2>Nature</h2>
         </div>
         <div class="tem box2">
+            <img src="../12.jpg" height="250px" />
+
         </div>
         <div class="tem box3 ">
-            <p>box3</p>
+            <p>
+                Nature is the ultimate source of our living. Both living and non-living things include nature, and
+                everyone
+                is interdependent, which helps maintain the ecosystem. Plants, animals, and humans all depend on nature
+                for
+                their survival. It supplies oxygen, sunlight, soil, water, and other necessary components.
+                Nature is the ultimate source of our living. Both living and non-living things include nature, and
+                everyone
+                is interdependent, which helps maintain the ecosystem. Plants, animals, and humans all depend on nature
+                for
+                their survival. It supplies oxygen, sunlight, soil, water, and other necessary components.
+            </p>
         </div>
-        <div class="tem box4">box4</div>
-        <div class="tem box5 ">box5</div>
+        <div class="tem box4">
+            <ul>
+                <li><a href="@">Home</a></li>
+                <li><a href="@">About</a></li>
+                <li><a href="@">Products</a></li>
+                <li><a href="@">images</a></li>
+                <li><a href="@">Page</a></li>
+                <li><a href="@">link</a></li>
+
+            </ul>
+        </div>
+        <div class="tem box5 ">@Copy rights @@ Reserves 1897</div>
         <!-- <div class="box6 tem "></div>
         <div class="box7 tem"></div>
         <div class="box8 tem"></div>
