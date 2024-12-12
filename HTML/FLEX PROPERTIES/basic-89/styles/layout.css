@@ -33,6 +33,7 @@ body {
 .clear {
     display: block;
     clear: both;
+    display: flex;
 }
 
 html[xmlns] .clear {
@@ -55,11 +56,11 @@ code {
 }
 
 .fl_left {
-    float: left;
+    /* float: left; */
 }
 
 .fl_right {
-    float: right;
+    /* float: right; */
 }
 
 img {
@@ -160,12 +161,15 @@ div.wrapper {
 
 /*----------------------------------------------Generalise-------------------------------------*/
 
-#header, #container, #footer {
+#header,
+#container,
+#footer {
     display: block;
     width: 960px;
     margin: 0 auto;
 }
-#header{
+
+#header {
     /* display: flex;
     flex-direction: column;
 } */
@@ -297,6 +301,9 @@ select {
 
 #header {
     padding: 20px 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 #header #hgroup {
@@ -389,6 +396,8 @@ select {
 #container #homepage #services {
     padding: 0 0 30px 0;
     border-bottom: 1px solid #DEDEDE;
+    display: flex;
+    /* flex-direction: row; */
 }
 
 #container #homepage #services article {}
@@ -447,7 +456,7 @@ select {
 /* ------Main Content-----*/
 
 #container #content {
-    float: left;
+    /* float: left; */
     width: 630px;
     line-height: 1.6em;
 }
@@ -489,6 +498,12 @@ select {
     width: 410px;
 }
 
+.figu {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
 #container #content #posts ul li article figure h2 {
     font-size: 14px;
 }
@@ -498,7 +513,7 @@ select {
 /* ------Right Column-----*/
 
 #container #right_column {
-    float: right;
+    /* float: right; */
     width: 280px;
 }
 
@@ -552,4 +567,10 @@ select {
 #footer p {
     margin: 0;
     padding: 0;
+}
+
+footer#fooot {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
 }

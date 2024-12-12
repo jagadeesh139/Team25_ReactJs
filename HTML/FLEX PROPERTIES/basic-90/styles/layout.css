@@ -103,18 +103,20 @@ section {
     display: block;
     margin: 0;
     padding: 0;
-    }
-    .im1 ul {
-        display: flex;
-        justify-content: space-between;
-    }
-    figure{
-        display: block;
-        margin: 0;
-        padding: 0;
-        display:flex;
-        flex-direction: row-reverse;
-    }
+}
+
+.im1 ul {
+    display: flex;
+    justify-content: space-between;
+}
+
+figure {
+    display: block;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: row-reverse;
+}
 
 q {
     display: block;
@@ -314,6 +316,7 @@ select {
     margin: 0 0 20px 0;
     justify-content: space-between;
 }
+
 #header #hgroup h1,
 #header #hgroup h2 {
     font-weight: normal;
@@ -578,4 +581,10 @@ select {
 #footer p {
     margin: 0;
     padding: 0;
+}
+
+footer#fooot {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
 }

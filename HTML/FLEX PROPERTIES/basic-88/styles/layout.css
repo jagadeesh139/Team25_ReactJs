@@ -304,10 +304,12 @@ select {
 
 #header {
     padding: 20px 0;
+    display: flex;
+    justify-content: space-between;
 }
 
 #header #hgroup {
-    float: left;
+    /* float: left; */
     margin: 0 0 20px 0;
 }
 
@@ -328,7 +330,7 @@ select {
 
 #header nav {
     display: block;
-    float: right;
+    /* float: right; */
     margin: 10px 0 0 0;
     padding: 20px 0;
     color: #C0BAB6;
@@ -336,11 +338,12 @@ select {
 }
 
 #header nav ul {
+    display: flex;
     padding: 0 20px;
 }
 
 #header nav li {
-    display: inline;
+    /* display: inline; */
     margin-right: 25px;
     text-transform: uppercase;
 }
@@ -370,6 +373,7 @@ select {
     width: 100%;
     margin: 0 0 30px 0;
     padding: 0;
+    display: flex;
 }
 
 #container .last {
@@ -390,8 +394,8 @@ select {
     display: block;
     width: 100%;
     line-height: 1.8em;
-    display: grid;
-    grid-template-columns: max-content;
+    /* display: grid; */
+    /* grid-template-columns: max-content; */
 }
 
 #container #homepage #services {}
@@ -421,11 +425,10 @@ select {
 
 #container #homepage #intro article figure {}
 
-#container #homepage #intro article figure img {
-    float: right;
-    margin: 0 0 10px 0;
-    padding: 4px;
-    border: 1px solid #D6D6D6;
+#container #homepage #intro article figure {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row-reverse;
 }
 
 #container #homepage #intro article figure figcaption {
@@ -443,6 +446,7 @@ select {
     padding: 30px 0;
     font-size: 12px;
     line-height: 1.4em;
+    display: flex;
 }
 
 #footer section h2.title {
@@ -469,6 +473,8 @@ select {
 
 #copyright {
     padding: 20px 0;
+    display: flex;
+        justify-content: space-between;
 }
 
 #copyright p {
