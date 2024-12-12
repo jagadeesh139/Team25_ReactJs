@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        background-color: bisque;
+        line-height: 1.5;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    }
+
+    header {
+        text-align: center;
+        background-color: black;
+        color: aliceblue;
+        padding: 1rem;
+    }
+
+    .container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        padding: 20px;
+    }
+
+    .sidebar {
+        flex: 1;
+        background-color: burlywood;
+        padding: 20px;
+        margin-right: 20px;
+    }
+
+    .main {
+        flex: 2;
+        background-color: bisque;
+        padding: 20px;
+        margin-right: 20px;
+    }
+
+    footer {
+        background-color: black;
+        color: white;
+        text-align: center;
+        padding: 1rem;
+        margin-right: 20px;
+    }
+    @media (max-width:750px){
+        .container{
+            flex-direction: column;
+        }
+        .sidebar,
+        .main{
+            margin-right: 0;
+            margin-left: 0;
+            width: 100%;
+        }
+    }
+    @media (max-width:480px){
+        header{
+            font-size: 1.2rem;
+        }
+        .sidebar,
+        .main{
+            padding: 10px;
+        }
+        footer{
+            font-size: 1.1rem;
+        }
+    }
+</style>
+
+<body>
+    <header>
+        <h1>Media Quries</h1>
+    </header>
+
+    <div class="container">
+        <div class="sidebar">
+            <h2> Media</h2>
+            <p>If you run out, you can’t save to Drive, send and receive email on Gmail, or back up to Google Photos.
+            </p>
+        </div>
+        <div class="main">
+            <h2>Main media</h2>
+            <p>If you run out, you can’t save to Drive, send and receive email on Gmail, or back up to Google Photos.
+            </p>
+        </div>
+    </div>
+    <footer>
+        <p>copy@rights</p>
+    </footer>
+
+</body>
+
+</html>
