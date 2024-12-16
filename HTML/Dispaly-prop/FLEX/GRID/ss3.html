@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>flex,media queries using web layuot</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .Application{
+            display: flex;
+            flex-flow: row wrap;
+            text-align: center;
+            width: 100%;
+            background-color: rgb(173, 206, 29);
+            border: 3px solid black;
+
+        }
+
+        .Application>* {
+            padding: 10px;
+            margin: 5px;
+            flex: 1 100%;
+
+        }
+
+
+        .header {
+            background-color: rgb(235, 96, 57);
+            height: 120px;
+        }
+
+        .nav {
+            background-color: rgb(191, 163, 103);
+            height: 80px;
+            padding: 1rem;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.1rem;
+        }
+
+
+        .liw {
+            padding-top: 15px;
+            padding-bottom: 10px;
+            text-align: center;
+            border-radius: 50%;
+        }
+
+        .footer img {
+
+            width: 65px;
+            height: 23px;
+        }
+
+        .footer {
+            background-color: rgb(10, 236, 244);
+            height: 80px;
+
+        }
+
+        .main {
+            background-color: rgb(31, 194, 115);
+            height: 300px;
+            padding: 40px;
+            font-size: 10px;
+            text-align: center;
+        }
+
+        .aside1 {
+            background-color: rgb(186, 158, 20);
+        }
+
+        .aside ul li {
+            list-style: none;
+        }
+
+
+
+        @media (max-width: 800px) {
+
+            .main {
+                flex: 2;
+                height: 600px;
+                flex-direction: column;
+            }
+
+            .aside1 {
+                order: 2;
+            }
+
+            .main {
+                order: 1;
+                font-size: 15px;
+            }
+
+            .footer {
+                order: 4;
+            }
+
+            aside ul li {
+                list-style: none;
+                line-height: 3rem;
+            }
+
+            .nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+
+        }
+
+        @media (min-width:600px) {
+            .aside {
+                flex: 1;
+
+            }
+
+            .main {
+                background-color: rgb(15, 137, 161);
+                font-size: 25px;
+
+            }
+
+            footer h1 {
+                font-size: 10px;
+            }
+
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="Application">
+        <header class="header">
+            <h1>Vid mate</h1>
+        </header>
+        <nav class="nav">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">downloads</a></li>
+            </ul>
+        </nav>
+        <article class="main">
+            <h1>About vid mate</h1>
+            <p>VidMate is a free app that allows users to download and watch videos, music, and TV shows on
+                their Android devices</p>
+
+            <iframe src="https://www.youtube.com/embed/watch?v=RsuOontkJH4&list=RDQMOf-AMtOAuYo&index=2"
+                frameborder="0"></iframe>
+            <iframe src="https://www.youtube.com/embed/watch?v=RsuOontkJH4&list=RDQMOf-AMtOAuYo&index=2"
+                frameborder="0"></iframe>
+            <iframe src="https://www.youtube.com/embed/watch?v=RsuOontkJH4&list=RDQMOf-AMtOAuYo&index=2"
+                frameborder="0"></iframe>
+        </article>
+        <aside class=" aside aside1">
+            <h1>categories:-</h1>
+            <ul class=categories>
+                <li><a href="#"></a>copy link</li>
+                <li><a href="#"></a>paste the link</li>
+                <li><a href="#"></a>Go to Dowloads</li>
+                <li><a href="#"></a>download</li>
+                <li><a href="#"></a>copy path</li>
+            </ul>
+
+        </aside>
+        <footer class="footer">
+
+            <p class="liw">Open and Go</p>
+            <img src="./v1.jpg" alt="" width="250px" height="250px">
+            <img src="./v2.jpg" alt=""width="250px" height="250px">
+            <img src="./v3.jpg" alt=""width="250px" height="250px">
+        </footer>
+    </div>
+</body>
+
+</html>
