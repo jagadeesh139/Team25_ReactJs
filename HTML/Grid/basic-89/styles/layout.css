@@ -33,7 +33,6 @@ body {
 .clear {
     display: block;
     clear: both;
-    display: flex;
 }
 
 html[xmlns] .clear {
@@ -60,8 +59,8 @@ code {
 }
 
 .fl_right {
-    /* float: right; */
-}
+     /* float: right; */
+} 
 
 img {
     margin: 0;
@@ -80,13 +79,13 @@ img {
 }
 
 .imgl {
-    float: left;
+    /* float: left; */
     margin: 0 15px 15px 0;
     clear: left;
 }
 
 .imgr {
-    float: right;
+    /* float: right; */
     margin: 0 0 15px 15px;
     clear: right;
 }
@@ -169,12 +168,6 @@ div.wrapper {
     margin: 0 auto;
 }
 
-#header {
-    /* display: flex;
-    flex-direction: column;
-} */
-}
-
 nav ul {
     margin: 0;
     padding: 0;
@@ -247,12 +240,13 @@ select {
 .three_quarter,
 .four_quarter {
     display: block;
-    float: left;
+    /* float: left; */
     margin: 0 20px 0 0;
 }
 
 .one_quarter {
     width: 225px;
+    display: grid;
 }
 
 .two_quarter {
@@ -265,7 +259,7 @@ select {
 
 .four_quarter {
     width: 960px;
-    float: none;
+    /* float: none; */
     margin-right: 0;
     clear: both;
 }
@@ -274,7 +268,7 @@ select {
 .two_third,
 .three_third {
     display: block;
-    float: left;
+    /* float: left; */
     margin: 0 30px 0 0;
 }
 
@@ -295,15 +289,14 @@ select {
 
 .lastbox {
     margin-right: 0;
+    grid-column: 4;
 }
 
 /*----------------------------------------------Header-------------------------------------*/
 
 #header {
-    padding: 20px 0;
-    /* display: flex; */
     display: grid;
-    /* flex-direction: row; */
+    padding: 20px 0px;
     justify-content: space-between;
 }
 
@@ -333,16 +326,19 @@ select {
     padding: 20px 0;
     color: #C0BAB6;
     background-color: #232323;
+    grid-column: 2;
 }
 
 #header nav ul {
     padding: 0 20px;
+    display: grid;
 }
 
 #header nav li {
-    display: inline;
-    margin-right: 25px;
+    /* display: inline; */
+    margin-right: 94px;
     text-transform: uppercase;
+    grid-row: 2;
 }
 
 #header nav li.last {
@@ -397,24 +393,27 @@ select {
 #container #homepage #services {
     padding: 0 0 30px 0;
     border-bottom: 1px solid #DEDEDE;
-    display: flex;
-    /* flex-direction: row; */
+    display: grid;
 }
 
 #container #homepage #services article {}
 
 #container #homepage #services figure {
-    display: inline;
-    float: left;
+    /* display: inline; */
+    /* float: left; */
 }
 
 #container #homepage #services strong {
-    float: left;
+    /* float: left; */
     margin: 8px 0 0 10px;
     padding: 0;
     font-size: 14px;
     font-weight: bold;
     text-transform: uppercase;
+    grid-column: 2/4;
+}
+.lorum{
+    display: grid;
 }
 
 #container #homepage #services p {
@@ -423,6 +422,7 @@ select {
     padding: 5px 0 0 0;
     clear: both;
     line-height: 1.6em;
+
 }
 
 #container #homepage #latest {
@@ -438,6 +438,11 @@ select {
     margin: 0;
     padding: 0;
     list-style: none;
+    display: grid;
+}
+.figu {
+    display: grid;
+    justify-content: space-between;
 }
 
 #container #homepage #latest article figure ul li {}
@@ -482,10 +487,13 @@ select {
 
 #container #content #posts ul li article {}
 
-#container #content #posts ul li article figure {}
+#container #content #posts ul li article figure {
+    display: grid;
+        justify-content: space-around;
+}
 
 #container #content #posts ul li article figure img {
-    float: left;
+    /* float: left; */
     width: 180px;
     height: 150px;
     margin: 0;
@@ -495,14 +503,9 @@ select {
 
 #container #content #posts ul li article figure figcaption {
     display: block;
-    float: right;
+    /* float: right; */
     width: 410px;
-}
-
-.figu {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    grid-column: 2;
 }
 
 #container #content #posts ul li article figure h2 {
@@ -516,6 +519,7 @@ select {
 #container #right_column {
     /* float: right; */
     width: 280px;
+    grid-column: 3;
 }
 
 #container #right_column h2.title {
@@ -561,17 +565,17 @@ select {
 
 /*----------------------------------------------Footer-------------------------------------*/
 
-#footer {
-    padding: 20px 0;
-}
 
-#footer p {
-    margin: 0;
-    padding: 0;
+#fooot {
+    display: grid;
+    padding: 20px 0px;
+    width: 960px;
+    margin: auto;
+    justify-content: space-between;
 }
-
-footer#fooot {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
+.num2 {
+    grid-column: 2;
+}
+p.more {
+    grid-column: 1;
 }

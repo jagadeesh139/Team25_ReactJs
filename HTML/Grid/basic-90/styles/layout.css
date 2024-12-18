@@ -55,11 +55,11 @@ code {
 }
 
 .fl_left {
-    float: left;
+    /* float: left; */
 }
 
 .fl_right {
-    float: right;
+    /* float: right; */
 }
 
 img {
@@ -79,13 +79,13 @@ img {
 }
 
 .imgl {
-    float: left;
+    /* float: left; */
     margin: 0 15px 15px 0;
     clear: left;
 }
 
 .imgr {
-    float: right;
+    /* float: right; */
     margin: 0 0 15px 15px;
     clear: right;
 }
@@ -105,18 +105,18 @@ section {
     padding: 0;
 }
 
-.im1 ul {
-    display: flex;
-    justify-content: space-between;
-}
+/* .im1 ul {
+    /* display: flex; */
+    /* justify-content: space-between; */
+} */
 
-figure {
+/* figure {
     display: block;
     margin: 0;
     padding: 0;
     display: flex;
     flex-direction: row-reverse;
-}
+} */
 
 q {
     display: block;
@@ -251,7 +251,7 @@ select {
 .three_quarter,
 .four_quarter {
     display: block;
-    float: left;
+    /* float: left; */
     margin: 0 20px 0 0;
 }
 
@@ -269,7 +269,7 @@ select {
 
 .four_quarter {
     width: 960px;
-    float: none;
+    /* float: none; */
     margin-right: 0;
     clear: both;
 }
@@ -278,7 +278,7 @@ select {
 .two_third,
 .three_third {
     display: block;
-    float: left;
+    /* float: left; */
     margin: 0 30px 0 0;
 }
 
@@ -300,21 +300,35 @@ select {
 .lastbox {
     margin-right: 0;
 }
+section.two_quarter.lastbox{
+    grid-column: 4;
+}
+.con{
+    grid-column: 2;
+}
+.num2{
+    grid-column: 2;
+}
 
 /*----------------------------------------------Header-------------------------------------*/
 
 #header {
     padding: 20px 0;
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    /* flex-direction: column; */
+    /* justify-content: space-between; */
+}
+
+.head {
+    display: grid;
     justify-content: space-between;
 }
 
 #header #hgroup {
-    display: flex;
+    /* display: flex; */
     /* float: left; */
     margin: 0 0 20px 0;
-    justify-content: space-between;
+    /* justify-content: space-between; */
 }
 
 #header #hgroup h1,
@@ -342,7 +356,7 @@ select {
 
 #header form input {
     display: block;
-    float: left;
+    /* float: left; */
     width: 200px;
     margin: 0;
     padding: 5px;
@@ -353,7 +367,7 @@ select {
 
 #header form #sf_submit {
     display: block;
-    float: right;
+    /* float: right; */
     width: 70px;
     font-size: 12px;
     font-weight: bold;
@@ -376,12 +390,14 @@ select {
 
 #header nav ul {
     padding: 0 20px;
+    display: grid;
 }
 
 #header nav li {
-    display: inline;
+    /* display: inline; */
     margin-right: 25px;
     text-transform: uppercase;
+    grid-row: 2;
 }
 
 #header nav li.last {
@@ -424,12 +440,15 @@ select {
     width: 100%;
 }
 
-#container #slider figure {}
+#container #slider figure {
+    display: grid;
+}
 
 #container #slider figure img {
     /* float: right; */
     width: 630px;
     height: 300px;
+    grid-column: 2;
 }
 
 #container #slider figure figcaption {
@@ -442,6 +461,7 @@ select {
     color: #989898;
     background-color: #464646;
     line-height: 1.6em;
+    grid-row: 1;
 }
 
 #container #slider figure figcaption a {
@@ -469,6 +489,7 @@ select {
 
 #container #intro section {
     width: 100%;
+    display: grid;
 }
 
 #container #intro section article {}
@@ -485,6 +506,16 @@ select {
     margin: 0;
     padding: 0;
     list-style: none;
+    display: grid;
+}
+
+.T2 {
+    display: grid;
+}
+
+.T2 p {
+    text-align: justify;
+    margin-top: 0px;
 }
 
 #container #intro section article figure ul li {
@@ -495,6 +526,7 @@ select {
 
 #container #intro section article figure ul li.last {
     margin: 0;
+    grid-column: 4;
 }
 
 #container #intro section article figure ul li img {
@@ -519,7 +551,8 @@ select {
     display: block;
     width: 100%;
     line-height: 1.6em;
-    display: flex;
+    /* display: flex; */
+    display: grid;
 }
 
 #container #homepage section {
@@ -575,16 +608,19 @@ select {
 /*----------------------------------------------Footer-------------------------------------*/
 
 #footer {
-    padding: 20px 0;
+    /* padding: 20px 0; */
 }
 
 #footer p {
-    margin: 0;
-    padding: 0;
+    /* margin: 0; */
+    /* padding: 0; */
 }
 
-footer#fooot {
-    display: flex;
+#fooot {
+    display: grid;
+    padding: 20px 0px;
+    width: 950px;
+    margin: auto;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: space-between;
 }
