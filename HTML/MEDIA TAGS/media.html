@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .container {
+            background-color: antiquewhite;
+        }
+
+        body {
+            line-height: 1.5;
+        }
+
+
+
+        header {
+            position: relative;
+            text-align: center;
+        }
+
+        header h1 {
+            top: 50%;
+            left: 50%;
+            color: white;
+            font-size: 2rem;
+            background-color: cornflowerblue;
+        }
+
+        nav {
+            background-color: beige;
+            color: black;
+            padding: 1rem;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        .main {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+            gap: 20px;
+        }
+
+        article {
+            flex: 3;
+            background-color: cadetblue;
+            padding: 20px;
+
+        }
+
+        aside {
+            flex: 1;
+            padding: 20px;
+            /* width: auto; */
+        }
+
+        footer {
+            background-color: aqua;
+            text-align: center;
+            padding: 1rem;
+            margin-top: 10px;
+        }
+
+        @media screen {}
+
+        @media (max-width:750px) {
+            header h1 {
+                font-size: 2rem;
+                color: aqua;
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            nav ul li {
+                margin: 5px 0;
+            }
+            article,aside{
+                flex:1;
+                margin-bottom: 20px;
+            }
+
+            footer {
+                font-size: 1rem;
+            }
+
+        }
+
+        @media (max-width:900px) {
+            header h1 {
+                font-size: 2rem;
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            header{
+                color: blue;
+            }
+
+            nav ul li {
+                margin: 10px 0;
+            }
+
+            footer {
+                font-size: 2rem;
+            }
+
+        }
+
+        @media (max-width:550px){
+            header h1{
+                font-size: 3rem;
+            }
+            nav ul{
+                flex-direction: column;
+                align-items: center;
+            }
+            nav ul li{
+                margin: 10px 0;
+            }
+            footer{
+                font-size: 1.5rem;
+            }
+        
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="row1">
+            <header>
+                <h1>Car companys</h1>
+            </header>
+            <nav>
+                <ul>
+                    <li>Maruthi</li>
+                    <li>Tata</li>
+                    <li>verna</li>
+                    <li>Nano</li>
+                    <li>Zen</li>
+
+                </ul>
+            </nav>
+        </div>
+        <div class="main">
+            <article>
+                <p>The modern automobile is a complex technical system employing subsystems with specific design
+                    functions. Some of these consist of thousands of component parts that have evolved from
+                    breakthroughs in
+                    existing technology or from new technologies such as electronic computers, high-strength plastics,
+                    and
+                    new alloys of steel and nonferrous metals. Some subsystems have come about as a result of factors
+                    such
+                    as air pollution, safety legislation, and competition between manufacturers throughout the world.
+                </p>
+            </article>
+            <aside><img src="./car.jpg" alt="" /></aside>
+        </div>
+    </div>
+    <footer>
+        <p>@copyrights2@5232 @Reserved</p>
+    </footer>
+
+</body>
+
+</html>
