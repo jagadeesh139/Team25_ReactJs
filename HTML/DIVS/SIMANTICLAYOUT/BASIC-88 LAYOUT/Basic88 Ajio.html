@@ -1,11 +1,218 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Basic-88-Layout</title>
     <link rel="stylesheet" href="./basic88ajio.css" />
 </head>
+<style>
+    /* *{
+        margin:0px;
+        padding:0px;
+        box-sizing: border-box;
+    } */
+    @media screen and (max-width:750px) {
+        body {
+            background-color: aqua;
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+            color: black;
+        }
+
+        header {
+            display: flex;
+            flex-direction: column;
+            height: fit-content;
+            text-align: center;
+            width: auto;
+        }
+
+        header h2 p {
+            text-align: right;
+        }
+
+        header nav ul {
+            display: flex;
+            flex-direction: row;
+            text-align: center;
+            line-height: 1.5;
+        }
+
+        .row2 {
+            align-items: center;
+        }
+
+        .row2 img {
+            width: 732px;
+        }
+
+        .row3 {
+            display: flex;
+            flex-direction: row;
+            /* height: fit-content; */
+            width: 732px;
+            text-align: center;
+            gap: 2px;
+
+        }
+
+        .row3 .Ajio figcaption i p {
+            color: black;
+            font-size: 20px;
+            text-align: center;
+        }
+
+        .Ajio figure {
+            width: 100%;
+            text-align: center;
+
+        }
+
+        .row4 {
+            display: flex;
+            flex-direction: column;
+            height: fit-content;
+            width: auto;
+            align-items: center;
+        }
+
+        .parentsection .sub.section {
+            width: 650px;
+            display: flex;
+            flex-direction: row;
+            height: auto;
+            align-items: center;
+        }
+
+        figcaption p {
+            color: black;
+
+        }
+        article{
+            text-align: center;
+        }
+
+        article p {
+            color: black;
+        }
+
+        figcaption i {
+            color: orange;
+        }
+
+        article h3 {
+            color: orange;
+        }
+    }
+
+    @media screen and (max-width:500px) {
+        body {
+            background-color: rgb(219, 173, 226);
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+            color: aliceblue;
+        }
+
+        .AJIO {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            width: auto;
+        }
+
+        header {
+            display: flex;
+            flex-direction: column;
+            height: fit-content;
+            text-align: center;
+            width: auto;
+        }
+
+        /* header h2 p {
+            text-align: center;
+
+        } */
+
+        header nav ul {
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            line-height: 1.5;
+        }
+
+
+        .row2 img {
+            width: 475px;
+        }
+
+        .row3 {
+            display: flex;
+            flex-direction: column;
+            height: fit-content;
+            width: auto;
+            align-items: center;
+        }
+
+        .Ajio figure {
+            width: auto;
+
+        }
+
+        .row4 {
+            display: flex;
+            flex-direction: column;
+            height: fit-content;
+            width: auto;
+            align-items: center;
+        }
+
+        .parentsection .sub.section {
+            width: auto;
+            display: flex;
+            flex-direction: column;
+            height: auto;
+            align-items: center;
+        }
+
+        figcaption p {
+            color: black;
+
+        }
+
+        figcaption i {
+            color: orange;
+        }
+
+        article p {
+            color: black;
+        }
+
+        article h3 {
+            color: orange;
+        }
+
+        .row5-footer {
+            display: flex;
+            text-align: center;
+            align-items: center;
+            flex-direction: column;
+            width: 475px;
+
+        }
+        .row5-footer p{
+            text-align: center;
+            padding-left: 20px;
+        }
+
+
+
+    }
+</style>
+
 <body>
     <div class="container">
         <div class="row1">
@@ -26,7 +233,7 @@
             </header>
         </div>
         <div class="row2">
-            <img src="../download.png" alt=""/>
+            <img src="../download.png" alt="" />
         </div>
         <div class="row3">
             <div class="Ajio">
@@ -61,16 +268,19 @@
             </div>
         </div>
 
-    <div class="row4">
+        <div class="row4">
             <article>
                 <h3> Wecome to AJIO</h3>
                 <p>orders per month in March 2020.[10] It saw big growth during 2021 and 2022.[11] Meesho's monthly
                     transacting user count rose 26 times during 2020–2022.</p>
-                    <p>orders per month in March 2020.[10] It saw big growth during 2021 and 2022.[11] Meesho's monthly transacting user count rose 26 times during 2020–2022. Globally, Meesho mobile app was among the top most downloaded apps in 2021.[12] In 2022, Meesho had about 120 million monthly users and about 910 million orders were made through the platfor</p>
-                    <p>AJIO Models ><a href="#">Readmore</a></p>
+                <p>orders per month in March 2020.[10] It saw big growth during 2021 and 2022.[11] Meesho's monthly
+                    transacting user count rose 26 times during 2020–2022. Globally, Meesho mobile app was among the top
+                    most downloaded apps in 2021.[12] In 2022, Meesho had about 120 million monthly users and about 910
+                    million orders were made through the platfor</p>
+                <p>AJIO Models ><a href="#">Readmore</a></p>
             </article>
             <aside>
-                <img src="../download.png" alt=""/>
+                <img src="../download.png" alt="" />
             </aside>
         </div>
         <div class="parentsection">
@@ -120,7 +330,9 @@
             <div class="child1">
                 <h4>Copy rights@2012-all rights reserved-Ajio</h4>
             </div>
-            <div class="child2"><p>Template by os Template</p></div>
+            <div class="child2">
+                <p>Template by os Template</p>
+            </div>
         </div>
     </div>
 </body>
