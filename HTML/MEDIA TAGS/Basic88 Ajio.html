@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic-88-Layout</title>
+    <link rel="stylesheet" href="./basic88ajio.css" />
+</head>
+<style>
+    /* *{
+        margin:0px;
+        padding:0px;
+        box-sizing: border-box;
+    } */
+    @media screen and (max-width:750px) {
+
+
+        body {
+            background-color: aqua;
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+            color: black;
+            width: 750px;
+        }
+
+        header {
+            display: flex;
+            flex-direction: column;
+            /* height: fit-content; */
+            /* text-align: center; */
+            align-items: center;
+            width: 750px;
+        }
+
+        header h2  {
+            text-align: center;
+            font-size: 20px;
+        }
+
+        header p{
+            font-size: 20px;
+        }
+
+        header nav ul {
+            display: flex;
+            flex-direction: row;
+            text-align: center;
+            line-height: 1.5;
+            font-size: 20px;
+        }
+
+        .row2 {
+            align-items: center;
+            width: 700px;
+        }
+
+        .row2 img {
+            width: 700px;
+        }
+
+        .row3 {
+            display: flex;
+            flex-direction: row;
+            /* height: fit-content; */
+            width: 700px;
+            text-align: center;
+            gap: 3px;
+
+
+        }
+
+        .row3 .Ajio figcaption i p {
+            color: black;
+            font-size: 20px;
+            text-align: center;
+
+        }
+
+        .Ajio figure {
+            width: 100%;
+            text-align: center;
+
+        }
+        figure img {
+            width: 230px;
+        }
+
+        .row4 {
+            display: flex;
+            flex-direction: column;
+            height: fit-content;
+            width: auto;
+            align-items: center;
+        }
+
+        .parentsection .sub.section {
+            width: 700px;
+            display: flex;
+            flex-direction: row;
+            height: auto;
+            align-items: center;
+        }
+        aside img {
+            width: 410px;
+        }
+
+        figcaption p {
+            color: black;
+            font-size: 15px;
+
+        }
+
+        article {
+            text-align: center;
+        }
+
+        article p {
+            color: black;
+            font-size: 15px;
+        }
+
+        figcaption i {
+            color: orange;
+            font-size: 15px;
+        }
+
+        article h3 {
+            color: orange;
+        }
+
+        a {
+            font-size: 15px;
+        }
+ 
+        section {
+    width: 190px;
+    /* float: left; */
+    margin: 20px 0px;
+}
+    }
+
+    @media screen and (max-width:500px) {
+        .container {
+            width: 500px;
+        }
+
+        body {
+            background-color: rgb(219, 173, 226);
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+            color: aliceblue;
+            width: 500px;
+
+        }
+
+        .AJIO {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            width: auto;
+        }
+        .AJIO p {
+            text-align: center;
+
+        }
+
+        header {
+            display: flex;
+            flex-direction: column;
+            height: fit-content;
+            text-align: center;
+            align-items: center;
+            width: auto;
+        }
+
+        /* header h2 p {
+            text-align: center;
+
+        } */
+
+        header h2 {
+            font-size: 30px;
+        }
+
+        header nav ul {
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            line-height: 1.5;
+            font-size: 20px;
+        }
+
+
+        .row2 img {
+            width: 500px;
+        }
+
+        .row3 {
+            display: flex;
+            flex-direction: column;
+            height: fit-content;
+            width: 500px;
+            align-items: center;
+        }
+
+        .Ajio figure {
+            /* width: auto; */
+
+        }
+
+        .row4 {
+            display: flex;
+            flex-direction: column;
+            height: fit-content;
+            width: 500px;
+            align-items: center;
+        }
+
+        .parentsection .sub.section {
+            width: 500px;
+            display: flex;
+            flex-direction: column;
+            height: auto;
+            align-items: center;
+            font-size: 20px;
+        }
+        .section i{
+            font-size: 20px;
+        }
+
+        figcaption p {
+            color: black;
+            font-size: 20px;
+
+        }
+
+        figcaption i {
+            color: orange;
+            font-size: 20px;
+        }
+
+        article p {
+            color: black;
+            font-size: 20px;
+        }
+
+        article h3 {
+            color: orange;
+        }
+
+        .row5-footer {
+            display: flex;
+            text-align: center;
+            align-items: center;
+            flex-direction: column;
+            width: 500px;
+
+        }
+
+        .row5-footer p {
+            text-align: center;
+            padding-left: 20px;
+            font-size: 20px;
+        }
+
+        a {
+            font-size: 20px;
+        }
+        h4{
+            font-size: 20px;
+        }
+
+
+
+    }
+</style>
+
+<body>
+    <div class="container">
+        <div class="row1">
+            <header>
+                <div class="AJIO">
+                    <h2> Ajio</h2>
+                    <p>Welcome to d1 Ajio</p>
+                </div>
+                <nav>
+                    <ul>
+                        <li>Fashion</li>
+                        <li>Electronics</li>
+                        <li>shoes</li>
+                        <li>sandels</li>
+                        <li>shirts</li>
+                    </ul>
+                </nav>
+            </header>
+        </div>
+        <div class="row2">
+            <img src="../download.png" alt="" />
+        </div>
+        <div class="row3">
+            <div class="Ajio">
+                <figure>
+                    <img src="../download.png" alt="" />
+                </figure>
+                <figcaption>
+                    <i>Product Details</i>
+                    <p>A high-fashion editorial where we feature the internet’s coolest cats</p>
+                    <p> Ajio Details><a href="#">Readmore</a></p>
+                </figcaption>
+            </div>
+            <div class="Ajio">
+                <figure>
+                    <img src="../download.png" alt="" />
+                </figure>
+                <figcaption>
+                    <i>Product Details</i>
+                    <p>A high-fashion editorial where we feature the internet’s coolest cats</p>
+                    <p> Ajio Details><a href="#">Readmore</a></p>
+                </figcaption>
+            </div>
+            <div class="Ajio">
+                <figure>
+                    <img src="../download.png" alt="" />
+                </figure>
+                <figcaption>
+                    <i>Product Details</i>
+                    <p>A high-fashion editorial where we feature the internet’s coolest cats</p>
+                    <p> Ajio Details><a href="#">Readmore</a></p>
+                </figcaption>
+            </div>
+        </div>
+
+        <div class="row4">
+            <article>
+                <h3> Wecome to AJIO</h3>
+                <p>orders per month in March 2020.[10] It saw big growth during 2021 and 2022.[11] Meesho's monthly
+                    transacting user count rose 26 times during 2020–2022.</p>
+                <p>orders per month in March 2020.[10] It saw big growth during 2021 and 2022.[11] Meesho's monthly
+                    transacting user count rose 26 times during 2020–2022. Globally, Meesho mobile app was among the top
+                    most downloaded apps in 2021.[12] In 2022, Meesho had about 120 million monthly users and about 910
+                    million orders were made through the platfor</p>
+                <p>AJIO Models ><a href="#">Readmore</a></p>
+            </article>
+            <aside>
+                <img src="../download.png" alt="" />
+            </aside>
+        </div>
+        <div class="parentsection">
+            <div class="sub section">
+                <section>
+                    <i>Link Block</i>
+                    <ul>
+                        <li><a href="#">Open New Products</a></li>
+                        <li><a href="#">open shirt section</a></li>
+                        <li><a href="#">open foot section</a></li>
+                        <li><a href="#">open homley products</a></li>
+                        <li><a href="#">open groceres</a></li>
+                </section>
+                <section>
+                    <i>Link Block</i>
+                    <ul>
+                        <li><a href="#">Open New Products</a></li>
+                        <li><a href="#">open shirt section</a></li>
+                        <li><a href="#">open foot section</a></li>
+                        <li><a href="#">open homley products</a></li>
+                        <li><a href="#">open groceres</a></li>
+                    </ul>
+                </section>
+                <section>
+                    <i>Link Block</i>
+                    <ul>
+                        <li><a href="#">Open New Products</a></li>
+                        <li><a href="#">open shirt section</a></li>
+                        <li><a href="#">open foot section</a></li>
+                        <li><a href="#">open homley products</a></li>
+                        <li><a href="#">open groceres</a></li>
+                    </ul>
+                </section>
+                <section>
+                    <i>Link Block</i>
+                    <ul>
+                        <li><a href="#">Open New Products</a></li>
+                        <li><a href="#">open shirt section</a></li>
+                        <li><a href="#">open foot section</a></li>
+                        <li><a href="#">open homley products</a></li>
+                        <li><a href="#">open groceres</a></li>
+                    </ul>
+                </section>
+            </div>
+        </div>
+        <div class="row5-footer">
+            <div class="child1">
+                <h4>Copy rights@2012-all rights reserved-Ajio</h4>
+            </div>
+            <div class="child2">
+                <p>Template by os Template</p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
