@@ -1,6 +1,6 @@
 .container {
     overflow: auto;
-    background-color: royalblue;
+    background-color: olive;
 }
 
 * {
@@ -44,7 +44,7 @@ header {
 nav {
     margin-top: 13px;
     /* background: #333333; */
-    border: 1px solid blueviolet;
+    /* border: 1px solid blueviolet; */
 }
 
 /* .row1 nav ul {
@@ -55,13 +55,20 @@ nav {
 
 
 nav ul li {
-    display: inline;
+    /* display: inline; */
     margin-right: 40px;
     font-size: 20px;
 }
 
+ul {
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+}
+
 */ nav ul li:hover {
-    background-color: tan;
+    /* background-color: tan; */
 }
 
 .row2 {
@@ -73,7 +80,7 @@ nav ul li {
 }
 
 .row2 img {
-    margin-top: 30px;
+    margin-top: 0px;
 }
 
 .row3 {
@@ -129,12 +136,12 @@ span {
 }
 
 span {
-    font-size: 15px;
+    font-size: 18px;
     margin-left: 14px;
 }
 
 .childs4 figcaption p {
-    font-size: 18px;
+    font-size: 15px;
 }
 
 .childsPara {
@@ -150,7 +157,7 @@ span {
     width: 900px;
     margin: auto;
     overflow: auto;
-    border-bottom: 1px solid;
+    /* border-bottom: 1px solid; */
     color: gray;
     display: flex;
 }
@@ -241,7 +248,7 @@ p#child1para {
 
 a {
     float: right;
-    color: orange;
+    color: beige;
     font-size: 18px;
     text-decoration: none;
 }
@@ -264,7 +271,7 @@ aside ul li {
 }
 
 .row6 {
-    background: orchid;
+    background: turquoise;
     color: white;
 }
 
@@ -278,12 +285,12 @@ footer {
 
 p#footerPara1 {
     /* float: left; */
-    font-size: 13px;
+    font-size: 15px;
 }
 
 p#footerPara2 {
     /* float: right; */
-    font-size: 13px;
+    font-size: 15px;
 }
 
 article p {
@@ -311,7 +318,7 @@ article p {
 
 @media (max-width: 500px) {
     .container {
-        background-color: aqua;
+        background-color: lightgreen;
         width: 450px;
     }
 
@@ -333,7 +340,7 @@ article p {
 
     .row1 nav {
         height: 40px;
-        border: 1px solid green;
+        /* border: 1px solid green; */
 
     }
 
@@ -345,7 +352,7 @@ article p {
 
     .row2 {
         margin-top: 180px;
-        height: 300px;
+        /* height: 300px; */
         width: 450px;
     }
 
@@ -383,7 +390,7 @@ article p {
         font-size: 20px;
         flex: 1;
         margin-bottom: 20px;
-        background-color: olivedrab;
+        background-color: wheat;
     }
 
     .row5 aside {
@@ -407,6 +414,42 @@ article p {
         margin: right 5px;
 
 
+    }
+
+    a {
+        color: black;
+        font-size: 18px;
+    }
+
+    .row6 {
+        background: gold;
+        color: white;
+    }
+
+    span {
+        font-size: 20px;
+        margin-left: 14px;
+        font-weight: bold;
+    }
+
+    .childs figcaption p {
+        font-size: 16px;
+    }
+
+    .row4 a {
+        color: yellow;
+        font-size: 20px;
+        font-style: italic;
+    }
+
+    p#footerPara1 {
+        /* float: left; */
+        font-size: 18px;
+        color: aliceblue;
+    }
+
+    label {
+        font-size: 18px;
     }
 
 }
