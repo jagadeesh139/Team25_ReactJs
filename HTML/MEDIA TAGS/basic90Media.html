@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <title>Basic 90</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./basic90Media.css" type="text/css">
+    <style>
+        * {
+
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        @media screen and (max-width:500px) {
+
+            body {
+                max-width: 500px;
+
+            }
+
+            #header {
+                padding: 20px 0;
+                width: 100%;
+                gap: 15px;
+                background-color: rgb(15, 1, 1);
+
+            }
+
+            #header #hgroup h1 {
+                padding-bottom: 10px;
+            }
+
+            #header #hgroup h2 {
+                font-size: 14px;
+                font-weight: lighter;
+            }
+
+            .headerflex {
+                display: flex;
+                justify-content: space-evenly;
+                flex-direction: column;
+                margin-left: 5px;
+
+            }
+
+            #header form {
+                display: block;
+
+                margin: 20px 0;
+                padding: 0;
+
+            }
+
+            #header #hgroup h1 {
+                font-size: 35px;
+            }
+
+            #header form #sf_submit {
+                display: block;
+
+                width: 60px;
+                font-size: 10px;
+            }
+
+            #header nav {
+
+                width: 470px;
+                margin-left: 5px;
+                text-align: center;
+                border: 2px solid;
+            }
+
+            #header nav ul {
+
+                padding: 0 20px;
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+
+            }
+
+            .row2 a {
+                font-size: large;
+            }
+
+            #header nav li.last {
+                margin-right: 24px;
+            }
+
+            #container #slider figure {
+                display: flex;
+                flex-direction: column;
+            }
+
+            #container #slider figure img {
+
+                width: 470px;
+                height: 200px;
+                margin-left: 5px;
+
+            }
+
+            #container #homepage section nav li {
+                font-size: large;
+            }
+
+            #container #slider figure img {
+                margin-bottom: 10px;
+            }
+
+            #container #slider figure h2 {
+                font-size: 30px;
+                font-weight: normal;
+                font-style: italic;
+                text-transform: none;
+            }
+
+            #container #slider figure figcaption {
+                display: block;
+                /* float: left; */
+                width: 470px;
+                margin-left: 5px;
+                height: 250px;
+                padding: 0px;
+                overflow: hidden;
+                color: #989898;
+                background-color: #071617;
+                line-height: 2em;
+                font-size: large;
+            }
+
+            #container #intro section article figure ul li img {
+                width: 400px;
+                height: 160px;
+                margin: 0;
+                padding: 4px;
+                border: 1px solid #D6D6D6;
+            }
+
+            #container #intro section article figure ul {
+                display: block;
+                width: 100%;
+                margin: 0;
+                padding: 0;
+                list-style: none;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 15px;
+            }
+
+            #container #intro section {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                margin-left: 5px;
+                line-height: 2em;
+                font-size: 14px;
+                gap: 15px;
+                color: darkcyan;
+
+            }
+
+            #container #homepage {
+                display: block;
+                width: 465px;
+                line-height: 1.8em;
+                display: flex;
+                flex-direction: column;
+                margin-left: 5px;
+                gap: 10px;
+                align-items: center;
+                background-color: #232323;
+
+
+
+            }
+
+            .imgcnt {
+
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+
+            }
+
+            .imgl {
+
+                width: 400px;
+                height: 160px;
+            }
+
+            article {
+
+                line-height: 1.8em;
+                font-size: large;
+            }
+
+            .imgcnt p {
+
+                text-align: justify;
+                margin-top: 0px;
+                font-size: large;
+            }
+
+
+            section.two_quarter.lastbox {
+                text-align: center;
+                margin: 0px;
+
+            }
+
+            .read {
+                width: 400px;
+
+                line-height: 1.8em;
+
+            }
+
+            .foot {
+                display: flex;
+                flex-direction: column;
+                padding: 20px 0px;
+                width: 100%;
+                gap: 10px;
+                border: 1px solid gold;
+                font-size: large;
+                text-align: center;
+            }
+
+            #container #intro {
+                width: 470px;
+                margin-bottom: 30px;
+                padding-bottom: 10px;
+
+            }
+
+            #header,
+            #container,
+            #footer {
+                display: block;
+                width: 100%;
+                margin: 0 auto;
+            }
+
+            #container #intro section article figure ul li.last {
+                margin-right: 25px;
+
+            }
+
+            .oneq header {
+                font-size: large;
+            }
+
+            nav ul {
+                margin: 0;
+                padding: 0;
+                list-style: none;
+                font-size: 14px;
+            }
+
+            #container #homepage section article address,
+            #container #homepage section article time {
+                font-size: large;
+                font-style: normal;
+            }
+
+            #container #intro section article p {
+                font-size: large;
+                color: crimson;
+            }
+
+
+
+        }
+
+        @media screen and (min-width:501px) and (max-width:800px) {
+
+
+
+            body {
+                /* width: 800px;   */
+                margin: 0;
+
+            }
+
+            #header {
+                padding: 20px 0;
+                display: flex;
+                flex-direction: column;
+                width: 799px;
+                gap: 15px;
+                border: 1px solid blueviolet;
+                background-color: rgb(70, 6, 46);
+
+            }
+
+            #header #hgroup h1 {
+                padding-bottom: 10px;
+            }
+
+            #header #hgroup h2 {
+                font-size: 14px;
+                font-weight: lighter;
+            }
+
+            .headerflex {
+                display: flex;
+                justify-content: space-between;
+                flex-direction: row;
+                margin-left: 5px;
+
+
+            }
+
+            #header form {
+                display: block;
+
+                margin: 20px 0;
+                padding: 0;
+                margin-right: 5px;
+
+            }
+
+            #header #hgroup h1 {
+                font-size: 35px;
+            }
+
+            #header form #sf_submit {
+                display: block;
+
+                width: 56px;
+                font-size: 10px;
+            }
+
+            #header nav {
+                display: block;
+
+                border: 1px solid lightblue;
+                margin: 0;
+                padding: 20px 0;
+                color: #C0BAB6;
+                background-color: #232323;
+                clear: both;
+            }
+
+            #header nav ul {
+
+                justify-content: space-between;
+            }
+
+            #container {
+                width: 720px;
+
+
+            }
+
+            #container #slider figure {
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+
+
+            }
+
+            #container #slider figure img {
+
+                width: 700px;
+                height: 200px;
+
+                border: 1px solid blue;
+
+            }
+
+            #container #slider figure h2 {
+                font-size: 30px;
+                font-weight: normal;
+                font-style: italic;
+                text-transform: none;
+            }
+
+            #container #intro section article figure ul {
+                display: block;
+                width: 700px;
+                margin: 0;
+                padding: 0;
+                list-style: none;
+                display: flex;
+                justify-content: space-between;
+            }
+
+            #container #intro section article figure ul li {
+
+                margin: 0 0px 10px 0;
+            }
+
+            #container #slider figure figcaption {
+                display: block;
+
+                width: 700px;
+
+                height: 170px;
+                padding: 0px;
+                overflow: hidden;
+                color: #3e3333;
+                background-color: #b2cf0e;
+                line-height: 2em;
+                font-size: 15px;
+                text-align: center;
+            }
+
+            #container #intro section {
+                width: 700px;
+                display: flex;
+                flex-direction: column;
+
+                line-height: 2em;
+                font-size: 15px;
+                gap: 15px;
+                color: darkcyan;
+
+            }
+
+            .two_quarter {
+                width: 700px;
+
+            }
+
+            #container #homepage {
+                display: block;
+                width: 700px;
+                line-height: 1.8em;
+                display: flex;
+                flex-direction: column;
+
+                gap: 10px;
+                align-items: center;
+                background-color: rgb(17, 4, 64);
+
+            }
+
+            .imgcnt {
+
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                /* height:200px; */
+            }
+
+            article {
+                line-height: 1.8em;
+                font-size: 14px;
+
+            }
+
+            section.two_quarter.lastbox {
+                text-align: center;
+                margin: 0px;
+
+            }
+
+            .read {
+                width: 80%;
+
+                line-height: 1.8em;
+                font-size: 15px;
+
+            }
+
+            .foot {
+                display: flex;
+                flex-direction: column;
+                padding: 20px 0px;
+                width: 100%;
+                gap: 10px;
+                border: 1px solid gold;
+                font-size: 15px;
+
+                text-align: center;
+            }
+
+            #container #intro {
+                width: 100%;
+                margin-bottom: 30px;
+                padding-bottom: 10px;
+
+            }
+
+            div.wrapper {
+                display: block;
+                width: 100%;
+                margin: 0;
+                padding: 0;
+                text-align: left;
+            }
+
+            /* #header ,
+    #footer {
+    display: block;
+    width: 100%;
+    margin: 0 auto;
+    }    */
+            .oneq header {
+                font-size: 14px;
+            }
+
+            nav ul {
+                margin: 0;
+                padding: 0;
+                list-style: none;
+                font-size: 15px;
+            }
+
+            #container #homepage section article address,
+            #container #homepage section article time {
+                font-size: 15px;
+                font-style: normal;
+            }
+
+            #container #intro section article figure ul li img {
+                width: 200px;
+                height: 150px;
+                margin: 0;
+                padding: 4px;
+                border: 1px solid #D6D6D6;
+            }
+
+            .imgl {
+
+                width: 80%;
+                height: 150px;
+            }
+
+            .row2 {
+                width: 90%;
+
+            }
+
+            .row1,
+            .row3 {
+                width: 100%;
+            }
+
+            #container #intro section article p {
+                font-size: 15px;
+                color: rgb(106, 5, 69);
+            }
+        }
+    </style>
+
+    <!--[if lt IE 9]><script src="scripts/html5shiv.js"></script><![endif]-->
+</head>
+
+<body>
+    <div class="wrapper row1">
+        <header id="header" class="clear">
+            <div class="headerflex">
+                <div id="hgroup">
+                    <h1><a href="#">VidMate</a></h1>
+                    <h2>Platform to download</h2>
+                </div>
+                <form action="#" method="post">
+                    <fieldset>
+                        <legend>Search:</legend>
+                        <input type="text" value="Search Our Website&hellip;"
+                            onFocus="this.value=(this.value=='Search Our Website&hellip;')? '' : this.value ;">
+                        <input type="submit" id="sf_submit" value="submit">
+                    </fieldset>
+                </form>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#">Youtube</a></li>
+                    <li><a href="#">instagram</a></li>
+                    <li><a href="#">facebook</a></li>
+                    <li><a href="#">utorent</a></li>
+                    <li class="last"><a href="#">Google Links</a></li>
+                </ul>
+            </nav>
+        </header>
+    </div>
+    <!-- content -->
+    <div class="wrapper row2">
+        <div id="container" class="clear">
+            <!-- Slider -->
+            <section id="slider" class="clear">
+                <figure><img src="./v1.jpg" alt="" width="630px" height="300px">
+                    <figcaption>
+                        <h2>Downloads </h2>
+                        <p>VidMate is a video and music downloading app for android phones. It supports many websites,
+                            including YouTube, YT Music, Facebook, Instagram, and more. It also provides download web
+                            series, TV shows, and movies in HD format, and free live television online. It is based in
+                            New Delhi, India.
+                        </p>
+                        <footer class="more"><a href="#">Read More &raquo;</a></footer>
+                    </figcaption>
+                </figure>
+            </section>
+            <!-- main content -->
+            <div id="intro">
+                <section class="clear">
+                    <!-- article 1 -->
+                    <article class="two_quarter">
+                        <h2>Vidmate Options</h2>
+                        <p>VidMate is a video and music downloading app for android phones <a href="https://www.os-templates.com/"
+                                title="Free Website Templates">OS Templates</a>. It also provides download web
+                                series, TV shows, and movies in HD format, and free live television online.
+                            <a href="https://www.os-templates.com/template-terms">website template licence</a>.
+                        </p>
+                        <p>VidMate is a video and music downloading app for android phones. It supports many websites,
+                            including YouTube, YT Music, Facebook, Instagram, and more. It also provides download web
+                            series, TV shows, and movies in HD format, and free live television online. It is based in
+                            New Delhi, India. <a href="https://www.os-templates.com/">free website templates</a>.</p>
+                    </article>
+                    <!-- article 2 -->
+                    <article class="two_quarter lastbox">
+                        <figure>
+                            <ul class="clear">
+                                <li><a href="#"><img src="./v2.jpg" width="130" height="130" alt=""></a></li>
+                                <li><a href="#"><img src="./v3.jpg" width="130" height="130" alt=""></a></li>
+                                <li class="last"><a href="#"><img src="./v2.jpg" width="130" height="130" alt=""></a>
+                                </li>
+                            </ul>
+                            <figcaption><a href="#">View vidmate page Here &raquo;</a></figcaption>
+                        </figure>
+                    </article>
+                </section>
+            </div>
+            <!-- ########################################################################################## -->
+            <!-- ########################################################################################## -->
+            <!-- ########################################################################################## -->
+            <!-- ########################################################################################## -->
+            <div id="homepage" class="last clear">
+                <section class="one_quarter">
+                    <h2 class="title">From The Blog</h2>
+                    <article>
+                        <header>
+                            <h2>Post Title</h2>
+                            <address>
+                                <a href="#">Admin</a>, domainname.com
+                            </address>
+                            <time datetime="2000-04-06">Friday, 6<sup>th</sup> April 2000</time>
+                        </header>
+                        <p>VidMate is a video and music downloading app for android phones. It supports many websites,
+                            including YouTube, YT Music, Facebook, Instagram, and more.</p>
+                        <footer class="more"><a href="#">Read More &raquo;</a></footer>
+                    </article>
+                </section>
+                <section class="one_quarter">
+                    <h2 class="title">Quick Links</h2>
+                    <nav>
+                        <ul>
+                            <li><a href="#">youtube link</a></li>
+                            <li><a href="#">Instagram Link</a></li>
+                            <li><a href="#">Google link</a></li>
+                            <li><a href="#">Facebook link</a></li>
+                            <li class="last"><a href="#">utorent link</a></li>
+                        </ul>
+                    </nav>
+                </section>
+                <section class="two_quarter lastbox">
+                    <h2 class="title">About Vidmate</h2>
+                    <div class="imgcnt">
+                        <img class="imgl" src="./v1.jpg" width="130" height="130" alt="">
+                        <div class="read">
+                            <p>VidMate is a video and music downloading app for android phones. It supports many
+                                websites, including YouTube, YT Music, Facebook, Instagram, and more. It also provides
+                                download web series, TV shows, and movies in HD format, and free live television online.
+                                It is based in New Delhi, India.
+                            </p>
+                            <footer class="more"><a href="#">Read More &raquo;</a></footer>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <!-- / content body -->
+        </div>
+    </div>
+    <!-- Footer -->
+    <div class="wrapper row3">
+        <div class="foot">
+            <div class="num1"> Copyright &copy; 2018 - All Rights Reserved - <a href="#">Vidmate Ind</a></div>
+            <div class="num2">Template by <a target="_blank" href="https://www.os-templates.com/"
+                    title="Free Website Templates">OS Templates</a></div>
+        </div>
+    </div>
+</body>
+
+</html>
