@@ -3,11 +3,11 @@
     background-color: olive;
 }
 
-* {
+/* * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}
+} */
 
 .row1 {
     background: yellowgreen;
@@ -79,7 +79,7 @@ ul {
 }
 
 .row2 img {
-    margin-top: 0px;
+    margin-top: 14px;
 }
 
 .row3 {
@@ -175,13 +175,13 @@ span {
 
 .parent1 {
     width: 290px;
-    height: 180px;
+    /* height: 180px; */
     /* float: left; */
 }
 
 .parent {
     width: 290px;
-    height: 180px;
+    /* height: 180px; */
     /* float: right; */
 }
 
@@ -202,12 +202,16 @@ p.parent2 {
 }
 
 .row5 aside img {
-    width: 151px;
+    width: 300px;
+    margin: auto;
+    height: 550px;
 }
 
 .child1 {
     overflow: auto;
     display: flex;
+    flex-direction: column;
+    width: 472px;
 }
 
 .child1img {
@@ -217,10 +221,12 @@ p.parent2 {
 
 .child2 {
     display: flex;
+    flex-direction: column;
+    width: 472px;
 }
 
 .child1img img {
-    width: 170px;
+    width: 461px;
     height: 150px;
     border: 1px solid;
     padding: 3px;
@@ -320,13 +326,16 @@ article p {
 @media (max-width: 500px) {
     .container {
         background-color: lightgreen;
-        width: 450px;
+        width: 467px;
     }
 
-    .row1 {
-        width: 450px;
-        /* height: 400px; */
-        /* display: flex; */
+    .row1,
+    .row2,
+    .row3,
+    .row4,
+    .row5,
+    .row6 {
+
         margin-bottom: 30px;
     }
 
@@ -335,8 +344,12 @@ article p {
         display: flex;
         flex-direction: column;
         align-items: center;
-        width: 460px;
+        width: 100%;
         /* height: 100px; */
+    }
+
+    .row1 {
+        width: 99%;
     }
 
     .row1 nav {
@@ -348,48 +361,51 @@ article p {
     .basic {
         font-size: 15px;
         text-align: center;
-        flex-direction: column;
+        width: 100%;
     }
 
     .row2 {
+        width: 99%;
         margin-top: 180px;
         /* height: 300px; */
-        width: 450px;
+        /* width: 500px; */
     }
 
     .row2 img {
         width: 450px;
         height: 250px;
+        margin-left: 1px;
+        /* align-content: center; */
     }
 
     .row3 {
+        width: 99%;
         flex-direction: column;
         align-items: center;
-        width: 450px;
+
         /* height: 500px; */
         font-size: 20px;
     }
 
     .row4 {
-
         flex-direction: column;
         align-items: center;
-        width: 450px;
-        /* height: 500px; */
+        width: 99%;
     }
 
     .row5 {
         display: flex;
         flex-direction: column;
-        width: 450px;
+        width: 99%;
+        /* margin: auto; */
         height: auto;
-
     }
 
     .row5 article {
         width: 450px;
         font-size: 20px;
-        flex: 1;
+        display: flex;
+        flex-direction: column;
         margin-bottom: 20px;
         background-color: wheat;
     }
@@ -402,20 +418,17 @@ article p {
         width: 450px;
     }
 
-    .row6 {
-        width: 450px;
-    }
 
     .row6 footer {
-        width: 410px;
-        height: 90px;
+        width: 97%;
+        /* height: 90px; */
         display: flex;
         flex-direction: column;
         align-items: center;
-        margin: right 5px;
-
-
+        margin-right: 0px;
+        margin-left: 0px;
     }
+
 
     a {
         color: black;
@@ -434,7 +447,7 @@ article p {
     }
 
     .childs figcaption p {
-        font-size: 16px;
+        font-size: 15px;
     }
 
     .row4 a {
@@ -458,4 +471,66 @@ article p {
         color: white;
     }
 
+    .child1img img {
+        width: 440px;
+    }
+
+    .row5 article {
+        width: 452px;
+        float: none;
+    }
+
+
+
+    .child1 {
+        overflow: auto;
+        display: flex;
+        flex-direction: column;
+        width: 450px;
+    }
+
+    .child1img {
+        width: 440px;
+        /* float: left; */
+    }
+
+    .child2 {
+        display: flex;
+        flex-direction: column;
+        width: 450px;
+    }
+
+    .child1img img {
+        width: 434px;
+        height: 150px;
+        border: 1px solid;
+        padding: 0px;
+    }
+
+    .child1cap {
+        width: 390px;
+        /* float: right; */
+        margin-left: 1px;
+    }
+
+    .child1cap p {
+        font-size: 20px;
+    }
+
+    p#child1para {
+        float: none;
+    }
+
+    #child1para a {
+        color: orange;
+        text-decoration: none;
+        font-size: 18px;
+    }
+
+    a {
+        float: none;
+        color: beige;
+        font-size: 18px;
+        text-decoration: none;
+    }
 }
