@@ -12,13 +12,18 @@
         display: flex;
         justify-content: space-evenly;
         margin: 20px;
-        border: 2px solid;
+        border: 2px solid black;
+        margin-left: 2px;
+        /* padding: 5px; */
     }
+
+    
 
     .container {
 
         /* border: 2px solid; */
-        background-color: orange;
+        /* background-color: aqua; */
+        
     }
 
     header {
@@ -29,12 +34,13 @@
     .row {
         margin: 20px;
         border: 2px solid;
+        background-color: aqua;
     }
 
     .col2 {
         display: flex;
         /* border: 1px solid; */
-        flex-direction: row-reverse;
+        flex-direction: row;
         margin: 10px;
     }
 
@@ -45,8 +51,22 @@
         margin: 15px;
     }
 
+    .navbar-nav:hover {
+        background-color: blue;
+        font-size: 1rem;
+    }
+
     article {
         width: 500px;
+    }
+
+    a.navbar-brand {
+        color: black;
+    }
+
+    a.navbar-brand:hover {
+        font-size: 20px;
+        background-color: black;
     }
 
     .col3 {
@@ -54,9 +74,21 @@
 
     }
 
+    h2 {
+        font-size: 2rem;
+        font-style: italic;
+    }
+
+    nav.navbar.navbar-expand-lg.bg-body-tertiary {
+        height: 40px;
+        margin: 20px;
+    }
+
     .card {
-        background-color: aquamarine;
-        border: 2px solid;
+        background-color: aqua;
+        border: 2px solid black;
+        color: black;
+        font-size: 20px;
     }
 
     .container-fluid {
@@ -64,11 +96,43 @@
     }
 
     .navbar {
-        background-color: orange;
+        /* background-color: orange; */
+    }
+
+    header p {
+        color: white;
+        font-size: 23px;
+        font-weight: 400;
     }
 
     .container-fluid:hover {
-        background-color: yellow;
+        /* background-color: yellow; */
+    }
+
+    input.btn.btn-primary {
+        margin-top: 2px;
+    }
+
+    input.btn.btn-primary {
+        height: 40px;
+        width: 100px;
+        margin: 25px;
+    }
+
+    img,
+    svg {
+        vertical-align: middle;
+        height: 316px;
+    }
+
+    input[type="text"] {
+        height: 40px;
+        border-radius: 10px;
+        margin: 20px;
+    }
+
+    aside {
+        height: 319px;
     }
 </style>
 
@@ -78,8 +142,8 @@
             <div class="col1">
 
                 <header>
-                    <h2>Basic 88</h2>
-                    <p>welcome to basic 88</p>
+                    <h2>Bootstrap</h2>
+                    <p>welcome to Bootstrap</p>
                 </header>
                 <nav class="navbar navbar-expand-lg bg-body-tertiary">
                     <div class="container-fluid">
@@ -99,6 +163,8 @@
                         </div>
                     </div>
                 </nav>
+                <input type="text" placeholder="enter the text">
+                <input class="btn btn-primary" type="submit" value="Enter">
             </div>
             <div class="col2">.
                 <section>
@@ -142,15 +208,13 @@
             <div class="col3">
                 <div class="card text-center">
                     <div class="card-header">
-                        Featured
                     </div>
                     <div class="card-body">
-                        <h5 class="card-title">Special title treatment</h5>
-                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                        <h5 class="card-title">Footer</h5>
+                        <p class="card-text">@copy rights @reserverd</p>
+                        <a href="#" class="btn btn-primary">Os Template</a>
                     </div>
                     <div class="card-footer text-body-secondary">
-                        2 days ago
                     </div>
                 </div>
             </div>
