@@ -326,7 +326,7 @@ article p {
 @media (max-width: 500px) {
     .container {
         background-color: lightgreen;
-        width: 467px;
+        width: 99%;
     }
 
     .row1,
@@ -372,7 +372,7 @@ article p {
     }
 
     .row2 img {
-        width: 450px;
+        width: 97%;
         height: 250px;
         margin-left: 1px;
         /* align-content: center; */
@@ -402,7 +402,7 @@ article p {
     }
 
     .row5 article {
-        width: 450px;
+        width: 97%;
         font-size: 20px;
         display: flex;
         flex-direction: column;
@@ -411,11 +411,11 @@ article p {
     }
 
     .row5 aside {
-        width: 450px;
+        width: 97%;
     }
 
     .row5 aside img {
-        width: 450px;
+        width: 97%;
     }
 
 
@@ -469,14 +469,15 @@ article p {
     .row6 {
         background: orange;
         color: white;
+        width: 99%;
     }
 
     .child1img img {
-        width: 440px;
+        width: 97%;
     }
 
     .row5 article {
-        width: 452px;
+        width: 97%;
         float: none;
     }
 
@@ -486,29 +487,29 @@ article p {
         overflow: auto;
         display: flex;
         flex-direction: column;
-        width: 450px;
+        width: 98%;
     }
 
     .child1img {
-        width: 440px;
+        width: 97%;
         /* float: left; */
     }
 
     .child2 {
         display: flex;
         flex-direction: column;
-        width: 450px;
+        width: 98%;
     }
 
     .child1img img {
-        width: 434px;
+        width: 97%;
         height: 150px;
         border: 1px solid;
         padding: 0px;
     }
 
     .child1cap {
-        width: 390px;
+        width: 97%;
         /* float: right; */
         margin-left: 1px;
     }
