@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+</head>
+<style>
+    .col1 {
+        display: flex;
+        justify-content: space-evenly;
+        margin: 20px;
+        border: 2px solid;
+    }
+
+    .container {
+
+        /* border: 2px solid; */
+        background-color: orange;
+    }
+
+    header {
+        /* border: 2px solid; */
+        margin-top: 5px;
+    }
+
+    .row {
+        margin: 20px;
+        border: 2px solid;
+    }
+
+    .col2 {
+        display: flex;
+        /* border: 1px solid; */
+        flex-direction: row-reverse;
+        margin: 10px;
+    }
+
+    form,
+    article,
+    aside {
+        border: 2px solid;
+        margin: 15px;
+    }
+
+    article {
+        width: 500px;
+    }
+
+    .col3 {
+        /* background-color: aquamarine; */
+
+    }
+
+    .card {
+        background-color: aquamarine;
+        border: 2px solid;
+    }
+
+    .container-fluid {
+        background-color: aliceblue;
+    }
+
+    .navbar {
+        background-color: orange;
+    }
+
+    .container-fluid:hover {
+        background-color: yellow;
+    }
+</style>
+
+<body>
+    <div class="container text-center">
+        <div class="row">
+            <div class="col1">
+
+                <header>
+                    <h2>Basic 88</h2>
+                    <p>welcome to basic 88</p>
+                </header>
+                <nav class="navbar navbar-expand-lg bg-body-tertiary">
+                    <div class="container-fluid">
+                        <a class="navbar-brand" href="#">Home</a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                            <div class="navbar-nav">
+                                <a class="nav-link active" aria-current="page" href="#">Home</a>
+                                <a class="nav-link" href="#">Features</a>
+                                <a class="nav-link" href="#">Pricing</a>
+                                <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+            <div class="col2">.
+                <section>
+                    <form>
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label">Email address</label>
+                            <input type="email" class="form-control" id="exampleInputEmail1"
+                                aria-describedby="emailHelp">
+                            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleInputPassword1" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="exampleInputPassword1">
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                            <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <a class="btn btn-primary" href="#" role="button">Link</a>
+                        <button class="btn btn-primary" type="submit">Button</button>
+                        <input class="btn btn-primary" type="button" value="Input">
+                        <input class="btn btn-primary" type="submit" value="Submit">
+                        <input class="btn btn-primary" type="reset" value="Reset">
+                    </form>
+                </section>
+
+                <article>
+                    <p>Self-awareness is the ability to tune in to your own feelings, thoughts, and actions. When people
+                        are self-aware, they understand their strengths and challenges and know what helps them thrive.
+                        They also understand that how they see themselves may be different from how others see them.</p>
+                    <p>Self-awareness is the ability to tune in to your own feelings, thoughts, and actions. When people
+                        are self-aware, they understand their strengths and challenges and know what helps them thrive.
+                        They also understand that how they see themselves may be different from how others see them.</p>
+                </article>
+
+                <aside>
+                    <img src="../MEDIA TAGS/A3.webp" alt="">
+                </aside>
+            </div>
+            <div class="col3">
+                <div class="card text-center">
+                    <div class="card-header">
+                        Featured
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Special title treatment</h5>
+                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                    <div class="card-footer text-body-secondary">
+                        2 days ago
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+
+</html>
