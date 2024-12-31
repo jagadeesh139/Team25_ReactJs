@@ -9,21 +9,51 @@
 </head>
 <style>
   .row {
-    background-color: blanchedalmond;
+    background-color: rgb(154, 204, 228)
   }
-   .col4 img {
+
+  /* .col4 img {
     padding: 20px;
     width: 500px;
     height: 400px;
-}
+} */
 
-  .col3{
+  .col3 {
     /* padding: 20px; */
     /* margin: 20px; */
-    
+
   }
-  .card{
-    gap:20px;
+
+  h2 {
+    font-size: 3rem;
+  }
+
+  .col2 img {
+    padding: 15px;
+
+  }
+  .col4 img {
+    padding: 15px;
+
+  }
+
+  article {
+    padding: 20px;
+    font-size: 18px;
+  }
+
+  .card {
+    gap: 20px;
+  }
+
+  .col4 {
+    flex-direction: row-reverse;
+    height: 350px;
+    /* padding: 20px; */
+    /* margin: 10px; */
+  }
+  h5{
+    font-size: 20px;
   }
 </style>
 
@@ -77,44 +107,53 @@
           </div>
         </nav>
       </div>
-
-      <div class="col2 text-center border border-black w-90 h-40 ">
-        <img src="./logo.png  " alt="">
+      <div class="col2 text-center  border border-black p-20 mt-20 ">
+        <img src="./logo.png" alt="" width="900px" height="450px">
       </div>
-      <div class="col3 d-flex border border-black  w-90">
-        <div class="card w-45 p-20" style="width: 18rem;">
-          <img src="./logo.png" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Automatic cars</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-              content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
+      <div class="col3 d-flex  border border-black ">
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+          <div class="col">
+            <div class="card">
+              <img
+                src="./black-car-parked-wet-street-night-surrounded-blurry-background-lights-reflections-pavement-concept-327220077.webp"
+                class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional
+                  content. This content is a little bit longer.</p>
+              </div>
+            </div>
           </div>
-        </div>
-        <div class="card" style="width: 18rem;">
-          <img
-            src="./black-car-parked-wet-street-night-surrounded-blurry-background-lights-reflections-pavement-concept-327220077.webp"
-            class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-              content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
+          <div class="col">
+            <div class="card">
+              <img
+                src="./black-car-parked-wet-street-night-surrounded-blurry-background-lights-reflections-pavement-concept-327220077.webp"
+                class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional
+                  content. This content is a little bit longer.</p>
+              </div>
+            </div>
           </div>
-        </div>
-        <div class="card" style="width: 18rem;">
-          <img src="./logo.png" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-              content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
+          <div class="col">
+            <div class="card">
+              <img
+                src="./black-car-parked-wet-street-night-surrounded-blurry-background-lights-reflections-pavement-concept-327220077.webp"
+                class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional
+                  content. This content is a little bit longer</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-      <div class="col4 d-flex">
-        <img src="./logo.png" alt="" width="500px" height="400px">
+      <div class="col4 d-flex border border-black">
+        <img src="./logo.png" alt="">
         <article>
+          <h5>Car Services</h5>
           <p>The French inventor Nicolas-Joseph Cugnot built the first steam-powered road vehicle in 1769, while the
             Swiss inventor François Isaac de Rivaz designed and constructed the first internal combustion-powered
             automobile in 1808. The modern car—a practical, marketable automobile for everyday use—was invented in 1886,
@@ -128,14 +167,45 @@
         </article>
 
       </div>
-      <div class="col5">
+      <div class="col5 d-flex ">
+        <ul class="list-group list-group-flush w-70">
+          <li class="list-group-item">An item</li>
+          <li class="list-group-item">A second item</li>
+          <li class="list-group-item">A third item</li>
+          <li class="list-group-item">A fourth item</li>
+          <li class="list-group-item">And a fifth one</li>
+        </ul>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">An item</li>
+          <li class="list-group-item">A second item</li>
+          <li class="list-group-item">A third item</li>
+          <li class="list-group-item">A fourth item</li>
+          <li class="list-group-item">And a fifth one</li>
+        </ul>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">An item</li>
+          <li class="list-group-item">A second item</li>
+          <li class="list-group-item">A third item</li>
+          <li class="list-group-item">A fourth item</li>
+          <li class="list-group-item">And a fifth one</li>
+        </ul>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">An item</li>
+          <li class="list-group-item">A second item</li>
+          <li class="list-group-item">A third item</li>
+          <li class="list-group-item">A fourth item</li>
+          <li class="list-group-item">And a fifth one</li>
+        </ul>
+      </div>
+      <div class="col6">
         <div class="card text-center">
           <div class="card-header">
-            About Cars 
+            About Cars
           </div>
           <div class="card-body">
             <h5 class="card-title">@Cars Rights</h5>
-            <p class="card-text"><p>Automobile" redirect here.</p>
+            <p class="card-text">
+            <p>Automobile" redirect here.</p>
             <a href="#" class="btn btn-primary">OS Template</a>
           </div>
           <div class="card-footer text-body-secondary">
