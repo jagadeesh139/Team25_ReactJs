@@ -61,6 +61,7 @@
             top: 0px;
             left: 0px;
             z-index: 1;
+            /* position: relative; */
          }
 
          .p2 img{
@@ -68,6 +69,7 @@
             top: 0px;
             left: 0px;
             z-index: 2;
+            position: fixed;
 
          }
 
@@ -79,12 +81,22 @@
             top:20px;
             left:100px;
             z-index: -3;
+            position: sticky;
          }
 
          .p4 img{
             top:50px;
             left: 200px;
             z-index: -1;
+            position: absolute;
+         }
+
+         p:hover{
+            /* visibility: hidden; */
+         }
+
+         p:hover{
+            visibility: none;
          }
 </style>
 </head>
@@ -124,7 +136,11 @@
         <img src="../Media/A2.jpg" alt="">
     </div>
 </div>
+<!-- with out using . and # -->
 
+<div>
+    <p>hdhdhj,dvh</p>
+</div>
 
 
 </body>
