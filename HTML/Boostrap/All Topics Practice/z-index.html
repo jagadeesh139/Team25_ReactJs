@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .p1{
+            position: relative;
+            left: 1;
+            top: 0;
+         }
+         img{
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            z-index: 1;
+            /* position: relative; */
+         }
+
+         .p2 img{
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            z-index: -4;
+            position: fixed;
+
+         }
+
+         h3{
+            color: aliceblue;
+         }
+
+         .p3 img{
+            top:20px;
+            left:100px;
+            z-index: -3;
+            position: sticky;
+         }
+
+         .p4 img{
+            top:50px;
+            left: 200px;
+            z-index: -1;
+            position: absolute;
+         }
+    </style>
+</head>
+<body>
+    <div class="p1">
+        <img src="../c1.jpg" alt="">
+        <h2>welcome to car showroom</h2>
+        <div class="p2">
+            <img src="../black-car-parked-wet-street-night-surrounded-blurry-background-lights-reflections-pavement-concept-327220077.webp" alt="" width="320px" height="320px">
+            <h3>welcome</h3>
+        </div>
+        <div class="p3">
+            <h4>hi</h4>
+            <img src="../b1.jpg" alt="">
+        </div>
+    
+        <div class="p4">
+            <h4>hi</h4>
+            <img src="../logo.png" alt="">
+        </div>
+    </div>
+</body>
+</html>
