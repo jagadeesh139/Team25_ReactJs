@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            position: relative;
+            width: 100px;
+            height: 100px;
+            background-color: aqua;
+            animation: bounce 1s ease infinite;
+        }
+        @keyframes bounce{
+            0%{
+                transform: translateY(0px);
+            }
+
+            15%{
+                transform: translateY(-25px);
+            }
+
+            25%{
+                transform: translateY(0px);
+            }
+
+            30%{
+                transform: translateY(-45px);
+            }
+        }
+
+        .element{
+            width: 100px;
+            height: 100px;
+            animation: direction 2s infinite;
+            background-color: brown;
+            position: relative;
+        }
+
+        @keyframes direction{
+            from{
+                right:0;
+            }
+
+            to{
+                left: 500px;
+            }
+        }
+
+        .box1{
+            width:400px;
+            height: 400px;
+            background-color: blue;
+            animation: fadein 2s linear infinite;
+        }
+
+        @keyframes fadein{
+            0%{
+                opacity:0.5;
+            }
+            50%{
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="box">Box</div>
+
+    <div class="element">from and to</div>
+
+    <div class="box1">Fadeing</div>
+    
+</body>
+</html>
