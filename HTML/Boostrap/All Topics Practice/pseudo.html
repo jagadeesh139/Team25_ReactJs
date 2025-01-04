@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>pseudo</title>
+    <style>
+        p:hover {
+            /* background-color: aqua; */
+
+        }
+
+        p::after {
+            content: url(../c1.jpg);
+        }
+
+        p::before {
+            content: url(../black-car-parked-wet-street-night-surrounded-blurry-background-lights-reflections-pavement-concept-327220077.webp);
+        }
+
+        h5::first-letter{
+            font-size: 45px;
+
+        }
+
+        h5::first-line{
+            background-color: blue;
+        }
+
+        div:first-child{
+            color:orangered;
+        }
+
+        div:last-child{
+            color: chartreuse;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <p>Cricket is played between two teams of 11 players on an oval-shaped field. The game involves batting,
+            fielding, and bowling. The batting team tries to score runs, while the fielding team tries to prevent them.
+        </p>
+
+        <h5>Cricket is played between two teams of 11 players on an oval-shaped field. The game involves batting,
+            fielding, and bowling. The batting team tries to score runs, while the fielding team tries to prevent them.
+        </h5>
+    </div>
+
+</body>
+
+</html>
