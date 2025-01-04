@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>specificity</title>
+    <style>
+        .container{
+            border: 2px solid;
+            background-color: aquamarine;
+        }
+
+        #d{
+            background-color:red !important ;
+        }
+        div{
+            background-color: cadetblue;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container" id="d" style="background-color: burlywood;">
+        <h1> welcome to specificity</h1>
+    </div>
+    
+</body>
+</html>
