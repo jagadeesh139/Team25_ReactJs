@@ -174,39 +174,141 @@
         //  Employee Time Tracker 
 
         var EmployeeTimeTracker = {
-            employeeName:"pqr",
-            date:"21/2/2024",
-            startTime:"10:00 Am",
-            endTime :"5:00Pm",
-            clockIn:function(){},
-            clockOut:function(){},
-            calculateHours:function(){}
+            employeeName: "pqr",
+            date: "21/2/2024",
+            startTime: "10:00 Am",
+            endTime: "5:00Pm",
+            clockIn: function () { },
+            clockOut: function () { },
+            calculateHours: function () { }
 
         }
         console.log(EmployeeTimeTracker);
 
         // Recipe Generator 
 
-        var RecipeGenerator={
-            ingredients:['jkh','pqr','abc'],
-            instructions :"khhjvgvhvc",
-            generateRecipe:function(){}
-        } 
+        var RecipeGenerator = {
+            ingredients: ['jkh', 'pqr', 'abc'],
+            instructions: "khhjvgvhvc",
+            generateRecipe: function () { }
+        }
         console.log(RecipeGenerator)
 
         //  Flight Booking System 
 
-        var  FlightBookingSystem={
-            flightNumber :25325,
-            departureCity :"Chennai",
-            arrivalCity :"hyderabad",
-            departureTime:"21/2/2024",
+        var FlightBookingSystem = {
+            flightNumber: 25325,
+            departureCity: "Chennai",
+            arrivalCity: "hyderabad",
+            departureTime: "21/2/2024",
 
-            bookFlight:function(){},
-            cancelFlight:function(){},
-            checkAvailability:function(){}
-        } 
+            bookFlight: function () { },
+            cancelFlight: function () { },
+            checkAvailability: function () { }
+        }
         console.log(FlightBookingSystem);
+
+
+        //  Music Band Manager 
+
+        var MusicBandManager = {
+            bandMembers: ['kiran', 'hari', 'kalyan'],
+            upcomingGigs: "pqr",
+            setlist: ['set1', 'set2', 'set3'],
+
+            addMember: function () { },
+            scheduleGig: function () { },
+            updateSetlist: function () { }
+
+        }
+        console.log(MusicBandManager);
+
+        // Blog Post Manager 
+
+        var BlogPostManager = {
+            postTitle: "MNO",
+            author: "pqr",
+            content: "ooo",
+            tags: "oikok",
+            createPost: function () { },
+            editPost: function () { },
+            deletePost: function () { }
+        }
+        console.log(BlogPostManager);
+
+        //  Fitness Challenge Tracker
+
+        var FitnessChallengeTracker = {
+            challengeName: "pqr",
+            participants: 212,
+            startDate: "21/2/2025",
+            endDate: "25/2/2025",
+            joinChallenge: function () { },
+            removeListing: function () { },
+            searchByCriteria: function () { }
+
+        }
+        console.log(FitnessChallengeTracker);
+
+        //  Project Management Tool 
+
+        var ProjectManagementTool = {
+            projectName: "mno",
+            description: "ybfcllhz.hxchjgvl.isu;x.gshflvh",
+            teamMembers: 5,
+            deadlines: "20/2/2025",
+            createProject: function () { },
+            assignTask: function () { },
+            trackProgress: function () { }
+        }
+        console.log(ProjectManagementTool);
+
+        //  Subscription Service
+
+        var SubscriptionService = {
+            subscriptionName: "gold",
+            price: 23255,
+            renewalDate: "20/2/2025",
+            subscribe: function () { },
+            unsubscribe: function () { },
+            viewDetails: function () { }
+        }
+        console.log(SubscriptionService);
+
+        // Pet Adoption Center
+
+        var PetAdoptionCenter = {
+            petName: "puppy",
+            breed: "ori",
+            age: "10 months",
+            adoptionStatus: "adopted",
+            addPet: function () { },
+            adoptPet: function () { },
+            searchAvailablePets: function () { },
+            deletepet: function () {
+                delete PetAdoptionCenter.age
+            }
+
+        }
+        PetAdoptionCenter.deletepet()
+        console.log(PetAdoptionCenter);
+
+        //  Wishlist Manager 
+
+        var WishlistManager = {
+            itemName: "ololol",
+            priorityLevel: "high",
+            price: 2012,
+            removeItem: function () {
+                delete WishlistManager.price
+            },
+            additem: function () { },
+            updatePriority: function () { }
+
+        }
+        WishlistManager.removeItem()
+
+        console.log(WishlistManager);
 
 
 
