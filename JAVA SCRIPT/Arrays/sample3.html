@@ -9,20 +9,21 @@
 
 <body>
     <script>
-        var students=['i','j','k','l','m','n','o']
+        var students = ['i', 'j', 'k', 'l', 'm', 'n', 'o']
         students.unshift("A")
         students.sort();
         students.reverse();
         students.shift();
-        students.splice(2,0,"h");
-        students.splice(3,2);
+        students.splice(2, 0, "h");
+        students.splice(3, 2);
         students.push("fff");
         students.pop();
 
         // document.write(students.length)
-        students.forEach(function(  )){
-            document.write("i am Attende"+"<br>")
-        })
+        students.forEach(function () {
+            document.write("i am Attende" + "<br>")
+           })
+
         document.write(students)
     </script>
 </body>
