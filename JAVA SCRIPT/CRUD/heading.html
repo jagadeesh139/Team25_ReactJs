@@ -27,10 +27,12 @@
         //     document.body.appendChild(head)
         // }
 
-        var anchorTags=Number(prompt("enter the value"))
+        var Tags=Number(prompt("enter the value"))
 
-        for(i=0;i<anchorTags;i++){
-            var anchor=document.createElement("a"); 
+        for(i=0;i<Tags;i++){
+            var anchor=document.createElement("a");
+            anchor.setAttribute("href","clickon me") 
+            anchor.textContent="click on Me"
             document.body.appendChild(anchor)
             
         }
