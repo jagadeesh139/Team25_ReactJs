@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Registration</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="form-container">
+        <h1>Event Registration</h1>
+        <form>
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+            <label for="phone">Phone</label>
+            <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
+
+            <label for="event">Event Name</label>
+            <input type="text" id="event" name="event" placeholder="Enter the event name" required>
+
+            <label for="date">Event Date</label>
+            <input type="date" id="date" name="date" required>
+
+            <button type="button" class="Submit-button" onclick="userregistration()">Register</button>
+        </form>
+    </div>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Full Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Event Name</th>
+                <th>Event Date</th>
+            </tr>
+        </thead>
+    </table>
+    <script>
+        var Users = [
+
+        ]
+
+        function displayUsers() {
+            document.querySelector("tbody").innerHTML = ""
+            allUsers.forEach(function (user) {
+                var myTr = document.createElement("tr");
+                for (a in user) {
+                    var myTd = document.createElement("td");
+                    myTd.innerHTML = user[a]
+                    myTr.appendChild(myTd)
+                }
+                document.querySelector("tbody").appendChild(myTr)
+            })
+            document.getElementById("name").value
+            document.getElementById("email").value
+            document.getElementById("phone").value
+            document.getElementById("event").value
+
+        }
+
+        function registeruser(){
+            var name=document.getElementById("name").value
+            var email=document.getElementById("email").value
+            var phone=document.getElementById("phone").value
+            var event=document.getElementById("event").value
+
+            var user={
+                name:name,
+                emial:email,
+                phone:phone,
+                event:event
+
+            }
+
+            Users.push(user)
+            displayUsers()
+
+
+
+
+            
+        }
+
+        
+         
+    </script>
+
+</body>
+
+</html>
