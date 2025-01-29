@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Registration</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="form-container">
+        <h1>Event Registration</h1>
+        <form>
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+            <label for="phone">Phone</label>
+            <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
+
+            <label for="event">Event Name</label>
+            <input type="text" id="event" name="event" placeholder="Enter the event name" required>
+
+            <label for="date">Event Date</label>
+            <input type="date" id="date" name="date" required>
+
+            <button type="button" onclick="Registeruser()">Register</button>
+        </form>
+    </div>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>fullName</th>
+                <th>Email</th>
+                <th>phone</th>
+                <th>Event Name</th>
+                <th>Event date</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+    <script>
+        var Users = [
+
+        ]
+
+        function Registeruser() {
+            var name = document.getElementById("name");
+            var email = document.getElementById("email");
+            var phone = document.getElementById("phone");
+            var eventname = document.getElementById("event")
+            var eventdate = document.getElementById("date")
+
+            var candidates = {
+                name: name,
+                email: email,
+                phone: phone,
+                event: event,
+                date: date
+            }
+
+            Users.push(candidates)
+
+            document.getElementById("name").value = ""
+            document.getElementById("email").value = ""
+            document.getElementById("phone").value = ""
+            document.getElementById("event").value = ""
+            document.getElementById("date").value = ""
+
+            displayusers()
+
+        }
+
+        function displayusers() {
+            document.querySelector("tbody").innerHTML = ""
+            Users.forEach(function (candidates) {
+                var tableTr = document.createElement("tr")
+                for (a in candidates) {
+                    var MyTd = document.createElement("td")
+                    MyTd.innerHTML = candidates[a]
+                    tableTr.appendChild(MyTd)
+                }
+                document.querySelector("tbody").appendChild(tableTr )
+            })
+
+        }
+        displayusers()
+
+
+
+    </script>
+</body>
+
+</html>

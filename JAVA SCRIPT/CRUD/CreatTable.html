@@ -8,14 +8,37 @@
 </head>
 
 <body>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>price</th>
+                <th>Details</th>
+                <th>Images</th>
+            </tr>
+        </thead>
+        <tbody id="MyTablebody"></tbody>
+    </table>
+
     <script>
-        var MyTable = document.createElement("table")
-        MyTable.setAttribute("border", "1")
-        var MyTableheading = document.createElement("thead")
-        var MyTableBody = document.createElement("tbody")
-        var MyTablerow = document.createElement("tr")
-        MyTableBody.appendChild(MyTablerow)
-        MyTableheading.appendChild(MyTablerow )
+        var products = [{
+            name: "kiran",
+            Id: 25325,
+            price: 253,
+            Details: "i am details",
+            Images: ""
+        }];
+        products.forEach(function (product, index) {
+            var MyTr = document.createElement("tr")
+            for (a in products) {
+                var MyTd = document.createElement("td")
+                MyTd.innerHTML = products[a]
+                MyTr.appendChild(MyTd)
+
+            }
+            document.getElementById("MyTablebody").appendChild(MyTr)
+        })
     </script>
 </body>
 

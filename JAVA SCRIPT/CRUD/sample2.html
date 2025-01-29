@@ -1,14 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <script>
-        var anchorTags=document.createElement("a")
-        
+        // var anchorTags = document.createElement("a")
+        // anchorTags.setAttribute("href","enter")
+        // anchorTags.textContent="click on me"
+        // document.body.appendChild(anchorTags)
+
+
+        var table = document.createElement("table")
+        table.setAttribute("border", "1")
+        var Tableheading = document.createElement("thead")
+        var Tablebody = document.createElement("tbody")
+        var Tablerow = document.createElement("tr")
+        Tablebody.appendChild(Tablerow)
+        Tableheading.appendChild(Tablerow)
+        console.log(table)
+
+
     </script>
 </body>
+
 </html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var MyTable = document.createElement("table")
+        MyTable.setAttribute("border","1")
+        var MyTableheading=document.createElement("thead")
+        var MyTablebody=document.createElement("tbody")
+
+        var Tr=document.createElement("tr")
+        MyTablebody.appendChild(Tr)
+
+        for(i=0;i<=3;i++){
+            MyTh=document.createElement("th")
+            MyTh.innerhtml="heading"+i;
+            MyTableheading.appendChild("MyTh")
+            MyTd=document.createElement("Td")
+            MyTd.innerhtml="Tabel body"+i;
+            MyTr.appendChild(MyTd)
+        }
+        MyTable.appendChild(MyTableheading)
+        MyTable.appendChild(MyTablebody)
+
+        document.body.appendChild(MyTable)
+
+    </script>
+</body>
+
+</html>
