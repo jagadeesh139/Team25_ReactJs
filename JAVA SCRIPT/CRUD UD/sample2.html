@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Gym Membership Registration</title>
   <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
   <div class="container">
     <!-- Form Column -->
@@ -18,11 +20,11 @@
         <label for="email">Email</label>
         <input type="email" id="email" name="email" placeholder="Enter your email" required>
 
-        <label>Gender</label>
+        <!-- <label>Gender</label>
         <div>
           <label><input type="radio" name="gender" value="male" required> Male</label><br>
           <label><input type="radio" name="gender" value="female" required> Female</label>
-        </div>
+        </div> -->
 
         <label for="membership">Membership Type</label>
         <select id="membership" name="membership" required>
@@ -31,7 +33,9 @@
           <option value="yearly">Yearly</option>
         </select>
 
-        <button type="submit">Join Now</button>
+        <button type="button" onclick="JoinNow()" id="registerBtn">Join Now</button>
+        <button type="button" onclick="updateUser()" id="updateBtn">Update</button>
+
       </form>
     </div>
 
@@ -41,13 +45,15 @@
       <table>
         <thead>
           <tr>
-            <th>Name</th>
+            <th>Full Name</th>
             <th>Email</th>
-            <th>Action</th>
+            <th>Membership Type</th>
+            <th>edit</th>
+            <th>delete</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
+          <!-- <tr>
             <td>John Doe</td>
             <td>john@example.com</td>
             <td>
@@ -62,10 +68,112 @@
               <button class="edit-btn">Edit</button>
               <button class="delete-btn">Delete</button>
             </td>
-          </tr>
+          </tr> -->
         </tbody>
       </table>
     </div>
   </div>
+
+  <script>
+    var User = [
+
+    ]
+
+    function JoinNow() {
+      var name = document.getElementById("name").value
+      var email = document.getElementById("email").value
+      var Membership = document.getElementById("membership").value
+
+
+      var Member = {
+        name,
+        email,
+        Membership
+      }
+      User.push(Member)
+
+      document.getElementById("name").value = ""
+      document.getElementById("email").value = ""
+      document.getElementById("membership").value = ""
+
+
+      displayusers()
+    }
+
+    function displayusers() {
+      document.querySelector("tbody").innerHTML = ""
+      User.forEach(function (Member, index) {
+        var MyTr = document.createElement("tr")
+        for (a in Member) {
+          var myTd = document.createElement("td")
+          myTd.innerHTML = Member[a]
+          MyTr.appendChild(myTd)
+        }
+
+        var editTd = document.createElement("td")
+        var editBtn = document.createElement("button")
+        editBtn.innerHTML = "edit"
+        editBtn.setAttribute("class", "edit-btn")
+        editBtn.setAttribute("onclick", "editUser(" + index + ")")
+        editTd.appendChild(editBtn)
+        MyTr.appendChild(editTd)
+
+        var deleteTd = document.createElement("td")
+        var deletebtn = document.createElement("button")
+        deletebtn.innerHTML = "delete"
+        deletebtn.setAttribute("class", "delete-btn")
+        deletebtn.setAttribute("onclick", "deleteUser(" + index + ")")
+        deleteTd.appendChild(deletebtn)
+        MyTr.appendChild(deleteTd)
+        document.querySelector("tbody").appendChild(MyTr)
+      })
+    }
+    displayusers()
+
+    function deleteUser(i) {
+
+      User.splice(i, 1)
+      displayusers()
+    }
+
+    var Edit;
+    function editUser(i) {
+      Edit = i;
+      document.getElementById("name").value = User[i].name
+      document.getElementById("email").value = User[i].email
+
+      document.getElementById("updateBtn").style.display = "block"
+      document.getElementById("registerBtn").style.display = "none"
+
+    }
+
+    function updateUser() {
+      var fullname = document.getElementById("name").value
+      var Email = document.getElementById("email").value
+
+      var candidate = {
+        fullname,
+        Email
+      }
+
+
+      User[Edit] = candidate;
+      displayusers();
+      document.getElementById("name").value = ""
+      document.getElementById("email").value = ""
+
+      document.getElementById("updateBtn").style.display = "none"
+      document.getElementById("registerBtn").style.display = "block"
+
+
+    }
+
+
+
+
+
+
+  </script>
 </body>
+
 </html>
