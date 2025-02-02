@@ -45,7 +45,8 @@
                     <tr>
                         <th>Username</th>
                         <th>Email</th>
-                        <th>Action</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -98,10 +99,35 @@
                             MyTd.innerHTML = reg[a]
                             MyTr.appendChild(MyTd)
                         }
+
+                        var editTd = document.createElement("td")
+                        var editBtn = document.createElement("button")
+                        editBtn.innerHTML = "edit";
+                        editBtn.setAttribute("class", "edit-btn")
+                        // editBtn.setAttribute("onclick","editUser("+ index +")")
+                        editTd.appendChild(editBtn)
+                        MyTr.appendChild(editTd)
+
+                        var deleteTd=document.createElement("td")
+                        var deleteBtn=document.createElement("button")
+                        deleteBtn.setAttribute("class","delete-btn")
+                        deleteBtn.innerHTML="Delete"
+                        // deleteBtn.setAttribute("onclick","deleteUser("+ index +")")
+                        deleteTd.appendChild(deleteBtn)
+                        MyTr.appendChild(deleteTd)
+
+                        document.querySelector("tbody").appendChild(MyTr)
                     })
 
                 }
                 displayUser()
+
+                function deleteUser(i){
+                    console.log("dleteuser!!"+i)
+                    Register.splice(i,1);
+                    displayUser()
+
+                }
 
 
 

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Newsletter Subscription</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="form-container">
+        <h1>Subscribe to Our Newsletter</h1>
+        <form>
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+
+
+            <button type="button" onclick="SubcribeUser()" id="SubcribeUserbtn">Subscribe</button>
+        </form>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Full Name</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+
+        <script>
+            var Subscribed = [
+
+            ]
+
+            function SubcribeUser() {
+                var FullName = document.getElementById("name").Value
+                var Email = document.getElementById("email").Value
+
+                var User = {
+                    FullName,
+                    Email
+                }
+                Subscribed.push(User)
+
+                document.getElementById("name").Value = ""
+                document.getElementById("email").Value = ""
+
+                displaytable()
+
+
+            }
+
+
+            function displaytable() {
+                document.querySelector("tbody").innerHTML = ""
+                Subscribed.forEach(function (User) {
+                    var MyTr = document.createElement("tr")
+                    for (a in User) {
+                        var MyTd = document.createElement("td")
+                        MyTd.innerHTML = User[a]
+                        MyTr.appendChild(MyTd)
+                        document.querySelector("tbody").appendChild(MyTr)
+                    }
+
+                })
+
+
+            }
+        </script>
+    </div>
+</body>
+
+</html>
