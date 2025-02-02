@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Commerce Signup</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="form-container">
+        <h1>Create an Account</h1>
+        <form>
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" placeholder="Enter your password" required>
+
+            <label for="address">Address</label>
+            <textarea id="address" name="address" placeholder="Enter your address" rows="3" required></textarea>
+
+            <button type="button" onclick="registerUser()" id="registerbtn">Sign Up</button>
+            <button type="button" onclick="UpdateUser()" id="UpdateUser"> Update</button>
+        </form>
+    </div>
+
+    <table>
+        <thead>
+            <th>Full Name</th>
+            <th>Email</th>
+            <th>Password</th>
+            <th>Address</th>
+            <th>edit</th>
+            <th>Delete</th>
+        </thead>
+        <tbody></tbody>
+    </table>
+
+    <script>
+        var Comerce = []
+
+        function registerUser() {
+            var FullName = document.getElementById("name").value
+            var Email = document.getElementById("email").value
+            var Password = document.getElementById("password").value
+            var Address = document.getElementById("address").value
+
+            var user = {
+                FullName,
+                Email,
+                Password,
+                Address
+            }
+
+            Comerce.push(user)
+
+            document.getElementById("name").value = ""
+            document.getElementById("email").value = ""
+            document.getElementById("password").value = ""
+            document.getElementById("address").value = ""
+
+
+            displayinTable()
+
+        }
+
+        function displayinTable() {
+            document.querySelector("tbody").innerHTML = ""
+            Comerce.forEach(function (user, index) {
+                var MyTr = document.createElement("tr")
+                for (a in user) {
+                    var MyTd = document.createElement("td")
+                    MyTd.innerHTML = user[a]
+                    MyTr.appendChild(MyTd)
+                    document.querySelector("tbody").appendChild(MyTr)
+                }
+
+                var editTd = document.createElement("td")
+                var editBtn = document.createElement("button")
+                editBtn.innerHTML = "Edit"
+                editBtn.setAttribute("class", "edit-btn")
+                // editBtn.setAttribute("onclick","editbtn("+ index +")")
+                editTd.appendChild(editBtn)
+                MyTr.appendChild(editTd)
+
+                var deleteTd = document.createElement("td")
+                var deleteBtn = document.createElement("button")
+                deleteBtn.innerHTML = "Delete"
+                deleteBtn.setAttribute("class", "delete-btn")
+                deleteBtn.setAttribute("onclick", "deletebtn(" + index + ")")
+                deleteTd.appendChild(deleteBtn)
+                MyTr.appendChild(deleteTd)
+
+            })
+        }
+        displayinTable();
+
+        function deletebtn(i) {
+            console.log("delete user !!" + i)
+            Comerce.splice(i, 1);
+            displayinTable();
+
+        }
+        var Iindex;
+        function editbtn(i) {
+            Iindex = i;
+            document.getElementById("name").value = Comerce[i].FullName
+            document.getElementById("email").value = Comerce[i].Email
+            document.getElementById("password").value = Comerce[i].Password
+            document.getElementById("address").value = Comerce[i].Address
+
+            document.getElementById("UpdateUser").style.display = "block"
+            document.getElementById("registerbtn").style.display = "none"
+
+        }
+
+        function UpdateUser() {
+            var FullName = document.getElementById("name").value
+            var Email = document.getElementById("email").value
+            var Password = document.getElementById("password").value
+            var Address = document.getElementById("address").value
+
+            var Users = {
+                FullName,
+                Email,
+                Password,
+                Address
+            }
+
+            Comerce[Iindex] = Users;
+            displayinTable();
+
+            document.getElementById("name").value = ""
+            document.getElementById("email").value = ""
+            document.getElementById("password").value = ""
+            document.getElementById("address").value = ""
+
+            document.getElementById("UpdateUser").style.display = "none"
+            document.getElementById("registerbtn").style.display = "block"
+
+        }
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

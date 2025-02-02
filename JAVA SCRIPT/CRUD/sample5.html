@@ -25,6 +25,7 @@
             <input type="text" id="position" name="position" placeholder="Enter the position" required>
 
             <button type="button" onclick="Applicationuser()" id="Applicationbtn">Apply</button>
+            <button type="button" onclick="Updateuser()" id="updateBtn">Update</button>
         </form>
     </div>
 
@@ -33,8 +34,10 @@
             <tr>
                 <th>Name</th>
                 <th>Email</th>
-                <th>phone</th>
+                <th>Phone</th>
                 <th>Position</th>
+                <th>Edit</th>
+                <th>Delete</th>
             </tr>
         </thead>
         <tbody></tbody>
@@ -69,18 +72,92 @@
 
         function displayinTable() {
             document.querySelector("tbody").innerHTML = ""
-            Application.forEach(function (Users) {
+            Application.forEach(function (Users, index) {
                 var MyTr = document.createElement("tr")
                 for (a in Users) {
                     var MyTd = document.createElement("td")
-                    MyTd.innerHTML = Users.[a]
+                    MyTd.innerHTML = Users[a]
                     MyTr.appendChild(MyTd)
                     document.querySelector("tbody").appendChild(MyTr)
                 }
+
+                var editTd = document.createElement("td")
+                var editBtn = document.createElement("button")
+                editBtn.innerHTML = "Edit"
+                editBtn.setAttribute("class", "edit-btn")
+                editBtn.setAttribute("onclick", "edituser(" + index + ")")
+                editTd.appendChild(editBtn)
+                MyTr.appendChild(editTd)
+
+
+                var deleteTd = document.createElement("td")
+                var deleteBtn = document.createElement("button")
+                deleteBtn.innerHTML = "delete"
+                deleteBtn.setAttribute("class", "edit-btn")
+                deleteBtn.setAttribute("onclick", "DeleteUser(" + index + ")")
+                deleteTd.appendChild(deleteBtn)
+                MyTr.appendChild(deleteTd)
+
             })
 
         }
         displayinTable()
+
+        function DeleteUser(i) {
+            console.log("delete User !!!" + i)
+            Application.splice(i, 1);
+            displayinTable()
+
+        }
+
+        var Iindex;
+
+        function edituser(i) {
+            Iindex = i;
+            document.getElementById("name").value = Application[i].Fullname
+            document.getElementById("email").value = Application[i].Email
+            document.getElementById("phone").value = Application[i].Phone
+            document.getElementById("position").value = Application[i].Position
+
+
+            document.getElementById("Applicationbtn").style.display = "none"
+            document.getElementById("updateBtn").style.display = "block"
+        }
+
+        function Updateuser() {
+            var Name = document.getElementById("name").value
+            var Email = document.getElementById("email").value
+            var Phone = document.getElementById("phone").value
+            var Position = document.getElementById("position").value
+
+            var Users = {
+                Name,
+                Email,
+                Phone,
+                Position
+            }
+
+            Application[Iindex] = Users
+
+            document.getElementById("name").value = ""
+            document.getElementById("email").value = ""
+            document.getElementById("phone").value = ""
+            document.getElementById("position").value = ""
+
+
+            document.getElementById("Applicationbtn").style.display = "block"
+            document.getElementById("updateBtn").style.display = "none"
+
+
+
+
+        }
+
+
+
+
+
+
     </script>
 
 </body>
