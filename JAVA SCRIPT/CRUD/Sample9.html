@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Registration</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="form-container">
+        <h1>Travel Registration</h1>
+        <form>
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+            <label for="destination">Destination</label>
+            <input type="text" id="destination" name="destination" placeholder="Enter your destination" required>
+
+            <label for="date">Travel Date</label>
+            <input type="date" id="date" name="date" required>
+
+            <button type="button" onclick="resgistrationUser()" id="RegistrationBtn">Register</button>
+            <button type="button" onclick="UpdateUser()" id="updateBtn">Update</button>
+        </form>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>Full Name</th>
+                <th>Email</th>
+                <th>Destination</th>
+                <th>Travel Date</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+
+    <script>
+        var Customer = [
+
+        ]
+
+        function resgistrationUser() {
+            var FullName = document.getElementById("name").value
+            var Email = document.getElementById("email").value
+            var Destination = document.getElementById("destination").value
+            var TravelDate = document.getElementById("date").value
+
+
+            var User = {
+                FullName,
+                Email,
+                Destination,
+                TravelDate
+            }
+
+            Customer.push(User)
+
+            displayinTable()
+
+            document.getElementById("name").value = ""
+            document.getElementById("email").value = ""
+            document.getElementById("destination").value = ""
+            document.getElementById("date").value = ""
+        }
+
+        function displayinTable() {
+            document.querySelector("tbody").innerHTML = ""
+
+            Customer.forEach(function (User, index) {
+                var MyTr = document.createElement("tr")
+
+                for (a in User) {
+                    var MyTd = document.createElement("td")
+                    MyTd.innerHTML = User[a]
+                    MyTr.appendChild(MyTd)
+                    document.querySelector("tbody").appendChild(MyTr)
+                }
+
+                var editTd = document.createElement("td")
+                var editBtn = document.createElement("button")
+                editBtn.innerHTML = "Edit"
+                editBtn.setAttribute("class", "edit-btn")
+                editBtn.setAttribute("onclick", "edituser(" + index + ")")
+                editTd.appendChild(editBtn)
+                MyTr.appendChild(editTd)
+
+                var deleteTd = document.createElement("td")
+                var deleteBtn = document.createElement("button")
+                deleteBtn.innerHTML = "Delete"
+                deleteBtn.setAttribute("class", "delete-btn")
+                deleteBtn.setAttribute("onclick", "deleteuser(" + index + ")")
+                deleteTd.appendChild(deleteBtn)
+                MyTr.appendChild(deleteTd)
+            })
+
+        }
+        displayinTable()
+
+        function deleteuser(i) {
+            console.log("delete user" + i)
+            Customer.splice(i, 1)
+            displayinTable()
+        }
+
+        var Iindex;
+
+        function edituser(i) {
+            Iindex = i;
+
+            document.getElementById("name").value = Customer[i].FullName
+            document.getElementById("email").value = Customer[i].Email
+            document.getElementById("destination").value = Customer[i].Destination
+            document.getElementById("date").value = Customer[i].TravelDate
+
+            document.getElementById("RegistrationBtn").style.display = "none"
+            document.getElementById("updateBtn").style.display = "block"
+        }
+
+        function UpdateUser() {
+
+            var FullName = document.getElementById("name").value
+            var Email = document.getElementById("email").value
+            var Destination = document.getElementById("destination").value
+            var TravelDate = document.getElementById("date").value
+
+            var User = {
+                FullName,
+                Email,
+                Destination,
+                TravelDate
+            }
+
+            Customer[Iindex] = User
+            displayinTable()
+
+            document.getElementById("name").value = ""
+            document.getElementById("email").value = ""
+            document.getElementById("destination").value = ""
+            document.getElementById("date").value = ""
+
+            document.getElementById("RegistrationBtn").style.display = "block"
+            document.getElementById("updateBtn").style.display = "none"
+
+        }
+
+
+    </script>
+</body>
+
+</html>
