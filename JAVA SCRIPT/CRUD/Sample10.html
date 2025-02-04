@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Booking</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="form-container">
+        <h1>Hotel Booking</h1>
+        <form>
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+            <label for="checkin">Check-in Date</label>
+            <input type="date" id="checkin" name="checkin" required>
+
+            <label for="checkout">Check-out Date</label>
+            <input type="date" id="checkout" name="checkout" required>
+
+            <!-- <label for="room">Room Type</label>
+      <select id="room" name="room" required>
+        <option value="single">Single</option>
+        <option value="double">Double</option>
+        <option value="suite">Suite</option>
+      </select> -->
+
+            <button type="button" onclick="BookingUser()" id="RegistrationBtn">Book Now</button>
+            <button type="button" onclick="Updateuser()" id="updateBtn">Update</button>
+        </form>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>FullName</th>
+                <th>Email</th>
+                <th>Check-in Date</th>
+                <th>Check-out Date</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+    <script>
+        var Booking = [
+
+        ]
+
+        function BookingUser() {
+            var FullName = document.getElementById("name").value
+            var Email = document.getElementById("email").value
+            var CheckinDate = document.getElementById("checkin").value
+            var CheckoutDate = document.getElementById("checkout").value
+
+            var Customer = {
+                FullName,
+                Email,
+                CheckinDate,
+                CheckoutDate
+            }
+
+            Booking.push(Customer)
+
+            displayinTable()
+
+            document.getElementById("name").value = ""
+            document.getElementById("email").value = ""
+            document.getElementById("checkin").value = ""
+            document.getElementById("checkout").value = ""
+
+
+        }
+
+        function displayinTable() {
+            document.querySelector("tbody").innerHTML = ""
+            Booking.forEach(function (Customer, index) {
+                var MyTr = document.createElement("tr")
+                for (a in Customer) {
+                    var MyTd = document.createElement("td")
+                    MyTd.innerHTML = Customer[a]
+                    MyTr.appendChild(MyTd)
+                    document.querySelector("tbody").appendChild(MyTr)
+                }
+
+                var editTd = document.createElement("td")
+                var editBtn = document.createElement("button")
+                editBtn.innerHTML = "Edit"
+                editBtn.setAttribute("class", "edit-btn")
+                editBtn.setAttribute("onclick", "editUser(" + index + ")")
+                editTd.appendChild(editBtn)
+                MyTr.appendChild(editTd)
+
+                var deleteTd = document.createElement("td")
+                var deleteBtn = document.createElement("button")
+                deleteBtn.innerHTML = "Delete"
+                deleteBtn.setAttribute("class", "delete-btn")
+                deleteBtn.setAttribute("onclick", "deleteUser(" + index + ")")
+                deleteTd.appendChild(deleteBtn)
+                MyTr.appendChild(deleteTd)
+            })
+        }
+        displayinTable()
+
+        function deleteUser(i) {
+            console.log("deleteUser !!!" + i)
+            Booking.splice(i, 1)
+            displayinTable()
+        }
+
+        var Iindex;
+
+        function editUser(i) {
+            Iindex = i;
+            document.getElementById("name").value = Booking[i].FullName
+            document.getElementById("email").value = Booking[i].Email
+            document.getElementById("checkin").value = Booking[i].CheckinDate
+            document.getElementById("checkout").value = Booking[i].CheckoutDate
+
+            document.getElementById("RegistrationBtn").style.display = "none"
+            document.getElementById("updateBtn").style.display = "block"
+        }
+
+        function Updateuser() {
+            var FullName = document.getElementById("name").value
+            var Email = document.getElementById("email").value
+            var CheckinDate = document.getElementById("checkin").value
+            var CheckoutDate = document.getElementById("checkout").value
+
+            var Customer = {
+                FullName,
+                Email,
+                CheckinDate,
+                CheckoutDate
+            }
+
+            Booking[Iindex] = Customer
+
+            document.getElementById("name").value = ""
+            document.getElementById("email").value = ""
+            document.getElementById("checkin").value = ""
+            document.getElementById("checkout").value = ""
+
+
+            document.getElementById("RegistrationBtn").style.display = "block"
+            document.getElementById("updateBtn").style.display = "none"
+
+
+
+
+        }
+
+
+
+
+    </script>
+</body>
+
+</html>
