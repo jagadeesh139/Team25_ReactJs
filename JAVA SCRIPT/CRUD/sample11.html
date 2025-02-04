@@ -22,6 +22,7 @@
             <input type="password" id="password" name="password" placeholder="Enter your password" required>
 
             <button type="button" onclick="SignUpUser()" id="SignUpbtn">Sign Up</button>
+            <button type="button" onclick="updateuser()" id="updateBtn">Update</button>
         </form>
     </div>
     <table>
@@ -98,27 +99,60 @@
         displayinTable()
 
         function deleteUser(i) {
-            console.log("deleteUser!!!" + i)
+            console.log("Delete user !!" + i)
+            Media.splice(i, 1)
             displayinTable()
 
         }
+
+
+
+
 
         var Iindex;
 
         function editUser(i) {
             Iindex = i;
 
-            document.getElementById("username").value 
+            document.getElementById("username").value = Media[i].Username
+            document.getElementById("email").value = Media[i].Email
+            document.getElementById("password").value = Media[i].Password
+
+            document.getElementById("SignUpbtn").style.display = "none"
+            document.getElementById("updateBtn").style.display = "block"
+        }
+
+        function updateuser() {
+
+            var Username = document.getElementById("username").value
+            var Email = document.getElementById("email").value
+            var Password = document.getElementById("password").value
+
+            var Social = {
+                Username,
+                Email,
+                Password
+
+            }
+
+            Media[Iindex] = Social
+            displayinTable()
+
+
+            document.getElementById("username").value = ""
             document.getElementById("email").value = ""
             document.getElementById("password").value = ""
 
 
-
+            document.getElementById("SignUpbtn").style.display = "block"
+            document.getElementById("updateBtn").style.display = "none"
 
 
 
 
         }
+
+
 
 
     </script>
