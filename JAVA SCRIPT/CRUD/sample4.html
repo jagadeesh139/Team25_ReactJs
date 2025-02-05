@@ -46,49 +46,47 @@
 
         ]
 
-        function displayUsers() {
-            document.querySelector("tbody").innerHTML = ""
-            allUsers.forEach(function (user) {
-                var myTr = document.createElement("tr");
-                for (a in user) {
-                    var myTd = document.createElement("td");
-                    myTd.innerHTML = user[a]
-                    myTr.appendChild(myTd)
-                }
-                document.querySelector("tbody").appendChild(myTr)
-            })
-            document.getElementById("name").value
-            document.getElementById("email").value
-            document.getElementById("phone").value
-            document.getElementById("event").value
+        function registeruser() {
+            var name = document.getElementById("name").value
+            var email = document.getElementById("email").value
+            var phone = document.getElementById("phone").value
+            var event = document.getElementById("event").value
 
-        }
-
-        function registeruser(){
-            var name=document.getElementById("name").value
-            var email=document.getElementById("email").value
-            var phone=document.getElementById("phone").value
-            var event=document.getElementById("event").value
-
-            var user={
-                name:name,
-                emial:email,
-                phone:phone,
-                event:event
+            var register = {
+                name: name,
+                emial: email,
+                phone: phone,
+                event: event
 
             }
 
-            Users.push(user)
+            Users.push(register)
             displayUsers()
-
-
-
-
-            
         }
 
-        
-         
+        function displayUsers() {
+            document.querySelector("tbody").innerHTML = ""
+            Users.forEach(function (register) {
+                var myTr = document.createElement("tr");
+                for (a in register) {
+                    var myTd = document.createElement("td");
+                    myTd.innerHTML = register[a]
+                    myTr.appendChild(myTd)
+                    document.querySelector("tbody").appendChild(myTr)
+                }
+                
+            })
+            document.getElementById("name").value = ""
+            document.getElementById("email").value = ""
+            document.getElementById("phone").value = ""
+            document.getElementById("event").value = ""
+        }
+        displayUsers()
+
+
+
+
+
     </script>
 
 </body>
