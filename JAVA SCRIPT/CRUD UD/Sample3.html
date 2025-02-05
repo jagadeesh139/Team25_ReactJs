@@ -21,17 +21,17 @@
                 <input type="email" id="email" name="email" placeholder="Enter your email" required>
 
                 <label>Gender</label>
-        <div>
-          <label><input type="radio" name="gender" value="male" required> Male</label><br>
-          <label><input type="radio" name="gender" value="female" required> Female</label>
-        </div>
+                <div>
+                    <label><input type="radio" name="gender" value="male" required> Male</label><br>
+                    <label><input type="radio" name="gender" value="female" required> Female</label>
+                </div>
 
                 <label>Interests</label>
-        <div>
-          <label><input type="checkbox" name="interests" value="tech"> Technology</label><br>
-          <label><input type="checkbox" name="interests" value="sports"> Sports</label><br>
-          <label><input type="checkbox" name="interests" value="music"> Music</label>
-        </div>
+                <div>
+                    <label><input type="checkbox" name="interests" value="tech"> Technology</label><br>
+                    <label><input type="checkbox" name="interests" value="sports"> Sports</label><br>
+                    <label><input type="checkbox" name="interests" value="music"> Music</label>
+                </div>
 
                 <button type="button" onclick="registeruser()" id="registerBtn">Sign Up</button>
                 <button type="button" onclick="UpdateUser()" id="Updatebtn" style="display: none;">update</button>
@@ -80,27 +80,31 @@
                 function registeruser() {
                     var Username = document.getElementById("username").value
                     var Email = document.getElementById("email").value
-                   
+
 
                     var user = {
                         Username,
                         Email,
-                        gender:[],
-                        Options:[]
+                        gender: [],
+                        interests: []
 
                     }
 
                     // radio
 
-                    var allradio=document.getElementsByName("gender")
-                    for(i=0;i<allradio.length;i++){
-                        if(allradio[i].checked==true){
+                    var allradio = document.getElementsByName("gender")
+                    for (i = 0; i < allradio.length; i++) {
+                        if (allradio[i].checked == true) {
                             user.gender.push(allradio[i].value);
                         }
-                        allradio[i].checked=false;
+                        allradio[i].checked = false;
                     }
-                    var allCheckBoxes=document.getElementsByName("interests")
-                    for(i=0;i<allCheckBoxes.length;i++)
+                    var allCheckBoxes = document.getElementsByName("interests")
+                    for (i = 0; i < allCheckBoxes.length; i++) {
+                        if (allCheckBoxes[i].checked == true) {
+                            user.interests.push(allCheckBoxes[i].value)
+                        }
+                    }
                     Register.push(user)
 
                     document.getElementById("username").value = ""
@@ -155,6 +159,16 @@
                     document.getElementById("username").value = Register[i].Username
                     document.getElementById("email").value = Register[i].Email
 
+                    var allradio = document.getElementsByName("gender")
+                    for (j = 0; j < allradio.length; j++) {
+                        allradio[j].checked = Register[i].gender.includes(allradio[j].value);
+                    }
+
+                    var allCheckBoxes = document.getElementsByName("intrestes");
+                    for (k = 0; k < allCheckBoxes.length; k++) {
+                        allCheckBoxes[k].checked = Register[i].interests.includes(allCheckBoxes[k].value)
+                    }
+
                     document.getElementById("registerBtn").style.display = "none"
                     document.getElementById("Updatebtn").style.display = "block"
                 }
@@ -165,7 +179,26 @@
 
                     var user = {
                         Username,
-                        Email
+                        Email,
+                        gender: [],
+                        interests: []
+
+                    }
+
+                    // radio
+
+                    var allradio = document.getElementsByName("gender")
+                    for (i = 0; i < allradio.length; i++) {
+                        if (allradio[i].checked == true) {
+                            user.gender.push(allradio[i].value);
+                        }
+                        allradio[i].checked = false;
+                    }
+                    var allCheckBoxes = document.getElementsByName("interests")
+                    for (i = 0; i < allCheckBoxes.length; i++) {
+                        if (allCheckBoxes[i].checked == true) {
+                            user.interests.push(allCheckBoxes[i].value)
+                        }
                     }
 
                     Register[Iindex] = user
