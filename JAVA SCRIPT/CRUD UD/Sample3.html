@@ -33,7 +33,8 @@
           <label><input type="checkbox" name="interests" value="music"> Music</label>
         </div> -->
 
-                <button type="button" onclick="registeruser()">Sign Up</button>
+                <button type="button" onclick="registeruser()" id="registerBtn">Sign Up</button>
+                <button type="button" onclick="UpdateUser()" id="Updatebtn">update</button>
             </form>
         </div>
 
@@ -75,12 +76,12 @@
                 ]
 
                 function registeruser() {
-                    var name = document.getElementById("username").value
-                    var email = document.getElementById("email").value
+                    var Username = document.getElementById("username").value
+                    var Email = document.getElementById("email").value
 
                     var reg = {
-                        name,
-                        email
+                        Username,
+                        Email
                     }
                     Register.push(reg)
 
@@ -92,7 +93,7 @@
 
                 function displayUser() {
                     document.querySelector("tbody").innerHTML = ""
-                    Register.forEach(function (reg) {
+                    Register.forEach(function (reg, index) {
                         var MyTr = document.createElement("tr")
                         for (a in reg) {
                             var MyTd = document.createElement("td")
@@ -104,15 +105,15 @@
                         var editBtn = document.createElement("button")
                         editBtn.innerHTML = "edit";
                         editBtn.setAttribute("class", "edit-btn")
-                        // editBtn.setAttribute("onclick","editUser("+ index +")")
+                        editBtn.setAttribute("onclick", "editUser(" + index + ")")
                         editTd.appendChild(editBtn)
                         MyTr.appendChild(editTd)
 
-                        var deleteTd=document.createElement("td")
-                        var deleteBtn=document.createElement("button")
-                        deleteBtn.setAttribute("class","delete-btn")
-                        deleteBtn.innerHTML="Delete"
-                        // deleteBtn.setAttribute("onclick","deleteUser("+ index +")")
+                        var deleteTd = document.createElement("td")
+                        var deleteBtn = document.createElement("button")
+                        deleteBtn.setAttribute("class", "delete-btn")
+                        deleteBtn.innerHTML = "Delete"
+                        deleteBtn.setAttribute("onclick", "deleteUser(" + index + ")")
                         deleteTd.appendChild(deleteBtn)
                         MyTr.appendChild(deleteTd)
 
@@ -122,10 +123,46 @@
                 }
                 displayUser()
 
-                function deleteUser(i){
-                    console.log("dleteuser!!"+i)
-                    Register.splice(i,1);
+                function deleteUser(i) {
+                    console.log("dleteuser!!" + i)
+                    Register.splice(i, 1);
                     displayUser()
+
+                }
+
+                var Iindex;
+                function editUser(i) {
+                    Iindex = i;
+                    
+                    document.getElementById("username").value = Register[i].Username
+                    document.getElementById("email").value = Register[i].Email
+
+                    document.getElementById("registerBtn").style.display = "none"
+                    document.getElementById("Updatebtn").style.display = "block"
+                }
+
+                function UpdateUser() {
+                    var Username = document.getElementById("username").value
+                    var Email = document.getElementById("email").value
+
+                    var reg = {
+                        Username,
+                        Email
+                    }
+
+                    Register[Iindex] = reg
+                    displayUser()
+
+                    document.getElementById("username").value = ""
+                    document.getElementById("email").value = ""
+
+                    document.getElementById("registerBtn").style.display = "block"
+                    document.getElementById("Updatebtn").style.display = "none"
+
+
+
+
+
 
                 }
 
