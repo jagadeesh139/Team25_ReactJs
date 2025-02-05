@@ -20,18 +20,18 @@
                 <label for="email">Email</label>
                 <input type="email" id="email" name="email" placeholder="Enter your email" required>
 
-                <!-- <label>Gender</label>
+                <label>Gender</label>
         <div>
           <label><input type="radio" name="gender" value="male" required> Male</label><br>
           <label><input type="radio" name="gender" value="female" required> Female</label>
-        </div> -->
+        </div>
 
-                <!-- <label>Interests</label>
+                <label>Interests</label>
         <div>
           <label><input type="checkbox" name="interests" value="tech"> Technology</label><br>
           <label><input type="checkbox" name="interests" value="sports"> Sports</label><br>
           <label><input type="checkbox" name="interests" value="music"> Music</label>
-        </div> -->
+        </div>
 
                 <button type="button" onclick="registeruser()" id="registerBtn">Sign Up</button>
                 <button type="button" onclick="UpdateUser()" id="Updatebtn" style="display: none;">update</button>
@@ -46,6 +46,8 @@
                     <tr>
                         <th>Username</th>
                         <th>Email</th>
+                        <th>Gender</th>
+                        <th>Interests</th>
                         <th>Edit</th>
                         <th>Delete</th>
                     </tr>
@@ -78,11 +80,27 @@
                 function registeruser() {
                     var Username = document.getElementById("username").value
                     var Email = document.getElementById("email").value
+                   
 
                     var user = {
                         Username,
-                        Email
+                        Email,
+                        gender:[],
+                        Options:[]
+
                     }
+
+                    // radio
+
+                    var allradio=document.getElementsByName("gender")
+                    for(i=0;i<allradio.length;i++){
+                        if(allradio[i].checked==true){
+                            user.gender.push(allradio[i].value);
+                        }
+                        allradio[i].checked=false;
+                    }
+                    var allCheckBoxes=document.getElementsByName("interests")
+                    for(i=0;i<allCheckBoxes.length;i++)
                     Register.push(user)
 
                     document.getElementById("username").value = ""
