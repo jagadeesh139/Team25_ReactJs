@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>E-Commerce Signup</title>
   <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
   <div class="container">
     <!-- Form Column -->
@@ -31,7 +33,8 @@
           <option value="admin">Admin</option>
         </select>
 
-        <button type="submit">Sign Up</button>
+        <button type="button" onclick="SignupUser()" id="SignUpbtn">Sign Up</button>
+        <button type="button" onclick="Updateuser()" id="updateBtn">Update</button>
       </form>
     </div>
 
@@ -42,12 +45,15 @@
         <thead>
           <tr>
             <th>Name</th>
+            <th>Email</th>
             <th>Account Type</th>
-            <th>Action</th>
+            <th>Gender</th>
+            <th>edit</th>
+            <th>delete</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
+          <!-- <tr>
             <td>John Doe</td>
             <td>Buyer</td>
             <td>
@@ -62,10 +68,143 @@
               <button class="edit-btn">Edit</button>
               <button class="delete-btn">Delete</button>
             </td>
-          </tr>
+          </tr> -->
         </tbody>
       </table>
+      <script>
+        var Comerce = [
+
+        ]
+
+        function SignupUser() {
+          var FullName = document.getElementById("name").value
+          var Email = document.getElementById("email").value
+          var AccountType = document.getElementById("account-type").value
+
+          var User = {
+            FullName,
+            Email,
+            AccountType,
+            gender: []
+
+          }
+
+          var allradio = document.getElementsByName("gender")
+          for (i = 0; i < allradio.length; i++) {
+            if (allradio[i].checked == true) {
+              User.gender.push(allradio[i].value)
+            }
+            allradio[i].checked == false
+          }
+
+          Comerce.push(User)
+
+          document.getElementById("name").value = ""
+          document.getElementById("email").value = ""
+          document.getElementById("account-type").value = ""
+
+
+          displayinTable()
+
+        }
+
+        function displayinTable() {
+
+          document.querySelector("tbody").innerHTML = ""
+          Comerce.forEach(function (User, index) {
+            var myTr = document.createElement("tr")
+            for (a in User) {
+              var myTd = document.createElement("td")
+              myTd.innerHTML = User[a]
+              myTr.appendChild(myTd)
+              document.querySelector("tbody").appendChild(myTr)
+            }
+
+            var editTd = document.createElement("td")
+            var editBtn = document.createElement("button")
+            editBtn.innerHTML = "Edit"
+            editBtn.setAttribute("class", "edit-btn")
+            editBtn.setAttribute("onclick", "edituser(" + index + ")")
+            editTd.appendChild(editBtn)
+            myTr.appendChild(editTd)
+
+            var deleteTd = document.createElement("td")
+            var deleteBtn = document.createElement("button")
+            deleteBtn.innerHTML = "Delete"
+            deleteBtn.setAttribute("class", "delete-btn")
+            deleteBtn.setAttribute("onclick", "deleteuser(" + index + ")")
+            deleteTd.appendChild(deleteBtn)
+            myTr.appendChild(deleteTd)
+
+          })
+        }
+        displayinTable()
+
+        function deleteuser(i) {
+          console.log("deleteUser !!" + i)
+          Comerce.splice(i, 1)
+          displayinTable()
+
+
+        }
+
+        var Iindex;
+
+        function edituser(i) {
+          Iindex = i;
+          document.getElementById("name").value = Comerce[i].FullName
+          document.getElementById("email").value = Comerce[i].Email
+          document.getElementById("account-type").value = Comerce[i].AccountType
+
+          var allradio = document.getElementsByName("gender")
+          for (j = 0; j < allradio.length; j++) {
+            allradio[j].checked = Comerce[i].gender.includes(allradio[j].value)
+          }
+
+          document.getElementById("SignUpbtn").style.display = "none"
+          document.getElementById("updateBtn").style.display = "block"
+
+        }
+
+        function Updateuser() {
+
+          var FullName = document.getElementById("name").value
+          var Email = document.getElementById("email").value
+          var AccountType = document.getElementById("account-type").value
+
+          var User = {
+            FullName,
+            Email,
+            AccountType,
+            gender: []
+
+          }
+
+          Comerce[Iindex] = User
+          displayinTable()
+
+
+          var allradio = document.getElementsByName("gender")
+          for (i = 0; i < allradio.length; i++) {
+            if (allradio[i].checked == true) {
+              User.gender.push(allradio[i].value)
+            }
+            allradio[i].checked == false
+          }
+
+
+          document.getElementById("name").value = ""
+          document.getElementById("email").value = ""
+          document.getElementById("account-type").value = ""
+
+          document.getElementById("SignUpbtn").style.display = "block"
+          document.getElementById("updateBtn").style.display = "none"
+
+        }
+
+      </script>
     </div>
   </div>
 </body>
+
 </html>

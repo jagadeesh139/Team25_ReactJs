@@ -20,11 +20,11 @@
         <label for="email">Email</label>
         <input type="email" id="email" name="email" placeholder="Enter your email" required>
 
-        <!-- <label>Gender</label>
+        <label>Gender</label>
         <div>
           <label><input type="radio" name="gender" value="male" required> Male</label><br>
           <label><input type="radio" name="gender" value="female" required> Female</label>
-        </div> -->
+        </div>
 
         <label for="membership">Membership Type</label>
         <select id="membership" name="membership" required>
@@ -48,6 +48,7 @@
             <th>Full Name</th>
             <th>Email</th>
             <th>Membership Type</th>
+            <th>Gender</th>
             <th>edit</th>
             <th>delete</th>
           </tr>
@@ -88,8 +89,18 @@
       var Member = {
         name,
         email,
-        Membership
+        Membership,
+        gender: []
       }
+
+      var allradio = document.getElementsByName("gender")
+      for (i = 0; i < allradio.length; i++) {
+        if (allradio[i].checked == true) {
+          Member.gender.push(allradio[i].value)
+        }
+        allradio[i].checked == false
+      }
+
       User.push(Member)
 
       document.getElementById("name").value = ""
@@ -140,6 +151,12 @@
       Edit = i;
       document.getElementById("name").value = User[i].name
       document.getElementById("email").value = User[i].email
+      document.getElementById("membership").value = User[i].Membership
+
+      var allradio = document.getElementsByName("gender")
+      for (j = 0; j < allradio.length; j++) {
+        allradio[j].checked == User[i].gender.includes(allradio[j].value)
+      }
 
       document.getElementById("updateBtn").style.display = "block"
       document.getElementById("registerBtn").style.display = "none"
@@ -149,18 +166,33 @@
     function updateUser() {
       var fullname = document.getElementById("name").value
       var Email = document.getElementById("email").value
+      var Membership = document.getElementById("membership").value
 
-      var candidate = {
+
+      var Member = {
         fullname,
-        Email
+        Email,
+        Membership,
+        gender: []
       }
 
 
-      User[Edit] = candidate;
+      var allradio = document.getElementsByName("gender")
+      for (i = 0; i < allradio.length; i++) {
+        if (allradio[i].checked == true) {
+          Member.gender.push(allradio[i].value)
+        }
+        allradio[i].checked == false
+      }
+
+
+      User[Edit] = Member;
       displayusers();
 
       document.getElementById("name").value = ""
       document.getElementById("email").value = ""
+      document.getElementById("membership").value = ""
+
 
       document.getElementById("updateBtn").style.display = "none"
       document.getElementById("registerBtn").style.display = "block"

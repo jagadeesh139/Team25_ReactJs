@@ -23,6 +23,12 @@
 
             <label for="date">Travel Date</label>
             <input type="date" id="date" name="date" required>
+            <label>Travel Preferences</label>
+            <div>
+                <label><input type="checkbox" name="preferences" value="window-seat"> Window Seat</label><br>
+                <label><input type="checkbox" name="preferences" value="aisle-seat"> Aisle Seat</label><br>
+                <label><input type="checkbox" name="preferences" value="meal-included"> Meal Included</label>
+            </div>
 
             <button type="button" onclick="resgistrationUser()" id="RegistrationBtn">Register</button>
             <button type="button" onclick="UpdateUser()" id="updateBtn">Update</button>
@@ -35,6 +41,7 @@
                 <th>Email</th>
                 <th>Destination</th>
                 <th>Travel Date</th>
+                <th>preference</th>
                 <th>Edit</th>
                 <th>Delete</th>
             </tr>
@@ -58,7 +65,16 @@
                 FullName,
                 Email,
                 Destination,
-                TravelDate
+                TravelDate,
+                preferences: []
+            }
+
+            var allCheckBoxes = document.getElementsByName("preferences")
+            for (i = 0; i < allCheckBoxes.length; i++) {
+                if (allCheckBoxes[i].checked == true) {
+                    User.preferences.push(allCheckBoxes[i].value)
+                }
+                allCheckBoxes[i].checked == false
             }
 
             Customer.push(User)
@@ -120,6 +136,12 @@
             document.getElementById("destination").value = Customer[i].Destination
             document.getElementById("date").value = Customer[i].TravelDate
 
+            var allCheckBoxes = document.getElementsByName("preferences")
+            for (j = 0; j < allCheckBoxes.length; j++) {
+                allCheckBoxes[j].checked = Customer[i].preferences.includes(allCheckBoxes[j].value)
+            }
+
+
             document.getElementById("RegistrationBtn").style.display = "none"
             document.getElementById("updateBtn").style.display = "block"
         }
@@ -135,7 +157,16 @@
                 FullName,
                 Email,
                 Destination,
-                TravelDate
+                TravelDate,
+                preferences: []
+            }
+
+            var allCheckBoxes = document.getElementsByName("preferences")
+            for (i = 0; i < allCheckBoxes.length; i++) {
+                if (allCheckBoxes[i].checked == true) {
+                    User.preferences.push(allCheckBoxes[i].value)
+                }
+                allCheckBoxes[i].checked == false
             }
 
             Customer[Iindex] = User

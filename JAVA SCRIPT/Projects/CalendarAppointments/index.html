@@ -205,23 +205,25 @@
 
                     <label>Participants:</label>
                     <div class="checkbox-group">
-                        <input type="checkbox" id="alice" value="Alice">
+                        <input type="checkbox" id="alice" name="Options" value="Alice">
                         <label for="alice">Alice</label>
 
-                        <input type="checkbox" id="bob" value="Bob">
+                        <input type="checkbox" id="bob" name="Options" value="Bob">
                         <label for="bob">Bob</label>
 
-                        <input type="checkbox" id="charlie" value="Charlie">
+                        <input type="checkbox" id="charlie" name="Options" value="Charlie">
                         <label for="charlie">Charlie</label>
 
-                        <input type="checkbox" id="david" value="David">
+                        <input type="checkbox" id="david" name="Options" value="David">
                         <label for="david">David</label>
 
-                        <input type="checkbox" id="emma" value="Emma">
+                        <input type="checkbox" id="emma" name="Options" value="Emma">
                         <label for="emma">Emma</label>
                     </div>
 
-                    <button type="button" onclick="AppointmentUser()" id="AppointmentBtn">Add Appointment</button>
+                    <button type="button" onclick="AppointmentUser()" id="AppointmentBtn"> Book Appointment</button>
+
+                    <button type="button" onclick="updateuser()" id="updateBtn" style="display: none;">Update</button>
                 </form>
             </div>
 
@@ -241,7 +243,7 @@
                         </tr>
                     </thead>
                     <tbody id="appointment-list">
-                        <tr>
+                        <!-- <tr>
                             <td>Team Meeting</td>
                             <td>2024-02-20</td>
                             <td>10:00 AM</td>
@@ -276,19 +278,182 @@
                                 <button class="edit">Edit</button>
                                 <button class="delete">Delete</button>
                             </td>
-                        </tr>
+                        </tr> -->
                     </tbody>
                 </table>
+
+                <script>
+                    var Book = [
+
+                    ]
+
+                    function AppointmentUser() {
+                        var EventName = document.getElementById("eventName").value
+                        var Date = document.getElementById("date").value
+                        var Time = document.getElementById("time").value
+                        var Location = document.getElementById("location").value
+                        var Description = document.getElementById("description").value
+
+                        var User = {
+                            EventName,
+                            Date,
+                            Time,
+                            Location,
+                            Description,
+                            category: [],
+                            Participants: []
+                        }
+
+                        var allradio = document.getElementsByName("category")
+                        for (i = 0; i < allradio.length; i++) {
+                            if (allradio[i].checked == true) {
+                                User.category.push(allradio[i].value)
+                            }
+                            allradio[i].checked == false
+                        }
+
+                        var allCheckBoxes = document.getElementsByName("Options")
+                        for (i = 0; i < allCheckBoxes.length; i++) {
+                            if (allCheckBoxes[i].checked == true) {
+                                User.Options.push(allCheckBoxes[i].value)
+                            }
+                            allCheckBoxes[i].checked == false
+                        }
+
+
+
+                        Book.push(User)
+
+                        document.getElementById("eventName").value = ""
+                        document.getElementById("date").value = ""
+                        document.getElementById("time").value = ""
+                        document.getElementById("location").value = ""
+                        document.getElementById("description").value = ""
+
+
+                        displayintable()
+
+                    }
+
+                    function displayintable() {
+                        document.getElementById("appointment-list").innerHTML = ""
+                        Book.forEach(function (User, index) {
+                            var MyTr = document.createElement("tr")
+                            for (a in User) {
+                                var MyTd = document.createElement("td")
+                                MyTd.innerHTML = User[a]
+                                MyTr.appendChild(MyTd)
+                                document.getElementById("appointment-list").appendChild(MyTr)
+                            }
+                            var editTd = document.createElement("td")
+                            var editBtn = document.createElement("button")
+                            editBtn.innerHTML = "edit"
+                            editBtn.setAttribute("class", "edit-btn")
+                            editBtn.setAttribute("onclick", "edituser(" + index + ")")
+                            editTd.appendChild(editBtn)
+                            MyTr.appendChild(editTd)
+
+                            var deleteTd = document.createElement("td")
+                            var deleteBtn = document.createElement("button")
+                            deleteBtn.innerHTML = "delete"
+                            deleteBtn.setAttribute("class", "delete-btn")
+                            deleteBtn.setAttribute("onclick", "deleteuser(" + index + ")")
+                            deleteTd.appendChild(deleteBtn)
+                            MyTr.appendChild(deleteTd)
+                        })
+                    }
+                    displayintable()
+
+                    function deleteuser(i) {
+                        console.log("deleteuser !!!" + i)
+                        Book.splice(i, 1)
+                        displayintable()
+                    }
+
+                    var Iindex;
+
+                    function edituser(i) {
+                        Iindex = i;
+                        document.getElementById("eventName").value = Book[i].EventName
+
+                        document.getElementById("date").value = Book[i].Date
+                        document.getElementById("time").value = Book[i].Time
+                        document.getElementById("location").value = Book[i].Location
+                        document.getElementById("description").value = Book[i].Description
+
+                        var allradio = document.getElementsByName("category")
+                        for (j = 0; j < allradio.length; j++) {
+                            allradio[j].checked = Book[i].category.includes(allradio[j].value)
+                        }
+
+                        var allCheckBoxes = document.getElementsByName("Options")
+                        for (k = 0; k < allCheckBoxes.length; k++) {
+                            allCheckBoxes[k].checked = Book[i].Options.includes(allCheckBoxes[k].value)
+                        }
+
+                        document.getElementById("AppointmentBtn").style.display = "none"
+                        document.getElementById("updateBtn").style.display = "block"
+
+                    }
+
+                    function updateuser() {
+
+                        var EventName = document.getElementById("eventName").value
+                        var Date = document.getElementById("date").value
+                        var Time = document.getElementById("time").value
+                        var Location = document.getElementById("location").value
+                        var Description = document.getElementById("description").value
+
+                        var User = {
+                            EventName,
+                            Date,
+                            Time,
+                            Location,
+                            Description,
+                            category: [],
+                            Participants: []
+                        }
+
+                        var allradio = document.getElementsByName("category")
+                        for (i = 0; i < allradio.length; i++) {
+                            if (allradio[i].checked == true) {
+                                User.category.push(allradio[i].value)
+                            }
+                            allradio[i].checked == false
+                        }
+
+                        var allCheckBoxes = document.getElementsByName("Options")
+                        for (i = 0; i < allCheckBoxes.length; i++) {
+                            if (allCheckBoxes[i].checked == true) {
+                                User.Options.push(allCheckBoxes[i].value)
+                            }
+                            allCheckBoxes[i].checked == false
+                        }
+
+
+                        Book[Iindex] = User
+                        displayintable()
+
+                        document.getElementById("eventName").value = ""
+                        document.getElementById("date").value = ""
+                        document.getElementById("time").value = ""
+                        document.getElementById("location").value = ""
+                        document.getElementById("description").value = ""
+
+                        document.getElementById("AppointmentBtn").style.display = "block"
+                        document.getElementById("updateBtn").style.display = "none"
+
+
+
+
+                    }
+
+                </script>
             </div>
         </div>
 
     </div>
 
-    <script>
-        
-
-
-    </script>
 
 </body>
 
