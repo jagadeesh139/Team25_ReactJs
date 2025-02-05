@@ -27,11 +27,11 @@
                     <option value="ui-ux-design">UI/UX Design</option>
                 </select>
 
-                <!-- <label>Learning Mode</label>
-        <div>
-          <label><input type="radio" name="mode" value="online" required> Online</label><br>
-          <label><input type="radio" name="mode" value="offline" required> Offline</label>
-        </div> -->
+                <label>Learning Mode</label>
+                <div>
+                    <label><input type="radio" name="mode" value="online" required> Online</label><br>
+                    <label><input type="radio" name="mode" value="offline" required> Offline</label>
+                </div>
 
                 <button type="button" onclick="registeruser()" id="registerBtn">Enroll Now</button>
                 <button type="button" onclick="updateuser()" id="Updatebtn" style="display: none;">update</button>
@@ -47,6 +47,7 @@
                         <th>Name</th>
                         <th>Email</th>
                         <th>Course</th>
+                        <th>Mode</th>
                         <th>edit</th>
                         <th>delete</th>
                     </tr>
@@ -84,8 +85,20 @@
                     var User = {
                         FullName,
                         Email,
+                        mode: [],
                         CourseSelection
                     }
+
+                    var allradio = document.getElementsByName("mode")
+
+                    for (i = 0; i < allradio.length; i++) {
+                        if (allradio[i].checked == true) {
+                            User.mode.push(allradio[i].value)
+                        }
+                        allradio[i].checked == false
+                    }
+
+
 
                     course.push(User)
 
@@ -142,6 +155,11 @@
                     document.getElementById("email").value = course[i].Email
                     document.getElementById("course").value = course[i].CourseSelection
 
+                    var allradio = document.getElementsByName("mode")
+                    for (j = 0; j < allradio.length; j++) {
+                        allradio[j].checked = course[i].mode.includes(allradio[j].value)
+                    }
+
                     document.getElementById("registerBtn").style.display = "none"
                     document.getElementById("Updatebtn").style.display = "block"
                 }
@@ -155,7 +173,16 @@
                     var User = {
                         FullName,
                         Email,
+                        mode: [],
                         CourseSelection
+                    }
+
+                    var allradio = document.getElementsByName("mode")
+                    for (i = 0; i < allradio.length; i++) {
+                        if (allradio[i].checked == true) {
+                            User.mode.push(allradio[i].value)
+                        }
+                        allradio[i].checked == false
                     }
 
                     course[Iindex] = User

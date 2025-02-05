@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Hotel Booking</title>
   <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
   <div class="container">
     <!-- Form Column -->
@@ -38,7 +40,8 @@
           <label><input type="checkbox" name="amenities" value="parking"> Parking</label>
         </div>
 
-        <button type="submit">Book Now</button>
+        <button type="button" onclick="bookinguser()" id="Bookingbtn">Book Now</button>
+        <button type="button" onclick="UpdateUser()" id="Updatebtn" style="display: none;">Update</button>
       </form>
     </div>
 
@@ -49,12 +52,16 @@
         <thead>
           <tr>
             <th>Name</th>
+            <th>Email</th>
             <th>Room Type</th>
-            <th>Action</th>
+            <th>check in date</th>
+            <th>Check Out date</th>
+            <th>Edit</th>
+            <th>Delete</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
+          <!-- <tr>
             <td>John Doe</td>
             <td>Double</td>
             <td>
@@ -69,10 +76,152 @@
               <button class="edit-btn">Edit</button>
               <button class="delete-btn">Delete</button>
             </td>
-          </tr>
+          </tr> -->
         </tbody>
       </table>
+
+      <script>
+        var Booking = [
+
+        ]
+
+        function bookinguser() {
+          var FullName = document.getElementById("name").value
+          var Email = document.getElementById("email").value
+          var CheckinDate = document.getElementById("checkin").value
+          var CheckoutDate = document.getElementById("checkout").value
+          var RoomType = document.getElementById("room").value
+
+          var User = {
+            FullName,
+            Email,
+            CheckinDate,
+            RoomType,
+            amenities: []
+
+          }
+
+          var allCheckBoxes = document.getElementsByName("amenities")
+          for (i = 0; i < allCheckBoxes.length; i++) {
+            if (allCheckBoxes[i].checked == true) {
+              User.amenities.push(allCheckBoxes[i].value)
+            }
+            allCheckBoxes[i].checked == false
+          }
+
+          Booking.push(User)
+
+          document.getElementById("name").value = ""
+          document.getElementById("email").value = ""
+          document.getElementById("checkin").value = ""
+          document.getElementById("checkout").value = ""
+          document.getElementById("room").value = ""
+
+          displayinTable()
+
+        }
+
+        function displayinTable() {
+          document.querySelector("tbody").innerHTML = ""
+          Booking.forEach(function (User, index) {
+            var MyTr = document.createElement("tr")
+            for (a in User) {
+              var MyTd = document.createElement("td")
+              MyTd.innerHTML = User[a]
+              MyTr.appendChild(MyTd)
+              document.querySelector("tbody").appendChild(MyTr)
+            }
+
+            var editTd = document.createElement("td")
+            var editBtn = document.createElement("button")
+            editBtn.innerHTML = "Edit"
+            editBtn.setAttribute("class", "edit-btn")
+            editBtn.setAttribute("onclick", "editUser(" + index + ")")
+            editTd.appendChild(editBtn)
+            MyTr.appendChild(editTd)
+
+            var deleteTd = document.createElement("td")
+            var deleteBtn = document.createElement("button")
+            deleteBtn.innerHTML = "Delete"
+            deleteBtn.setAttribute("class", "delete-btn")
+            deleteBtn.setAttribute("onclick", "deleteuser(" + index + ")")
+            deleteTd.appendChild(deleteBtn)
+            MyTr.appendChild(deleteTd)
+
+          })
+        }
+        displayinTable()
+
+        function dleteuser(i) {
+          console.log("delete User !!!" + i)
+          Booking.splice(i, 1)
+          displayinTable()
+        }
+
+        var Iindex;
+        function editUser(i) {
+          Iindex = i;
+
+          document.getElementById("name").value = Booking[i].FullName
+          document.getElementById("email").value = Booking[i].Email
+          document.getElementById("checkin").value = Booking[i].CheckinDate
+          document.getElementById("checkout").value = Booking[i].CheckoutDate
+          document.getElementById("room").value = Booking[i].RoomType
+
+          var allCheckBoxes = document.getElementsByName("amenities")
+          for (j = 0; j < allCheckBoxes.length; j++) {
+            allCheckBoxes[j].checked = Booking[i].amenities.includes[allCheckBoxes[j]]
+          }
+
+          document.getElementById("Bookingbtn").style.display = "none"
+          document.getElementById("Updatebtn").style.display = "block"
+
+        }
+
+        function UpdateUser() {
+
+          var FullName = document.getElementById("name").value
+          var Email = document.getElementById("email").value
+          var CheckinDate = document.getElementById("checkin").value
+          var CheckoutDate = document.getElementById("checkout").value
+          var RoomType = document.getElementById("room").value
+
+          var User = {
+            FullName,
+            Email,
+            CheckinDate,
+            RoomType,
+            amenities: []
+
+          }
+
+          var allCheckBoxes = document.getElementsByName("amenities")
+          for (i = 0; i < allCheckBoxes.length; i++) {
+            if (allCheckBoxes[i].checked == true) {
+              User.amenities.push(allCheckBoxes[i].value)
+            }
+            allCheckBoxes[i].checked == false
+          }
+
+          Booking[Iindex] = User
+          displayinTable()
+
+          document.getElementById("name").value = ""
+          document.getElementById("email").value = ""
+          document.getElementById("checkin").value = ""
+          document.getElementById("room").value = ""
+          document.getElementById("checkout").value = ""
+
+          document.getElementById("Bookingbtn").style.display = "block"
+          document.getElementById("Updatebtn").style.display = "none"
+
+
+        }
+
+
+      </script>
     </div>
   </div>
 </body>
+
 </html>
