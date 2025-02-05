@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="checkbox" name="Subjects" value="Html">Html
+    <input type="checkbox" name="Subjects" value="Css">css
+    <input type="checkbox" name="Subjects" value="JavaScript">JavaScript
+    <input type="checkbox" name="Subjects" value="Java">Java
+    <button onclick="getSelectedvalue()">getselectedValue</button>
+
+    <script>
+        var Subjects = []
+        function getSelectedvalue() {
+
+            var allCheckBoxes = document.getElementsByName("Subjects")
+            for (i = 0; i < allCheckBoxes.length; i++) {
+                if (allCheckBoxes[i].checked == true) {
+                    Subjects.push(allCheckBoxes[i].value)
+                }
+                console.log(Subjects)
+            }
+        }
+    </script>
+</body>
+
+</html>

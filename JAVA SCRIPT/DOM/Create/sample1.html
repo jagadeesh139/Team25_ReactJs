@@ -153,14 +153,17 @@
                     var myTd = document.createElement("td");
                     myTd.innerHTML = user[a]
                     myTr.appendChild(myTd)
+
+                    document.querySelector("tbody").appendChild(myTr)
                 }
-                document.querySelector("tbody").appendChild(myTr)
+
             })
             document.getElementById("name").value = ""
             document.getElementById("email").value = ""
             document.getElementById("password").value = ""
             document.getElementById("confirm-password").value = ""
         }
+        displayUsers()
 
 
     </script>
