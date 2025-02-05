@@ -34,7 +34,7 @@
         </div> -->
 
                 <button type="button" onclick="registeruser()" id="registerBtn">Sign Up</button>
-                <button type="button" onclick="UpdateUser()" id="Updatebtn">update</button>
+                <button type="button" onclick="UpdateUser()" id="Updatebtn" style="display: none;">update</button>
             </form>
         </div>
 
@@ -79,11 +79,11 @@
                     var Username = document.getElementById("username").value
                     var Email = document.getElementById("email").value
 
-                    var reg = {
+                    var user = {
                         Username,
                         Email
                     }
-                    Register.push(reg)
+                    Register.push(user)
 
                     document.getElementById("username").value = ""
                     document.getElementById("email").value = ""
@@ -93,11 +93,11 @@
 
                 function displayUser() {
                     document.querySelector("tbody").innerHTML = ""
-                    Register.forEach(function (reg, index) {
+                    Register.forEach(function (user, index) {
                         var MyTr = document.createElement("tr")
-                        for (a in reg) {
+                        for (a in user) {
                             var MyTd = document.createElement("td")
-                            MyTd.innerHTML = reg[a]
+                            MyTd.innerHTML = user[a]
                             MyTr.appendChild(MyTd)
                         }
 
@@ -133,7 +133,7 @@
                 var Iindex;
                 function editUser(i) {
                     Iindex = i;
-                    
+
                     document.getElementById("username").value = Register[i].Username
                     document.getElementById("email").value = Register[i].Email
 
@@ -145,12 +145,12 @@
                     var Username = document.getElementById("username").value
                     var Email = document.getElementById("email").value
 
-                    var reg = {
+                    var user = {
                         Username,
                         Email
                     }
 
-                    Register[Iindex] = reg
+                    Register[Iindex] = user
                     displayUser()
 
                     document.getElementById("username").value = ""
@@ -158,12 +158,6 @@
 
                     document.getElementById("registerBtn").style.display = "block"
                     document.getElementById("Updatebtn").style.display = "none"
-
-
-
-
-
-
                 }
 
 

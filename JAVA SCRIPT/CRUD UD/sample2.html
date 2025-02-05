@@ -131,7 +131,6 @@
     displayusers()
 
     function deleteUser(i) {
-
       User.splice(i, 1)
       displayusers()
     }
@@ -159,6 +158,7 @@
 
       User[Edit] = candidate;
       displayusers();
+
       document.getElementById("name").value = ""
       document.getElementById("email").value = ""
 

@@ -1,53 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Online Course Enrollment</title>
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Course Enrollment</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
-  <div class="container">
-    <!-- Form Column -->
-    <div class="column">
-      <h1>Course Enrollment</h1>
-      <form>
-        <label for="name">Full Name</label>
-        <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+    <div class="container">
+        <!-- Form Column -->
+        <div class="column">
+            <h1>Course Enrollment</h1>
+            <form>
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" placeholder="Enter your full name" required>
 
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
 
-        <label for="course">Course Selection</label>
-        <select id="course" name="course" required>
-          <option value="web-development">Web Development</option>
-          <option value="data-science">Data Science</option>
-          <option value="ui-ux-design">UI/UX Design</option>
-        </select>
+                <label for="course">Course Selection</label>
+                <select id="course" name="course" required>
+                    <option value="web-development">Web Development</option>
+                    <option value="data-science">Data Science</option>
+                    <option value="ui-ux-design">UI/UX Design</option>
+                </select>
 
-        <label>Learning Mode</label>
+                <!-- <label>Learning Mode</label>
         <div>
           <label><input type="radio" name="mode" value="online" required> Online</label><br>
           <label><input type="radio" name="mode" value="offline" required> Offline</label>
+        </div> -->
+
+                <button type="button" onclick="registeruser()" id="registerBtn">Enroll Now</button>
+                <button type="button" onclick="updateuser()" id="Updatebtn" style="display: none;">update</button>
+            </form>
         </div>
 
-        <button type="submit">Enroll Now</button>
-      </form>
-    </div>
-
-    <!-- Table Column -->
-    <div class="column">
-      <h1>Enrolled Students</h1>
-      <table>
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Course</th>
-            <th>Action</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
+        <!-- Table Column -->
+        <div class="column">
+            <h1>Enrolled Students</h1>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Course</th>
+                        <th>edit</th>
+                        <th>delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- <tr>
             <td>John Doe</td>
             <td>Web Development</td>
             <td>
@@ -62,10 +67,113 @@
               <button class="edit-btn">Edit</button>
               <button class="delete-btn">Delete</button>
             </td>
-          </tr>
-        </tbody>
-      </table>
+          </tr> -->
+                </tbody>
+            </table>
+
+            <script>
+                var course = [
+
+                ]
+
+                function registeruser() {
+                    var FullName = document.getElementById("name").value
+                    var Email = document.getElementById("email").value
+                    var CourseSelection = document.getElementById("course").value
+
+                    var User = {
+                        FullName,
+                        Email,
+                        CourseSelection
+                    }
+
+                    course.push(User)
+
+                    document.getElementById("name").value = ""
+                    document.getElementById("email").value = ""
+                    document.getElementById("course").value = ""
+
+                    diplayinTable()
+                }
+
+                function diplayinTable() {
+                    document.querySelector("tbody").innerHTML = ""
+
+                    course.forEach(function (User, index) {
+                        var MyTr = document.createElement("tr")
+                        for (a in User) {
+                            var MyTd = document.createElement("td")
+                            MyTd.innerHTML = User[a]
+                            MyTr.appendChild(MyTd)
+                            document.querySelector("tbody").appendChild(MyTr)
+                        }
+
+                        var editTd = document.createElement("td")
+                        var editBtn = document.createElement("button")
+                        editBtn.innerHTML = "Edit"
+                        editBtn.setAttribute("class", "edit-btn")
+                        editBtn.setAttribute("onclick", "edituser(" + index + ")")
+                        editTd.appendChild(editBtn)
+                        MyTr.appendChild(editTd)
+
+                        var deleteTd = document.createElement("td")
+                        var deleteBtn = document.createElement("button")
+                        deleteBtn.innerHTML = "Delete"
+                        deleteBtn.setAttribute("class", "delete-btn")
+                        deleteBtn.setAttribute("onclick", "deleteuser(" + index + ")")
+                        deleteTd.appendChild(deleteBtn)
+                        MyTr.appendChild(deleteTd)
+                    })
+
+                }
+                diplayinTable()
+
+                function deleteuser(i) {
+                    console.log("delete user !!" + i)
+                    course.splice(i, 1)
+                    diplayinTable()
+                }
+
+                var Iindex;
+                function edituser(i) {
+                    Iindex = i;
+
+                    document.getElementById("name").value = course[i].FullName
+                    document.getElementById("email").value = course[i].Email
+                    document.getElementById("course").value = course[i].CourseSelection
+
+                    document.getElementById("registerBtn").style.display = "none"
+                    document.getElementById("Updatebtn").style.display = "block"
+                }
+
+                function updateuser() {
+
+                    var FullName = document.getElementById("name").value
+                    var Email = document.getElementById("email").value
+                    var CourseSelection = document.getElementById("course").value
+
+                    var User = {
+                        FullName,
+                        Email,
+                        CourseSelection
+                    }
+
+                    course[Iindex] = User
+                    diplayinTable()
+
+
+                    document.getElementById("name").value = ""
+                    document.getElementById("email").value = ""
+                    document.getElementById("course").value = ""
+
+                    document.getElementById("registerBtn").style.display = "block"
+                    document.getElementById("Updatebtn").style.display = "none"
+
+
+                }
+            </script>
+        </div>
     </div>
-  </div>
 </body>
+
 </html>
