@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -67,7 +68,10 @@
             font-weight: bold;
         }
 
-        input, select, textarea, button {
+        input,
+        select,
+        textarea,
+        button {
             padding: 8px;
             font-size: 16px;
         }
@@ -106,7 +110,8 @@
             margin-top: 10px;
         }
 
-        th, td {
+        th,
+        td {
             border: 1px solid #ddd;
             padding: 10px;
             text-align: center;
@@ -147,12 +152,15 @@
             .content {
                 flex-direction: column;
             }
-            .form-container, .recipe-container {
+
+            .form-container,
+            .recipe-container {
                 flex: 100%;
             }
         }
     </style>
 </head>
+
 <body>
 
     <div class="container">
@@ -168,19 +176,19 @@
 
                     <label>Ingredients:</label>
                     <div class="checkbox-group">
-                        <input type="checkbox" id="flour" value="Flour">
+                        <input type="checkbox" id="flour" value="Flour" name="ingredients">
                         <label for="flour">Flour</label>
 
-                        <input type="checkbox" id="sugar" value="Sugar">
+                        <input type="checkbox" id="sugar" value="Sugar" name="ingredients">
                         <label for="sugar">Sugar</label>
 
-                        <input type="checkbox" id="eggs" value="Eggs">
+                        <input type="checkbox" id="eggs" value="Eggs" name="ingredients">
                         <label for="eggs">Eggs</label>
 
-                        <input type="checkbox" id="milk" value="Milk">
+                        <input type="checkbox" id="milk" value="Milk" name="ingredients">
                         <label for="milk">Milk</label>
 
-                        <input type="checkbox" id="butter" value="Butter">
+                        <input type="checkbox" id="butter" value="Butter" name="ingredients">
                         <label for="butter">Butter</label>
                     </div>
 
@@ -209,7 +217,8 @@
                         <option value="Mexican">Mexican</option>
                     </select>
 
-                    <button type="submit">Add Recipe</button>
+                    <button type="button" onclick="registeruser()" id="registerbtn">Add Recipe</button>
+                    <button type="button" onclick="updateuser()" id="updateBtn" style="display: none;">Update</button>
                 </form>
             </div>
 
@@ -220,15 +229,18 @@
                     <thead>
                         <tr>
                             <th>Name</th>
-                            <th>Category</th>
-                            <th>Cuisine</th>
+                            <th>Ingredients</th>
+                            <th>Instructions</th>
                             <th>Prep Time</th>
                             <th>Servings</th>
-                            <th>Actions</th>
+                            <th>Category</th>
+                            <th>Cuisine</th>
+                            <th>Edit</th>
+                            <th>Delete</th>
                         </tr>
                     </thead>
                     <tbody id="recipe-list">
-                        <tr>
+                        <!-- <tr>
                             <td>Pancakes</td>
                             <td>Breakfast</td>
                             <td>American</td>
@@ -260,13 +272,154 @@
                                 <button class="view">View</button>
                                 <button class="delete">Delete</button>
                             </td>
-                        </tr>
+                        </tr> -->
                     </tbody>
                 </table>
             </div>
         </div>
-
     </div>
 
+    <script>
+        var hotel = []
+        function registeruser() {
+            var name = document.getElementById("name").value
+            var instructions = document.getElementById("instructions").value
+            var prepTime = document.getElementById("prepTime").value
+            var servings = document.getElementById("servings").value
+            var category = document.getElementById("category").value
+            var cuisine = document.getElementById("cuisine").value
+
+            var user = {
+                name,
+                ingredients: [],
+                instructions,
+                prepTime,
+                servings,
+                category,
+                cuisine,
+
+            }
+
+            var checkbox = document.getElementsByName("ingredients")
+            for (i = 0; i < checkbox.length; i++) {
+                if (checkbox[i].checked == true) {
+                    user.ingredients.push(checkbox[i].value)
+                }
+                checkbox[i].checked == false
+            }
+
+            hotel.push(user)
+
+            document.getElementById("name").value = ""
+            document.getElementById("instructions").value = ""
+            document.getElementById("prepTime").value = ""
+            document.getElementById("servings").value = ""
+            document.getElementById("category").value = ""
+            document.getElementById("cuisine").value = ""
+
+            displayuser()
+        }
+
+        function displayuser() {
+            document.querySelector("tbody").innerHTML = ""
+            hotel.forEach(function (user,index) {
+                var tr = document.createElement("tr")
+                for (a in user) {
+                    var td = document.createElement("td")
+                    td.innerHTML = user[a]
+                    tr.appendChild(td)
+                }
+
+                var editTd = document.createElement("td")
+                var editBtn = document.createElement("button")
+                editBtn.innerHTML = "Edit"
+                editBtn.setAttribute("class", "edit-btn")
+                editBtn.setAttribute("onclick", "edituser(" + index + ")")
+                editTd.appendChild(editBtn)
+                tr.appendChild(editTd)
+
+                var deleteTd = document.createElement("td")
+                var deleteBtn = document.createElement("button")
+                deleteBtn.innerHTML = "Delete"
+                deleteBtn.setAttribute("class", "delete-btn")
+                deleteBtn.setAttribute("onclick", "deleteuser(" + index + ")")
+                deleteTd.appendChild(deleteBtn)
+                tr.appendChild(deleteTd)
+
+                document.querySelector("tbody").appendChild(tr)
+            })
+        }
+        function deleteuser(i) {
+            console.log("deleteuser !!" + i)
+            hotel.splice(i, 1)
+            displayuser()
+        }
+        var Iindex;
+        function edituser(i) {
+            Iindex = i;
+
+            document.getElementById("name").value = hotel[i].name
+            document.getElementById("instructions").value = hotel[i].instructions
+            document.getElementById("prepTime").value = hotel[i].prepTime
+            document.getElementById("servings").value = hotel[i].servings
+            document.getElementById("category").value = hotel[i].category
+            document.getElementById("cuisine").value = hotel[i].cuisine
+
+            var checkbox = document.getElementsByName("ingredients")
+            for (j = 0; j < checkbox.length; j++) {
+                checkbox[j].checked = hotel[i].ingredients.includes(checkbox[j].value)
+            }
+
+            document.getElementById("registerbtn").style.display = "none"
+            document.getElementById("updateBtn").style.display = "block"
+
+        }
+
+        function updateuser() {
+
+            var name = document.getElementById("name").value
+            var instructions = document.getElementById("instructions").value
+            var prepTime = document.getElementById("prepTime").value
+            var servings = document.getElementById("servings").value
+            var category = document.getElementById("category").value
+            var cuisine = document.getElementById("cuisine").value
+
+            var user = {
+                name,
+                ingredients: [],
+                instructions,
+                prepTime,
+                servings,
+                category,
+                cuisine,
+
+            }
+
+            var checkbox = document.getElementsByName("ingredients")
+            for (i = 0; i < checkbox.length; i++) {
+                if (checkbox[i].checked == true) {
+                    user.ingredients.push(checkbox[i].value)
+                }
+                checkbox[i].checked == false
+            }
+
+            hotel[Iindex] = user
+            displayuser()
+
+            document.getElementById("name").value = ""
+            document.getElementById("instructions").value = ""
+            document.getElementById("prepTime").value = ""
+            document.getElementById("servings").value = ""
+            document.getElementById("category").value = ""
+            document.getElementById("cuisine").value = ""
+
+            document.getElementById("registerbtn").style.display = "block"
+            document.getElementById("updateBtn").style.display = "none"
+
+
+        }
+    </script>
+
 </body>
+
 </html>

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -67,18 +68,22 @@
             font-weight: bold;
         }
 
-        input, select, button {
+        input,
+        select,
+        button {
             padding: 8px;
             font-size: 16px;
         }
 
-        .radio-group, .checkbox-group {
+        .radio-group,
+        .checkbox-group {
             display: flex;
             flex-wrap: wrap;
             gap: 10px;
         }
 
-        .radio-group input, .checkbox-group input {
+        .radio-group input,
+        .checkbox-group input {
             margin-right: 5px;
         }
 
@@ -106,7 +111,8 @@
             margin-top: 10px;
         }
 
-        th, td {
+        th,
+        td {
             border: 1px solid #ddd;
             padding: 10px;
             text-align: center;
@@ -147,12 +153,15 @@
             .content {
                 flex-direction: column;
             }
-            .controls-container, .playlist-container {
+
+            .controls-container,
+            .playlist-container {
                 flex: 100%;
             }
         }
     </style>
 </head>
+
 <body>
 
     <div class="container">
@@ -192,11 +201,12 @@
 
                     <label>Shuffle Mode:</label>
                     <div class="checkbox-group">
-                        <input type="checkbox" id="shuffle" value="Shuffle">
+                        <input type="checkbox" id="shuffle" value="Shuffle" name="mode">
                         <label for="shuffle">Enable Shuffle</label>
                     </div>
 
-                    <button type="submit">Add to Playlist</button>
+                    <button type="button" onclick="registeruser()" id="registerbtn">Add to Playlist</button>
+                    <button type="button" onclick="updateuser()" id="updateBtn" style="display: none;">Update</button>
                 </form>
             </div>
 
@@ -210,11 +220,15 @@
                             <th>Artist</th>
                             <th>Album</th>
                             <th>Duration</th>
-                            <th>Actions</th>
+                            <th>Volume</th>
+                            <th>Repeat</th>
+                            <th>Shuffle Mode</th>
+                            <th>Edit</th>
+                            <th>Delete</th>
                         </tr>
                     </thead>
                     <tbody id="playlist">
-                        <tr>
+                        <!-- <tr>
                             <td>Shape of You</td>
                             <td>Ed Sheeran</td>
                             <td>Divide</td>
@@ -243,13 +257,169 @@
                                 <button class="play">Play</button>
                                 <button class="delete">Delete</button>
                             </td>
-                        </tr>
+                        </tr> -->
                     </tbody>
                 </table>
             </div>
         </div>
-
     </div>
 
+    <script>
+        var Music = []
+        function registeruser() {
+            var SongTitle = document.getElementById("title").value
+            var artist = document.getElementById("artist").value
+            var album = document.getElementById("album").value
+            var duration = document.getElementById("duration").value
+            var volume = document.getElementById("volume").value
+
+            var user = {
+                SongTitle,
+                artist,
+                album,
+                duration,
+                volume,
+                repeat: [],
+                mode: []
+            }
+
+            var radio = document.getElementsByName("repeat")
+            for (i = 0; i < radio.length; i++) {
+                if (radio[i].checked == true) {
+                    user.repeat.push(radio[i].value)
+                }
+                radio[i].checked == false
+            }
+
+            var checkbox = document.getElementsByName("mode")
+            for (i = 0; i < checkbox.length; i++) {
+                if (checkbox[i].checked == true) {
+                    user.mode.push(checkbox[i].value)
+                }
+                checkbox[i].checked == true
+            }
+
+            Music.push(user)
+
+            document.getElementById("title").value = ""
+            document.getElementById("artist").value = ""
+            document.getElementById("album").value = ""
+            document.getElementById("duration").value = ""
+            document.getElementById("volume").value = ""
+
+            displayuser()
+
+        }
+
+        function displayuser() {
+            document.querySelector("tbody").innerHTML = ""
+            Music.forEach(function (user, index) {
+                var tr = document.createElement("tr")
+                for (a in user) {
+                    var td = document.createElement("td")
+                    td.innerHTML = user[a]
+                    tr.appendChild(td)
+                }
+
+                var editTd = document.createElement("td")
+                var editBtn = document.createElement("button")
+                editBtn.innerHTML = "Edit"
+                editBtn.setAttribute("class", "edit-btn")
+                editBtn.setAttribute("onclick", "edituser(" + index + ")")
+                editTd.appendChild(editBtn)
+                tr.appendChild(editTd)
+
+                var deleteTd = document.createElement("td")
+                var deleteBtn = document.createElement("button")
+                deleteBtn.innerHTML = "Delete"
+                deleteBtn.setAttribute("class", "delete-btn")
+                deleteBtn.setAttribute("onclick", "delteuser(" + index + ")")
+                deleteTd.appendChild(deleteBtn)
+                tr.appendChild(deleteTd)
+
+                document.querySelector("tbody").appendChild(tr)
+            })
+        }
+        function delteuser(i) {
+            console.log("delete user !!" + i)
+            Music.splice(i, 1)
+            displayuser()
+
+        }
+
+        var Iindex;
+        function edituser(i) {
+            Iindex = i;
+            document.getElementById("title").value = Music[i].SongTitle
+            document.getElementById("artist").value = Music[i].artist
+            document.getElementById("album").value = Music[i].album
+            document.getElementById("duration").value = Music[i].duration
+            document.getElementById("volume").value = Music[i].volume
+
+            var radio = document.getElementsByName("repeat")
+            for (j = 0; j < radio.length; j++) {
+                radio[j].checked = Music[i].repeat.includes(radio[j].value)
+            }
+
+            var checkbox = document.getElementsByName("mode")
+            for (k = 0; k < checkbox.length; k++) {
+                checkbox[k].checked = Music[i].mode.includes(checkbox[k].value)
+            }
+
+            document.getElementById("registerbtn").style.display = "none"
+            document.getElementById("updateBtn").style.display = "block"
+
+        }
+
+        function updateuser() {
+
+            var SongTitle = document.getElementById("title").value
+            var artist = document.getElementById("artist").value
+            var album = document.getElementById("album").value
+            var duration = document.getElementById("duration").value
+            var volume = document.getElementById("volume").value
+
+            var user = {
+                SongTitle,
+                artist,
+                album,
+                duration,
+                volume,
+                repeat: [],
+                mode: []
+            }
+
+            var radio = document.getElementsByName("repeat")
+            for (i = 0; i < radio.length; i++) {
+                if (radio[i].checked == true) {
+                    user.repeat.push(radio[i].value)
+                }
+                radio[i].checked == false
+            }
+
+            var checkbox = document.getElementsByName("mode")
+            for (i = 0; i < checkbox.length; i++) {
+                if (checkbox[i].checked == true) {
+                    user.mode.push(checkbox[i].value)
+                }
+                checkbox[i].checked == true
+            }
+
+            Music[Iindex] = user
+            displayuser()
+
+            document.getElementById("title").value = ""
+            document.getElementById("artist").value = ""
+            document.getElementById("album").value = ""
+            document.getElementById("duration").value = ""
+            document.getElementById("volume").value = ""
+
+            document.getElementById("registerbtn").style.display = "block"
+            document.getElementById("updateBtn").style.display = "none"
+
+        }
+    </script>
+
 </body>
+
 </html>

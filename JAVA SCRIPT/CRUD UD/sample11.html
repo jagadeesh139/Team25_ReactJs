@@ -109,13 +109,13 @@
 
         function displayinTable() {
           document.querySelector("tbody").innerHTML = ""
-          members.forEach(function (User,index) {
+          members.forEach(function (User, index) {
             var MyTr = document.createElement("tr")
             for (a in User) {
               var MyTd = document.createElement("td")
               MyTd.innerHTML = User[a]
               MyTr.appendChild(MyTd)
-              document.querySelector("tbody").appendChild(MyTr)
+
             }
 
             var editTd = document.createElement("td")
@@ -133,6 +133,7 @@
             deleteBtn.setAttribute("onclick", "deleteuser(" + index + ")")
             deleteTd.appendChild(deleteBtn)
             MyTr.appendChild(deleteTd)
+            document.querySelector("tbody").appendChild(MyTr)
           })
         }
 

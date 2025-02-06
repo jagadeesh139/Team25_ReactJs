@@ -295,7 +295,7 @@
                 supplier: [],
                 reclvl
             }
-            //radiobuttons
+           
             var radio = document.getElementsByName("supplier")
             for (i = 0; i < radio.length; i++) {
                 if (radio[i].checked == true) {
@@ -303,7 +303,7 @@
                 }
                 radio[i].checked = false;
             }
-            //checkboxes
+            
             var checkbox = document.getElementsByName("category")
             for (i = 0; i < checkbox.length; i++) {
                 if (checkbox[i].checked == true) {
@@ -370,7 +370,7 @@
             document.getElementById("reorderLevel").value = allUsers[i].reclvl
 
 
-            //radiobutton selection
+            
             var radio = document.getElementsByName("supplier")
 
             for (j = 0; j < radio.length; j++) {
@@ -378,7 +378,7 @@
                 radio[j].checked = allUsers[i].supplier.includes(radio[j].value);
             }
 
-            //checkbox selection
+            
             var checkbox = document.getElementsByName("category")
             for (var k = 0; k < checkbox.length; k++) {
                 checkbox[k].checked = allUsers[i].category.includes(checkbox[k].value);
@@ -401,7 +401,7 @@
                 supplier: [],
                 reclvl
             }
-            //radiobuttons
+           
             var radio = document.getElementsByName("supplier")
             for (i = 0; i < radio.length; i++) {
                 if (radio[i].checked == true) {
@@ -409,7 +409,7 @@
                 }
                 radio[i].checked = false;
             }
-            //checkboxes
+            
             var checkbox = document.getElementsByName("category")
             for (i = 0; i < checkbox.length; i++) {
                 if (checkbox[i].checked == true) {
