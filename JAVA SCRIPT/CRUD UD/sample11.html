@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Library Membership</title>
   <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
   <div class="container">
     <!-- Form Column -->
@@ -31,7 +33,8 @@
           <label><input type="checkbox" name="preferences" value="science"> Science</label>
         </div>
 
-        <button type="submit">Register</button>
+        <button type="button" onclick="registeruser()" id="registerbtn">Register</button>
+        <button type="button" onclick="updateuser()" id="updateBtn">Update</button>
       </form>
     </div>
 
@@ -42,12 +45,15 @@
         <thead>
           <tr>
             <th>Name</th>
+            <th>Email</th>
             <th>Membership</th>
             <th>Action</th>
+            <th>Edit</th>
+            <th>Delete</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
+          <!-- <tr>
             <td>John Doe</td>
             <td>Regular</td>
             <td>
@@ -62,10 +68,133 @@
               <button class="edit-btn">Edit</button>
               <button class="delete-btn">Delete</button>
             </td>
-          </tr>
+          </tr> -->
         </tbody>
       </table>
+
+      <script>
+        var members = [
+
+        ]
+
+        function registeruser() {
+          var FullName = document.getElementById("name").value
+          var Email = document.getElementById("email").value
+          var MembershipType = document.getElementById("membership-type").value
+
+          var User = {
+            FullName,
+            Email,
+            MembershipType,
+            preferences: []
+          }
+
+          var allCheckBoxes = document.getElementsByName("preferences")
+          for (i = 0; i < allCheckBoxes.length; i++) {
+            if (allCheckBoxes[i].checked == true) {
+              User.preferences.push(allCheckBoxes[i].value)
+            }
+            allCheckBoxes[i].checked == false
+          }
+
+          document.getElementById("name").value = ""
+          document.getElementById("email").value = ""
+          document.getElementById("membership-type").value = ""
+
+          members.push(User)
+
+          displayinTable()
+
+        }
+
+        function displayinTable() {
+          document.querySelector("tbody").innerHTML = ""
+          members.forEach(function (User,index) {
+            var MyTr = document.createElement("tr")
+            for (a in User) {
+              var MyTd = document.createElement("td")
+              MyTd.innerHTML = User[a]
+              MyTr.appendChild(MyTd)
+              document.querySelector("tbody").appendChild(MyTr)
+            }
+
+            var editTd = document.createElement("td")
+            var editBtn = document.createElement("button")
+            editBtn.innerHTML = "Edit"
+            editBtn.setAttribute("class", "edit-btn")
+            editBtn.setAttribute("onclick", "edituser(" + index + ")")
+            editTd.appendChild(editBtn)
+            MyTr.appendChild(editTd)
+
+            var deleteTd = document.createElement("td")
+            var deleteBtn = document.createElement("button")
+            deleteBtn.innerHTML = "Delete"
+            deleteBtn.setAttribute("class", "delte-btn")
+            deleteBtn.setAttribute("onclick", "deleteuser(" + index + ")")
+            deleteTd.appendChild(deleteBtn)
+            MyTr.appendChild(deleteTd)
+          })
+        }
+
+        function deleteuser(i) {
+          console.log("deleteUser !!!" + i)
+          members.splice(i, 1)
+          displayinTable()
+        }
+
+        var Iindex;
+        function edituser(i) {
+          Iindex = i;
+          document.getElementById("name").value = members[i].FullName
+          document.getElementById("email").value = members[i].Email
+          document.getElementById("membership-type").value = members[i].MembershipType
+
+          var allCheckBoxes = document.getElementsByName("preferences")
+          for (j = 0; j < allCheckBoxes.length; j++) {
+            allCheckBoxes[j].checked = members[i].preferences.includes(allCheckBoxes[j].value)
+          }
+
+          document.getElementById("registerbtn").style.display = "none"
+          document.getElementById("updateBtn").style.display = "block"
+
+        }
+
+        function updateuser() {
+
+          var FullName = document.getElementById("name").value
+          var Email = document.getElementById("email").value
+          var MembershipType = document.getElementById("membership-type").value
+
+          var User = {
+            FullName,
+            Email,
+            MembershipType,
+            preferences: []
+          }
+
+          var allCheckBoxes = document.getElementsByName("preferences")
+          for (i = 0; i < allCheckBoxes.length; i++) {
+            if (allCheckBoxes[i].checked == true) {
+              User.preferences.push(allCheckBoxes[i].value)
+            }
+            allCheckBoxes[i].checked == false
+          }
+
+          members[Iindex] = User
+          displayinTable()
+
+          document.getElementById("name").value = ""
+          document.getElementById("email").value = ""
+          document.getElementById("membership-type").value = ""
+
+          document.getElementById("registerbtn").style.display = "block"
+          document.getElementById("updateBtn").style.display = "none"
+
+        }
+
+      </script>
     </div>
   </div>
 </body>
+
 </html>
