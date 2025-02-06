@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Newsletter Subscription</title>
   <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
   <div class="container">
     <!-- Form Column -->
@@ -32,7 +34,8 @@
           <label><input type="checkbox" name="topics" value="entertainment"> Entertainment</label>
         </div>
 
-        <button type="submit">Subscribe</button>
+        <button type="button" onclick="Subscribeuser()" id="subcribeBtn">Subscribe</button>
+        <button type="button" onclick="Updateuser()" id="updateBtn">Update</button>
       </form>
     </div>
 
@@ -44,11 +47,14 @@
           <tr>
             <th>Name</th>
             <th>Frequency</th>
-            <th>Action</th>
+            <th>Subscription</th>
+            <th>Preferred</th>
+            <th>edit</th>
+            <th>delete</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
+          <!-- <tr>
             <td>John Doe</td>
             <td>Weekly</td>
             <td>
@@ -63,10 +69,166 @@
               <button class="edit-btn">Edit</button>
               <button class="delete-btn">Delete</button>
             </td>
-          </tr>
+          </tr> -->
         </tbody>
       </table>
+
+      <script>
+        var Subscription = [
+
+        ]
+
+        function Subscribeuser() {
+          var FullName = document.getElementById("name").value
+          var Email = document.getElementById("email").value
+
+          var User = {
+            FullName,
+            Email,
+            frequency: [],
+            topics: [],
+
+          }
+
+          var allradio = document.getElementsByName("frequency")
+
+          for (i = 0; i < allradio.length; i++) {
+            if (allradio[i].checked == true) {
+              User.frequency.push(allradio[i].value)
+
+            }
+            allradio[i].checked == false
+          }
+
+          var allCheckBoxes = document.getElementsByName("topics")
+
+          for (i = 0; i < allCheckBoxes.length; i++) {
+            if (allCheckBoxes[i].checked == true) {
+              User.topics.push(allCheckBoxes[i].value)
+
+            }
+            allCheckBoxes[i].checked == false
+          }
+
+          Subscription.push(User)
+
+          document.getElementById("name").value = ""
+          document.getElementById("email").value = ""
+
+          displayinTable()
+        }
+
+        function displayinTable() {
+          document.querySelector("tbody").innerHTML = ""
+          Subscription.forEach(function (User, index) {
+            var MyTr = document.createElement("tr")
+            for (a in User) {
+              var MyTd = document.createElement("td")
+              MyTd.innerHTML = User[a]
+              MyTr.appendChild(MyTd)
+              document.querySelector("tbody").appendChild(MyTr)
+
+            }
+
+            var editTd = document.createElement("td")
+            var editBtn = document.createElement("button")
+            editBtn.innerHTML = "edit"
+            editBtn.setAttribute("class", "edit-btn")
+            editBtn.setAttribute("onclick", "edituser(" + index + ")")
+            editTd.appendChild(editBtn)
+            MyTr.appendChild(editTd)
+
+            var deleteTd = document.createElement("td")
+            var deleteBtn = document.createElement("button")
+            deleteBtn.innerHTML = "Delete"
+            deleteBtn.setAttribute("class", "delete-btn")
+            deleteBtn.setAttribute("onclick", "deleteuser(" + index + ")")
+            deleteTd.appendChild(deleteBtn)
+            MyTr.appendChild(deleteTd)
+          })
+
+        }
+        displayinTable()
+
+        function deleteuser(i) {
+          console.log("delete user !!!" + i)
+          Subscription.splice(i, 1)
+          displayinTable()
+
+        }
+
+        var Iindex;
+
+        function edituser(i) {
+
+          Iindex = i;
+
+          document.getElementById("name").value = Subscription[i].FullName
+          document.getElementById("email").value = Subscription[i].Email
+
+          var allradio = document.getElementsByName("frequency")
+          for (j = 0; j < allradio.length; j++) {
+            allradio[j].checked = Subscription[i].frequency.includes(allradio[j].value)
+          }
+
+          var allCheckBoxes = document.getElementsByName("topics")
+          for (k = 0; k < allCheckBoxes.length; k++) {
+            allCheckBoxes[k].checked = Subscription[i].topics.includes(allCheckBoxes[k].value)
+          }
+
+          document.getElementById("subcribeBtn").style.display = "none"
+          document.getElementById("updateBtn").style.display = "block"
+        }
+
+        function Updateuser() {
+
+          var FullName = document.getElementById("name").value
+          var Email = document.getElementById("email").value
+
+          var User = {
+            FullName,
+            Email,
+            frequency: [],
+            topics: []
+
+          }
+          var allradio = document.getElementsByName("frequency")
+
+          for (i = 0; i < allradio.length; i++) {
+            if (allradio[i].checked == true) {
+              User.frequency.push(allradio[i].value)
+
+            }
+            allradio[i].checked == false
+          }
+
+          var allCheckBoxes = document.getElementsByName("topics")
+
+          for (i = 0; i < allCheckBoxes.length; i++) {
+            if (allCheckBoxes[i].checked == true) {
+              User.topics.push(allCheckBoxes[i].value)
+
+            }
+            allCheckBoxes[i].checked == false
+          }
+
+          Subscription[Iindex] = User
+          displayinTable()
+
+
+          document.getElementById("name").value = ""
+          document.getElementById("email").value = ""
+
+          document.getElementById("subcribeBtn").style.display = "block"
+          document.getElementById("updateBtn").style.display = "none"
+
+
+        }
+
+
+      </script>
     </div>
   </div>
 </body>
+
 </html>

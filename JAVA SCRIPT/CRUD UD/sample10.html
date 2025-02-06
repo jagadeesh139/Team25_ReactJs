@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Job Application</title>
   <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
   <div class="container">
     <!-- Form Column -->
@@ -23,9 +25,9 @@
 
         <label>Job Type</label>
         <div>
-          <label><input type="radio" name="job-type" value="full-time" required> Full-Time</label><br>
-          <label><input type="radio" name="job-type" value="part-time" required> Part-Time</label><br>
-          <label><input type="radio" name="job-type" value="internship" required> Internship</label>
+          <label><input type="radio" name="jobtype" value="full-time" required> Full-Time</label><br>
+          <label><input type="radio" name="jobtype" value="part-time" required> Part-Time</label><br>
+          <label><input type="radio" name="jobtype" value="internship" required> Internship</label>
         </div>
 
         <label>Skills</label>
@@ -35,7 +37,8 @@
           <label><input type="checkbox" name="skills" value="react"> React</label>
         </div>
 
-        <button type="submit">Apply</button>
+        <button type="button" onclick="Applicationuser()" id="Applicaationbtn">Apply</button>
+        <button type="button" onclick="Updateuser()" id="updateBtn">Update</button>
       </form>
     </div>
 
@@ -47,11 +50,15 @@
           <tr>
             <th>Name</th>
             <th>Job Type</th>
-            <th>Action</th>
+            <th>Phone</th>
+            <th>Type</th>
+            <th>Skills</th>
+            <th>edit</th>
+            <th>delete</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
+          <!-- <tr>
             <td>John Doe</td>
             <td>Full-Time</td>
             <td>
@@ -66,10 +73,169 @@
               <button class="edit-btn">Edit</button>
               <button class="delete-btn">Delete</button>
             </td>
-          </tr>
+          </tr> -->
         </tbody>
       </table>
+
+      <script>
+        var Application = [
+
+        ]
+
+        function Applicationuser() {
+          var FullName = document.getElementById("name").value
+          var Email = document.getElementById("email").value
+          var Phone = document.getElementById("phone").value
+
+          var User = {
+            FullName,
+            Email,
+            Phone,
+            jobtype: [],
+            skills: []
+          }
+          var allradio = document.getElementsByName("jobtype")
+
+          for (i = 0; i < allradio.length; i++) {
+            if (allradio[i].checked == true) {
+              User.jobtype.push(allradio[i].value)
+
+            }
+            allradio[i].checked == false
+          }
+
+          var allCheckBoxes = document.getElementsByName("skills")
+
+          for (i = 0; i < allCheckBoxes.length; i++) {
+            if (allCheckBoxes[i].checked == true) {
+              User.skills.push(allCheckBoxes[i].value)
+
+            }
+            allCheckBoxes[i].checked == false
+          }
+
+          Application.push(User)
+          document.getElementById("name").value = ""
+          document.getElementById("email").value = ""
+          document.getElementById("phone").value = ""
+          displayinTable()
+
+        }
+
+        function displayinTable() {
+
+          document.querySelector("tbody").innerHTML = ""
+          Application.forEach(function (User, index) {
+            var MyTr = document.createElement("tr")
+            for (a in User) {
+              var MyTd = document.createElement("td")
+              MyTd.innerHTML = User[a]
+              MyTr.appendChild(MyTd)
+              document.querySelector("tbody").appendChild(MyTr)
+
+            }
+
+            var editTd = document.createElement("td")
+            var editBtn = document.createElement("button")
+            editBtn.innerHTML = "edit"
+            editBtn.setAttribute("class", "edit-btn")
+            editBtn.setAttribute("onclick", "edituser(" + index + ")")
+            editTd.appendChild(editBtn)
+            MyTr.appendChild(editTd)
+
+            var deleteTd = document.createElement("td")
+            var deleteBtn = document.createElement("button")
+            deleteBtn.innerHTML = "Delete"
+            deleteBtn.setAttribute("class", "delete-btn")
+            deleteBtn.setAttribute("onclick", "deleteuser(" + index + ")")
+            deleteTd.appendChild(deleteBtn)
+            MyTr.appendChild(deleteTd)
+          })
+        }
+        function deleteuser(i) {
+          console.log("delete user !!!" + i)
+          Application.splice(i, 1)
+          displayinTable()
+
+        }
+        var Iindex;
+
+        function edituser(i) {
+
+          Iindex = i;
+
+          document.getElementById("name").value = Application[i].FullName
+          document.getElementById("email").value = Application[i].Email
+          var Phone = document.getElementById("phone").value = Application[i].Phone
+
+          var allradio = document.getElementsByName("jobtype")
+          for (j = 0; j < allradio.length; j++) {
+            allradio[j].checked = Application[i].jobtype.includes(allradio[j].value)
+          }
+
+          var allCheckBoxes = document.getElementsByName("skills")
+          for (k = 0; k < allCheckBoxes.length; k++) {
+            allCheckBoxes[k].checked = Application[i].skills.includes(allCheckBoxes[k].value)
+          }
+
+          document.getElementById("Applicaationbtn").style.display="none"
+          document.getElementById("updateBtn").style.display = "block"
+        }
+
+        function Updateuser() {
+
+          var FullName = document.getElementById("name").value
+          var Email = document.getElementById("email").value
+          var Phone = document.getElementById("phone").value
+
+
+          var User = {
+            FullName,
+            Email,
+            jobtype: [],
+            skills: []
+
+          }
+          var allradio = document.getElementsByName("jobtype")
+
+          for (i = 0; i < allradio.length; i++) {
+            if (allradio[i].checked == true) {
+              User.jobtype.push(allradio[i].value)
+
+            }
+            allradio[i].checked == false
+          }
+
+          var allCheckBoxes = document.getElementsByName("skills")
+
+          for (i = 0; i < allCheckBoxes.length; i++) {
+            if (allCheckBoxes[i].checked == true) {
+              User.skills.push(allCheckBoxes[i].value)
+
+            }
+            allCheckBoxes[i].checked == false
+          }
+
+          Application[Iindex] = User
+          displayinTable()
+
+
+          document.getElementById("name").value = ""
+          document.getElementById("email").value = ""
+          document.getElementById("phone").value = ""
+
+
+          document.getElementById("Applicaationbtn").style.display = "block"
+          document.getElementById("updateBtn").style.display = "none"
+
+
+        }
+
+
+
+      </script>
     </div>
   </div>
 </body>
+
 </html>
