@@ -172,47 +172,47 @@
             <div class="form-container">
                 <h2>Add Product</h2>
                 <form id="product-form">
-                    <label for="name">Product Name</label>
+                    <label for="name">Product Name:</label>
                     <input type="text" id="name" required>
 
                     <label>Category:</label>
                     <div class="checkbox-group">
-                        <input type="checkbox" id="electronics" name="products" value="Electronics">
+                        <input type="checkbox" id="electronics" value="Electronics" name="category">
                         <label for="electronics">Electronics</label>
 
-                        <input type="checkbox" id="furniture" name="products" value="Furniture">
+                        <input type="checkbox" id="furniture" value="Furniture" name="category">
                         <label for="furniture">Furniture</label>
 
-                        <input type="checkbox" id="clothing" name="products" value="Clothing">
+                        <input type="checkbox" id="clothing" value="Clothing" name="category">
                         <label for="clothing">Clothing</label>
 
-                        <input type="checkbox" id="groceries" name="products" value="Groceries">
+                        <input type="checkbox" id="groceries" value="Groceries" name="category">
                         <label for="groceries">Groceries</label>
                     </div>
 
                     <label for="quantity">Quantity:</label>
                     <input type="number" id="quantity" required>
 
-                    <label for="price">Price</label>
+                    <label for="price">Price (₹):</label>
                     <input type="number" id="price" required>
 
                     <label>Supplier:</label>
                     <div class="radio-group">
-                        <input type="radio" id="supplier1" name="supply" value="Supplier A">
+                        <input type="radio" id="supplier1" name="supplier" value="Supplier A">
                         <label for="supplier1">Supplier A</label>
 
-                        <input type="radio" id="supplier2" name="supply" value="Supplier B">
+                        <input type="radio" id="supplier2" name="supplier" value="Supplier B">
                         <label for="supplier2">Supplier B</label>
 
-                        <input type="radio" id="supplier3" name="supply" value="Supplier C">
+                        <input type="radio" id="supplier3" name="supplier" value="Supplier C">
                         <label for="supplier3">Supplier C</label>
                     </div>
 
                     <label for="reorderLevel">Reorder Level:</label>
                     <input type="number" id="reorderLevel" required>
 
-                    <button type="button" onclick="Supplyuser()" id="Productbtn">Add Product</button>
-                    <button type="button" onclick="Updateuser()" id="updateBtn" style="display: none;">Update</button>
+                    <button type="button" onclick="registeruser()" id="crtbtn">Join Now</button>
+                    <button type="button" onclick="update()" id="updbtn" style="display:none">Update</button>
                 </form>
             </div>
 
@@ -222,15 +222,16 @@
                 <table>
                     <thead>
                         <tr>
-                            <!-- <th>ID</th> -->
-                            <th> Product Name</th>
+                            <th>Name</th>
                             <th>Category</th>
                             <th>Quantity</th>
-                            <th>Price</th>
+                            <th>Price (₹)</th>
                             <th>Supplier</th>
                             <th>Reorder Level</th>
                             <th>Edit</th>
                             <th>Delete</th>
+                           
+
                         </tr>
                     </thead>
                     <tbody id="product-list">
@@ -275,167 +276,163 @@
                         </tr> -->
                     </tbody>
                 </table>
-                <script>
-                    var Inventory = [
-
-                    ]
-                    function Supplyuser() {
-                        var ProductName = document.getElementById("name").value
-                        var Quantity = document.getElementById("quantity").value
-                        var Price = document.getElementById("price").value
-                        var ReorderLevel = document.getElementById("reorderLevel").value
-
-                        var User = {
-                            ProductName,
-                            products: [],
-                            Quantity,
-                            Price,
-                            supply: [],
-                            ReorderLevel
-
-
-                        }
-
-                        var allCheckBoxes = document.getElementsByName(" products")
-                        for (i = 0; i < allCheckBoxes.length; i++) {
-                            if (allCheckBoxes[i].checked == true) {
-                                User.products.push(allCheckBoxes[i].value)
-                                console.log(User)
-                            }
-                            allCheckBoxes[i].checked == false
-                        }
-
-                        var allradio = document.getElementsByName(" supply")
-                        for (i = 0; i < allradio.length; i++) {
-                            if (allradio[i].checked == true) {
-                                User.supply.push(allradio[i].value)
-                            }
-                            allradio[i].checked == false
-                        }
-
-                        Inventory.push(User)
-
-                        document.getElementById("name").value = ""
-                        document.getElementById("quantity").value = ""
-                        document.getElementById("price").value = ""
-                        document.getElementById("reorderLevel").value = ""
-
-                        displayinTable()
-                    }
-
-                    function displayinTable() {
-                        document.getElementById("product-list").innerHTML = ""
-                        Inventory.forEach(function (User, index) {
-                            var MyTr = document.createElement("tr")
-                            for (a in User) {
-                                var myTd = document.createElement("td")
-                                myTd.innerHTML = User[a]
-                                MyTr.appendChild(myTd)
-
-                            }
-
-                            var editTd = document.createElement("td")
-                            var editBtn = document.createElement("button")
-                            editBtn.innerHTML = "Edit"
-                            editBtn.setAttribute("class", "edit-btn")
-                            editBtn.setAttribute("onclick", "edituser(" + index + ")")
-                            editTd.appendChild(editBtn)
-                            MyTr.appendChild(editTd)
-
-                            var deleteTd = document.createElement("td")
-                            var deleteBtn = document.createElement("button")
-                            deleteBtn.innerHTML = "Delete"
-                            deleteBtn.setAttribute("class", "delte-btn")
-                            deleteBtn.setAttribute("onclick", "deleteuser(" + index + ")")
-                            deleteTd.appendChild(deleteBtn)
-                            MyTr.appendChild(deleteTd)
-                            document.getElementById("product-list").appendChild(MyTr)
-                        })
-                    }
-                    displayinTable()
-
-                    function deleteuser(i) {
-                        console.log("delteuser !!" + i)
-                        Inventory.splice(i, 1)
-                        displayinTable()
-
-                    }
-
-                    var Iindex;
-
-                    function edituser(i) {
-                        Iindex = i;
-
-                        document.getElementById("name").value = Inventory[i].ProductName
-                        document.getElementById("quantity").value = Inventory[i].Quantity
-                        document.getElementById("price").value = Inventory[i].Price
-                        document.getElementById("reorderLevel").value = Inventory[i].ReorderLevel
-
-                        var allCheckBoxes = document.getElementsByName("products")
-                        for (j = 0; j < allCheckBoxes.length; j++) {
-                            allCheckBoxes[j].checked = Inventory[i].products.includes(allCheckBoxes[j].value)
-                        }
-
-                        var allradio = document.getElementsByName("supply")
-                        for (k = 0; k < allradio.length; k++) {
-                            allradio[k].checked = Inventory[i].supply.includes(allradio[k].value)
-                        }
-
-                        document.getElementById("Productbtn").style.display = "none"
-                        document.getElementById("updateBtn").style.display = "block"
-                    }
-
-                    function Updateuser() {
-
-                        var ProductName = document.getElementById("name").value
-                        var Quantity = document.getElementById("quantity").value
-                        var Price = document.getElementById("price").value
-                        var ReorderLevel = document.getElementById("reorderLevel").value
-
-                        var User = {
-                            ProductName,
-                            products: [],
-                            Quantity,
-                            Price,
-                            supply: [],
-                            ReorderLevel
-                        }
-
-                        var allCheckBoxes = document.getElementsByName(" products")
-                        for (i = 0; i < allCheckBoxes.length; i++) {
-                            if (allCheckBoxes[i].checked == true) {
-                                User.products.push(allCheckBoxes[i].value)
-                            }
-                            allCheckBoxes[i].checked == false
-                        }
-
-                        var allradio = document.getElementsByName(" supply")
-                        for (i = 0; i < allradio.length; i++) {
-                            if (allradio[i].checked == true) {
-                                User.supply.push(allradio[i].value)
-                            }
-                            allradio[i].checked == false
-                        }
-
-                        Inventory[Iindex] = User
-                        displayinTable()
-
-                        document.getElementById("name").value = ""
-                        document.getElementById("quantity").value = ""
-                        document.getElementById("price").value = ""
-                        document.getElementById("reorderLevel").value = ""
-
-                        document.getElementById("Productbtn").style.display = "block"
-                        document.getElementById("updateBtn").style.display = "none"
-
-                    }
-
-
-                </script>
             </div>
         </div>
 
     </div>
+    <script>
+        var allUsers = []
+        function registeruser() {
+            var productName = document.getElementById("name").value
+            var quantity = document.getElementById("quantity").value
+            var price = document.getElementById("price").value
+            var reclvl = document.getElementById("reorderLevel").value
+            var user = {
+                productName,
+                category: [],
+                quantity,
+                price,
+                supplier: [],
+                reclvl
+            }
+            //radiobuttons
+            var radio = document.getElementsByName("supplier")
+            for (i = 0; i < radio.length; i++) {
+                if (radio[i].checked == true) {
+                    user.supplier.push(radio[i].value)
+                }
+                radio[i].checked = false;
+            }
+            //checkboxes
+            var checkbox = document.getElementsByName("category")
+            for (i = 0; i < checkbox.length; i++) {
+                if (checkbox[i].checked == true) {
+                    user.category.push(checkbox[i].value)
+                    console.log(user)
+                }
+
+                checkbox[i].checked = false
+            }
+            allUsers.push(user)
+            displayUsers()
+            document.getElementById("name").value = ""
+            document.getElementById("quantity").value = ""
+            document.getElementById("price").value = ""
+            document.getElementById("reorderLevel").value = ""
+
+        }
+
+        function displayUsers() {
+            document.querySelector("tbody").innerHTML = ""
+            allUsers.forEach(function (user, index) {
+                var tr = document.createElement("tr");
+                for (a in user) {
+                    var td = document.createElement("td");
+                    td.innerHTML = user[a]
+                    tr.appendChild(td)
+                }
+
+                var edttd = document.createElement("td")
+                var edtbtn = document.createElement("button")
+                edtbtn.innerHTML = "Edit"
+                edtbtn.setAttribute("class", "edit-btn")
+                edtbtn.setAttribute("onclick", "edit(" + index + ")")
+                edttd.appendChild(edtbtn);
+                tr.appendChild(edttd);
+
+                deltd = document.createElement("td")
+                delbtn = document.createElement("button")
+                delbtn.innerHTML = "delete"
+                delbtn.setAttribute("class", "delete-btn")
+                delbtn.setAttribute("onclick", "del(" + index + ")")
+                deltd.appendChild(delbtn)
+                tr.appendChild(deltd)
+
+               
+                document.querySelector("tbody").appendChild(tr)
+            })
+
+
+
+        }
+
+
+        function del(i) {
+            allUsers.splice(i, 1);
+            displayUsers();
+        }
+        var indx;
+        function edit(i) {
+            indx = i;
+            document.getElementById("name").value = allUsers[i].productName
+            document.getElementById("quantity").value = allUsers[i].quantity
+            document.getElementById("price").value = allUsers[i].price
+            document.getElementById("reorderLevel").value = allUsers[i].reclvl
+
+
+            //radiobutton selection
+            var radio = document.getElementsByName("supplier")
+
+            for (j = 0; j < radio.length; j++) {
+
+                radio[j].checked = allUsers[i].supplier.includes(radio[j].value);
+            }
+
+            //checkbox selection
+            var checkbox = document.getElementsByName("category")
+            for (var k = 0; k < checkbox.length; k++) {
+                checkbox[k].checked = allUsers[i].category.includes(checkbox[k].value);
+            }
+
+            document.getElementById("crtbtn").style.display = "none"
+            document.getElementById("updbtn").style.display = "block"
+
+        }
+        function update() {
+            var productName = document.getElementById("name").value
+            var quantity = document.getElementById("quantity").value
+            var price = document.getElementById("price").value
+            var reclvl = document.getElementById("reorderLevel").value
+            var user = {
+                productName,
+                category: [],
+                quantity,
+                price,
+                supplier: [],
+                reclvl
+            }
+            //radiobuttons
+            var radio = document.getElementsByName("supplier")
+            for (i = 0; i < radio.length; i++) {
+                if (radio[i].checked == true) {
+                    user.supplier.push(radio[i].value)
+                }
+                radio[i].checked = false;
+            }
+            //checkboxes
+            var checkbox = document.getElementsByName("category")
+            for (i = 0; i < checkbox.length; i++) {
+                if (checkbox[i].checked == true) {
+                    user.category.push(checkbox[i].value)
+                }
+                checkbox[i].checked = false
+            }
+
+            allUsers[indx] = user
+
+            displayUsers();
+            document.getElementById("name").value = ""
+            document.getElementById("quantity").value = ""
+            document.getElementById("price").value = ""
+            document.getElementById("reorderLevel").value = ""
+
+
+
+            document.getElementById("updbtn").style.display = "none"
+            document.getElementById("crtbtn").style.display = "block"
+        }
+
+    </script>
 
 </body>
 
