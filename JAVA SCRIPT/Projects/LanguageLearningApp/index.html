@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -67,18 +68,23 @@
             font-weight: bold;
         }
 
-        input, select, textarea, button {
+        input,
+        select,
+        textarea,
+        button {
             padding: 8px;
             font-size: 16px;
         }
 
-        .radio-group, .checkbox-group {
+        .radio-group,
+        .checkbox-group {
             display: flex;
             flex-wrap: wrap;
             gap: 10px;
         }
 
-        .radio-group input, .checkbox-group input {
+        .radio-group input,
+        .checkbox-group input {
             margin-right: 5px;
         }
 
@@ -106,7 +112,8 @@
             margin-top: 10px;
         }
 
-        th, td {
+        th,
+        td {
             border: 1px solid #ddd;
             padding: 10px;
             text-align: center;
@@ -138,12 +145,15 @@
             .content {
                 flex-direction: column;
             }
-            .form-container, .vocabulary-container {
+
+            .form-container,
+            .vocabulary-container {
                 flex: 100%;
             }
         }
     </style>
 </head>
+
 <body>
 
     <div class="container">
@@ -186,17 +196,18 @@
 
                     <label>Progress:</label>
                     <div class="checkbox-group">
-                        <input type="checkbox" id="learned">
+                        <input type="checkbox" id="learned" name="Prog">
                         <label for="learned">Learned</label>
 
-                        <input type="checkbox" id="review">
+                        <input type="checkbox" id="review" name="Prog">
                         <label for="review">Needs Review</label>
 
-                        <input type="checkbox" id="mastered">
+                        <input type="checkbox" id="mastered" name="Prog">
                         <label for="mastered">Mastered</label>
                     </div>
 
-                    <button type="submit">Add Word</button>
+                    <button type="button" onclick="vacabularyuser()" id="Vocabularybtn">Add Word</button>
+                    <button type="button" onclick="updateuser()" id="updateBtn" style="display: none;">Update</button>
                 </form>
             </div>
 
@@ -213,10 +224,12 @@
                             <th>Antonyms</th>
                             <th>Progress</th>
                             <th>Actions</th>
+                            <th>Edit</th>
+                            <th>Delete</th>
                         </tr>
                     </thead>
-                    <tbody id="word-list">
-                        <tr>
+                    <tbody>
+                        <!-- <tr>
                             <td>Elucidate</td>
                             <td>Explain clearly</td>
                             <td>He tried to elucidate the concept.</td>
@@ -248,18 +261,184 @@
                             <td>
                                 <button class="remove">Remove</button>
                             </td>
-                        </tr>
+                        </tr> -->
                     </tbody>
                 </table>
+
+
 
                 <h3>Learning Progress</h3>
                 <p>Daily Goal: <strong>10 words</strong></p>
                 <p>Words Learned: <strong>5</strong></p>
                 <p>Achievements: <strong>Basic Vocabulary Badge</strong></p>
+
+                <script>
+                    var vacabulary = [
+
+                    ]
+
+                    function vacabularyuser() {
+                        var Word = document.getElementById("word").value
+                        var Definition = document.getElementById("definition").value
+                        var ExampleSentence = document.getElementById("exampleSentence").value
+                        var Synonyms = document.getElementById("synonyms").value
+                        var Antonyms = document.getElementById("antonyms").value
+
+                        var user = {
+                            Word,
+                            Definition,
+                            ExampleSentence,
+                            Synonyms,
+                            Antonyms,
+                            language: [],
+                            Prog: []
+                        }
+
+                        var allradio = document.getElementsByName("language")
+                        for (i = 0; i < allradio.length; i++) {
+                            if (allradio[i].checked == true) {
+                                user.language.push(allradio[i].value)
+
+                            }
+                            allradio[i].checked == false
+                        }
+                        var allCheckBoxes = document.getElementsByName("Prog")
+                        for (i = 0; i < allCheckBoxes.length; i++) {
+                            if (allCheckBoxes[i].checked == true) {
+                                user.Prog.push(allCheckBoxes[i].value)
+                            }
+                            allCheckBoxes[i].checked == false
+                        }
+
+                        vacabulary.push(user)
+
+                        document.getElementById("word").value = ""
+                        document.getElementById("definition").value = ""
+                        document.getElementById("exampleSentence").value = ""
+                        document.getElementById("synonyms").value = ""
+                        document.getElementById("antonyms").value = ""
+
+
+                        displayinTable()
+                    }
+
+                    function displayinTable() {
+                        document.querySelector("tbody").innerHTML = ""
+                        vacabulary.forEach(function (user, index) {
+                            var myTr = document.createElement("tr")
+                            for (a in user) {
+                                var myTd = document.createElement("td")
+                                myTd.innerHTML = user[a]
+                                myTr.appendChild(myTd)
+                            }
+                            var editTd = document.createElement("td")
+                            var editBtn = document.createElement("button")
+                            editBtn.innerHTML = "Edit"
+                            editBtn.setAttribute("class", "edit-btn")
+                            editBtn.setAttribute("onclick", "edituser(" + index + ")")
+                            editTd.appendChild(editBtn)
+                            myTr.appendChild(editTd)
+
+                            var deleteTd = document.createElement("td")
+                            var deleteBtn = document.createElement("button")
+                            deleteBtn.innerHTML = "Delete"
+                            deleteBtn.setAttribute("class", "delete-btn")
+                            deleteBtn.setAttribute("onclick", "deleteuser(" + index + ")")
+                            deleteTd.appendChild(deleteBtn)
+                            myTr.appendChild(deleteTd)
+
+                            document.querySelector("tbody").appendChild(myTr)
+                        })
+
+                    }
+
+                    function deleteuser(i) {
+                        console.log("delete User!!" + i)
+                        vacabulary.splice(i, 1)
+                        displayinTable()
+                    }
+
+                    var Iindex;
+
+                    function edituser(i) {
+                        Iindex = i;
+
+                        document.getElementById("word").value = vacabulary[i].Word
+                        document.getElementById("definition").value = vacabulary[i].Definition
+                        document.getElementById("exampleSentence").value = vacabulary[i].ExampleSentence
+                        document.getElementById("synonyms").value = vacabulary[i].Synonyms
+                        document.getElementById("antonyms").value = vacabulary[i].Antonyms
+
+                        var allradio = document.getElementsByName("language")
+                        for (j = 0; j < allradio.length; j++) {
+                            allradio[j].checked = vacabulary[i].language.includes(allradio[j].value)
+                        }
+
+                        var allCheckBoxes = document.getElementsByName("Prog")
+                        for (k = 0; k < allCheckBoxes.length; k++) {
+                            allCheckBoxes[k].checked = vacabulary[i].Prog.includes(allCheckBoxes[k].value)
+                        }
+
+                        document.getElementById("Vocabularybtn").style.display = "none"
+                        document.getElementById("updateBtn").style.display = "block"
+
+                    }
+
+                    function updateuser(){
+
+                        var Word = document.getElementById("word").value
+                        var Definition = document.getElementById("definition").value
+                        var ExampleSentence = document.getElementById("exampleSentence").value
+                        var Synonyms = document.getElementById("synonyms").value
+                        var Antonyms = document.getElementById("antonyms").value
+
+                        var user = {
+                            Word,
+                            Definition,
+                            ExampleSentence,
+                            Synonyms,
+                            Antonyms,
+                            language: [],
+                            Prog: []
+                        }
+
+                        var allradio = document.getElementsByName("language")
+                        for (i = 0; i < allradio.length; i++) {
+                            if (allradio[i].checked == true) {
+                                user.language.push(allradio[i].value)
+
+                            }
+                            allradio[i].checked == false
+                        }
+                        var allCheckBoxes = document.getElementsByName("Prog")
+                        for (i = 0; i < allCheckBoxes.length; i++) {
+                            if (allCheckBoxes[i].checked == true) {
+                                user.Prog.push(allCheckBoxes[i].value)
+                            }
+                            allCheckBoxes[i].checked == false
+                        }
+
+                        vacabulary[Iindex] = user
+                        displayinTable()
+
+                        document.getElementById("word").value = ""
+                        document.getElementById("definition").value = ""
+                        document.getElementById("exampleSentence").value = ""
+                        document.getElementById("synonyms").value = ""
+                        document.getElementById("antonyms").value = ""
+
+                        document.getElementById("Vocabularybtn").style.display = "block"
+                        document.getElementById("updateBtn").style.display = "none"
+
+
+
+                    }
+                </script>
             </div>
         </div>
 
     </div>
 
 </body>
+
 </html>

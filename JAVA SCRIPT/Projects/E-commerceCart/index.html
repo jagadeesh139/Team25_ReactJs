@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -67,18 +68,22 @@
             font-weight: bold;
         }
 
-        input, select, button {
+        input,
+        select,
+        button {
             padding: 8px;
             font-size: 16px;
         }
 
-        .radio-group, .checkbox-group {
+        .radio-group,
+        .checkbox-group {
             display: flex;
             flex-wrap: wrap;
             gap: 10px;
         }
 
-        .radio-group input, .checkbox-group input {
+        .radio-group input,
+        .checkbox-group input {
             margin-right: 5px;
         }
 
@@ -106,7 +111,8 @@
             margin-top: 10px;
         }
 
-        th, td {
+        th,
+        td {
             border: 1px solid #ddd;
             padding: 10px;
             text-align: center;
@@ -138,12 +144,15 @@
             .content {
                 flex-direction: column;
             }
-            .form-container, .cart-container {
+
+            .form-container,
+            .cart-container {
                 flex: 100%;
             }
         }
     </style>
 </head>
+
 <body>
 
     <div class="container">
@@ -159,23 +168,23 @@
 
                     <label>Category:</label>
                     <div class="checkbox-group">
-                        <input type="checkbox" id="electronics" value="Electronics">
+                        <input type="checkbox" id="electronics" name="Produts" value="Electronics">
                         <label for="electronics">Electronics</label>
 
-                        <input type="checkbox" id="clothing" value="Clothing">
+                        <input type="checkbox" id="clothing" name="Produts " value="Clothing">
                         <label for="clothing">Clothing</label>
 
-                        <input type="checkbox" id="home" value="Home Appliances">
+                        <input type="checkbox" id="home" name="Produts " value="Home Appliances">
                         <label for="home">Home Appliances</label>
 
-                        <input type="checkbox" id="books" value="Books">
+                        <input type="checkbox" id="books" name="Produts" value="Books">
                         <label for="books">Books</label>
                     </div>
 
                     <label for="quantity">Quantity:</label>
                     <input type="number" id="quantity" required>
 
-                    <label for="price">Price (₹):</label>
+                    <label for="price">Price:</label>
                     <input type="number" id="price" required>
 
                     <label>Discount:</label>
@@ -193,7 +202,8 @@
                         <label for="discount30">30% Off</label>
                     </div>
 
-                    <button type="submit">Add to Cart</button>
+                    <button type="button" onclick="Ecomercecart()" id="EcomerceBtn">Add to Cart</button>
+                    <button type="button" onclick="Updateuser()" id="updateBtn" style="display: none;">Update</button>
                 </form>
             </div>
 
@@ -208,12 +218,12 @@
                             <th>Quantity</th>
                             <th>Price (₹)</th>
                             <th>Discount</th>
-                            <th>Total Price (₹)</th>
-                            <th>Actions</th>
+                            <th>Edit</th>
+                            <th>Delete</th>
                         </tr>
                     </thead>
                     <tbody id="cart-list">
-                        <tr>
+                        <!-- <tr>
                             <td>Smartphone</td>
                             <td>Electronics</td>
                             <td>1</td>
@@ -245,7 +255,7 @@
                             <td>
                                 <button class="remove">Remove</button>
                             </td>
-                        </tr>
+                        </tr> -->
                     </tbody>
                 </table>
 
@@ -255,9 +265,158 @@
                 <p>Taxes (10%): <strong>₹2,540</strong></p>
                 <p><strong>Total Price: ₹27,940</strong></p>
             </div>
+
+            <script>
+                var Comerce = [
+
+                ]
+
+                function Ecomercecart() {
+                    var ProductName = document.getElementById("productName").value
+                    var Quantity = document.getElementById("quantity").value
+                    var Price = document.getElementById("price").value
+
+                    var Cart = {
+                        ProductName,
+                        Quantity,
+                        Price,
+                        Produts: [],
+                        discount: []
+                    }
+
+                    var allradio = document.getElementsByName("discount")
+                    for (i = 0; i < allradio.length; i++) {
+                        if (allradio[i].checked == true) {
+                            Cart.discount.push(allradio[i].value)
+                        }
+                        allradio[i].checked == false
+                    }
+
+                    var allCheckBoxes = document.getElementsByName("Produts")
+                    for (i = 0; i < allCheckBoxes.length; i++) {
+                        if (allCheckBoxes[i].checked == true) {
+                            Cart.Produts.push(allCheckBoxes[i].value)
+                        }
+                        allCheckBoxes[i].checked == false
+                    }
+
+                    Comerce.push(Cart)
+
+                    document.getElementById("productName").value = ""
+                    document.getElementById("quantity").value = ""
+                    document.getElementById("price").value = ""
+
+                    displayinTable()
+
+
+                }
+
+                function displayinTable() {
+                    document.getElementById("cart-list").innerHTML = ""
+                    Comerce.forEach(function (Cart, index) {
+                        var myTr = document.createElement("tr")
+                        for (a in Cart) {
+                            var MyTd = document.createElement("td")
+                            MyTd.innerHTML = Cart[a]
+                            myTr.appendChild(MyTd)
+                            document.getElementById("cart-list").appendChild(myTr)
+                        }
+
+                        var editTd = document.createElement("td")
+                        var editBtn = document.createElement("button")
+                        editBtn.innerHTML = "Edit"
+                        editBtn.setAttribute("class", "edit-btn")
+                        editBtn.setAttribute("onclick", "edituser(" + index + ")")
+                        editTd.appendChild(editBtn)
+                        myTr.appendChild(editTd)
+
+                        var deleteTd = document.createElement("td")
+                        var deleteBtn = document.createElement("button")
+                        deleteBtn.innerHTML = "Delete"
+                        deleteBtn.setAttribute("class", "delte-btn")
+                        deleteBtn.setAttribute("onclick", "deleteuser(" + index + ")")
+                        deleteTd.appendChild(deleteBtn)
+                        myTr.appendChild(deleteTd)
+                    })
+                }
+
+                function deleteuser(i) {
+                    console.log("deleteuser !!" + i)
+                    Comerce.splice(i, 1)
+                    displayinTable()
+                }
+
+                var Iindex;
+
+                function edituser(i) {
+                    Iindex = i;
+                    document.getElementById("productName").value = Comerce[i].ProductName
+                    document.getElementById("quantity").value = Comerce[i].Quantity
+                    document.getElementById("price").value = Comerce[i].Price
+
+                    var allradio = document.getElementsByName("discount")
+                    for (j = 0; j < allradio.length; j++) {
+                        allradio[j].checked = Comerce[i].discount.includes(allradio[j].value)
+                    }
+
+                    var allCheckBoxes = document.getElementsByName("Produts")
+                    for (k = 0; k < allCheckBoxes.length; k++) {
+                        allCheckBoxes[k].checked = Comerce[i].Produts.includes(allCheckBoxes[k].value)
+                    }
+
+                    document.getElementById("EcomerceBtn").style.display = "none"
+                    document.getElementById("updateBtn").style.display = "block"
+
+                }
+
+                function Updateuser() {
+                    var ProductName = document.getElementById("productName").value
+                    var Quantity = document.getElementById("quantity").value
+                    var Price = document.getElementById("price").value
+
+                    var Cart = {
+                        ProductName,
+                        Quantity,
+                        Price,
+                        Produts: [],
+                        discount: []
+                    }
+
+                    var allradio = document.getElementsByName("discount")
+                    for (i = 0; i < allradio.length; i++) {
+                        if (allradio[i].checked == true) {
+                            Cart.discount.push(allradio[i].value)
+                        }
+                        allradio[i].checked == false
+                    }
+
+                    var allCheckBoxes = document.getElementsByName("Produts")
+                    for (i = 0; i < allCheckBoxes.length; i++) {
+                        if (allCheckBoxes[i].checked == true) {
+                            Cart.Produts.push(allCheckBoxes[i].value)
+                        }
+                        allCheckBoxes[i].checked == false
+                    }
+
+                    Comerce[Iindex] = Cart
+                    displayinTable()
+
+                    document.getElementById("productName").value = ""
+                    document.getElementById("quantity").value = ""
+                    document.getElementById("price").value = ""
+
+                    document.getElementById("EcomerceBtn").style.display = "block"
+                    document.getElementById("updateBtn").style.display = "none"
+
+
+                }
+
+            </script>
+
         </div>
 
     </div>
 
 </body>
+
 </html>
