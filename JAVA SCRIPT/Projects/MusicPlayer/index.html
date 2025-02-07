@@ -288,7 +288,7 @@
                 if (radio[i].checked == true) {
                     user.repeat.push(radio[i].value)
                 }
-                radio[i].checked == false
+                radio[i].checked = false
             }
 
             var checkbox = document.getElementsByName("mode")
@@ -296,7 +296,7 @@
                 if (checkbox[i].checked == true) {
                     user.mode.push(checkbox[i].value)
                 }
-                checkbox[i].checked == true
+                checkbox[i].checked = false
             }
 
             Music.push(user)
@@ -394,7 +394,7 @@
                 if (radio[i].checked == true) {
                     user.repeat.push(radio[i].value)
                 }
-                radio[i].checked == false
+                radio[i].checked = false
             }
 
             var checkbox = document.getElementsByName("mode")
@@ -402,7 +402,7 @@
                 if (checkbox[i].checked == true) {
                     user.mode.push(checkbox[i].value)
                 }
-                checkbox[i].checked == true
+                checkbox[i].checked = false
             }
 
             Music[Iindex] = user

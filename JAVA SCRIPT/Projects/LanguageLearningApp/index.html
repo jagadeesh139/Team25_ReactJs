@@ -305,7 +305,7 @@
                     user.language.push(allradio[i].value)
 
                 }
-                allradio[i].checked == false
+                allradio[i].checked = false
             }
             var allCheckBoxes = document.getElementsByName("Prog")
             for (i = 0; i < allCheckBoxes.length; i++) {
@@ -313,7 +313,7 @@
                     console.log(allCheckBoxes[i].value)
                     user.Prog.push(allCheckBoxes[i].value)
                 }
-                allCheckBoxes[i].checked == false
+                allCheckBoxes[i].checked = false
             }
 
             vacabulary.push(user)
@@ -416,14 +416,14 @@
                     user.language.push(allradio[i].value)
 
                 }
-                allradio[i].checked == false
+                allradio[i].checked = false
             }
             var allCheckBoxes = document.getElementsByName("Prog")
             for (i = 0; i < allCheckBoxes.length; i++) {
                 if (allCheckBoxes[i].checked == true) {
                     user.Prog.push(allCheckBoxes[i].value)
                 }
-                allCheckBoxes[i].checked == false
+                allCheckBoxes[i].checked = false
             }
 
             vacabulary[Iindex] = user

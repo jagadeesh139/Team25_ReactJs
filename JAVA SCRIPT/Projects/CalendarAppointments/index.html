@@ -237,9 +237,9 @@
                             <th>Date</th>
                             <th>Time</th>
                             <th>Location</th>
+                            <th>Description</th>
                             <th>Category</th>
                             <th>Participants</th>
-                            <th>Actions</th>
                             <th>Edit</th>
                             <th>Delete</th>
                         </tr>
@@ -311,7 +311,7 @@
                             if (allradio[i].checked == true) {
                                 User.category.push(allradio[i].value)
                             }
-                            allradio[i].checked == false
+                            allradio[i].checked = false
                         }
 
                         var allCheckBoxes = document.getElementsByName("Options")
@@ -319,7 +319,7 @@
                             if (allCheckBoxes[i].checked == true) {
                                 User.Options.push(allCheckBoxes[i].value)
                             }
-                            allCheckBoxes[i].checked == false
+                            allCheckBoxes[i].checked = false
                         }
 
 
@@ -421,7 +421,7 @@
                             if (allradio[i].checked == true) {
                                 User.category.push(allradio[i].value)
                             }
-                            allradio[i].checked == false
+                            allradio[i].checked = false
                         }
 
                         var allCheckBoxes = document.getElementsByName("Options")
@@ -429,7 +429,7 @@
                             if (allCheckBoxes[i].checked == true) {
                                 User.Options.push(allCheckBoxes[i].value)
                             }
-                            allCheckBoxes[i].checked == false
+                            allCheckBoxes[i].checked = false
                         }
 
 

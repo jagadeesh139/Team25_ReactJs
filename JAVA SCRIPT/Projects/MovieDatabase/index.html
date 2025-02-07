@@ -303,6 +303,7 @@
                 if (radio[i].checked == true) {
                     user.rating.push(radio[i].value)
                 }
+                radio[i].checked = false
             }
 
             var checkbox = document.getElementsByName("actors")
@@ -310,6 +311,7 @@
                 if (checkbox[i].checked == true) {
                     user.actors.push(checkbox[i].value)
                 }
+                checkbox[i].checked = false
             }
 
             Movie.push(user)
@@ -403,6 +405,7 @@
                 if (radio[i].checked == true) {
                     user.rating.push(radio[i].value)
                 }
+                radio[i].checked = false
             }
 
             var checkbox = document.getElementsByName("actors")
@@ -410,6 +413,7 @@
                 if (checkbox[i].checked == true) {
                     user.actors.push(checkbox[i].value)
                 }
+                checkbox[i].checked = false
             }
 
             Movie[Iindex] = user

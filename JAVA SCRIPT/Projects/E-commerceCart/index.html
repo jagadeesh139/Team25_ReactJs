@@ -278,9 +278,9 @@
 
                     var Cart = {
                         ProductName,
+                        Produts: [],
                         Quantity,
                         Price,
-                        Produts: [],
                         discount: []
                     }
 
@@ -289,15 +289,15 @@
                         if (allradio[i].checked == true) {
                             Cart.discount.push(allradio[i].value)
                         }
-                        allradio[i].checked == false
+                        allradio[i].checked = false
                     }
 
                     var allCheckBoxes = document.getElementsByName("Produts")
                     for (i = 0; i < allCheckBoxes.length; i++) {
                         if (allCheckBoxes[i].checked == true) {
-                            Cart.Produts.push(allCheckBoxes[i].value)
+                            Cart.Produts .push(allCheckBoxes[i].value)
                         }
-                        allCheckBoxes[i].checked == false
+                        allCheckBoxes[i].checked = false
                     }
 
                     Comerce.push(Cart)
@@ -359,9 +359,9 @@
                         allradio[j].checked = Comerce[i].discount.includes(allradio[j].value)
                     }
 
-                    var allCheckBoxes = document.getElementsByName("Produts")
+                    var allCheckBoxes = document.getElementsByName("Produts ")
                     for (k = 0; k < allCheckBoxes.length; k++) {
-                        allCheckBoxes[k].checked = Comerce[i].Produts.includes(allCheckBoxes[k].value)
+                        allCheckBoxes[k].checked = Comerce[i].Produts .includes(allCheckBoxes[k].value)
                     }
 
                     document.getElementById("EcomerceBtn").style.display = "none"
@@ -378,7 +378,7 @@
                         ProductName,
                         Quantity,
                         Price,
-                        Produts: [],
+                        Produts : [],
                         discount: []
                     }
 
@@ -387,15 +387,15 @@
                         if (allradio[i].checked == true) {
                             Cart.discount.push(allradio[i].value)
                         }
-                        allradio[i].checked == false
+                        allradio[i].checked = false
                     }
 
-                    var allCheckBoxes = document.getElementsByName("Produts")
+                    var allCheckBoxes = document.getElementsByName("Produts ")
                     for (i = 0; i < allCheckBoxes.length; i++) {
                         if (allCheckBoxes[i].checked == true) {
-                            Cart.Produts.push(allCheckBoxes[i].value)
+                            Cart.Produts .push(allCheckBoxes[i].value)
                         }
-                        allCheckBoxes[i].checked == false
+                        allCheckBoxes[i].checked = false
                     }
 
                     Comerce[Iindex] = Cart
