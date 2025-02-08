@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 600px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        label {
+            font-weight: bold;
+            color: #555;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        input[type="date"],
+        input[type="datetime-local"] {
+            padding: 10px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        input[type="number"] {
+            -moz-appearance: textfield;
+            /* For Firefox to remove spinner */
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            align-self: center;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .forecast-day {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid #e0e0e0;
+        }
+
+        .forecast-day input[type="text"],
+        .forecast-day input[type="number"],
+        .forecast-day input[type="date"] {
+            width: 48%;
+            margin-right: 2%;
+        }
+
+        .forecast-day input[type="text"]:last-child,
+        .forecast-day input[type="number"]:last-child,
+        .forecast-day input[type="date"]:last-child {
+            margin-right: 0;
+        }
+
+        .forecast-day label {
+            font-weight: normal;
+            margin-top: 10px;
+        }
+
+        .forecast-day input {
+            margin-top: 5px;
+        }
+
+        .submit-container {
+            text-align: center;
+        }
+
+        .submit-container input[type="submit"] {
+            background-color: #007BFF;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .submit-container input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Weather Information</h1>
+
+        <form action="#" method="post">
+            <label for="location">Location:</label>
+            <input type="text" id="location" name="location" required>
+
+            <label for="temperature">Temperature (°C):</label>
+            <input type="number" id="temperature" name="temperature" step="0.1" required>
+
+            <label for="humidity">Humidity (%):</label>
+            <input type="number" id="humidity" name="humidity" min="0" max="100" required>
+
+            <label for="windSpeed">Wind Speed (km/h):</label>
+            <input type="number" id="windSpeed" name="windSpeed" step="0.1" required>
+
+            <label for="forecast">Forecast (Daily):</label>
+            <div id="forecast">
+                <div class="forecast-day">
+                    <label for="date1">Date:</label>
+                    <input type="date" id="date1" name="date[]">
+
+                    <label for="tempHigh1">High Temp (°C):</label>
+                    <input type="number" id="tempHigh1" name="tempHigh[]">
+
+                    <label for="tempLow1">Low Temp (°C):</label>
+                    <input type="number" id="tempLow1" name="tempLow[]">
+
+                    <label for="description1">Description:</label>
+                    <input type="text" id="description1" name="description[]">
+                </div>
+            </div>
+
+            <button type="button" onclick="addForecast()">Add another forecast day</button>
+
+            <div class="submit-container">
+                <label for="lastUpdated">Last Updated:</label>
+                <input type="datetime-local" id="lastUpdated" name="lastUpdated" required>
+
+                <button input type="submit" value="Submit"></button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        function addForecast() {
+
+        }
+    </script>
+
+</body>
+
+</html>

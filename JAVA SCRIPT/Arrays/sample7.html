@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // var students=["x","y","j","j","u","k"]
+        // var total=students.find(function(value,index){
+        //     return value=="k"
+        // })
+        // console.log(total)
+
+        // var students = ["x", "y", "j", "j", "u", "k"]
+        // var total = students.findIndex(function (value, index) {
+        //     return value == "j"
+        // })
+        // console.log(total)
+
+        // var marks=[12,23,52,12,2325,141]
+        // var total=marks.reduce(function(a,b){
+        //     return a+b;
+        // })
+        // console.log(total)
+
+        // var marks=[12,121,45,2325,25214]
+        // var total=marks.reduce(function(a,b){
+        //     return a+b;
+        // })
+        // console.log(total)
+
+        // var students = ["x", "y", "j", "j", "u", "k"]
+        // var total = students.map(function (value) {
+        //     return value + "away"
+        // })
+        // console.log(total)
+
+        var students = ["x", "y", "j", "j", "u", "k"]
+        var total=students.some(function(value){
+            return value.length==1
+        })
+        console.log(total)
+    </script>
+</body>
+
+</html>
