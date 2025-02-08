@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        .form-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            font-size: 14px;
+            color: #555;
+            margin-bottom: 8px;
+            display: inline-block;
+        }
+
+        input[type="text"],
+        input[type="date"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        textarea {
+            resize: vertical;
+            height: 100px;
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+        }
+
+        button {
+            color: blue;
+            background-color: #4CAF50;
+        }
+
+        button:disabled {
+            background-color: #555;
+            color: #ddd;
+            cursor: not-allowed;
+        }
+
+        .form-container input[type="text"]:focus,
+        .form-container input[type="date"]:focus,
+        .form-container select:focus,
+        .form-container textarea:focus {
+            border-color: #4CAF50;
+            outline: none;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Task Information</h2>
+    <div class="form-container">
+        <form action="#" method="POST">
+            <label for="id">ID:</label>
+            <input type="text" id="id" name="id" required onkeyup="taskuser()"><br>
+
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required onkeyup="taskuser()"><br>
+
+            <label for="description">Description:</label>
+            <textarea id="description" name="description" required onkeyup="taskuser()"></textarea><br>
+
+            <label for="dueDate">Due Date:</label>
+            <input type="date" id="dueDate" name="dueDate" required onkeyup="taskuser()"><br>
+
+            <label for="priority">Priority:</label>
+            <select id="priority" name="priority" required onkeyup="taskuser()">
+                <option value="high">High</option>
+                <option value="medium">Medium</option>
+                <option value="low">Low</option>
+            </select><br>
+
+            <label for="status">Status:</label>
+            <select id="status" name="status" required onkeyup="taskuser()">
+                <option value="not-started">Not Started</option>
+                <option value="in-progress">In Progress</option>
+                <option value="completed">Completed</option>
+            </select><br>
+
+            <label for="category">Category:</label>
+            <input type="text" id="category" name="category" required onkeyup="taskuser()"><br>
+
+            <button input type="button" value="Submit" disabled>Submit</button>
+        </form>
+    </div>
+
+    <script>
+        function taskuser() {
+            var user = {
+                id: document.getElementById("id").value,
+                name: document.getElementById("name").value,
+                description: document.getElementById("description").value,
+                dueDate: document.getElementById("dueDate").value,
+                priority: document.getElementById("priority").value,
+                status: document.getElementById("status").value,
+                category: document.getElementById("category").value
+            }
+            console.log(user)
+
+
+            var isInvalid = false;
+
+            for (a in user) {
+                if (user[a] == "") {
+                    isInvalid = true
+                }
+            }
+
+            if (isInvalid == true) {
+                document.querySelector("button").setAttribute("disabled", true)
+            } else {
+                document.querySelector("button").removeAttribute("disabled", true)
+            }
+
+        }
+    </script>
+</body>
+
+</html>

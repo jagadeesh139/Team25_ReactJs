@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,12 +13,14 @@
             padding: 20px;
             border: 1px solid #ccc;
             border-radius: 10px;
-            box-shadow: 2px 2px 10px rgba(0,0,0,0.1);
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
         }
+
         label {
             display: block;
             margin: 10px 0 5px;
         }
+
         input {
             width: 95%;
             padding: 8px;
@@ -25,6 +28,7 @@
             border: 1px solid #ccc;
             border-radius: 5px;
         }
+
         button {
             padding: 10px;
             border: none;
@@ -32,41 +36,65 @@
             cursor: pointer;
             width: 100%;
             font-size: 16px;
+            background-color: #007bff;
+            color: white;
         }
+
         button:disabled {
             background-color: #ccc;
             color: #666;
             cursor: not-allowed;
         }
-        button.enabled {
-            background-color: #007bff;
-            color: white;
-        }
-        button.enabled:hover {
-            background-color: #0056b3;
-        }
     </style>
 </head>
+
 <body>
 
     <h2>Music Track Form</h2>
     <form id="musicForm">
         <label for="title">Title:</label>
-        <input type="text" id="title" name="title" required>
+        <input type="text" id="title" name="title" required onkeyup="musicform()">
 
         <label for="artist">Artist:</label>
-        <input type="text" id="artist" name="artist" required>
+        <input type="text" id="artist" name="artist" required onkeyup="musicform()">
 
         <label for="duration">Duration (mm:ss):</label>
-        <input type="text" id="duration" name="duration" pattern="^([0-9]{1,2}):([0-5][0-9])$" required placeholder="e.g., 03:45">
+        <input type="text" id="duration" name="duration" pattern="^([0-9]{1,2}):([0-5][0-9])$" required
+            placeholder="e.g., 03:45" onkeyup="musicform()">
 
         <label for="album">Album:</label>
-        <input type="text" id="album" name="album" required>
+        <input type="text" id="album" name="album" required onkeyup="musicform()">
 
-        <button type="submit" id="submitButton" disabled>Submit</button>
+        <button type="button" id="submitButton" disabled>Submit</button>
     </form>
 
-  
+    <script>
+        function musicform() {
+            var music = {
+                title: document.getElementById("title").value,
+                artist: document.getElementById("artist").value,
+                duration: document.getElementById("duration").value,
+                album: document.getElementById("album").value
+            }
+            console.log(music)
+
+            var isInvalid = false;
+            for (a in music) {
+                if (music[a] == "") {
+                    isInvalid = true;
+                }
+            }
+
+            if (isInvalid === true) {
+                document.querySelector("button").setAttribute("disabled", true)
+            } else {
+                document.querySelector("button").removeAttribute("disabled", true)
+            }
+        }
+    </script>
+
+
 
 </body>
+
 </html>

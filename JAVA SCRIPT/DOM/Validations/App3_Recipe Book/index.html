@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,16 +16,21 @@
             background: #ffffff;
             box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
         }
+
         h2 {
             text-align: center;
             color: #333;
         }
+
         label {
             font-weight: bold;
             display: block;
             margin: 10px 0 5px;
         }
-        input, select, textarea {
+
+        input,
+        select,
+        textarea {
             width: 100%;
             padding: 8px;
             margin-bottom: 10px;
@@ -32,9 +38,11 @@
             border-radius: 5px;
             font-size: 14px;
         }
+
         textarea {
             resize: vertical;
         }
+
         button {
             background-color: #28a745;
             color: white;
@@ -45,11 +53,16 @@
             width: 100%;
             font-size: 16px;
         }
-        button:hover {
-            background-color: #218838;
+
+        button:disabled {
+            background-color: #ccc;
+            color: #666;
+            cursor: not-allowed;
+
         }
     </style>
 </head>
+
 <body>
 
     <h2>Recipe Submission Form</h2>
@@ -57,27 +70,28 @@
     <form>
         <!-- Recipe Name -->
         <label for="name">Recipe Name:</label>
-        <input type="text" id="name" name="name" required>
+        <input type="text" id="name" name="name" required onkeyup="recipeform()">
 
         <!-- Ingredients (Array) -->
         <label for="ingredients">Ingredients (comma-separated):</label>
-        <input type="text" id="ingredients" name="ingredients" placeholder="e.g., Sugar, Flour, Eggs" required>
+        <input type="text" id="ingredients" name="ingredients" placeholder="e.g., Sugar, Flour, Eggs" required
+            onkeyup="recipeform()">
 
         <!-- Instructions -->
         <label for="instructions">Instructions:</label>
-        <textarea id="instructions" name="instructions" rows="4" required></textarea>
+        <textarea id="instructions" name="instructions" rows="4" required onkeyup="recipeform()"></textarea>
 
         <!-- Preparation Time -->
         <label for="prepTime">Preparation Time (minutes):</label>
-        <input type="number" id="prepTime" name="prepTime" min="1" required>
+        <input type="number" id="prepTime" name="prepTime" min="1" required onkeyup="recipeform()">
 
         <!-- Servings -->
         <label for="servings">Servings:</label>
-        <input type="number" id="servings" name="servings" min="1" required>
+        <input type="number" id="servings" name="servings" min="1" required onkeyup="recipeform()">
 
         <!-- Category -->
         <label for="category">Category:</label>
-        <select id="category" name="category" required>
+        <select id="category" name="category" required onkeyup="recipeform()">
             <option value="">Select Category</option>
             <option value="breakfast">Breakfast</option>
             <option value="lunch">Lunch</option>
@@ -87,8 +101,39 @@
         </select>
 
         <!-- Submit Button -->
-        <button type="submit">Submit Recipe</button>
+        <button type="button" disabled>Submit Recipe</button>
     </form>
 
+    <script>
+        function recipeform() {
+            var recipe = {
+                name: document.getElementById("name").value,
+                ingredients: document.getElementById("ingredients").value,
+                instructions: document.getElementById("instructions").value,
+                prepTime: document.getElementById("prepTime").value,
+                servings: document.getElementById("servings").value
+            }
+            console.log(recipe)
+
+            var isinvalid = false;
+
+            for (a in recipe) {
+                if (recipe[a] == "") {
+                    isinvalid = true
+
+                }
+            }
+            if (isinvalid == true) {
+                document.querySelector("button").setAttribute("disabled", true)
+            } else {
+                document.querySelector("button").removeAttribute("disabled", true)
+            }
+
+
+
+        }
+    </script>
+
 </body>
+
 </html>

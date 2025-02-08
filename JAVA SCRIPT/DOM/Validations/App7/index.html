@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f7fc;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 30px;
+            color: #333;
+        }
+
+        .container {
+            width: 50%;
+            margin: 0 auto;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            font-size: 16px;
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        input,
+        textarea {
+            padding: 10px;
+            margin-bottom: 20px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            width: 100%;
+        }
+
+        input[type="number"],
+        input[type="text"],
+        input[type="date"],
+        input[type="time"] {
+            max-width: 100%;
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        input[type="submit"] {
+            background-color: #007BFF;
+            color: white;
+            font-size: 18px;
+            border: none;
+            padding: 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button {
+            background-color: #007BFF;
+        }
+
+        button:disabled {
+            background-color: #ccc;
+            color: #f4f7fc;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Event Details Form</h1>
+    <div class="container">
+        <form action="#" method="POST">
+            <label for="id">Event ID:</label>
+            <input type="text" id="id" name="id" required onkeyup="userform()">
+
+            <label for="eventName">Event Name:</label>
+            <input type="text" id="eventName" name="eventName" required onkeyup="userform()">
+
+            <label for="date">Event Date:</label>
+            <input type="date" id="date" name="date" required onkeyup="userform()">
+
+            <label for="time">Event Time:</label>
+            <input type="time" id="time" name="time" required onkeyup="userform()">
+
+            <label for="location">Event Location:</label>
+            <input type="text" id="location" name="location" required onkeyup="userform()">
+
+            <label for="description">Event Description:</label>
+            <textarea id="description" name="description" rows="4" cols="50" required onkeyup="userform()"></textarea>
+
+            <label for="participants">Number of Participants:</label>
+            <input type="number" id="participants" name="participants" required onkeyup="userform()">
+
+            <button input type="button" value="Submit" disabled>Submit</button>>
+        </form>
+    </div>
+
+    <script>
+        function userform() {
+            var form = {
+                id: document.getElementById("id").value,
+                eventName: document.getElementById("eventName").value,
+                date: document.getElementById("date").value,
+                time: document.getElementById("time").value,
+                location: document.getElementById("location").value,
+                description: document.getElementById("description").value,
+                participants: document.getElementById("participants").value
+
+            }
+            console.log(form)
+
+            var isInvalid = false;
+            for (a in form) {
+                if (form[a] == "") {
+                    isInvalid = true
+                }
+            }
+
+            if (isInvalid == true) {
+                document.querySelector("button").setAttribute("disabled", true)
+            } else {
+                document.querySelector("button").removeAttribute("disabled", true)
+            }
+        }
+    </script>
+
+</body>
+
+</html>

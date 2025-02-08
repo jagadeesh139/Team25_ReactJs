@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Character Stats Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 600px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin-top: 10px;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        input[type="textarea"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        input[type="number"]:focus,
+        input[type="text"]:focus {
+            outline: none;
+            border-color: #007BFF;
+        }
+
+        .abilities-container {
+            margin-bottom: 15px;
+        }
+
+        .form-footer {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .form-footer input[type="submit"] {
+            background-color: #007BFF;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        button {
+            background-color: #007BFF;
+        }
+
+        button:disabled {
+            background-color: #ccc;
+            color: #333;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Character Stats Form</h1>
+        <form action="#" method="post">
+            <label for="name">Character Name:</label>
+            <input type="text" id="name" name="name" required onkeyup="formuser()">
+
+            <label for="level">Level:</label>
+            <input type="number" id="level" name="level" min="1" required onkeyup="formuser()">
+
+            <label for="healthPoints">Health Points:</label>
+            <input type="number" id="healthPoints" name="healthPoints" min="1" required onkeyup="formuser()">
+
+            <label for="manaPoints">Mana Points:</label>
+            <input type="number" id="manaPoints" name="manaPoints" min="1" required onkeyup="formuser()">
+
+            <label for="strength">Strength:</label>
+            <input type="number" id="strength" name="strength" min="1" required onkeyup="formuser()">
+
+            <label for="agility">Agility:</label>
+            <input type="number" id="agility" name="agility" min="1" required onkeyup="formuser()">
+
+            <label for="abilities">Abilities:</label>
+            <textarea id="abilities" name="abilities" rows="4" required placeholder="Enter abilities (comma separated)"
+                onkeyup="formuser()"></textarea>
+
+            <label for="inventory">Inventory:</label>
+            <textarea id="inventory" name="inventory" rows="4" required
+                placeholder="Enter items in inventory (comma separated)" onkeyup="formuser()"></textarea>
+
+            <div class="form-footer">
+                <button input type="button" value="Submit" disabled>submit</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        function formuser() {
+            var form = {
+                name: document.getElementById("name").value,
+                level: document.getElementById("level").value,
+                healthPoints: document.getElementById("healthPoints").value,
+                manaPoints: document.getElementById("manaPoints").value,
+                strength: document.getElementById("strength").value,
+                agility: document.getElementById("agility").value,
+                abilities: document.getElementById("abilities").value,
+                inventory: document.getElementById("inventory").value
+            }
+            console.log(form)
+
+            var isInvalid = false;
+            for (a in form) {
+                if (form[a] == "") {
+                    isInvalid = true
+                }
+            }
+
+            if (isInvalid == true) {
+                document.querySelector("button").setAttribute("disabled", true)
+            } else {
+                document.querySelector("button").removeAttribute("disabled", true)
+            }
+
+
+
+        }
+    </script>
+</body>
+
+</html>

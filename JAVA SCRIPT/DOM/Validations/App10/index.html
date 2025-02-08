@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learning Progress Form</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        form {
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        label {
+            font-weight: bold;
+            margin-bottom: 5px;
+            display: block;
+            color: #555;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0 16px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+
+        textarea {
+            resize: vertical;
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 4px;
+            width: 100%;
+            transition: background-color 0.3s;
+        }
+
+        button:disabled {
+            background-color: #555;
+            color: #ccc;
+            cursor: not-allowed;
+        }
+
+        button {
+            background-color: #4CAF50;
+        }
+
+        .form-section {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Learning Progress Form</h2>
+
+    <form action="/submit" method="post">
+        <div class="form-section">
+            <label for="word">Word:</label>
+            <input type="text" id="word" name="word" required onkeyup="learnuser()">
+        </div>
+
+        <div class="form-section">
+            <label for="definition">Definition:</label>
+            <textarea id="definition" name="definition" rows="4" required onkeyup="learnuser()"></textarea>
+        </div>
+
+        <div class="form-section">
+            <label for="exampleSentence">Example Sentence:</label>
+            <textarea id="exampleSentence" name="exampleSentence" rows="4" required onkeyup="learnuser()"></textarea>
+        </div>
+
+        <div class="form-section">
+            <label for="synonyms">Synonyms:</label>
+            <input type="text" id="synonyms" name="synonyms" onkeyup="learnuser()">
+        </div>
+
+        <div class="form-section">
+            <label for="antonyms">Antonyms:</label>
+            <input type="text" id="antonyms" name="antonyms" onkeyup="learnuser()">
+        </div>
+
+        <div class="form-section">
+            <label for="language">Language:</label>
+            <input type="text" id="language" name="language" required onkeyup="learnuser()">
+        </div>
+
+        <div class="form-section">
+            <label for="progress">Progress:</label>
+            <input type="text" id="progress" name="progress" required onkeyup="learnuser()">
+        </div>
+
+        <div class="form-section">
+            <label for="dailyGoal">Daily Goal:</label>
+            <input type="number" id="dailyGoal" name="dailyGoal" required onkeyup="learnuser()">
+        </div>
+
+        <div class="form-section">
+            <label for="achievements">Achievements:</label>
+            <textarea id="achievements" name="achievements" rows="4" onkeyup="learnuser()"></textarea>
+        </div>
+
+        <div class="form-section">
+            <label for="learningHistory">Learning History:</label>
+            <textarea id="learningHistory" name="learningHistory" rows="4" onkeyup="learnuser()"></textarea>
+        </div>
+
+        <button input type="button" value="Submit" disabled>Submit</button>
+    </form>
+
+    <script>
+        function learnuser() {
+            var learn = {
+                word: document.getElementById("word").value,
+                definition: document.getElementById("definition").value,
+                exampleSentence: document.getElementById("exampleSentence").value,
+                synonyms: document.getElementById("synonyms").value,
+                antonyms: document.getElementById("antonyms").value,
+                language: document.getElementById("language").value,
+                progress: document.getElementById("progress").value,
+                dailyGoal: document.getElementById("dailyGoal").value,
+                achievements: document.getElementById("achievements").value,
+                learningHistory: document.getElementById("learningHistory").value
+
+            }
+            console.log(learnuser)
+
+            var isInvalid = false
+
+            for (a in learnuser) {
+                if (learnuser[a] == "") {
+                    isInvalid = true
+                }
+            }
+
+            if (isInvalid == true) {
+                document.querySelector("button").setAttribute("disabled", true)
+            } else {
+                document.querySelector("button").removeAttribute("disabled", true)
+            }
+        }
+    </script>
+
+</body>
+
+</html>
