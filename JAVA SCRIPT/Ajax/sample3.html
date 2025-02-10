@@ -8,18 +8,20 @@
 </head>
 
 <body>
-    <button onclick="yes()"></button>
+    <button onclick="yes()">yes</button>
 
     <script>
-        var getData = new XMLHttpRequest();
-        getData.onreadystatechange = function () {
-            if (getData.readyState == 4 && getData.readyState == 200) {
-                var allUsers = JSON.parse(getData.response)
-                console.log(allUsers)
+        function yes() {
+            var getData = new XMLHttpRequest();
+            getData.onreadystatechange = function () {
+                if (getData.readyState == 4 && getData.readyState == 200) {
+                    var allUsers = JSON.parse(getData.response)
+                    console.log(allUsers)
+                }
             }
+            getData.open("GET", "https://jsonplaceholder.typicode.com/users")
+            getData.send()
         }
-        getData.open("GET", "")
-        getData.send
     </script>
 </body>
 
