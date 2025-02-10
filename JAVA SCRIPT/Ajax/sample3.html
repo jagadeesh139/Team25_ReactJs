@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button onclick="yes()"></button>
+
+    <script>
+        var getData = new XMLHttpRequest();
+        getData.onreadystatechange = function () {
+            if (getData.readyState == 4 && getData.readyState == 200) {
+                var allUsers = JSON.parse(getData.response)
+                console.log(allUsers)
+            }
+        }
+        getData.open("GET", "")
+        getData.send
+    </script>
+</body>
+
+</html>

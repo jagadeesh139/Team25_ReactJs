@@ -15,30 +15,35 @@
       <h1>Job Application</h1>
       <form>
         <label for="name">Full Name</label>
-        <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+        <input type="text" id="name" name="name" placeholder="Enter your full name" required onkeyup="validateform()">
 
         <label for="email">Email</label>
-        <input type="email" id="email" name="email" placeholder="Enter your email" required>
+        <input type="email" id="email" name="email" placeholder="Enter your email" required onkeyup="validateform()">
 
         <label for="phone">Phone</label>
-        <input type="text" id="phone" name="phone" placeholder="Enter your phone number" required>
+        <input type="text" id="phone" name="phone" placeholder="Enter your phone number" required
+          onkeyup="validateform()">
 
-        <label>Job Type</label>
+        <!-- <label>Job Type</label>
         <div>
-          <label><input type="radio" name="jobtype" value="full-time" required> Full-Time</label><br>
-          <label><input type="radio" name="jobtype" value="part-time" required> Part-Time</label><br>
-          <label><input type="radio" name="jobtype" value="internship" required> Internship</label>
+          <label><input type="radio" name="jobtype" value="full-time" required >
+            Full-Time</label><br>
+          <label><input type="radio" name="jobtype" value="part-time" required >
+            Part-Time</label><br>
+          <label><input type="radio" name="jobtype" value="internship" required >
+            Internship</label>
         </div>
 
         <label>Skills</label>
         <div>
-          <label><input type="checkbox" name="skills" value="javascript"> JavaScript</label><br>
-          <label><input type="checkbox" name="skills" value="python"> Python</label><br>
-          <label><input type="checkbox" name="skills" value="react"> React</label>
-        </div>
+          <label><input type="checkbox" name="skills" value="javascript" onkeyup="validateform()">
+            JavaScript</label><br>
+          <label><input type="checkbox" name="skills" value="python" onkeyup="validateform()"> Python</label><br>
+          <label><input type="checkbox" name="skills" value="react" onkeyup="validateform()"> React</label>
+        </div> -->
 
-        <button type="button" onclick="Applicationuser()" id="Applicaationbtn">Apply</button>
-        <button type="button" onclick="Updateuser()" id="updateBtn">Update</button>
+        <button type="button" onclick="validateform()" id="Applicaationbtn" disabled>Apply</button>
+        <button type="button" onclick="Updateuser()" id="updateBtn" >Update</button>
       </form>
     </div>
 
@@ -81,6 +86,25 @@
         var Application = [
 
         ]
+
+        function validateform() {
+          var FullName = document.getElementById("name").value
+          var Email = document.getElementById("email").value
+          var Phone = document.getElementById("phone").value
+          var User = {
+            FullName,
+            Email,
+            Phone
+          }
+          for(a in User){}
+
+          if (FullName.length > 5 && Email.includes("@") && Phone.length > 5 ) {
+            document.querySelector("button").removeAttribute("disabled", true)
+          } else {
+            document.querySelector("button").setAttribute("disabled", true)
+          }
+
+        }
 
         function Applicationuser() {
           var FullName = document.getElementById("name").value
@@ -178,7 +202,7 @@
             allCheckBoxes[k].checked = Application[i].skills.includes(allCheckBoxes[k].value)
           }
 
-          document.getElementById("Applicaationbtn").style.display="none"
+          document.getElementById("Applicaationbtn").style.display = "none"
           document.getElementById("updateBtn").style.display = "block"
         }
 
