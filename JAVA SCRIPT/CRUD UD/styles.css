@@ -80,8 +80,17 @@ button {
   margin-top: 10px;
 }
 
-button:hover {
-  background-color: #0056b3;
+/* button:hover {
+  background-color: #0056b3; */
+/* } */
+
+button:disabled{
+  background-color:#555;
+  color: #ddd;
+  cursor: not-allowed;
+}
+button{
+  background-color: #007BFF;
 }
 
 /* Styles for the table */
