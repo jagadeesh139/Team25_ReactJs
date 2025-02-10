@@ -111,6 +111,7 @@
           }
 
           Subscription.push(User)
+          localStorage.setItem("username",JSON.stringify(Subscription))
 
           document.getElementById("name").value = ""
           document.getElementById("email").value = ""
@@ -153,6 +154,7 @@
         function deleteuser(i) {
           console.log("delete user !!!" + i)
           Subscription.splice(i, 1)
+          localStorage.setItem("username",JSON.stringify(Subscription))
           displayinTable()
 
         }
@@ -213,6 +215,7 @@
           }
 
           Subscription[Iindex] = User
+          localStorage.setItem("username",JSON.stringify(Subscription))
           displayinTable()
 
 

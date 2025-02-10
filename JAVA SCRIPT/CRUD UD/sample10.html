@@ -43,7 +43,7 @@
         </div> -->
 
         <button type="button" onclick="validateform()" id="Applicaationbtn" disabled>Apply</button>
-        <button type="button" onclick="Updateuser()" id="updateBtn" >Update</button>
+        <button type="button" onclick="Updateuser()" id="updateBtn">Update</button>
       </form>
     </div>
 
@@ -96,9 +96,9 @@
             Email,
             Phone
           }
-          for(a in User){}
+          for (a in User) { }
 
-          if (FullName.length > 5 && Email.includes("@") && Phone.length > 5 ) {
+          if (FullName.length > 5 && Email.includes("@") && Phone.length > 5) {
             document.querySelector("button").removeAttribute("disabled", true)
           } else {
             document.querySelector("button").setAttribute("disabled", true)
@@ -139,6 +139,7 @@
           }
 
           Application.push(User)
+          localStorage.setItem("user", JSON.stringify(Application))
           document.getElementById("name").value = ""
           document.getElementById("email").value = ""
           document.getElementById("phone").value = ""
@@ -179,6 +180,7 @@
         function deleteuser(i) {
           console.log("delete user !!!" + i)
           Application.splice(i, 1)
+          localStorage.setItem("user", JSON.stringify(Application))
           displayinTable()
 
         }
@@ -241,6 +243,7 @@
           }
 
           Application[Iindex] = User
+          localStorage.setItem("user", JSON.stringify(Application))
           displayinTable()
 
 
