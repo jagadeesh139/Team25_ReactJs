@@ -78,6 +78,7 @@
       }
 
       Customer.push(User)
+      localStorage.setItem("users",JSON.stringify(Customer))
 
       displayinTable()
 
@@ -122,7 +123,8 @@
 
     function deleteuser(i) {
       console.log("delete user" + i)
-      Customer.splice(i, 1)
+      Customer.splice(i, 1);
+      localStorage.setItem("users",JSON.stringify(Customer))
       displayinTable()
     }
 
@@ -170,6 +172,7 @@
       }
 
       Customer[Iindex] = User
+      localStorage.setItem("users",JSON.stringify(Customer))
       displayinTable()
 
       document.getElementById("name").value = ""

@@ -106,6 +106,7 @@
                         }
                     }
                     Register.push(user)
+                    localStorage.setItem("users",JSON.stringify(Register))
 
                     document.getElementById("username").value = ""
                     document.getElementById("email").value = ""
@@ -148,6 +149,7 @@
                 function deleteUser(i) {
                     console.log("dleteuser!!" + i)
                     Register.splice(i, 1);
+                    localStorage.setItem("users",JSON.stringify(Register))
                     displayUser()
 
                 }
@@ -202,6 +204,7 @@
                     }
 
                     Register[Iindex] = user
+                    localStorage.setItem("users",JSON.stringify(Register))
                     displayUser()
 
                     document.getElementById("username").value = ""

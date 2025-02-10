@@ -103,6 +103,8 @@
 
       User.push(Member)
 
+      localStorage.setItem("users",JSON.stringify(User))
+
       document.getElementById("name").value = ""
       document.getElementById("email").value = ""
       document.getElementById("membership").value = ""
@@ -143,6 +145,7 @@
 
     function deleteUser(i) {
       User.splice(i, 1)
+      localStorage.setItem("users",JSON.stringify(user))
       displayusers()
     }
 
@@ -187,6 +190,7 @@
 
 
       User[Edit] = Member;
+      localStorage.setItem("users",JSON.stringify(user))
       displayusers();
 
       document.getElementById("name").value = ""

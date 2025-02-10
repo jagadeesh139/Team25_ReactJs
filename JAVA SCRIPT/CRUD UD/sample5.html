@@ -110,6 +110,7 @@
           }
 
           Booking.push(User)
+          localStorage.setItem("users",JSON.stringify(Booking))
 
           document.getElementById("name").value = ""
           document.getElementById("email").value = ""
@@ -155,6 +156,7 @@
         function dleteuser(i) {
           console.log("delete User !!!" + i)
           Booking.splice(i, 1)
+          localStorage.setItem("users",JSON.stringify(Booking))
           displayinTable()
         }
 
@@ -204,6 +206,7 @@
           }
 
           Booking[Iindex] = User
+          localStorage.setItem("users",JSON.stringify(Booking))
           displayinTable()
 
           document.getElementById("name").value = ""

@@ -102,6 +102,8 @@
 
                     course.push(User)
 
+                    localStorage.setItem("users",JSON.stringify(course))
+
                     document.getElementById("name").value = ""
                     document.getElementById("email").value = ""
                     document.getElementById("course").value = ""
@@ -144,6 +146,7 @@
                 function deleteuser(i) {
                     console.log("delete user !!" + i)
                     course.splice(i, 1)
+                    localStorage.setItem("users",JSON.stringify(course))
                     diplayinTable()
                 }
 
@@ -186,6 +189,7 @@
                     }
 
                     course[Iindex] = User
+                    localStorage.setItem("users",JSON.stringify(course))
                     diplayinTable()
 
 

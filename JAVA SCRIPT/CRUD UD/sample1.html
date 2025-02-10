@@ -97,11 +97,13 @@
         if (allCheckBoxes[i].checked == true) {
           user.preference.push(allCheckBoxes[i].value)
         }
-        allCheckBoxes[i].checked == false
+        allCheckBoxes[i].checked = false
       }
 
 
       allUsers.push(user)
+
+      localStorage.setItem("user",JSON.stringify(allUsers))
 
       document.getElementById("fullName").value = ""
       document.getElementById("email").value = ""
@@ -144,6 +146,7 @@
     function deleteUser(i) {
       console.log("deleteUser Called !! " + i)
       allUsers.splice(i, 1);
+      localStorage.setItem("user",JSON.stringify(allUsers))
       displayUsersInTable();
 
     }
@@ -177,11 +180,12 @@
         if (allCheckBoxes[i].checked == true) {
           user.preference.push(allCheckBoxes[i].value)
         }
-        allCheckBoxes[i].checked == false
+        allCheckBoxes[i].checked = false
       }
 
 
       allUsers[gIndex] = user;
+      localStorage.setItem("user",JSON.stringify(allUsers))
       displayUsersInTable();
       document.getElementById("fullName").value = ""
       document.getElementById("email").value = ""
