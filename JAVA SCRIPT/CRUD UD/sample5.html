@@ -15,19 +15,19 @@
       <h1>Hotel Booking</h1>
       <form>
         <label for="name">Full Name</label>
-        <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+        <input type="text" id="name" name="name" placeholder="Enter your full name" required onkeyup="validateform()">
 
         <label for="email">Email</label>
-        <input type="email" id="email" name="email" placeholder="Enter your email" required>
+        <input type="email" id="email" name="email" placeholder="Enter your email" required onkeyup="validateform()">
 
         <label for="checkin">Check-in Date</label>
-        <input type="date" id="checkin" name="checkin" required>
+        <input type="date" id="checkin" name="checkin" required onkeyup="validateform()">
 
         <label for="checkout">Check-out Date</label>
-        <input type="date" id="checkout" name="checkout" required>
+        <input type="date" id="checkout" name="checkout" required onkeyup="validateform()">
 
         <label>Room Type</label>
-        <select id="room" name="room" required>
+        <select id="room" name="room" required onkeyup="validateform()">
           <option value="single">Single</option>
           <option value="double">Double</option>
           <option value="suite">Suite</option>
@@ -81,9 +81,9 @@
       </table>
 
       <script>
-        var Booking = [
+        var Booking = []
 
-        ]
+        var index = null;
 
         function bookinguser() {
           var FullName = document.getElementById("name").value
@@ -106,21 +106,48 @@
             if (allCheckBoxes[i].checked == true) {
               User.amenities.push(allCheckBoxes[i].value)
             }
-            allCheckBoxes[i].checked == false
+            allCheckBoxes[i].checked = false
           }
 
           Booking.push(User)
-          localStorage.setItem("users",JSON.stringify(Booking))
+          localStorage.setItem("users", JSON.stringify(Booking))
+          validateform();
 
           document.getElementById("name").value = ""
           document.getElementById("email").value = ""
           document.getElementById("checkin").value = ""
           document.getElementById("checkout").value = ""
           document.getElementById("room").value = ""
+          index = null;
 
           displayinTable()
 
         }
+
+        function validateform() {
+          let fields = ["name", "email", "checkin", "checkout", "room"]
+          let isValid = fields.every(function (field) {
+            var valid = document.getElementById(field).value.trim();
+            return valid != "";
+
+          })
+
+          var isradiovalid = false;
+          var ischeckbox = false;
+          var checked = document.getElementsByName("amenities")
+          for (i = 0; i < checked.length; i++) {
+            if (checked[i].checked == true) {
+              ischeckbox = true
+            }
+          }
+
+          document.getElementById("Bookingbtn").disabled = !(inputvalid && ischeckbox && index === null);
+          document.getElementById("Updatebtn").disabled = !(inputvalid && ischeckbox && index !== null);
+        }
+
+
+
+
 
         function displayinTable() {
           document.querySelector("tbody").innerHTML = ""
@@ -156,7 +183,7 @@
         function dleteuser(i) {
           console.log("delete User !!!" + i)
           Booking.splice(i, 1)
-          localStorage.setItem("users",JSON.stringify(Booking))
+          localStorage.setItem("users", JSON.stringify(Booking))
           displayinTable()
         }
 
@@ -206,7 +233,9 @@
           }
 
           Booking[Iindex] = User
-          localStorage.setItem("users",JSON.stringify(Booking))
+          localStorage.setItem("users", JSON.stringify(Booking))
+          validateform();
+          index = null;
           displayinTable()
 
           document.getElementById("name").value = ""

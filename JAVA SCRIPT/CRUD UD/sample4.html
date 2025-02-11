@@ -15,25 +15,25 @@
             <h1>Course Enrollment</h1>
             <form>
                 <label for="name">Full Name</label>
-                <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+                <input type="text" id="name" name="name" placeholder="Enter your full name" required onkeyup="valid()">
 
                 <label for="email">Email</label>
-                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required onkeyup="valid()">
 
                 <label for="course">Course Selection</label>
-                <select id="course" name="course" required>
+                <select id="course" name="course" required onkeyup="valid()">
                     <option value="web-development">Web Development</option>
                     <option value="data-science">Data Science</option>
                     <option value="ui-ux-design">UI/UX Design</option>
                 </select>
 
                 <label>Learning Mode</label>
-                <div>
+                <div onchange="valid()">
                     <label><input type="radio" name="mode" value="online" required> Online</label><br>
                     <label><input type="radio" name="mode" value="offline" required> Offline</label>
                 </div>
 
-                <button type="button" onclick="registeruser()" id="registerBtn">Enroll Now</button>
+                <button type="button" onclick="registeruser()" id="registerBtn" disabled>Enroll Now</button>
                 <button type="button" onclick="updateuser()" id="Updatebtn" style="display: none;">update</button>
             </form>
         </div>
@@ -73,9 +73,9 @@
             </table>
 
             <script>
-                var course = [
+                var course = []
 
-                ]
+                Iindex = null;
 
                 function registeruser() {
                     var FullName = document.getElementById("name").value
@@ -95,20 +95,55 @@
                         if (allradio[i].checked == true) {
                             User.mode.push(allradio[i].value)
                         }
-                        allradio[i].checked == false
+                        allradio[i].checked = false
                     }
 
 
 
                     course.push(User)
 
-                    localStorage.setItem("users",JSON.stringify(course))
+                    localStorage.setItem("users", JSON.stringify(course))
+                    valid()
 
                     document.getElementById("name").value = ""
                     document.getElementById("email").value = ""
                     document.getElementById("course").value = ""
 
+                    Iindex = null;
+
                     diplayinTable()
+                }
+
+                function valid() {
+
+                    var isValid = false;
+                    var isradiovalid = false;
+                    var hello = {
+                        name: document.getElementById("name").value,
+                        email: document.getElementById("email").value,
+                        course: document.getElementById("course").value
+                    }
+
+                    for (a in hello) {
+                        if (hello[a] !== "") {
+                            isValid = true;
+                        }
+
+                    }
+
+                    var allradio = document.getElementsByName("mode")
+
+                    for (i = 0; i < allradio.length; i++) {
+                        if (allradio[i].checked == true) {
+
+                        }
+                        isradiovalid = true
+
+                    }
+
+                    document.getElementById("registerBtn").disabled = !(isValid && isradiovalid && Iindex == null);
+                    document.getElementById("Updatebtn").disabled = !(isValid && isradiovalid && Iindex !== null);
+
                 }
 
                 function diplayinTable() {
@@ -146,7 +181,7 @@
                 function deleteuser(i) {
                     console.log("delete user !!" + i)
                     course.splice(i, 1)
-                    localStorage.setItem("users",JSON.stringify(course))
+                    localStorage.setItem("users", JSON.stringify(course))
                     diplayinTable()
                 }
 
@@ -185,17 +220,19 @@
                         if (allradio[i].checked == true) {
                             User.mode.push(allradio[i].value)
                         }
-                        allradio[i].checked == false
+                        allradio[i].checked = false
                     }
 
                     course[Iindex] = User
-                    localStorage.setItem("users",JSON.stringify(course))
+                    localStorage.setItem("users", JSON.stringify(course))
+                    valid()
                     diplayinTable()
 
 
                     document.getElementById("name").value = ""
                     document.getElementById("email").value = ""
                     document.getElementById("course").value = ""
+                    Iindex = null;
 
                     document.getElementById("registerBtn").style.display = "block"
                     document.getElementById("Updatebtn").style.display = "none"

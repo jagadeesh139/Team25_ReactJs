@@ -98,8 +98,8 @@
             border-radius: 4px;
         }
 
-        button:hover {
-            background: #e64a19;
+        button:disabled {
+            background-color: #333;
         }
 
         .appointment-container {
@@ -150,6 +150,8 @@
             background: #c82333;
         }
 
+
+
         @media (max-width: 768px) {
             .content {
                 flex-direction: column;
@@ -174,22 +176,22 @@
                 <h2>Add Appointment</h2>
                 <form id="appointment-form">
                     <label for="eventName">Event Name:</label>
-                    <input type="text" id="eventName" required>
+                    <input type="text" id="eventName" required onkeyup="validform()">
 
                     <label for="date">Date:</label>
-                    <input type="date" id="date" required>
+                    <input type="date" id="date" required onchange="validform()">
 
                     <label for="time">Time:</label>
-                    <input type="time" id="time" required>
+                    <input type="time" id="time" required onchange="validform()">
 
                     <label for="location">Location:</label>
-                    <input type="text" id="location" required>
+                    <input type="text" id="location" required onkeyup="validform()">
 
                     <label for="description">Description:</label>
-                    <textarea id="description" rows="3" required></textarea>
+                    <textarea id="description" rows="3" required onkeyup="validform()"></textarea>
 
                     <label>Event Category:</label>
-                    <div class="radio-group">
+                    <div class="radio-group" onchange="validform()">
                         <input type="radio" id="meeting" name="category" value="Meeting">
                         <label for="meeting">Meeting</label>
 
@@ -204,7 +206,7 @@
                     </div>
 
                     <label>Participants:</label>
-                    <div class="checkbox-group">
+                    <div class="checkbox-group" onchange="validform()">
                         <input type="checkbox" id="alice" name="Options" value="Alice">
                         <label for="alice">Alice</label>
 
@@ -221,7 +223,8 @@
                         <label for="emma">Emma</label>
                     </div>
 
-                    <button type="button" onclick="AppointmentUser()" id="AppointmentBtn"> Book Appointment</button>
+                    <button type="button" onclick="AppointmentUser()" id="appointbtn" disabled> Book
+                        Appointment</button>
 
                     <button type="button" onclick="updateuser()" id="updateBtn" style="display: none;">Update</button>
                 </form>
@@ -285,9 +288,8 @@
                 </table>
 
                 <script>
-                    var Book = [
-
-                    ]
+                    var Book = []
+                    var Iindex = null;
 
                     function AppointmentUser() {
                         var EventName = document.getElementById("eventName").value
@@ -321,10 +323,10 @@
                             }
                             allCheckBoxes[i].checked = false
                         }
-
-
-
                         Book.push(User)
+
+                        localStorage.setItem("user", JSON.stringify(Book))
+                        validform()
 
                         document.getElementById("eventName").value = ""
                         document.getElementById("date").value = ""
@@ -332,20 +334,50 @@
                         document.getElementById("location").value = ""
                         document.getElementById("description").value = ""
 
-
+                        Iindex = null;
                         displayintable()
 
                     }
+                    function validform() {
+                        var fields = ["eventname", "date", "time", "location", "description"]
+                        var inputvalid = fields.every(function (field) {
+                            var valid = document.getElementById(field).value.trim();
+                            return valid != "";
+                        })
+
+                        var isradiovalid = false;
+                        var ischeckbox = false;
+
+                        var allradio = document.getElementsByName("category")
+                        for (i = 0; i < allradio.length; i++) {
+                            if (allradio[i].checked == true) {
+                                isradiovalid = true
+
+                            }
+
+                        }
+
+                        var allCheckBoxes = document.getElementsByName("Options")
+                        for (i = 0; i < allCheckBoxes.length; i++) {
+                            if (allCheckBoxes[i].checked == true) {
+
+                                ischeckbox = true
+                            }
+                        }
+
+                        document.getElementById("appointbtn").disabled = !(inputvalid && isradiovalid && ischeckbox && Iindex === null);
+                        document.getElementById("updateBtn").disabled = !(inputvalid && isradiovalid && ischeckbox && Iindex !== null);
+                    }
 
                     function displayintable() {
-                        document.getElementById("appointment-list").innerHTML = ""
+                        document.querySelector("tbody").innerHTML = ""
                         Book.forEach(function (User, index) {
                             var MyTr = document.createElement("tr")
                             for (a in User) {
                                 var MyTd = document.createElement("td")
                                 MyTd.innerHTML = User[a]
                                 MyTr.appendChild(MyTd)
-                                document.getElementById("appointment-list").appendChild(MyTr)
+                                document.querySelector("tbody").appendChild(MyTr)
                             }
                             var editTd = document.createElement("td")
                             var editBtn = document.createElement("button")
@@ -369,8 +401,12 @@
                     function deleteuser(i) {
                         console.log("deleteuser !!!" + i)
                         Book.splice(i, 1)
+                        localStorage.setItem("user", JSON.stringify(Book))
+                        validform();
                         displayintable()
                     }
+
+
 
                     var Iindex;
 
@@ -393,7 +429,7 @@
                             allCheckBoxes[k].checked = Book[i].Options.includes(allCheckBoxes[k].value)
                         }
 
-                        document.getElementById("AppointmentBtn").style.display = "none"
+                        document.getElementById("appointbtn").style.display = "none"
                         document.getElementById("updateBtn").style.display = "block"
 
                     }
@@ -434,7 +470,10 @@
 
 
                         Book[Iindex] = User
-                        displayintable()
+                        localStorage.setItem("user", JSON.stringify(Book))
+                        validform();
+                        Iindex = null;
+
 
                         document.getElementById("eventName").value = ""
                         document.getElementById("date").value = ""
@@ -442,7 +481,9 @@
                         document.getElementById("location").value = ""
                         document.getElementById("description").value = ""
 
-                        document.getElementById("AppointmentBtn").style.display = "block"
+                        displayintable()
+
+                        document.getElementById("appointbtn").style.display = "block"
                         document.getElementById("updateBtn").style.display = "none"
 
 

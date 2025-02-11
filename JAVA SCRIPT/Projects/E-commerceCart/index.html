@@ -295,12 +295,13 @@
                     var allCheckBoxes = document.getElementsByName("Produts")
                     for (i = 0; i < allCheckBoxes.length; i++) {
                         if (allCheckBoxes[i].checked == true) {
-                            Cart.Produts .push(allCheckBoxes[i].value)
+                            Cart.Produts.push(allCheckBoxes[i].value)
                         }
                         allCheckBoxes[i].checked = false
                     }
 
                     Comerce.push(Cart)
+                    localStorage.setItem("user", JSON.stringify(Comerce))
 
                     document.getElementById("productName").value = ""
                     document.getElementById("quantity").value = ""
@@ -343,6 +344,7 @@
                 function deleteuser(i) {
                     console.log("deleteuser !!" + i)
                     Comerce.splice(i, 1)
+                    localStorage.setItem("user", JSON.stringify(Comerce))
                     displayinTable()
                 }
 
@@ -361,7 +363,7 @@
 
                     var allCheckBoxes = document.getElementsByName("Produts ")
                     for (k = 0; k < allCheckBoxes.length; k++) {
-                        allCheckBoxes[k].checked = Comerce[i].Produts .includes(allCheckBoxes[k].value)
+                        allCheckBoxes[k].checked = Comerce[i].Produts.includes(allCheckBoxes[k].value)
                     }
 
                     document.getElementById("EcomerceBtn").style.display = "none"
@@ -378,7 +380,7 @@
                         ProductName,
                         Quantity,
                         Price,
-                        Produts : [],
+                        Produts: [],
                         discount: []
                     }
 
@@ -393,12 +395,13 @@
                     var allCheckBoxes = document.getElementsByName("Produts ")
                     for (i = 0; i < allCheckBoxes.length; i++) {
                         if (allCheckBoxes[i].checked == true) {
-                            Cart.Produts .push(allCheckBoxes[i].value)
+                            Cart.Produts.push(allCheckBoxes[i].value)
                         }
                         allCheckBoxes[i].checked = false
                     }
 
                     Comerce[Iindex] = Cart
+                    localStorage.setItem("user", JSON.stringify(Comerce))
                     displayinTable()
 
                     document.getElementById("productName").value = ""
