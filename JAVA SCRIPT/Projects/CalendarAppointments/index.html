@@ -339,14 +339,26 @@
 
                     }
                     function validform() {
-                        var fields = ["eventname", "date", "time", "location", "description"]
-                        var inputvalid = fields.every(function (field) {
-                            var valid = document.getElementById(field).value.trim();
-                            return valid != "";
-                        })
 
                         var isradiovalid = false;
                         var ischeckbox = false;
+                        var isValid = false;
+
+                        var from = {
+                            eventName: document.getElementById("eventName").value,
+                            date: document.getElementById("date").value,
+                            time: document.getElementById("time").value,
+                            location: document.getElementById("location").value,
+                            description: document.getElementById("description").value
+
+                        }
+
+                        for (a in from) {
+                            if (form[a] !== "") {
+                                isValid = true
+
+                            }
+                        }
 
                         var allradio = document.getElementsByName("category")
                         for (i = 0; i < allradio.length; i++) {
@@ -365,8 +377,8 @@
                             }
                         }
 
-                        document.getElementById("appointbtn").disabled = !(inputvalid && isradiovalid && ischeckbox && Iindex === null);
-                        document.getElementById("updateBtn").disabled = !(inputvalid && isradiovalid && ischeckbox && Iindex !== null);
+                        document.getElementById("appointbtn").disabled = !(isValid && isradiovalid && ischeckbox && Iindex === null);
+                        document.getElementById("updateBtn").disabled = !(isValid && isradiovalid && ischeckbox && Iindex !== null);
                     }
 
                     function displayintable() {

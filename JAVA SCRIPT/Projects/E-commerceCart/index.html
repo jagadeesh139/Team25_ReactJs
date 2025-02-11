@@ -88,7 +88,7 @@
         }
 
         button {
-            background: #ff5722;
+            /* background: #ff5722; */
             color: white;
             border: none;
             cursor: pointer;
@@ -97,8 +97,16 @@
             border-radius: 4px;
         }
 
-        button:hover {
+        /* button:hover {
             background: #e64a19;
+        } */
+        button:disabled {
+            background-color: #333;
+            cursor: not-allowed;
+        }
+
+        button {
+            background-color: blue;
         }
 
         .cart-container {
@@ -164,10 +172,10 @@
                 <h2>Add Product</h2>
                 <form id="cart-form">
                     <label for="productName">Product Name:</label>
-                    <input type="text" id="productName" required>
+                    <input type="text" id="productName" required onkeyup="valid()">
 
                     <label>Category:</label>
-                    <div class="checkbox-group">
+                    <div class="checkbox-group" onchange="valid()">
                         <input type="checkbox" id="electronics" name="Produts" value="Electronics">
                         <label for="electronics">Electronics</label>
 
@@ -182,13 +190,13 @@
                     </div>
 
                     <label for="quantity">Quantity:</label>
-                    <input type="number" id="quantity" required>
+                    <input type="number" id="quantity" required onkeyup="valid()">
 
                     <label for="price">Price:</label>
-                    <input type="number" id="price" required>
+                    <input type="number" id="price" required onkeyup="valid()">
 
                     <label>Discount:</label>
-                    <div class="radio-group">
+                    <div class="radio-group" onchange="valid()">
                         <input type="radio" id="discount0" name="discount" value="0" checked>
                         <label for="discount0">No Discount</label>
 
@@ -202,7 +210,7 @@
                         <label for="discount30">30% Off</label>
                     </div>
 
-                    <button type="button" onclick="Ecomercecart()" id="EcomerceBtn">Add to Cart</button>
+                    <button type="button" onclick="Ecomercecart()" id="EcomerceBtn" disabled>Add to Cart</button>
                     <button type="button" onclick="Updateuser()" id="updateBtn" style="display: none;">Update</button>
                 </form>
             </div>
@@ -267,9 +275,8 @@
             </div>
 
             <script>
-                var Comerce = [
-
-                ]
+                var Comerce = []
+                Iindex = null;
 
                 function Ecomercecart() {
                     var ProductName = document.getElementById("productName").value
@@ -302,14 +309,54 @@
 
                     Comerce.push(Cart)
                     localStorage.setItem("user", JSON.stringify(Comerce))
+                    valid()
+                    displayinTable()
 
                     document.getElementById("productName").value = ""
                     document.getElementById("quantity").value = ""
                     document.getElementById("price").value = ""
 
-                    displayinTable()
+                    Iindex = null;
 
+                }
 
+                function valid() {
+
+                    var isValid = false;
+                    var isradiovalid = false;
+                    var ischeckbox = false;
+                    var jam = {
+                        productName: document.getElementById("productName").value,
+                        quantity: document.getElementById("quantity").value,
+                        price: document.getElementById("price").value
+
+                    }
+
+                    for (a in jam) {
+                        if (jam[a] !== "") {
+                            isValid = true;
+
+                        }
+                    }
+
+                    var allradio = document.getElementsByName("discount")
+                    for (i = 0; i < allradio.length; i++) {
+                        if (allradio[i].checked == true) {
+
+                        }
+                        isradiovalid = true
+
+                    }
+
+                    var allCheckBoxes = document.getElementsByName("Produts")
+                    for (i = 0; i < allCheckBoxes.length; i++) {
+                        if (allCheckBoxes[i].checked == true) {
+                        }
+                        ischeckbox = true;
+                    }
+
+                    document.getElementById("EcomerceBtn").disabled = !(isValid && isradiovalid && ischeckbox && Iindex === null)
+                    document.getElementById("updateBtn").disabled = !(isValid && isradiovalid && ischeckbox && Iindex !== null)
                 }
 
                 function displayinTable() {
@@ -402,11 +449,14 @@
 
                     Comerce[Iindex] = Cart
                     localStorage.setItem("user", JSON.stringify(Comerce))
+                    valid()
                     displayinTable()
 
                     document.getElementById("productName").value = ""
                     document.getElementById("quantity").value = ""
                     document.getElementById("price").value = ""
+
+                    Iindex = null;
 
                     document.getElementById("EcomerceBtn").style.display = "block"
                     document.getElementById("updateBtn").style.display = "none"
