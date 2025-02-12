@@ -97,8 +97,8 @@
             border-radius: 4px;
         }
 
-        button:hover {
-            background: #e64a19;
+        button:disabled {
+            background: grey;
         }
 
         .playlist-container {
@@ -173,22 +173,22 @@
                 <h2>Music Controls</h2>
                 <form id="music-form">
                     <label for="title">Song Title:</label>
-                    <input type="text" id="title" required>
+                    <input type="text" id="title" required onkeyup="valid()">
 
                     <label for="artist">Artist:</label>
-                    <input type="text" id="artist" required>
+                    <input type="text" id="artist" required onkeyup="valid()">
 
                     <label for="album">Album:</label>
-                    <input type="text" id="album" required>
+                    <input type="text" id="album" required onkeyup="valid()">
 
                     <label for="duration">Duration (min:sec):</label>
-                    <input type="text" id="duration" required>
+                    <input type="text" id="duration" required onkeyup="valid()">
 
                     <label for="volume">Volume:</label>
-                    <input type="range" id="volume" min="0" max="100" value="50">
+                    <input type="range" id="volume" min="0" max="100" value="50" onchange="valid()">
 
                     <label>Repeat Mode:</label>
-                    <div class="radio-group">
+                    <div class="radio-group" onchange="valid()">
                         <input type="radio" id="repeat-off" name="repeat" value="Off" checked>
                         <label for="repeat-off">Off</label>
 
@@ -200,12 +200,12 @@
                     </div>
 
                     <label>Shuffle Mode:</label>
-                    <div class="checkbox-group">
+                    <div class="checkbox-group" onchange="valid()">
                         <input type="checkbox" id="shuffle" value="Shuffle" name="mode">
                         <label for="shuffle">Enable Shuffle</label>
                     </div>
 
-                    <button type="button" onclick="registeruser()" id="registerbtn">Add to Playlist</button>
+                    <button type="button" onclick="registeruser()" id="registerbtn" disabled>Add to Playlist</button>
                     <button type="button" onclick="updateuser()" id="updateBtn" style="display: none;">Update</button>
                 </form>
             </div>
@@ -266,6 +266,7 @@
 
     <script>
         var Music = []
+        var Iindex = null;
         function registeruser() {
             var SongTitle = document.getElementById("title").value
             var artist = document.getElementById("artist").value
@@ -300,14 +301,59 @@
             }
 
             Music.push(user)
+            localStorage.setItem("user", JSON.stringify(Music))
+            valid()
 
             document.getElementById("title").value = ""
             document.getElementById("artist").value = ""
             document.getElementById("album").value = ""
             document.getElementById("duration").value = ""
             document.getElementById("volume").value = ""
+            Iindex = null;
 
             displayuser()
+
+        }
+
+        function valid() {
+            var isvalid = false;
+            var isradiovalid = false;
+            var ischeckbox = false;
+            var jam = {
+                title: document.getElementById("title").value,
+                artist: document.getElementById("artist").value,
+                album: document.getElementById("album").value,
+                duration: document.getElementById("duration").value
+            }
+
+            for (a in jam) {
+                if (jam[a] == "") {
+                    isvalid = false;
+                    break;
+
+                } else {
+                    isvalid = true;
+                }
+            }
+
+            var radio = document.getElementsByName("repeat")
+            for (i = 0; i < radio.length; i++) {
+                if (radio[i].checked == true) {
+                    isradiovalid = true
+                }
+            }
+
+            var checkbox = document.getElementsByName("mode")
+            for (i = 0; i < checkbox.length; i++) {
+                if (checkbox[i].checked == true) {
+                    ischeckbox = true;
+
+                }
+            }
+
+            document.getElementById("registerbtn").disabled = !(isvalid && isradiovalid && ischeckbox && Iindex === null)
+            document.getElementById("updateBtn").disabled = !(isvalid && isradiovalid && ischeckbox && Iindex !== null)
+
 
         }
 
@@ -343,6 +389,7 @@
         function delteuser(i) {
             console.log("delete user !!" + i)
             Music.splice(i, 1)
+            localStorage.setItem("user", JSON.stringify(Music))
             displayuser()
 
         }
@@ -406,6 +453,9 @@
             }
 
             Music[Iindex] = user
+            localStorage.setItem("user", JSON.stringify(Music))
+            valid()
+
             displayuser()
 
             document.getElementById("title").value = ""
@@ -413,6 +463,8 @@
             document.getElementById("album").value = ""
             document.getElementById("duration").value = ""
             document.getElementById("volume").value = ""
+
+            Iindex = null;
 
             document.getElementById("registerbtn").style.display = "block"
             document.getElementById("updateBtn").style.display = "none"

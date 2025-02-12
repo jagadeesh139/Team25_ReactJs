@@ -333,9 +333,12 @@
                     }
 
                     for (a in jam) {
-                        if (jam[a] !== "") {
-                            isValid = true;
+                        if (jam[a] == "") {
+                            isValid = false;
+                            break;
 
+                        } else {
+                            isValid = true;
                         }
                     }
 

@@ -354,9 +354,11 @@
                         }
 
                         for (a in from) {
-                            if (form[a] !== "") {
-                                isValid = true
+                            if (from[a] == "") {
+                                isValid = false;
 
+                            } else {
+                                isValid = true;
                             }
                         }
 
@@ -482,9 +484,10 @@
 
 
                         Book[Iindex] = User
+                        displayintable()
                         localStorage.setItem("user", JSON.stringify(Book))
                         validform();
-                        Iindex = null;
+                        
 
 
                         document.getElementById("eventName").value = ""
@@ -492,8 +495,9 @@
                         document.getElementById("time").value = ""
                         document.getElementById("location").value = ""
                         document.getElementById("description").value = ""
+                        Iindex = null;
 
-                        displayintable()
+                        
 
                         document.getElementById("appointbtn").style.display = "block"
                         document.getElementById("updateBtn").style.display = "none"
