@@ -12,17 +12,22 @@
 
     <script>
         var study = []
-        function yes() {
+        function yes(displaydata) {
             var getData = new XMLHttpRequest();
             getData.onreadystatechange = function () {
                 if (getData.readyState == 4 && getData.readyState == 200) {
                     var allUsers = JSON.parse(getData.response)
                     console.log(allUsers)
+                    displaydata()
                 }
             }
             getData.open("GET", "https://jsonplaceholder.typicode.com/users")
             getData.send()
+        };
+        function displaydata() {
+            console.log(study)
         }
+        yes(displaydata)
     </script>
 </body>
 

@@ -413,7 +413,7 @@
             document.getElementById("enrollmentDate").value = student[i].value
 
             var radio = document.getElementsByName("gender")
-            for (j = 0; j < radio.length; j++) {
+            for (  j = 0; j < radio.length; j++) {
                 radio[j].checked = student[i].gender.includes(radio[j].value)
             }
 
