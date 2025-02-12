@@ -98,8 +98,15 @@
             border-radius: 4px;
         }
 
-        button:hover {
+        /* button:hover {
             background: #e64a19;
+        } */
+
+        
+
+        button:disabled {
+            background-color: #333;
+            cursor: not-allowed;
         }
 
         .vocabulary-container {
@@ -165,22 +172,22 @@
                 <h2>Add Vocabulary Word</h2>
                 <form id="word-form">
                     <label for="word">Word:</label>
-                    <input type="text" id="word" required>
+                    <input type="text" id="word" required onkeyup="valid()">
 
                     <label for="definition">Definition:</label>
-                    <textarea id="definition" rows="2" required></textarea>
+                    <textarea id="definition" rows="2" required onkeyup="valid()"></textarea>
 
                     <label for="exampleSentence">Example Sentence:</label>
-                    <textarea id="exampleSentence" rows="2" required></textarea>
+                    <textarea id="exampleSentence" rows="2" required onkeyup="valid()"></textarea>
 
                     <label for="synonyms">Synonyms (comma-separated):</label>
-                    <input type="text" id="synonyms">
+                    <input type="text" id="synonyms" onkeyup="valid()">
 
                     <label for="antonyms">Antonyms (comma-separated):</label>
-                    <input type="text" id="antonyms">
+                    <input type="text" id="antonyms" onkeyup="valid()">
 
                     <label>Language:</label>
-                    <div class="radio-group">
+                    <div class="radio-group" onchange="valid()">
                         <input type="radio" id="english" name="language" value="English">
                         <label for="english">English</label>
 
@@ -195,7 +202,7 @@
                     </div>
 
                     <label>Progress:</label>
-                    <div class="checkbox-group">
+                    <div class="checkbox-group" onchange="valid()">
                         <input type="checkbox" id="learned" name="Prog" value="learned">
                         <label for="learned">Learned</label>
 
@@ -206,7 +213,7 @@
                         <label for="mastered">Mastered</label>
                     </div>
 
-                    <button type="button" onclick="registeruser()" id="Vocabularybtn">Join Now</button>
+                    <button type="button" onclick="registeruser()" id="Vocabularybtn" disabled>Join Now</button>
                     <button type="button" onclick="updateuser()" id="updateBtn" style="display: none;">Update</button>
                 </form>
             </div>
@@ -278,9 +285,9 @@
 
     </div>
     <script>
-        var vacabulary = [
+        var vacabulary = []
 
-        ]
+        var Iindex = null;
 
         function registeruser() {
             var word = document.getElementById("word").value
@@ -317,6 +324,8 @@
             }
 
             vacabulary.push(user)
+            localStorage.setItem("user", JSON.stringify(vacabulary))
+            valid()
             displayinTable()
 
             document.getElementById("word").value = ""
@@ -324,9 +333,51 @@
             document.getElementById("exampleSentence").value = ""
             document.getElementById("synonyms").value = ""
             document.getElementById("antonyms").value = ""
+            Iindex = null;
 
 
 
+        }
+
+        function valid() {
+            var isvalid = false;
+            var radiovalid = false;
+            var checkedvalid = false;
+            
+            var jam = {
+                word: document.getElementById("word").value,
+                definition: document.getElementById("definition").value,
+                exampleSentence: document.getElementById("exampleSentence").value,
+                synonyms: document.getElementById("synonyms").value,
+                antonyms: document.getElementById("antonyms").value
+            }
+
+            for (a in jam) {
+                if (jam[a] !== "") {
+                    isvalid = true
+
+                }
+            }
+
+            var allradio = document.getElementsByName("language")
+            for (i = 0; i < allradio.length; i++) {
+                if (allradio[i].checked == true) {
+                    radiovalid = true
+
+                }
+            }
+
+            var allCheckBoxes = document.getElementsByName("Prog")
+
+            for (i = 0; i < allCheckBoxes.length; i++) {
+                if (allCheckBoxes[i].checked == true) {
+                    checkedvalid = false;
+
+                }
+            }
+
+            document.getElementById("Vocabularybtn").disabled = !(isvalid && radiovalid && checkedvalid && Iindex == null)
+            document.getElementById("updateBtn").disabled = !(isvalid && radiovalid && checkedvalid && Iindex !== null)
         }
 
         function displayinTable() {
@@ -363,6 +414,7 @@
         function deleteuser(i) {
             console.log("delete User!!" + i)
             vacabulary.splice(i, 1)
+            localStorage.setItem("user", JSON.stringify(vacabulary))
             displayinTable()
         }
 
@@ -427,6 +479,8 @@
             }
 
             vacabulary[Iindex] = user
+            localStorage.setItem("user", JSON.stringify(vacabulary))
+            valid()
             displayinTable()
 
             document.getElementById("word").value = ""
@@ -434,6 +488,8 @@
             document.getElementById("exampleSentence").value = ""
             document.getElementById("synonyms").value = ""
             document.getElementById("antonyms").value = ""
+
+            Iindex = null;
 
             document.getElementById("Vocabularybtn").style.display = "block"
             document.getElementById("updateBtn").style.display = "none"

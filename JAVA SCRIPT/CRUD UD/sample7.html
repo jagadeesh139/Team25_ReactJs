@@ -96,22 +96,31 @@
 
     function valid() {
 
+      // var jag = false;
       var isValid = false;
+
+
       var ischeckbox = false;
 
-      var jam = {
+      var formData = {
         name: document.getElementById("name").value,
         email: document.getElementById("email").value,
         destination: document.getElementById("destination").value,
         date: document.getElementById("date").value
 
       }
-      for (a in jam) {
-        if (jam[a] != "") {
-          isValid = true;
-
+      for (var a in formData) {
+        if (formData[a] === "") {
+          isValid = false;  // If any field is empty, mark isValid as false
+          break;
+        } else {
+          isValid = true;  // If all fields have values, set isValid to true
         }
       }
+
+      // if (jag == true) {
+      //   isValid = true
+      // }
 
 
       var allCheckBoxes = document.getElementsByName("preferences")

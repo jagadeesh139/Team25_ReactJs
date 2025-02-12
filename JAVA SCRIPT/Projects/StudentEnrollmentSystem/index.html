@@ -96,7 +96,8 @@
             margin-top: 10px;
             border-radius: 4px;
         }
-        button:disabled{
+
+        button:disabled {
             background-color: #333;
             cursor: not-allowed;
         }
@@ -338,7 +339,10 @@
             }
 
             for (a in jam) {
-                if (jam[a] !== "") {
+                if (jam[a] == "") {
+                    isvalid = false;
+                    break;
+                } else {
                     isvalid = true
                 }
             }
