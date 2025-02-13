@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var students = []
+        function getDatafromserver() {
+            var getData = new XMLHttpRequest()
+            getData.onreadystatechange = function () {
+                if (getData.readyState === 4 && getData.status === 200) {
+                    students = JSON.parse(getData.response)
+                    displaydata()
+                }
+            }
+            getData.open("GET", "https://jsonplaceholder.typicode.com/users")
+            getData.send()
+        }
+        function displaydata() {
+            console.log(students)
+        }
+        getDatafromserver(displaydata)
+    </script>
+</body>
+
+</html>
