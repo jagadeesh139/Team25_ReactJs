@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>stopwatch</title>
+    <style>
+        h1 {
+            color: whitesmoke;
+            padding: 10px;
+            margin-left: 35px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="watch"
+        style="background-image: url(./watch.jpg); width: 250px; height: 200px; margin-left: 500px; top: 100px;">
+        <h1 id="time">00:00:00</h1>
+        <div class="buttons">
+            <img src="./stop.png" alt="" width="50px" height="50px" onclick="watchstop()" style="margin-left: 35px;">
+            <img src="./play.png" alt="" width="50px" height="50px" onclick=" watchstart()">
+            <img src="./reset.png" alt="" width="50px" height="50px" onclick="watchreset()">
+        </div>
+    </div>
+
+    <script>
+        let [hours, minutes, seconds] = [0, 0, 0];
+        let displaytime = document.getElementById("time");
+        let timer = null;
+        function stopwatch() {
+            seconds++;
+            if (seconds == 60) {
+                seconds = 0;
+                minutes++;
+                if (minutes == 60) {
+                    minutes = 0;
+                    hours++;
+                }
+            }
+
+            let hr = hours < 10 ? "0" + hours : hours;
+            let mi = minutes < 10 ? "0" + minutes : minutes;
+            let se = seconds < 10 ? "0" + seconds : seconds;
+
+            displaytime.innerHTML = hr + ":" + mi + ":" + se;
+
+
+        }
+
+        function watchstart() {
+            if (timer !== null) {
+                clearInterval(timer);
+            }
+            var timer = setInterval(stopwatch, 1000);
+        }
+
+        function watchstop() {
+            clearInterval(timer);
+        }
+        function watchreset() {
+            clearInterval(timer);
+
+            [hours, minutes, seconds] = [0, 0, 0]
+            displaytime.innerHTML = "00:00:00";
+        }
+    </script>
+</body>
+
+</html>
