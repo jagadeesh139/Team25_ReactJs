@@ -16,10 +16,10 @@
 
 <body>
     <div class="watch"
-        style="background-image: url(./watch.jpg); width: 250px; height: 200px; margin-left: 500px; top: 100px;">
+        style="background-image: url(./watch2.jpg); width: 250px; height: 200px; margin-left: 500px; top: 100px;">
         <h1 id="time">00:00:00</h1>
         <div class="buttons">
-            <img src="./stop.png" alt="" width="50px" height="50px" onclick="watchstop()" style="margin-left: 35px;">
+            <img src="./stop.png" alt="" width="50px" height="50px" onclick="watchstop()" style="margin-left:10px;">
             <img src="./play.png" alt="" width="50px" height="50px" onclick=" watchstart()">
             <img src="./reset.png" alt="" width="50px" height="50px" onclick="watchreset()">
         </div>
@@ -53,16 +53,20 @@
             if (timer !== null) {
                 clearInterval(timer);
             }
-            var timer = setInterval(stopwatch, 1000);
+            timer = setInterval(stopwatch, 1000);
         }
 
         function watchstop() {
-            clearInterval(timer);
+            if (timer !== null) {
+                clearInterval(timer);
+                timer = null;
+            }
         }
+
         function watchreset() {
             clearInterval(timer);
-
-            [hours, minutes, seconds] = [0, 0, 0]
+            timer = null;
+            [hours, minutes, seconds] = [0, 0, 0];
             displaytime.innerHTML = "00:00:00";
         }
     </script>
