@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Calculator</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+            font-family: Arial, sans-serif;
+        }
+
+        .calculator {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            font-size: 18px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background: #28a745;
+            color: white;
+            font-size: 18px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background: #218838;
+        }
+
+        h2 {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="calculator">
+        <h2>Simple Calculator</h2>
+        <form onsubmit="calculate(event)"> <!-- Prevent form submission -->
+            <input type="number" id="num1" placeholder="Enter first number" required>
+            <select id="operator">
+                <option value="+">+</option>
+                <option value="-">-</option>
+                <option value="*">×</option>
+                <option value="/">÷</option>
+            </select>
+            <input type="number" id="num2" placeholder="Enter second number" required>
+            <button type="submit">Calculate</button>
+        </form>
+        <h3>Result: <span id="result">0</span></h3> <!-- Result will be shown here -->
+    </div>
+
+    <script>
+        function calculate(event) {
+            event.preventDefault(); // Stop form from refreshing the page
+
+            var num1 = Number(document.getElementById("num1").value);
+            var num2 = Number(document.getElementById("num2").value);
+            var operator = document.getElementById("operator").value;
+            var result = 0;
+
+            if (operator == "+") {
+                result = num1 + num2;
+            } else if (operator == "-") {
+                result = num1 - num2;
+            } else if (operator == "*") {
+                result = num1 * num2;
+            } else if (operator == "/") {
+                if (num2 !== 0) {
+                    result = num1 / num2;
+                }
+
+            }
+
+            // document.getElementById("result").innerText = result; // Show result in HTML
+            console.log(result)
+        }
+    </script>
+
+</body>
+
+</html>

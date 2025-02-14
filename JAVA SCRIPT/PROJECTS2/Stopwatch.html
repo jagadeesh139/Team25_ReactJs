@@ -4,31 +4,87 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>stopwatch</title>
+    <title>Stopwatch</title>
     <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #282c34;
+            font-family: Arial, sans-serif;
+        }
+
+        .stopwatch {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            width: 250px;
+        }
+
         h1 {
-            color: whitesmoke;
+            font-size: 36px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        button {
+            width: 70px;
             padding: 10px;
-            margin-left: 35px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .start {
+            background: #28a745;
+            color: white;
+        }
+
+        .stop {
+            background: #dc3545;
+            color: white;
+        }
+
+        .reset {
+            background: #ffc107;
+            color: black;
         }
     </style>
 </head>
 
 <body>
-    <div class="watch"
-        style="background-image: url(./watch2.jpg); width: 250px; height: 200px; margin-left: 500px; top: 100px;">
-        <h1 id="time">00:00:00</h1>
+
+    <div class="stopwatch">
+        <h1 id="display">00:00:00</h1>
         <div class="buttons">
-            <img src="./stop.png" alt="" width="50px" height="50px" onclick="watchstop()" style="margin-left:10px;">
-            <img src="./play.png" alt="" width="50px" height="50px" onclick=" watchstart()">
-            <img src="./reset.png" alt="" width="50px" height="50px" onclick="watchreset()">
+            <button class="start" onclick="startStopwatch()">Start</button>
+            <button class="stop" onclick="stopStopwatch()">Stop</button>
+            <button class="reset" onclick="resetStopwatch()">Reset</button>
         </div>
     </div>
 
     <script>
         let [hours, minutes, seconds] = [0, 0, 0];
-        let displaytime = document.getElementById("time");
+        let display = document.getElementById("display");
         let timer = null;
+
+        function updateDisplay() {
+            let hr = hours < 10 ? "0" + hours : hours;
+            let min = minutes < 10 ? "0" + minutes : minutes;
+            let sec = seconds < 10 ? "0" + seconds : seconds;
+            display.innerText = `${hr}:${min}:${sec}`;
+        }
+
         function stopwatch() {
             seconds++;
             if (seconds == 60) {
@@ -39,37 +95,27 @@
                     hours++;
                 }
             }
-
-            let hr = hours < 10 ? "0" + hours : hours;
-            let mi = minutes < 10 ? "0" + minutes : minutes;
-            let se = seconds < 10 ? "0" + seconds : seconds;
-
-            displaytime.innerHTML = hr + ":" + mi + ":" + se;
-
-
+            updateDisplay();
         }
 
-        function watchstart() {
+        function startStopwatch() {
             if (timer !== null) {
                 clearInterval(timer);
             }
             timer = setInterval(stopwatch, 1000);
         }
 
-        function watchstop() {
-            if (timer !== null) {
-                clearInterval(timer);
-                timer = null;
-            }
+        function stopStopwatch() {
+            clearInterval(timer);
         }
 
-        function watchreset() {
+        function resetStopwatch() {
             clearInterval(timer);
-            timer = null;
             [hours, minutes, seconds] = [0, 0, 0];
-            displaytime.innerHTML = "00:00:00";
+            updateDisplay();
         }
     </script>
+
 </body>
 
 </html>

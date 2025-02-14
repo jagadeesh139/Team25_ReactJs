@@ -4,53 +4,115 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="./popup.css">
+    <title>Popup Example</title>
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #6e8efb, #a777e3);
+        }
+
         .btn {
+            padding: 12px 20px;
+            font-size: 18px;
             border-radius: 30px;
-            color: black;
+            background: white;
+            border: 2px solid black;
             cursor: pointer;
-            width: 100px;
-            font-size: 22px;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: #ddd;
+        }
+
+        /* Popup Styling */
+        .popup {
+            width: 350px;
+            background: white;
+            text-align: center;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            opacity: 0;
+            transition: 0.3s ease-in-out;
+        }
+
+        .popup img {
+            width: 80px;
+            margin-bottom: 10px;
+        }
+
+        .popup h2 {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .popup p {
+            font-size: 16px;
+            color: #555;
+            margin-bottom: 20px;
         }
 
         .popup button {
-            width: 50%;
-            /* margin-top: 50px; */
-            padding: 10px 0;
-            background-color:gold;
-            border-radius: 4px;
-            margin-bottom: 20px;
+            width: 80%;
+            padding: 10px;
+            background: gold;
+            border-radius: 5px;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .popup button:hover {
+            background: orange;
+        }
+
+        /* Open Popup Animation */
+        .open-popup {
+            transform: translate(-50%, -50%) scale(1);
+            opacity: 1;
         }
     </style>
 </head>
 
 <body>
-    <div class="container" style="justify-content: center;  ">
-        <button type="submit" class="btn" onclick="openpopup()"
-            style="background-color:white;padding: 10px;top: 500px;">submit</button>
-        <div class="popup" id="popup" style="background-color: azure;">
-            <img src="./cc.jpg" alt="">
-            <h2>ThankYou</h2>
-            <p>your details has been successfully submitted Thanks !!</p>
-            <button type="button" onclick="closepopup()">Ok</button>
+    <div class="container">
+        <button class="btn" onclick="openPopup()">Submit</button>
+        
+        <div class="popup" id="popup">
+            <img src="https://cdn-icons-png.flaticon.com/512/148/148767.png" alt="Success">
+            <h2>Thank You!</h2>
+            <p>Your details have been successfully submitted.</p>
+            <button onclick="closePopup()">OK</button>
         </div>
     </div>
 
     <script>
-
         let popup = document.getElementById("popup");
-        function openpopup() {
-            popup.classList.add("open-popup")
 
+        function openPopup() {
+            popup.classList.add("open-popup");
         }
 
-        function closepopup() {
-            popup.classList.remove("open-popup")
+        function closePopup() {
+            popup.classList.remove("open-popup");
         }
-
-
     </script>
 </body>
 
