@@ -67,12 +67,12 @@
             <input type="number" id="num2" placeholder="Enter second number" required>
             <button type="submit">Calculate</button>
         </form>
-        <h3>Result: <span id="result">0</span></h3> <!-- Result will be shown here -->
+        <h3>Result: <span id="result">0</span></h3> 
     </div>
 
     <script>
         function calculate(event) {
-            event.preventDefault(); // Stop form from refreshing the page
+            event.preventDefault(); 
 
             var num1 = Number(document.getElementById("num1").value);
             var num2 = Number(document.getElementById("num2").value);
@@ -92,8 +92,8 @@
 
             }
 
-            // document.getElementById("result").innerText = result; // Show result in HTML
-            console.log(result)
+            document.getElementById("result").innerText = result; // Show result in HTML
+            // console.log(result)
         }
     </script>
 
