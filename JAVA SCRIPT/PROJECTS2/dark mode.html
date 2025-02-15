@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dark Mode Toggle</title>
     <style>
-        /* Default Light Mode */
+        
         body {
             font-family: Arial, sans-serif;
             text-align: center;
@@ -14,13 +14,13 @@
             transition: background 0.3s, color 0.3s;
         }
 
-        /* Dark Mode */
+        
         body.dark-mode {
             background-color: #1e1e1e;
             color: #fff;
         }
 
-        /* Styling the toggle switch */
+       
         .switch {
             position: absolute;
             top: 20px;
@@ -49,7 +49,7 @@
             transition: 0.3s;
         }
 
-        /* Moving the toggle when checked */
+        
         input[type="checkbox"]:checked + label {
             background: #555;
         }
@@ -59,7 +59,7 @@
             background: yellow;
         }
 
-        /* Hide the checkbox */
+        
         .switch input {
             display: none;
         }
@@ -91,6 +91,8 @@
             } else {
                 document.body.classList.remove("dark-mode");
                 localStorage.setItem("darkMode", "disabled");
+
+        
             }
         });
     </script>
