@@ -72,8 +72,10 @@
         eye.onclick = function () {
             let isPassword = password.type === "password";
             password.type = isPassword ? "text" : "password";
-            eye.src = isPassword ? "eye-open.png" : "eye-close.png";
+            eye = isPassword ? "eye-open.png" : "eye-close.png";
         };
+
+        
     </script>
 </body>
 
