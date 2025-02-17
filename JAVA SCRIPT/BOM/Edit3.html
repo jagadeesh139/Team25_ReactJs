@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <!-- Form Column -->
+        <div class="column">
+            <h1>Social Media Signup</h1>
+            <form>
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" placeholder="Enter your username" required>
+
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+                <label>Gender</label>
+                <div>
+                    <label><input type="radio" name="gender" value="male" required> Male</label><br>
+                    <label><input type="radio" name="gender" value="female" required> Female</label>
+                </div>
+
+                <label>Interests</label>
+                <div>
+                    <label><input type="checkbox" name="interests" value="tech"> Technology</label><br>
+                    <label><input type="checkbox" name="interests" value="sports"> Sports</label><br>
+                    <label><input type="checkbox" name="interests" value="music"> Music</label>
+                </div>
+
+                <button type="button" onclick="registeruser()" id="registerBtn">Sign Up</button>
+                <button type="button" onclick="UpdateUser()" id="Updatebtn" style="display: none;">update</button>
+            </form>
+        </div>
+
+        <script>
+            var urlAddress = location.href;
+            var userIndex = urlAddress.substr(urlAddress.indexOf("?") + i)
+            var Register = JSON.parse(localStorage.getItem("Register"));
+            var userToEdit = Register[userIndex]
+
+            document.getElementById("username").value
+            document.getElementById("email").value
+
+            function UpdateUser() {
+
+                var username = document.getElementById("username").value;
+                var email = document.getElementById("email").value;
+
+                var allradio = document.getElementsByName("gender")
+                for (j = 0; j < allradio.length; j++) {
+                    allradio[j].checked = Register[i].gender.includes(allradio[j].value);
+                }
+
+                var allCheckBoxes = document.getElementsByName("intrestes");
+                for (k = 0; k < allCheckBoxes.length; k++) {
+                    allCheckBoxes[k].checked = Register[i].interests.includes(allCheckBoxes[k].value)
+                }
+
+                var userToEdit = Register[userIndex]
+
+                localStorage.setItem("Register", JSON.stringify(Register))
+                window.href = "sample3.html"
+
+
+            }
+        </script>
+</body>
+
+</html>
