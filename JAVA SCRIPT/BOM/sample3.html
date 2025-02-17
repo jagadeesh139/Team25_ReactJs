@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Media Signup</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <!-- Form Column -->
+        <div class="column">
+            <h1>Social Media Signup</h1>
+            <form>
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" placeholder="Enter your username" required>
+
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+                <label>Gender</label>
+                <div>
+                    <label><input type="radio" name="gender" value="male" required> Male</label><br>
+                    <label><input type="radio" name="gender" value="female" required> Female</label>
+                </div>
+
+                <label>Interests</label>
+                <div>
+                    <label><input type="checkbox" name="interests" value="tech"> Technology</label><br>
+                    <label><input type="checkbox" name="interests" value="sports"> Sports</label><br>
+                    <label><input type="checkbox" name="interests" value="music"> Music</label>
+                </div>
+
+                <button type="button" onclick="registeruser()" id="registerBtn">Sign Up</button>
+                <button type="button" onclick="UpdateUser()" id="Updatebtn" style="display: none;">update</button>
+            </form>
+        </div>
+
+        <!-- Table Column -->
+        <div class="column">
+            <h1>Registered Users</h1>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Username</th>
+                        <th>Email</th>
+                        <th>Gender</th>
+                        <th>Interests</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- <tr>
+            <td>JohnDoe123</td>
+            <td>john.doe@example.com</td>
+            <td>
+              <button class="edit-btn">Edit</button>
+              <button class="delete-btn">Delete</button>
+            </td>
+          </tr>
+          <tr>
+            <td>JaneSmith99</td>
+            <td>jane.smith@example.com</td>
+            <td>
+              <button class="edit-btn">Edit</button>
+              <button class="delete-btn">Delete</button>
+            </td>
+          </tr> -->
+                </tbody>
+            </table>
+
+            <script>
+
+                var Register = JSON.parse(localStorage.getItem(Register))
+                if (Register === null) {
+                    var Register = []
+                }
+                console.log(Register)
+                var Register = [
+
+                ]
+
+                function registeruser() {
+                    var Username = document.getElementById("username").value
+                    var Email = document.getElementById("email").value
+
+
+                    var user = {
+                        Username,
+                        Email,
+                        gender: [],
+                        interests: []
+
+                    }
+
+                    // radio
+
+                    var allradio = document.getElementsByName("gender")
+                    for (i = 0; i < allradio.length; i++) {
+                        if (allradio[i].checked == true) {
+                            user.gender.push(allradio[i].value);
+                        }
+                        allradio[i].checked = false;
+                    }
+                    var allCheckBoxes = document.getElementsByName("interests")
+                    for (i = 0; i < allCheckBoxes.length; i++) {
+                        if (allCheckBoxes[i].checked == true) {
+                            user.interests.push(allCheckBoxes[i].value)
+                        }
+                    }
+                    Register.push(user)
+                    localStorage.setItem("users", JSON.stringify(Register))
+
+                    document.getElementById("username").value = ""
+                    document.getElementById("email").value = ""
+
+                    displayUser()
+                }
+
+                function displayUser() {
+                    document.querySelector("tbody").innerHTML = ""
+                    Register.forEach(function (user, index) {
+                        var MyTr = document.createElement("tr")
+                        for (a in user) {
+                            var MyTd = document.createElement("td")
+                            MyTd.innerHTML = user[a]
+                            MyTr.appendChild(MyTd)
+                        }
+
+                        var editTd = document.createElement("td")
+                        var editBtn = document.createElement("button")
+                        editBtn.innerHTML = "edit";
+                        editBtn.setAttribute("class", "edit-btn")
+                        editBtn.setAttribute("onclick", "editUser(" + index + ")")
+                        editTd.appendChild(editBtn)
+                        MyTr.appendChild(editTd)
+
+                        var deleteTd = document.createElement("td")
+                        var deleteBtn = document.createElement("button")
+                        deleteBtn.setAttribute("class", "delete-btn")
+                        deleteBtn.innerHTML = "Delete"
+                        deleteBtn.setAttribute("onclick", "deleteUser(" + index + ")")
+                        deleteTd.appendChild(deleteBtn)
+                        MyTr.appendChild(deleteTd)
+
+                        document.querySelector("tbody").appendChild(MyTr)
+                    })
+
+                }
+                displayUser()
+
+                function deleteUser(i) {
+                    console.log("dleteuser!!" + i)
+                    Register.splice(i, 1);
+                    localStorage.setItem("users", JSON.stringify(Register))
+                    displayUser()
+
+                }
+
+                var Iindex;
+                function editUser(i) {
+
+                    localStorage.setItem("Register", JSON.stringify(Register))
+                    window.location.href = "edit.html?" + i
+
+                    Iindex = i;
+
+                    document.getElementById("username").value = Register[i].Username
+                    document.getElementById("email").value = Register[i].Email
+
+                    var allradio = document.getElementsByName("gender")
+                    for (j = 0; j < allradio.length; j++) {
+                        allradio[j].checked = Register[i].gender.includes(allradio[j].value);
+                    }
+
+                    var allCheckBoxes = document.getElementsByName("intrestes");
+                    for (k = 0; k < allCheckBoxes.length; k++) {
+                        allCheckBoxes[k].checked = Register[i].interests.includes(allCheckBoxes[k].value)
+                    }
+
+                    document.getElementById("registerBtn").style.display = "none"
+                    document.getElementById("Updatebtn").style.display = "block"
+                }
+
+                function UpdateUser() {
+                    var Username = document.getElementById("username").value
+                    var Email = document.getElementById("email").value
+
+                    var user = {
+                        Username,
+                        Email,
+                        gender: [],
+                        interests: []
+
+                    }
+
+                    // radio
+
+                    var allradio = document.getElementsByName("gender")
+                    for (i = 0; i < allradio.length; i++) {
+                        if (allradio[i].checked == true) {
+                            user.gender.push(allradio[i].value);
+                        }
+                        allradio[i].checked = false;
+                    }
+                    var allCheckBoxes = document.getElementsByName("interests")
+                    for (i = 0; i < allCheckBoxes.length; i++) {
+                        if (allCheckBoxes[i].checked == true) {
+                            user.interests.push(allCheckBoxes[i].value)
+                        }
+                    }
+
+                    Register[Iindex] = user
+                    localStorage.setItem("users", JSON.stringify(Register))
+                    displayUser()
+
+                    document.getElementById("username").value = ""
+                    document.getElementById("email").value = ""
+
+                    document.getElementById("registerBtn").style.display = "block"
+                    document.getElementById("Updatebtn").style.display = "none"
+                }
+
+
+
+            </script>
+        </div>
+    </div>
+</body>
+
+</html>

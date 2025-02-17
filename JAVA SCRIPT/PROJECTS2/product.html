@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -120,26 +121,27 @@
         }
     </style>
 </head>
+
 <body>
 
     <div class="product-container">
-        <!-- Product Image -->
-        <div class="product-image">
+
+        <div class="product-image"> <!-- Product Image -->
             <img id="mainImage" src="./w2.jpeg" alt="Product Image">
         </div>
 
-        <!-- Product Details -->
+
         <div class="product-details">
-            <h2 class="product-title">Awesome Product</h2>
+            <h2 class="product-title">Awesome Product</h2> <!-- Product Details -->
             <p class="product-description">
                 This is a high-quality product that offers great features and benefits.
                 It is perfect for everyday use and provides excellent value.
             </p>
             <p class="product-price">Price: $<span id="totalPrice">49.99</span></p>
 
-            <!-- Quantity Selector -->
+
             <div class="quantity-container">
-                <button class="quantity-btn" onclick="updateQuantity(-1)">-</button>
+                <button class="quantity-btn" onclick="updateQuantity(-1)">-</button> <!-- Quantity Selector -->
                 <span class="quantity" id="quantity">1</span>
                 <button class="quantity-btn" onclick="updateQuantity(1)">+</button>
             </div>
@@ -149,24 +151,49 @@
     </div>
 
     <script>
-        let quantity = 1;
-        const basePrice = 49.99; // Base price of one item
+        var quantity = 1;
+        var basePrice = 49.99; // Base price of one item
 
         function updateQuantity(change) {
             quantity += change;
-            if (quantity < 1) quantity = 1; // Prevent negative values
-            document.getElementById("quantity").textContent = quantity;
-            
-            // Update total price
+            if (quantity < 1) 
+                quantity = 1; // Prevent negative values
+                document.getElementById("quantity").textContent = quantity;
+
+
+
+
             const totalPrice = (basePrice * quantity).toFixed(2);
             document.getElementById("totalPrice").textContent = totalPrice;
+
+
+            // Update total price
         }
 
         function addToCart() {
             const totalPrice = (basePrice * quantity).toFixed(2);
             alert(`Added ${quantity} item(s) to the cart! Total: $${totalPrice}`);
         }
+
+        // var quality = 1;
+        // var basePrice = 49.99;
+        // function updateQuantity() {
+        //     quality += change;
+        //     if (quality < 1) {
+        //         quality = 1;
+        //         document.getElementById("quantity").textContent = quantity;
+        //     }
+
+        //     var totalPrice = (basePrice * quantity).toFixed(2)
+        //     document.getElementById("totalPrice").textContent = totalPrice;
+        // }
+
+        // function addToCart() {
+        //     var totalPrice = (basePrice * quantity).toFixed(2);
+        //     alert(`Added ${quantity} item(s) to the cart! Total: $${totalPrice}`);
+        // }
     </script>
 
 </body>
+
 </html>

@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gym Membership Registration</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <!-- Form Column -->
+        <div class="column">
+            <h1>Gym Membership</h1>
+            <form>
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+                <label>Gender</label>
+                <div>
+                    <label><input type="radio" name="gender" value="male" required> Male</label><br>
+                    <label><input type="radio" name="gender" value="female" required> Female</label>
+                </div>
+
+                <label for="membership">Membership Type</label>
+                <select id="membership" name="membership" required>
+                    <option value="monthly">Monthly</option>
+                    <option value="quarterly">Quarterly</option>
+                    <option value="yearly">Yearly</option>
+                </select>
+
+                <button type="button" onclick="JoinNow()" id="registerBtn">Join Now</button>
+                <button type="button" onclick="updateUser()" id="updateBtn">Update</button>
+
+            </form>
+        </div>
+
+        <!-- Table Column -->
+        <div class="column">
+            <h1>Members List</h1>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Full Name</th>
+                        <th>Email</th>
+                        <th>Membership Type</th>
+                        <th>Gender</th>
+                        <th>edit</th>
+                        <th>delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- <tr>
+            <td>John Doe</td>
+            <td>john@example.com</td>
+            <td>
+              <button class="edit-btn">Edit</button>
+              <button class="delete-btn">Delete</button>
+            </td>
+          </tr>
+          <tr>
+            <td>Jane Smith</td>
+            <td>jane@example.com</td>
+            <td>
+              <button class="edit-btn">Edit</button>
+              <button class="delete-btn">Delete</button>
+            </td>
+          </tr> -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+
+        var User=JSON.parse(localStorage.getItem("User"))
+        if(User===null){
+        var User = [
+
+        ]
+        }
+        console.log(User)
+    
+
+        function JoinNow() {
+            var name = document.getElementById("name").value
+            var email = document.getElementById("email").value
+            var Membership = document.getElementById("membership").value
+
+
+            var Member = {
+                name,
+                email,
+                Membership,
+                gender: []
+            }
+
+            var allradio = document.getElementsByName("gender")
+            for (i = 0; i < allradio.length; i++) {
+                if (allradio[i].checked == true) {
+                    Member.gender.push(allradio[i].value)
+                }
+                allradio[i].checked == false
+            }
+
+            User.push(Member)
+
+            localStorage.setItem("users", JSON.stringify(User))
+
+            document.getElementById("name").value = ""
+            document.getElementById("email").value = ""
+            document.getElementById("membership").value = ""
+
+
+            displayusers()
+        }
+
+        function displayusers() {
+            document.querySelector("tbody").innerHTML = ""
+            User.forEach(function (Member, index) {
+                var MyTr = document.createElement("tr")
+                for (a in Member) {
+                    var myTd = document.createElement("td")
+                    myTd.innerHTML = Member[a]
+                    MyTr.appendChild(myTd)
+                }
+
+                var editTd = document.createElement("td")
+                var editBtn = document.createElement("button")
+                editBtn.innerHTML = "edit"
+                editBtn.setAttribute("class", "edit-btn")
+                editBtn.setAttribute("onclick", "editUser(" + index + ")")
+                editTd.appendChild(editBtn)
+                MyTr.appendChild(editTd)
+
+                var deleteTd = document.createElement("td")
+                var deletebtn = document.createElement("button")
+                deletebtn.innerHTML = "delete"
+                deletebtn.setAttribute("class", "delete-btn")
+                deletebtn.setAttribute("onclick", "deleteUser(" + index + ")")
+                deleteTd.appendChild(deletebtn)
+                MyTr.appendChild(deleteTd)
+                document.querySelector("tbody").appendChild(MyTr)
+            })
+        }
+        displayusers()
+
+        function deleteUser(i) {
+            User.splice(i, 1)
+            localStorage.setItem("users", JSON.stringify(user))
+            displayusers()
+        }
+
+        var Edit;
+        function editUser(i) {
+            Edit = i;
+            localStorage.setItem("User", JSON.stringify(User))
+            window.location.href = "edit.html?" + i
+            document.getElementById("name").value = User[i].name
+            document.getElementById("email").value = User[i].email
+            document.getElementById("membership").value = User[i].Membership
+
+            var allradio = document.getElementsByName("gender")
+            for (j = 0; j < allradio.length; j++) {
+                allradio[j].checked == User[i].gender.includes(allradio[j].value)
+            }
+
+            document.getElementById("updateBtn").style.display = "block"
+            document.getElementById("registerBtn").style.display = "none"
+
+        }
+
+        function updateUser() {
+            var fullname = document.getElementById("name").value
+            var Email = document.getElementById("email").value
+            var Membership = document.getElementById("membership").value
+
+
+            var Member = {
+                fullname,
+                Email,
+                Membership,
+                gender: []
+            }
+
+
+            var allradio = document.getElementsByName("gender")
+            for (i = 0; i < allradio.length; i++) {
+                if (allradio[i].checked == true) {
+                    Member.gender.push(allradio[i].value)
+                }
+                allradio[i].checked == false
+            }
+
+
+            User[Edit] = Member;
+            localStorage.setItem("users", JSON.stringify(User))
+            displayusers();
+
+            document.getElementById("name").value = ""
+            document.getElementById("email").value = ""
+            document.getElementById("membership").value = ""
+
+
+            document.getElementById("updateBtn").style.display = "none"
+            document.getElementById("registerBtn").style.display = "block"
+
+
+        }
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>
