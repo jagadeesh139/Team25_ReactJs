@@ -289,7 +289,12 @@
 
                 <script>
 
-                   
+                    var Book = JSON.parse(localStorage.getItem(Book))
+                    if (Book == null) {
+                        Book = [];
+                    }
+
+
                     var Book = []
                     var Iindex = null;
 
@@ -489,7 +494,7 @@
                         displayintable()
                         localStorage.setItem("user", JSON.stringify(Book))
                         validform();
-                        
+
 
 
                         document.getElementById("eventName").value = ""
@@ -499,7 +504,7 @@
                         document.getElementById("description").value = ""
                         Iindex = null;
 
-                        
+
 
                         document.getElementById("appointbtn").style.display = "block"
                         document.getElementById("updateBtn").style.display = "none"

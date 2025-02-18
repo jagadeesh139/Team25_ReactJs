@@ -15,19 +15,19 @@
             <h1>Gym Membership</h1>
             <form>
                 <label for="name">Full Name</label>
-                <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+                <input type="text" id="name" name="name" placeholder="Enter your full name" required onkeyup="valid()">
 
                 <label for="email">Email</label>
-                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required onkeyup="valid()">
 
                 <label>Gender</label>
-                <div>
+                <div onchange="valid()">
                     <label><input type="radio" name="gender" value="male" required> Male</label><br>
                     <label><input type="radio" name="gender" value="female" required> Female</label>
                 </div>
 
                 <label for="membership">Membership Type</label>
-                <select id="membership" name="membership" required>
+                <select id="membership" name="membership" required onkeyup="valid()">
                     <option value="monthly">Monthly</option>
                     <option value="quarterly">Quarterly</option>
                     <option value="yearly">Yearly</option>
@@ -77,14 +77,14 @@
 
     <script>
 
-        var User=JSON.parse(localStorage.getItem("User"))
-        if(User===null){
-        var User = [
+        var User = JSON.parse(localStorage.getItem("User"))
+        if (User === null) {
+            var User = [
 
-        ]
+            ]
         }
         console.log(User)
-    
+
 
         function JoinNow() {
             var name = document.getElementById("name").value
@@ -117,6 +117,10 @@
 
 
             displayusers()
+        }
+
+        function valid(){
+            
         }
 
         function displayusers() {

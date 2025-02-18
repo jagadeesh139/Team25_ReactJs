@@ -47,23 +47,47 @@
             document.getElementById("name").value = userToEdit.name
             document.getElementById("email").value = userToEdit.email
             document.getElementById("membership").value = userToEdit.Membership
+
+            var allradio = document.getElementsByName("gender")
+            for (j = 0; j < allradio.length; j++) {
+                allradio[j].checked == User[i].gender.includes(allradio[j].value)
+            }
             console.log(userToEdit)
 
             function updateUser() {
-
-                var name = document.getElementById("name").value
-                var email = document.getElementById("email").value
+                var fullname = document.getElementById("name").value
+                var Email = document.getElementById("email").value
                 var Membership = document.getElementById("membership").value
 
-                userToEdit.name = name;
-                userToEdit.email = email;
-                userToEdit.Membership = Membership;
 
-                User[userIndex] = userToEdit;
-                localStorage.setItem("user", JSON.stringify(User))
-                window.location.href = "sample2.html"
+                var Member = {
+                    fullname,
+                    Email,
+                    Membership,
+                    gender: []
+                }
 
 
+                var allradio = document.getElementsByName("gender")
+                for (i = 0; i < allradio.length; i++) {
+                    if (allradio[i].checked == true) {
+                        Member.gender.push(allradio[i].value)
+                    }
+                    allradio[i].checked == false
+                }
+
+
+                User[Edit] = Member;
+                localStorage.setItem("users", JSON.stringify(User))
+                displayusers();
+
+                document.getElementById("name").value = ""
+                document.getElementById("email").value = ""
+                document.getElementById("membership").value = ""
+
+
+                document.getElementById("updateBtn").style.display = "none"
+                document.getElementById("registerBtn").style.display = "block"
 
 
             }
