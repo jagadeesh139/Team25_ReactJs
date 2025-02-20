@@ -214,7 +214,7 @@
                     </div>
 
                     <button type="button" onclick="registeruser()" id="Vocabularybtn" disabled>Join Now</button>
-                    <button type="button" onclick="updateuser()" id="updateBtn" style="display: none;">Update</button>
+                    <!-- <button type="button" onclick="updateuser()" id="updateBtn" style="display: none;">Update</button> -->
                 </form>
             </div>
 
@@ -285,7 +285,11 @@
 
     </div>
     <script>
-        var vacabulary = []
+        var vacabulary = JSON.parse(localStorage.getItem("user"))
+        if (vacabulary == null) {
+            var vacabulary = []
+        }
+
 
         var Iindex = null;
 
@@ -354,9 +358,10 @@
 
             for (a in jam) {
                 if (jam[a] !== "") {
-                    isvalid = true
+                    isvalid = false;
+                    break;
 
-                }
+                } isvalid = true
             }
 
             var allradio = document.getElementsByName("language")
@@ -376,8 +381,8 @@
                 }
             }
 
-            document.getElementById("Vocabularybtn").disabled = !(isvalid && radiovalid && checkedvalid && Iindex == null)
-            document.getElementById("updateBtn").disabled = !(isvalid && radiovalid && checkedvalid && Iindex !== null)
+            document.getElementById("Vocabularybtn").disabled = !(isvalid && radiovalid && checkedvalid && Iindex === null)
+            // document.getElementById("updateBtn").disabled = !(isvalid && radiovalid && checkedvalid && Iindex !== null)
         }
 
         function displayinTable() {
@@ -422,81 +427,83 @@
 
         function edituser(i) {
             Iindex = i;
-
-            document.getElementById("word").value = vacabulary[i].word
-            document.getElementById("definition").value = vacabulary[i].definition
-            document.getElementById("exampleSentence").value = vacabulary[i].exampleSentence
-            document.getElementById("synonyms").value = vacabulary[i].synonyms
-            document.getElementById("antonyms").value = vacabulary[i].antonyms
-
-            var allradio = document.getElementsByName("language")
-            for (j = 0; j < allradio.length; j++) {
-                allradio[j].checked = vacabulary[i].language.includes(allradio[j].value)
-            }
-
-            var allCheckBoxes = document.getElementsByName("Prog")
-            for (k = 0; k < allCheckBoxes.length; k++) {
-                allCheckBoxes[k].checked = vacabulary[i].Prog.includes(allCheckBoxes[k].value)
-            }
-
-            document.getElementById("Vocabularybtn").style.display = "none"
-            document.getElementById("updateBtn").style.display = "block"
-
-        }
-
-        function updateuser() {
-
-            var word = document.getElementById("word").value
-            var definition = document.getElementById("definition").value
-            var exampleSentence = document.getElementById("exampleSentence").value
-            var synonyms = document.getElementById("synonyms").value
-            var antonyms = document.getElementById("antonyms").value
-
-            var user = {
-                word,
-                definition,
-                exampleSentence,
-                synonyms,
-                antonyms,
-                language: [],
-                Prog: []
-            }
-
-            var allradio = document.getElementsByName("language")
-            for (i = 0; i < allradio.length; i++) {
-                if (allradio[i].checked == true) {
-                    user.language.push(allradio[i].value)
-
-                }
-                allradio[i].checked = false
-            }
-            var allCheckBoxes = document.getElementsByName("Prog")
-            for (i = 0; i < allCheckBoxes.length; i++) {
-                if (allCheckBoxes[i].checked == true) {
-                    user.Prog.push(allCheckBoxes[i].value)
-                }
-                allCheckBoxes[i].checked = false
-            }
-
-            vacabulary[Iindex] = user
             localStorage.setItem("user", JSON.stringify(vacabulary))
-            valid()
-            displayinTable()
+            window.location.href = "edit2.html" + i;
 
-            document.getElementById("word").value = ""
-            document.getElementById("definition").value = ""
-            document.getElementById("exampleSentence").value = ""
-            document.getElementById("synonyms").value = ""
-            document.getElementById("antonyms").value = ""
+            // document.getElementById("word").value = vacabulary[i].word
+            // document.getElementById("definition").value = vacabulary[i].definition
+            // document.getElementById("exampleSentence").value = vacabulary[i].exampleSentence
+            // document.getElementById("synonyms").value = vacabulary[i].synonyms
+            // document.getElementById("antonyms").value = vacabulary[i].antonyms
 
-            Iindex = null;
+            // var allradio = document.getElementsByName("language")
+            // for (j = 0; j < allradio.length; j++) {
+            //     allradio[j].checked = vacabulary[i].language.includes(allradio[j].value)
+            // }
 
-            document.getElementById("Vocabularybtn").style.display = "block"
-            document.getElementById("updateBtn").style.display = "none"
+            // var allCheckBoxes = document.getElementsByName("Prog")
+            // for (k = 0; k < allCheckBoxes.length; k++) {
+            //     allCheckBoxes[k].checked = vacabulary[i].Prog.includes(allCheckBoxes[k].value)
+            // }
 
-
+            // document.getElementById("Vocabularybtn").style.display = "none"
+            // document.getElementById("updateBtn").style.display = "block"
 
         }
+
+        // function updateuser() {
+
+        //     var word = document.getElementById("word").value
+        //     var definition = document.getElementById("definition").value
+        //     var exampleSentence = document.getElementById("exampleSentence").value
+        //     var synonyms = document.getElementById("synonyms").value
+        //     var antonyms = document.getElementById("antonyms").value
+
+        //     var user = {
+        //         word,
+        //         definition,
+        //         exampleSentence,
+        //         synonyms,
+        //         antonyms,
+        //         language: [],
+        //         Prog: []
+        //     }
+
+        //     var allradio = document.getElementsByName("language")
+        //     for (i = 0; i < allradio.length; i++) {
+        //         if (allradio[i].checked == true) {
+        //             user.language.push(allradio[i].value)
+
+        //         }
+        //         allradio[i].checked = false
+        //     }
+        //     var allCheckBoxes = document.getElementsByName("Prog")
+        //     for (i = 0; i < allCheckBoxes.length; i++) {
+        //         if (allCheckBoxes[i].checked == true) {
+        //             user.Prog.push(allCheckBoxes[i].value)
+        //         }
+        //         allCheckBoxes[i].checked = false
+        //     }
+
+        //     vacabulary[Iindex] = user
+        //     localStorage.setItem("user", JSON.stringify(vacabulary))
+        //     valid()
+        //     displayinTable()
+
+        //     // document.getElementById("word").value = ""
+        //     // document.getElementById("definition").value = ""
+        //     // document.getElementById("exampleSentence").value = ""
+        //     // document.getElementById("synonyms").value = ""
+        //     // document.getElementById("antonyms").value = ""
+
+        //     // Iindex = null;
+
+        //     // document.getElementById("Vocabularybtn").style.display = "block"
+        //     // document.getElementById("updateBtn").style.display = "none"
+
+
+
+        // }
     </script>
 
 </body>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>text to voice</title>
+</head>
+
+<body>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+            background: #4caf50
+        }
+
+        input[type="text"] {
+            width: 80%;
+            padding: 10px;
+            font-size: 16px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #8a1060;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 300;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+    </head>
+
+    <body>
+        <h1>Text to Voice Converter</h1>
+        <!-- <input type="text" id="textInput" placeholder="Enter your text here..." /> -->
+        <textarea style="width:750px" id="textInput" placeholder="Enter your text here..." rows="16"></textarea>
+        <br>
+        <button onclick="speak()">Convert to Voice</button>
+
+
+        <script>
+            function speak() {
+                // Get the text from the input field
+                const text = document.getElementById('textInput').value;
+
+                // Check if the browser supports speech synthesis
+                if ('speechSynthesis' in window) {
+                    const utterance = new SpeechSynthesisUtterance(text); // Create a speech object
+                    utterance.lang = 'en-US'; // Set the language
+                    speechSynthesis.speak(utterance); // Trigger the text-to-speech functionality
+                } else {
+                    alert('Sorry, your browser does not support text-to-speech functionality.');
+                }
+            }
+        </script>
+    </body>
+
+</html>

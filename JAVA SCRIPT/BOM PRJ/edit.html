@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        <style>* {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 95%;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        .content {
+            display: flex;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .form-container {
+            flex: 30%;
+            background: #f9f9f9;
+            padding: 15px;
+            border-radius: 8px;
+        }
+
+        .appointment-container {
+            flex: 70%;
+            background: #f9f9f9;
+            padding: 15px;
+            border-radius: 8px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input,
+        select,
+        textarea,
+        button {
+            padding: 8px;
+            font-size: 16px;
+        }
+
+        .radio-group,
+        .checkbox-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .radio-group input,
+        .checkbox-group input {
+            margin-right: 5px;
+        }
+
+        button {
+            background: #ff5722;
+            color: white;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 4px;
+        }
+
+        button:disabled {
+            background-color: #333;
+        }
+
+        .appointment-container {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        th,
+        td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+        }
+
+        th {
+            background: #007bff;
+            color: white;
+        }
+
+        td button {
+            padding: 5px 10px;
+            margin: 2px;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        td .edit {
+            background: #ffc107;
+            color: black;
+        }
+
+        td .delete {
+            background: #dc3545;
+            color: white;
+        }
+
+        td .edit:hover {
+            background: #e0a800;
+        }
+
+        td .delete:hover {
+            background: #c82333;
+        }
+
+
+
+        @media (max-width: 768px) {
+            .content {
+                flex-direction: column;
+            }
+
+            .form-container,
+            .appointment-container {
+                flex: 100%;
+            }
+        }
+    </style>
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Calendar Appointments</h1>
+
+        <div class="content">
+            <!-- Left Column: Appointment Entry Form (30%) -->
+            <div class="form-container">
+                <h2>Add Appointment</h2>
+                <form id="appointment-form">
+                    <label for="eventName">Event Name:</label>
+                    <input type="text" id="eventName" required onkeyup="validform()">
+
+                    <label for="date">Date:</label>
+                    <input type="date" id="date" required onchange="validform()">
+
+                    <label for="time">Time:</label>
+                    <input type="time" id="time" required onchange="validform()">
+
+                    <label for="location">Location:</label>
+                    <input type="text" id="location" required onkeyup="validform()">
+
+                    <label for="description">Description:</label>
+                    <textarea id="description" rows="3" required onkeyup="validform()"></textarea>
+
+                    <label>Event Category:</label>
+                    <div class="radio-group" onchange="validform()">
+                        <input type="radio" id="meeting" name="category" value="Meeting">
+                        <label for="meeting">Meeting</label>
+
+                        <input type="radio" id="conference" name="category" value="Conference">
+                        <label for="conference">Conference</label>
+
+                        <input type="radio" id="webinar" name="category" value="Webinar">
+                        <label for="webinar">Webinar</label>
+
+                        <input type="radio" id="personal" name="category" value="Personal">
+                        <label for="personal">Personal</label>
+                    </div>
+
+                    <label>Participants:</label>
+                    <div class="checkbox-group" onchange="validform()">
+                        <input type="checkbox" id="alice" name="Options" value="Alice">
+                        <label for="alice">Alice</label>
+
+                        <input type="checkbox" id="bob" name="Options" value="Bob">
+                        <label for="bob">Bob</label>
+
+                        <input type="checkbox" id="charlie" name="Options" value="Charlie">
+                        <label for="charlie">Charlie</label>
+
+                        <input type="checkbox" id="david" name="Options" value="David">
+                        <label for="david">David</label>
+
+                        <input type="checkbox" id="emma" name="Options" value="Emma">
+                        <label for="emma">Emma</label>
+                    </div>
+
+                    <!-- <button type="button" onclick="AppointmentUser()" id="appointbtn" disabled> Book
+                        Appointment</button> -->
+
+                    <button type="button" onclick="updateuser()" id="updateBtn" disabled>Update</button>
+                </form>
+            </div>
+
+            <script>
+                var urlAddress = location.href;          
+                var i = urlAddress.substr(urlAddress.indexOf("?")+1)
+                console.log(i)
+                var Book = JSON.parse(localStorage.getItem("user"))
+            
+
+                
+                    Iindex = i;
+                    document.getElementById("eventName").value = Book[i].EventName
+                    document.getElementById("date").value = Book[i].Date
+                    document.getElementById("time").value = Book[i].Time
+                    document.getElementById("location").value = Book[i].Location
+                    document.getElementById("description").value = Book[i].Description
+
+                    var allradio = document.getElementsByName("category")
+                    for (j = 0; j < allradio.length; j++) {
+                        allradio[j].checked = Book[i].category.includes(allradio[j].value)
+                    }
+
+                    var allCheckBoxes = document.getElementsByName("Options")
+                    for (k = 0; k < allCheckBoxes.length; k++) {
+                        allCheckBoxes[k].checked = Book[i].Options.includes(allCheckBoxes[k].value)
+                    }
+
+               
+
+                
+
+                function validform() {
+
+                    var isradiovalid = false;
+                    var ischeckbox = false;
+                    var isValid = false;
+
+                    var from = {
+                        eventName: document.getElementById("eventName").value,
+                        date: document.getElementById("date").value,
+                        time: document.getElementById("time").value,
+                        location: document.getElementById("location").value,
+                        description: document.getElementById("description").value
+
+                    }
+
+                    for (a in from) {
+                        if (from[a] == "") {
+                            isValid = false;
+
+                        } else {
+                            isValid = true;
+                        }
+                    }
+
+                    var allradio = document.getElementsByName("category")
+                    for (i = 0; i < allradio.length; i++) {
+                        if (allradio[i].checked == true) {
+                            isradiovalid = true
+
+                        }
+
+                    }
+
+                    var allCheckBoxes = document.getElementsByName("Options")
+                    for (i = 0; i < allCheckBoxes.length; i++) {
+                        if (allCheckBoxes[i].checked == true) {
+
+                            ischeckbox = true
+                        }
+                    }
+
+                    // document.getElementById("appointbtn").disabled = !(isValid && isradiovalid && ischeckbox && Iindex === null);
+                    document.getElementById("updateBtn").disabled = !(isValid && isradiovalid && ischeckbox && i!== null);
+                }
+
+                function updateuser() {
+
+                    var EventName = document.getElementById("eventName").value
+                    var Date = document.getElementById("date").value
+                    var Time = document.getElementById("time").value
+                    var Location = document.getElementById("location").value
+                    var Description = document.getElementById("description").value
+
+                    var User = {
+                        EventName,
+                        Date,
+                        Time,
+                        Location,
+                        Description,
+                        category: [],
+                        Options: []
+                    }
+
+                    var allradio = document.getElementsByName("category")
+                    for (i = 0; i < allradio.length; i++) {
+                        if (allradio[i].checked == true) {
+                            User.category.push(allradio[i].value)
+                        }
+                        allradio[i].checked = false;
+                    }
+
+                    var allCheckBoxes = document.getElementsByName("Options")
+                    for (i = 0; i < allCheckBoxes.length; i++) {
+                        if (allCheckBoxes[i].checked == true) {
+                            User.Options.push(allCheckBoxes[i].value)
+                        }
+                        allCheckBoxes[i].checked = false
+                    }
+
+
+                    Book[Iindex] = User
+                    // displayintable()
+                    validform();
+                    localStorage.setItem("user", JSON.stringify(Book))
+                    window.location.href = "indexbom.html"
+                   
+
+
+
+                    // document.getElementById("eventName").value = ""
+                    // document.getElementById("date").value = ""
+                    // document.getElementById("time").value = ""
+                    // document.getElementById("location").value = ""
+                    // document.getElementById("description").value = ""
+                    // Iindex = null;
+                   }
+
+            </script>
+</body>
+
+</html>

@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 95%;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        .content {
+            display: flex;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .form-container {
+            flex: 30%;
+            background: #f9f9f9;
+            padding: 15px;
+            border-radius: 8px;
+        }
+
+        .vocabulary-container {
+            flex: 70%;
+            background: #f9f9f9;
+            padding: 15px;
+            border-radius: 8px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input,
+        select,
+        textarea,
+        button {
+            padding: 8px;
+            font-size: 16px;
+        }
+
+        .radio-group,
+        .checkbox-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .radio-group input,
+        .checkbox-group input {
+            margin-right: 5px;
+        }
+
+        button {
+            background: #ff5722;
+            color: white;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 4px;
+        }
+
+        /* button:hover {
+            background: #e64a19;
+        } */
+
+
+
+        button:disabled {
+            background-color: #333;
+            cursor: not-allowed;
+        }
+
+        .vocabulary-container {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        th,
+        td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+        }
+
+        th {
+            background: #007bff;
+            color: white;
+        }
+
+        td button {
+            padding: 5px 10px;
+            margin: 2px;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        td .remove {
+            background: #dc3545;
+            color: white;
+        }
+
+        td .remove:hover {
+            background: #c82333;
+        }
+
+        @media (max-width: 768px) {
+            .content {
+                flex-direction: column;
+            }
+
+            .form-container,
+            .vocabulary-container {
+                flex: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Language Learning App</h1>
+
+        <div class="content">
+            <!-- Left Column: Add Word Form (30%) -->
+            <div class="form-container">
+                <h2>Add Vocabulary Word</h2>
+                <form id="word-form">
+                    <label for="word">Word:</label>
+                    <input type="text" id="word" required onkeyup="valid()">
+
+                    <label for="definition">Definition:</label>
+                    <textarea id="definition" rows="2" required onkeyup="valid()"></textarea>
+
+                    <label for="exampleSentence">Example Sentence:</label>
+                    <textarea id="exampleSentence" rows="2" required onkeyup="valid()"></textarea>
+
+                    <label for="synonyms">Synonyms (comma-separated):</label>
+                    <input type="text" id="synonyms" onkeyup="valid()">
+
+                    <label for="antonyms">Antonyms (comma-separated):</label>
+                    <input type="text" id="antonyms" onkeyup="valid()">
+
+                    <label>Language:</label>
+                    <div class="radio-group" onchange="valid()">
+                        <input type="radio" id="english" name="language" value="English">
+                        <label for="english">English</label>
+
+                        <input type="radio" id="spanish" name="language" value="Spanish">
+                        <label for="spanish">Spanish</label>
+
+                        <input type="radio" id="french" name="language" value="French">
+                        <label for="french">French</label>
+
+                        <input type="radio" id="german" name="language" value="German">
+                        <label for="german">German</label>
+                    </div>
+
+                    <label>Progress:</label>
+                    <div class="checkbox-group" onchange="valid()">
+                        <input type="checkbox" id="learned" name="Prog" value="learned">
+                        <label for="learned">Learned</label>
+
+                        <input type="checkbox" id="review" name="Prog" value="review">
+                        <label for="review">Needs Review</label>
+
+                        <input type="checkbox" id="mastered" name="Prog" value="mastered">
+                        <label for="mastered">Mastered</label>
+                    </div>
+
+                    <!-- <button type="button" onclick="registeruser()" id="Vocabularybtn" disabled>Join Now</button> -->
+                    <button type="button" onclick="updateuser()" id="updateBtn" disabled>Update</button>
+                </form>
+            </div>
+
+            <script>
+                var urlAddress = location.href;
+                var i = urlAddress.substr(urlAddress.indexOf("?") + 1)
+                var vacabulary = JSON.parse(localStorage.getItem("user"))
+                localStorage.setItem("user", JSON.stringify(vacabulary))
+
+
+                Iindex = i;
+                document.getElementById("word").value = vacabulary[i].word
+                document.getElementById("definition").value = vacabulary[i].definition
+                document.getElementById("exampleSentence").value = vacabulary[i].exampleSentence
+                document.getElementById("synonyms").value = vacabulary[i].synonyms
+                document.getElementById("antonyms").value = vacabulary[i].antonyms
+
+                var allradio = document.getElementsByName("language")
+                for (j = 0; j < allradio.length; j++) {
+                    allradio[j].checked = vacabulary[i].language.includes(allradio[j].value)
+                }
+
+                var allCheckBoxes = document.getElementsByName("Prog")
+                for (k = 0; k < allCheckBoxes.length; k++) {
+                    allCheckBoxes[k].checked = vacabulary[i].Prog.includes(allCheckBoxes[k].value)
+                }
+                function valid() {
+                    var isvalid = false;
+                    var radiovalid = false;
+                    var checkedvalid = false;
+
+                    var jam = {
+                        word: document.getElementById("word").value,
+                        definition: document.getElementById("definition").value,
+                        exampleSentence: document.getElementById("exampleSentence").value,
+                        synonyms: document.getElementById("synonyms").value,
+                        antonyms: document.getElementById("antonyms").value
+                    }
+
+                    for (a in jam) {
+                        if (jam[a] !== "") {
+                            isvalid = false;
+                            break;
+
+                        } isvalid = true
+                    }
+
+                    var allradio = document.getElementsByName("language")
+                    for (i = 0; i < allradio.length; i++) {
+                        if (allradio[i].checked == true) {
+                            radiovalid = true
+
+                        }
+                    }
+
+                    var allCheckBoxes = document.getElementsByName("Prog")
+
+                    for (i = 0; i < allCheckBoxes.length; i++) {
+                        if (allCheckBoxes[i].checked == true) {
+                            checkedvalid = false;
+
+                        }
+                    }
+
+                    // document.getElementById("Vocabularybtn").disabled = !(isvalid && radiovalid && checkedvalid && Iindex === null)
+                    document.getElementById("updateBtn").disabled = !(isvalid && radiovalid && checkedvalid && Iindex !== null)
+                }
+                function updateuser() {
+
+                    var word = document.getElementById("word").value
+                    var definition = document.getElementById("definition").value
+                    var exampleSentence = document.getElementById("exampleSentence").value
+                    var synonyms = document.getElementById("synonyms").value
+                    var antonyms = document.getElementById("antonyms").value
+
+                    var user = {
+                        word,
+                        definition,
+                        exampleSentence,
+                        synonyms,
+                        antonyms,
+                        language: [],
+                        Prog: []
+                    }
+
+                    var allradio = document.getElementsByName("language")
+                    for (i = 0; i < allradio.length; i++) {
+                        if (allradio[i].checked == true) {
+                            user.language.push(allradio[i].value)
+
+                        }
+                        allradio[i].checked = false
+                    }
+                    var allCheckBoxes = document.getElementsByName("Prog")
+                    for (i = 0; i < allCheckBoxes.length; i++) {
+                        if (allCheckBoxes[i].checked == true) {
+                            user.Prog.push(allCheckBoxes[i].value)
+                        }
+                        allCheckBoxes[i].checked = false
+                    }
+
+                    vacabulary[Iindex] = user
+                    valid()
+                    localStorage.setItem("user", JSON.stringify(vacabulary))
+                    window.location.href = "indexbom2.html"
+
+                    // displayinTable()
+
+                    // document.getElementById("word").value = ""
+                    // document.getElementById("definition").value = ""
+                    // document.getElementById("exampleSentence").value = ""
+                    // document.getElementById("synonyms").value = ""
+                    // document.getElementById("antonyms").value = ""
+
+                    // Iindex = null;
+
+                    // document.getElementById("Vocabularybtn").style.display = "block"
+                    // document.getElementById("updateBtn").style.display = "none"
+
+
+
+                }
+
+            </script>
+
+</body>
+
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drag & Drop Tasks</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: #f5f5f5;
+        }
+
+        .container {
+            display: flex;
+            gap: 20px;
+        }
+
+        .box {
+            width: 200px;
+            min-height: 300px;
+            padding: 10px;
+            background: white;
+            border: 2px dashed #333;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .task {
+            background: lightblue;
+            padding: 10px;
+            margin: 10px;
+            cursor: grab;
+            border-radius: 5px;
+        }
+
+        .task:active {
+            cursor: grabbing;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="box" id="todo" ondragover="allowDrop(event)" ondrop="drop(event)">
+            <h3>To-Do</h3>
+            <div class="task" draggable="true" ondragstart="drag(event)" id="task1">Task 1</div>
+            <div class="task" draggable="true" ondragstart="drag(event)" id="task2">Task 2</div>
+            <div class="task" draggable="true" ondragstart="drag(event)" id="task3">Task 3</div>
+            <div class="task" draggable="true" ondragstart="drag(event)" id="task4">Task 4</div>
+        </div>
+
+        <div class="box" id="completed" ondragover="allowDrop(event)" ondrop="drop(event)">
+            <h3>Completed</h3>
+        </div>
+    </div>
+
+    <script>
+        function allowDrop(event) {
+            event.preventDefault(); // Allow dropping
+        }
+
+        function drag(event) {
+            event.dataTransfer.setData("text", event.target.id); // Store task ID
+        }
+
+        function drop(event) {
+            event.preventDefault();
+            let taskId = event.dataTransfer.getData("text");
+            let task = document.getElementById(taskId);
+            event.target.appendChild(task); // Move task to the new div
+        }
+    </script>
+
+</body>
+
+</html>
