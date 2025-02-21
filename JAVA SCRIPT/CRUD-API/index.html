@@ -20,7 +20,10 @@
                     <input type="text" name="" id="lname"> <br>
                     <label for="">Email : </label>
                     <input type="text" name="" id="email"> <br>
-                    <button type="button" onclick="createUser()" class="btn btn-primary">Create User</button>
+                    <button type="button" id="createUserbtn" onclick="createUser()" class="btn btn-primary">Create
+                        User</button>
+                    <button type="button" onclick="updateUser()" id="updateUserbtn" class="btn btn-primary"
+                        style="display: none;">updateUser</button>
                 </form>
             </div>
             <div class="col">
@@ -86,6 +89,7 @@
                 var editTd = document.createElement("td");
                 var editBtn = document.createElement("button");
                 editBtn.innerHTML = "EDIT";
+                editBtn.setAttribute("onclick", "editUser(" + i + ")")
                 editBtn.setAttribute("class", "btn btn-warning")
                 editTd.appendChild(editBtn)
                 myTr.appendChild(editTd)
@@ -113,9 +117,38 @@
             getData.send()
         };
 
-        function editUser() { };
-        function updateUser() { };
-       
+
+        var index;
+        function editUser(i) {
+            index = i;
+            console.log(allUsers[i])
+            document.getElementById("fname").value = allUsers[i].fname
+            document.getElementById("lname").value = allUsers[i].lname
+            document.getElementById("email").value = allUsers[i].email
+
+            document.getElementById("createUserbtn").style.display = "none"
+            document.getElementById("updateUserbtn").style.display = "block"
+
+
+        };
+        function updateUser(i) {
+            var user = {
+                fname: document.getElementById("fname").value,
+                lname: document.getElementById("lname").value,
+                email: document.getElementById("email").value,
+            }
+            var postData = new XMLHttpRequest();
+            postData.onreadystatechange = function () {
+                if (postData.readyState === 4 && postData.status === 201) {
+                    console.log("User Added Successfully !!!")
+                }
+            }
+
+            postData.open("PUT", "http://localhost:3000/users/" + allUsers[index].id);
+            postData.setRequestHeader("Content-Type", "Application/json")
+            postData.send(JSON.stringify(user))
+        };
+
         // the following function will run when the Application started
         getUsersFromServer()
     </script>
