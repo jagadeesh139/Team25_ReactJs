@@ -228,6 +228,7 @@
                 <table>
                     <thead>
                         <tr>
+                            <th>ID</th>
                             <th>Name</th>
                             <th>Ingredients</th>
                             <th>Instructions</th>
@@ -341,7 +342,7 @@
         }
 
         function readusers() {
-            document.querySelector("tbody").innerHTML = ""
+            // document.querySelector("tbody").innerHTML = ""
             hotel.forEach(function (user, index) {
                 var tr = document.createElement("tr")
                 for (a in user) {
