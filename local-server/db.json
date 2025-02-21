@@ -1,16 +1,11 @@
 {
   "users": [
     {
-      "fname": "jagadeesh M",
-      "lname": "Mattapalli",
-      "email": "chandurock139@gmail.com",
-      "id": "314d"
-    },
-    {
-      "fname": "jagadeesh",
-      "lname": "Mattapalli",
-      "email": "jagadeeshm139@outlook.com",
-      "id": "ccf2"
+      "id": "d95c",
+      "moviename": "sahoo",
+      "director": "sujeeth",
+      "releaseYear": "2019",
+      "genre": "Action"
     }
   ]
 }
