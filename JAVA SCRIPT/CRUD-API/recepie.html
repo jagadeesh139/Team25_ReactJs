@@ -96,8 +96,12 @@
             border-radius: 4px;
         }
 
-        button:hover {
-            background: #e64a19;
+        button:disabled {
+            background:gray;
+            cursor: not-allowed;
+        }
+        button{
+            background-color:red ;
         }
 
         .recipe-container {
@@ -172,10 +176,10 @@
                 <h2>Add Recipe</h2>
                 <form id="recipe-form">
                     <label for="name">Recipe Name:</label>
-                    <input type="text" id="name" required>
+                    <input type="text" id="name" required onkeyup="valid()">
 
-                    <!-- <label>Ingredients:</label>
-                    <div class="checkbox-group">
+                    <label>Ingredients:</label>
+                    <div class="checkbox-group" onchange="valid()">
                         <input type="checkbox" id="flour" value="Flour" name="ingredients">
                         <label for="flour">Flour</label>
 
@@ -190,19 +194,19 @@
 
                         <input type="checkbox" id="butter" value="Butter" name="ingredients">
                         <label for="butter">Butter</label>
-                    </div> -->
+                    </div>
 
                     <label for="instructions">Instructions:</label>
-                    <textarea id="instructions" rows="4" required></textarea>
+                    <textarea id="instructions" rows="4" required onkeyup="valid()"></textarea>
 
                     <label for="prepTime">Preparation Time (mins):</label>
-                    <input type="number" id="prepTime" required>
+                    <input type="number" id="prepTime" required onkeyup="valid()">
 
                     <label for="servings">Servings:</label>
-                    <input type="number" id="servings" required>
+                    <input type="number" id="servings" required onkeyup="valid()">
 
                     <label for="category">Category:</label>
-                    <select id="category">
+                    <select id="category" onchange="valid()">
                         <option value="Breakfast">Breakfast</option>
                         <option value="Lunch">Lunch</option>
                         <option value="Dinner">Dinner</option>
@@ -210,15 +214,15 @@
                     </select>
 
                     <label for="cuisine">Cuisine Type:</label>
-                    <select id="cuisine">
+                    <select id="cuisine" onchange="valid()">
                         <option value="Italian">Italian</option>
                         <option value="Chinese">Chinese</option>
                         <option value="Indian">Indian</option>
                         <option value="Mexican">Mexican</option>
                     </select>
 
-                    <button type="button" onclick="registeruser()" id="registerbtn">Add Recipe</button>
-                    <button type="button" onclick="updateuser()" id="updateBtn" style="display: none;">Update</button>
+                    <button type="button" onclick="registeruser()" id="registerbtn" disabled>Add Recipe</button>
+                    <button type="button" onclick="updateuser()" id="updateBtn" style="display: none;" disabled>Update</button>
                 </form>
             </div>
 
@@ -282,9 +286,11 @@
 
     <script>
         var hotel = []
+        var Iindex = null;
         function registeruser() {
             var user = {
                 name: document.getElementById("name").value,
+                ingredients: [],
                 instructions: document.getElementById("instructions").value,
                 prepTime: document.getElementById("prepTime").value,
                 servings: document.getElementById("servings").value,
@@ -293,15 +299,18 @@
 
             }
 
-            postdatatoserver(user)
 
-            // var checkbox = document.getElementsByName("ingredients")
-            // for (i = 0; i < checkbox.length; i++) {
-            //     if (checkbox[i].checked == true) {
-            //         user.ingredients.push(checkbox[i].value)
-            //     }
-            //     checkbox[i].checked = false
-            // }
+
+            var checkbox = document.getElementsByName("ingredients")
+            for (i = 0; i < checkbox.length; i++) {
+                if (checkbox[i].checked == true) {
+                    user.ingredients.push(checkbox[i].value)
+                }
+                checkbox[i].checked = false
+            }
+            postdatatoserver(user)
+            // localStorage.setItem("users",JSON.stringify(hotel))
+            valid()
 
             // hotel.push(user)
 
@@ -309,10 +318,49 @@
             // document.getElementById("instructions").value = ""
             // document.getElementById("prepTime").value = ""
             // document.getElementById("servings").value = ""
-            // document.getElementById("category").value = ""
-            // document.getElementById("cuisine").value = ""
+            document.getElementById("category").value = ""
+            document.getElementById("cuisine").value = ""
 
             // displayuser()
+
+        }
+
+        function valid() {
+            isvalid = false;
+            ischeckbox = false;
+            var jam = {
+
+                name: document.getElementById("name").value,
+                // ingredients: [],
+                instructions: document.getElementById("instructions").value,
+                prepTime: document.getElementById("prepTime").value,
+                servings: document.getElementById("servings").value,
+                category: document.getElementById("category").value,
+                cuisine: document.getElementById("cuisine").value
+
+            }
+
+        for (a in jam) {
+            if (jam[a] == "") {
+                isvalid = false;
+                break;
+            } else {
+                isvalid = true;
+            }
+
+        }
+
+        var checkbox = document.getElementsByName("ingredients")
+        for (i = 0; i < checkbox.length; i++) {
+            if (checkbox[i].checked == true) {
+                ischeckbox = true;
+            }
+
+        }
+
+            document.getElementById("registerbtn").disabled = !(isvalid && ischeckbox && Iindex === null);
+            document.getElementById("updateBtn").disabled = !(isvalid && ischeckbox && Iindex !== null);
+
         }
 
         function postdatatoserver(user) {
@@ -333,6 +381,7 @@
             getData.onreadystatechange = function () {
                 if (getData.readyState == 4 && getData.status == 200) {
                     hotel = JSON.parse(getData.response)
+                    localStorage.setItem("users",JSON.stringify(hotel))
                     readusers()
 
                 }
@@ -376,12 +425,15 @@
             getData.onreadystatechange = function () {
                 if (getData.readyState == 4 && getData.status == 200) {
                     hotel = JSON.parse(getData.response)
+                    localStorage.setItem("users",JSON.stringify(hotel))
                     readusers()
 
                 }
             }
-            getData.open("GET", "http://localhost:3000/users/" + hotel[index].id)
+           
+            getData.open("DELETE", "http://localhost:3000/users/" + hotel[index].id)
             getData.send()
+           
 
         }
         var Iindex;
@@ -395,10 +447,12 @@
             document.getElementById("category").value = hotel[index].category
             document.getElementById("cuisine").value = hotel[index].cuisine
 
-            // var checkbox = document.getElementsByName("ingredients")
-            // for (j = 0; j < checkbox.length; j++) {
-            //     checkbox[j].checked = hotel[i].ingredients.includes(checkbox[j].value)
-            // }
+            var checkbox = document.getElementsByName("ingredients")
+            for (j = 0; j < checkbox.length; j++) {
+                checkbox[j].checked = hotel[index].ingredients.includes(checkbox[j].value)
+            }
+
+           
 
             document.getElementById("registerbtn").style.display = "none"
             document.getElementById("updateBtn").style.display = "block"
@@ -408,7 +462,9 @@
         function updateuser() {
 
             var user = {
+                id:hotel[Iindex].id,
                 name: document.getElementById("name").value,
+                ingredients: [],
                 instructions: document.getElementById("instructions").value,
                 prepTime: document.getElementById("prepTime").value,
                 servings: document.getElementById("servings").value,
@@ -416,6 +472,16 @@
                 cuisine: document.getElementById("cuisine").value
 
             }
+            
+            var checkbox = document.getElementsByName("ingredients")
+            for (i = 0; i < checkbox.length; i++) {
+                if (checkbox[i].checked == true) {
+                    user.ingredients.push(checkbox[i].value)
+                }
+                checkbox[i].checked = false
+            }
+
+           
 
             var postData = new XMLHttpRequest()
             postData.onreadystatechange = function () {
@@ -426,18 +492,11 @@
             postData.open("PUT", "http://localhost:3000/users/" + hotel[Iindex].id)
             postData.setRequestHeader("Content-Type", "Application/json")
             postData.send(JSON.stringify(user))
-
-
-            // var checkbox = document.getElementsByName("ingredients")
-            // for (i = 0; i < checkbox.length; i++) {
-            //     if (checkbox[i].checked == true) {
-            //         user.ingredients.push(checkbox[i].value)
-            //     }
-            //     checkbox[i].checked = false
-            // }
-
+            localStorage.setItem("users",JSON.stringify(hotel))
+            
             // hotel[Iindex] = user
             // displayuser()
+            // valid()
 
             // document.getElementById("name").value = ""
             // document.getElementById("instructions").value = ""
@@ -446,8 +505,10 @@
             // document.getElementById("category").value = ""
             // document.getElementById("cuisine").value = ""
 
-            // document.getElementById("registerbtn").style.display = "block"
-            // document.getElementById("updateBtn").style.display = "none"
+            // Iindex = null;
+
+            document.getElementById("registerbtn").style.display = "block"
+            document.getElementById("updateBtn").style.display = "none"
 
 
         }

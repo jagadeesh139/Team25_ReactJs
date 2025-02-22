@@ -266,22 +266,16 @@
 
     <script>
         var Music = []
-        var Iindex = null;
+        // var Iindex = null;
         function registeruser() {
-            var SongTitle = document.getElementById("title").value
-            var artist = document.getElementById("artist").value
-            var album = document.getElementById("album").value
-            var duration = document.getElementById("duration").value
-            var volume = document.getElementById("volume").value
+
 
             var user = {
-                SongTitle,
-                artist,
-                album,
-                duration,
-                volume,
-                repeat: [],
-                mode: []
+                SongTitle: document.getElementById("title").value,
+                artist: document.getElementById("artist").value,
+                album: document.getElementById("album").value,
+                duration: document.getElementById("duration").value,
+                volume: document.getElementById("volume").value
             }
 
             var radio = document.getElementsByName("repeat")
@@ -300,18 +294,38 @@
                 checkbox[i].checked = false
             }
 
-            Music.push(user)
+            postdatatoserver(user)
             localStorage.setItem("user", JSON.stringify(Music))
             valid()
 
-            document.getElementById("title").value = ""
-            document.getElementById("artist").value = ""
-            document.getElementById("album").value = ""
-            document.getElementById("duration").value = ""
-            document.getElementById("volume").value = ""
-            Iindex = null;
+            // document.getElementById("title").value = ""
+            // document.getElementById("artist").value = ""
+            // document.getElementById("album").value = ""
+            // document.getElementById("duration").value = ""
+            // document.getElementById("volume").value = ""
+            // Iindex = null;
 
-            displayuser()
+            // displayuser()
+
+        }
+        function postDataToServer(user) {
+            var postData = new XMLHttpRequest()
+            postData.onreadystatechange = function () {
+                if (postData.readyState == 4 && postData.status == 200) {
+
+                }
+            }
+            postData.open("POST", "http://localhost:3000/users")
+            postData.setRequestHeader("Content-type", "Application/json")
+            postData.send(JSON.stringify(user))
+        }
+
+
+        function getdatafromserver() {
+            var getData = new XMLHttpRequest()
+            if (getData.readyState == 4 && getData.status == 200) {
+
+            }
 
         }
 
