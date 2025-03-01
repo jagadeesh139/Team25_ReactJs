@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+
+        function postDataToServer() {
+            var postdata = new XMLHttpRequest()
+            postdata.onreadystatechange = function () {
+                if (postdata.readyState == 4 && postdata.status == 201) {
+
+                }
+            }
+            postdata.open("POST", "")
+            postdata.setRequestHeader("Content-type", "application/json")
+            postdata.send(JSON.stringify(Object))
+        }
+
+        function getDatafromserver() {
+            var getData = new XMLHttpRequest()
+            getData.onreadystatechange = function () {
+                if (getData.readyState == 4 && getData.status == 200) {
+
+                }
+            }
+            getData.open("GET", "")
+            getData.send();
+        }
+
+    </script>
+
+</body>
+
+</html>
