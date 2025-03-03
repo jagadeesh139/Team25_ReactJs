@@ -3,6 +3,7 @@ import './App.css';
 import Jagadeesh from './Jagadeesh';
 import Comp from './Comp';
 import Class from './Class';
+import Chandu from './Chandu';
 
 function App() {
   return (
@@ -12,6 +13,8 @@ function App() {
      <Comp/>
 
      <Class/>
+
+     <Chandu/>
      
     </div>
   );
