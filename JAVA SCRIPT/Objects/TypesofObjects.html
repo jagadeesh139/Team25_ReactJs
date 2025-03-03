@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        var person = {
+            firstname: "M",
+            Lastname: "Jagadeesh",
+            email: "jagadeeshm@gamil.com",
+            pho: 221232
+        }
+        console.log(person)
+
+        function personObject(name, email, course, from, state) {
+
+            this.name = name,
+                this.email = email,
+                this.course = course,
+                this.from = from,
+                this.state = state
+
+        }
+
+        var details = new personObject("jagadeesh", "jaga@gmail.com", "frent end developer", "Chittoor", "Andhra")
+        console.log(details)
+
+
+        var persons = new Object({
+            fname: "mattapalli",
+            lname: "jagadeesh",
+            email: "chandu@gmail.com",
+            phno: 2325232523,
+            address: ["street", "D.no", "area", "pincode"]
+        })
+
+        console.log(persons)
+
+
+    </script>
+
+</body>
+
+</html>
