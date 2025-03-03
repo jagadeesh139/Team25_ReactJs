@@ -5,6 +5,8 @@ import Comp from './Comp';
 import Class from './Class';
 import Chandu from './Chandu';
 
+import Mon from './Mon';
+
 function App() {
   return (
     <div className="App">
@@ -15,6 +17,8 @@ function App() {
      <Class/>
 
      <Chandu/>
+
+     <Mon/>
      
     </div>
   );
