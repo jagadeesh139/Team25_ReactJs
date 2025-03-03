@@ -6,6 +6,8 @@ import Class from './Class';
 import Chandu from './Chandu';
 
 import Mon from './Mon';
+import Parent from './Parent';
+
 
 function App() {
   return (
@@ -19,6 +21,7 @@ function App() {
      <Chandu/>
 
      <Mon/>
+     <Parent/>
      
     </div>
   );
