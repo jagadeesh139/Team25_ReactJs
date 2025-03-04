@@ -19,8 +19,9 @@ class Jagga extends Component {
                 fname: "raju",
                 lname: "kumar",
                 email: "raju@gmail.com"
-            },
+            }, 
         })
+        
     }
 
     render() {
@@ -32,7 +33,14 @@ class Jagga extends Component {
                 <li>{this.state.student.email}</li>
             </ul>
             <button onClick={this.objeect}>change Object details</button>
+            <ul>
+                {this.state.person.map(function(val) {
+                        return <li>{val}</li>
+                    })
+                }
+            </ul>
         </div>
     }
+
 }
 export default Jagga;
