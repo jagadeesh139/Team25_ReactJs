@@ -1,4 +1,5 @@
 import { Component } from "react";
+import Chil from "./Chil";
 
 class Jagga extends Component {
     constructor() {
@@ -20,6 +21,7 @@ class Jagga extends Component {
                 lname: "kumar",
                 email: "raju@gmail.com"
             }, 
+            person:["raju","ravi","ramu"]
         })
         
     }
@@ -33,12 +35,13 @@ class Jagga extends Component {
                 <li>{this.state.student.email}</li>
             </ul>
             <button onClick={this.objeect}>change Object details</button>
-            <ul>
+            {/* <ul>
                 {this.state.person.map(function(val) {
                         return <li>{val}</li>
                     })
                 }
-            </ul>
+            </ul> */}
+            <Chil all={this.state.person}/>
         </div>
     }
 

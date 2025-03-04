@@ -18,9 +18,12 @@ class Chandu extends Component {
                 fname: "Chethen",
                 lname: "Chandu",
                 email: "jaggu@gmail.com"
-            }
+            },
+
+            person:["praveen","kiran","hari"]
 
         })
+
     }
     render() {
         return <div>
