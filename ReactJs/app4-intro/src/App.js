@@ -3,6 +3,7 @@ import './App.css';
 import Jagga from './Jagga';
 import Objectt from './Objectt';
 import Chandu from './Chandu';
+import Practice from './Practice';
 
 function App() {
   return (
@@ -13,6 +14,8 @@ function App() {
       <Objectt/>
       <hr/>
       <Chandu/>
+      <hr/>
+      <Practice/>
       
     </div>
   );

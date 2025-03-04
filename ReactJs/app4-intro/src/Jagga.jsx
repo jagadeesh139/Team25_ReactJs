@@ -29,6 +29,7 @@ class Jagga extends Component {
     render() {
         return <div>
             {/* <h2>{this.state.student.email}</h2> */}
+            <h2>welcome to Object and array Componnets......</h2>
             <ul>
                 <li>{this.state.student.fname}</li>
                 <li>{this.state.student.lname}</li>
