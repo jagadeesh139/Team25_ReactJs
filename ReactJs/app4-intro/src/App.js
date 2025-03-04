@@ -4,6 +4,7 @@ import Jagga from './Jagga';
 import Objectt from './Objectt';
 import Chandu from './Chandu';
 import Practice from './Practice';
+import Practice1 from './Practice1';
 
 function App() {
   return (
@@ -16,6 +17,9 @@ function App() {
       <Chandu/>
       <hr/>
       <Practice/>
+
+      <hr/>
+      {/* <Practice1/> */}
       
     </div>
   );

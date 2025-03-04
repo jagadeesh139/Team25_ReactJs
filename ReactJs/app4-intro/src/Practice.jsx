@@ -1,4 +1,5 @@
 import { Component } from "react";
+import Chill from "./Chill";
 
 class Practice extends Component {
     constructor() {
@@ -21,15 +22,15 @@ class Practice extends Component {
             username: "johnd",
             password: "m38rmF$",
             name: {
-              firstname: "john",
-              lastname: "doe"
+                firstname: "john",
+                lastname: "doe"
             },
             phone: "1-570-236-7033",
-            __v: 0
-        
+            __v: 0
+
         }
     }
-    render (){
+    render() {
         return <div>
             <h2>welcome to Oject display....!</h2>
             <ul>
@@ -48,6 +49,7 @@ class Practice extends Component {
                 <li>{this.state.phone}</li>
                 <li>{this.state.__v}</li>
             </ul>
+            <Chill all={this.state}/>
         </div>
     }
 }
