@@ -9,7 +9,8 @@ class Forms extends Component {
                 lname: "",
                 email: ""
             },
-            user: []
+            user: [{ fname: "ram", lname: "raju", email: "ramraju@gmail.com" }, { fname: "kiran", lname: "kumar", email: "kirankumar@gmail.com" }, { fname: "kalyan", lname: "kumar", email: "klayankumar@gmail.com" }],
+            editIndex: null,
         }
     }
     handlevent = (event) => {
@@ -42,7 +43,34 @@ class Forms extends Component {
                 <button onClick={this.updatedata}>updateData</button>
             </form>
             <hr />
-            {this.state.user.map(function(value){
+
+            <table border={1}>
+                <thead>
+                    <tr>
+
+                        <th>First name</th>
+                        <th>Last Name</th>
+                        <th>Email</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    {this.state.user.map(function (user, i) {
+                        return <tr>
+                            <td>{user.fname}</td>
+                            <td>{user.lname}</td>
+                            <td>{user.email}</td>
+                            <td><button onClick={this.handleedit}>Edit</button></td>
+                            <td><button onClick={this.handledelete}>Delete</button></td>
+                        </tr>
+                    })}
+
+
+                </tbody>
+            </table>
+            {this.state.user.map(function (value) {
                 return <ul>
                     <li>{value.fname}</li>
                     <li>{value.lname}</li>
@@ -50,6 +78,7 @@ class Forms extends Component {
                 </ul>
             })}
         </div>
+
     }
 }
 export default Forms;
