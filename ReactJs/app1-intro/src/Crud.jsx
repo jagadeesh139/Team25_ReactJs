@@ -123,6 +123,7 @@ class Crud extends Component {
                                     </td>
                                     <td>
                                         <button onClick={() => this.handleDelete(i)}>Delete</button>
+                                    
                                     </td>
                                 </tr>
                             );

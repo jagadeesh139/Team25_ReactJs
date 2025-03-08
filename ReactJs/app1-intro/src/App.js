@@ -1,15 +1,17 @@
 import logo from './logo.svg';
 import './App.css';
-import From from './Form';
-import Forms from './Forms';
-import Crud from './Crud';
+// import From from './Form';
+// import Forms from './Forms';
+// import Crud from './Crud';
+import CrudApi from './CrudApi';
 
 function App() {
   return (
     <div className="App">
       {/* <From/> */}
-      <Forms/>
-      <Crud/>
+      {/* <Forms/>
+      <Crud/> */}
+      <CrudApi/>
      
     </div>
   )
