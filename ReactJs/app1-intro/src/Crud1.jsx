@@ -30,7 +30,7 @@ class Crud1 extends Component {
         this.setState({ student: newstudent })
 
     };
-    handleedit = (student, i) => {
+    handleedit = (student,i) => {
         this.setState({ person: student, editindex: i })
     }
     handleupdate=()=>{
@@ -41,7 +41,7 @@ class Crud1 extends Component {
 
     }
     clearform=()=>{
-        {this.setState({person:{fname:"",}})}
+        {this.setState({person:{fname:"",lname:"",email:""}})}
     }
 
     render() {
