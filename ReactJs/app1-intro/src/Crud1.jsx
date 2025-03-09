@@ -30,18 +30,18 @@ class Crud1 extends Component {
         this.setState({ student: newstudent })
 
     };
-    handleedit = (student,i) => {
-        this.setState({ person: student, editindex: i })
+    handleedit = (user, i) => {
+        this.setState({ person: user, editindex: i })
     }
-    handleupdate=()=>{
+    handleupdate = () => {
         const newstudent = [...this.state.student]
-        newstudent[this.state.editindex]=this.state.person
+        newstudent[this.state.editindex] = this.state.person
         this.setState({ student: newstudent, editindex: null });
 
 
     }
-    clearform=()=>{
-        {this.setState({person:{fname:"",lname:"",email:""}})}
+    clearform = () => {
+        { this.setState({ person: { fname: "", lname: "", email: "" } }) }
     }
 
     render() {
@@ -56,9 +56,9 @@ class Crud1 extends Component {
                 <label htmlFor="">Email</label>
                 <input type="text" name="email" id="" value={this.state.person.email} onChange={this.handleevent} />{""}
                 <br />
+                {this.state.editindex === null ? <button type="button" onClick={this.adduser}>Adduser</button> :
+                    (<button type="button" onClick={this.handleupdate}>handleupdate</button>)}
 
-                <button type="button" onClick={this.adduser}>Adduser</button>
-                <button type="button" onClick={this.handleupdate}>handleupdate</button>
 
 
             </form>
@@ -75,11 +75,12 @@ class Crud1 extends Component {
 
                 </thead>
                 <tbody>
-                    {this.state.student.map(function (user, i) {
+                    {this.state.student.map((user, i) => {
                         return <tr>
                             <td>{user.fname}</td>
                             <td>{user.lname}</td>
                             <td>{user.email}</td>
+
                             <td><button type="button" onClick={() => { this.handleedit(user, i) }}>Edit</button></td>
                             <td><button type="button" onClick={() => { this.handledelete(i) }}>Delete</button></td>
 
@@ -91,14 +92,14 @@ class Crud1 extends Component {
 
             <hr />
 
-            {this.state.student.map(function (user) {
+            {/* {this.state.student.map(function (user) {
                 return <ul>
                     <li>{user.fname}</li>
                     <li>{user.lname}</li>
                     <li>{user.email}</li>
-                </ul>
+                </ul> */}
 
-            })}
+
 
         </div>
     }
