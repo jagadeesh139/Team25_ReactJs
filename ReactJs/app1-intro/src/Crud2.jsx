@@ -50,7 +50,7 @@ class Crud2 extends Component {
     }
     render() {
         return <div>
-            <form action=""> <label htmlFor="">Firstname</label>
+            <form action=""> <label htmlFor="">firstname</label>
                 <input type="text" name="fname" id="" value={this.state.person.fname} onChange={this.handelevent} />{""}
                 <br />
                 <label htmlFor="">last Name</label>
