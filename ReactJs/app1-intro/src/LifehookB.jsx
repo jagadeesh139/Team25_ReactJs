@@ -19,7 +19,16 @@ class LifehookB extends Component {
 
     }
     render() {
-        return
+        console.log("render Called ..!!!")
+        return <h2>{this.props.changevalue}</h2>
+
+    }
+    getSnapshotBeforeUpdate = () => {
+        console.log("getsnapshot before Update....!")
+    }
+
+    componentDidUpdate=()=>{
+        console.log("LifeCycleB componentDidUpdate Called !!!")
     }
 
 }

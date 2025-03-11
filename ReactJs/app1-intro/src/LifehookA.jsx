@@ -29,7 +29,7 @@ class LifehookA extends Component {
         return <div>
 
             <h1>welcome to life cycle hooks</h1>
-            <h2>{this.state.count}</h2>
+            {/* <h2>{this.state.count}</h2> */}
             <button onClick={this.changecount}>Change count</button>
             <br />
             {/* console.log("component did mount !!"); */}
