@@ -62,7 +62,7 @@ class Crud2 extends Component {
                 {this.state.editindex === null ? (<button type="button" onClick={this.adduser}>Adduser</button>) : (<button type="button" onClick={this.handleupdate}>Update</button>
                 )}</form>
             <hr />
-            <table border={1}>
+            <table border={2}>
                 <thead>
                     <tr>
                         <th>First name</th>
