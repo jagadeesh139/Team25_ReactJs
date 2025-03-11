@@ -1,11 +1,12 @@
 import logo from './logo.svg';
 import './App.css';
+import Crud3 from './Crud3';
 // import From from './Form';
 // import Forms from './Forms';
 // import Crud from './Crud';
 // import CrudApi from './CrudApi';
 // import Crud1 from './Crud1';
-import Crud2 from './Crud2';
+// import Crud2 from './Crud2';
 
 function App() {
   return (
@@ -15,7 +16,8 @@ function App() {
       <Crud/> */}
       {/* <CrudApi/> */}
       {/* <Crud1/> */}
-      <Crud2/>
+      {/* <Crud2/> */}
+      <Crud3/>
      
     </div>
   )
