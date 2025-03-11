@@ -1,17 +1,24 @@
 import { Component } from "react";
 
-class LifehookB extends Component{
-    constructor(props){
+class LifehookB extends Component {
+    constructor(props) {
         super()
-        this.state={}
+        this.state = {}
         console.log("lifehooKB constructer  called...!")
 
     }
 
-    static getderivedfromprops=()=>{
+    static getderivedfromprops = () => {
         console.log("lifehookb Component from props...!!")
+        return {}
     }
-    render(){
+
+    shouldComponentUpdate = () => {
+        console.log("shouldcomponent Update...!")
+        return true;
+
+    }
+    render() {
         return
     }
 
