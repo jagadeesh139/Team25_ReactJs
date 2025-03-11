@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import Crud3 from './Crud3';
+import LifehookA from './LifehookA';
 // import From from './Form';
 // import Forms from './Forms';
 // import Crud from './Crud';
@@ -18,6 +19,8 @@ function App() {
       {/* <Crud1/> */}
       {/* <Crud2/> */}
       <Crud3/>
+      <hr/>
+      <LifehookA/>
      
     </div>
   )
