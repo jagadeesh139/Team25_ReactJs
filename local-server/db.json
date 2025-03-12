@@ -13,5 +13,14 @@
       "category": "Breakfast",
       "cuisine": "Italian"
     }
+  ],
+  "total": [
+    {
+      "id": "f926",
+      "name": "Tea",
+      "price": "200",
+      "quantity": "hi",
+      "totalprice": "52"
+    }
   ]
 }
