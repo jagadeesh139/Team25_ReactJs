@@ -16,11 +16,93 @@
   ],
   "total": [
     {
-      "id": "f926",
-      "name": "Tea",
-      "price": "200",
-      "quantity": "hi",
-      "totalprice": "52"
+      "id": "23252",
+      "name": "Jagadeesh M",
+      "price": "25325",
+      "quantity": "10jgxvgg",
+      "totalprice": "2325"
+    }
+  ],
+  "posts": [
+    {
+      "id": 1,
+      "content": "Just had the best coffee ever! ",
+      "likes": 120,
+      "comments": [
+        {
+          "user": "Alice",
+          "text": "Where did you get it from?"
+        },
+        {
+          "user": "Bob",
+          "text": "I need to try that!"
+        }
+      ],
+      "author": "John Doe"
+    },
+    {
+      "id": 2,
+      "content": "Excited to start my new job next week! ",
+      "likes": 200,
+      "comments": [
+        {
+          "user": "Charlie",
+          "text": "Congratulations!"
+        },
+        {
+          "user": "David",
+          "text": "Wishing you all the best!"
+        }
+      ],
+      "author": "Emma Smith"
+    },
+    {
+      "id": 3,
+      "content": "A beautiful sunset at the beach ",
+      "likes": 150,
+      "comments": [
+        {
+          "user": "Emily",
+          "text": "Amazing view!"
+        },
+        {
+          "user": "Frank",
+          "text": "I wish I was there!"
+        }
+      ],
+      "author": "Michael Johnson"
+    },
+    {
+      "id": 4,
+      "content": "Finally finished my book! ",
+      "likes": 180,
+      "comments": [
+        {
+          "user": "Grace",
+          "text": "What’s the book about?"
+        },
+        {
+          "user": "Hank",
+          "text": "Congratulations on finishing it!"
+        }
+      ],
+      "author": "Sophia Williams"
+    },
+    {
+      "id": 5,
+      "content": "Workout complete! Feeling great ",
+      "likes": 220,
+      "comments": [
+        {
+          "user": "Isabella",
+          "text": "Keep it up!"
+        },
+        {
+          "user": "Jack",
+          "text": "Motivated to hit the gym!"
+        }
+      ],
+      "author": "David Brown"
     }
   ]
 }
