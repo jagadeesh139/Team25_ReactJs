@@ -1,112 +1,142 @@
 import { Component } from "react";
-import axios from 'axios'
-
+import axios from "axios";
 
 class Server extends Component {
     constructor() {
-        super()
+        super();
         this.state = {
             person: {
                 fname: "",
                 lname: "",
                 email: "",
-                id: ""
-
+                id: "",
             },
             user: [],
-            editindex: null
-        }
+            editindex: null,
+        };
     }
 
-    handelevent = (e) => {
-        const newperson = { ...this.state.person }
-        newperson[e.target.name] = e.target.value
-        this.setState({ person: newperson })
-    }
-    adduser = () => {
-
-
-        // const newuser = [...this.state.user]
-        // newuser.push(this.state.person)
-        // this.setState({ user: newuser })
-        // this.clearuser()
-
-    }
-    handeldelete = (i) => {
-        const newuser = [...this.state.user]
-        newuser.splice(i, 1)
-        this.setState({ user: newuser })
-
-    }
-    handeledit = (value, i) => {
-        { this.setState({ person: value, editindex: null }) }
-
-    }
-    handelupdate = () => {
-        const newuser = [...this.state.user]
-        newuser[this.state.editindex] = this.state.person
-        this.setState({ user: newuser, editindex: null })
-        this.clearuser()
+    componentDidMount() {
+        this.getUserFromServer();
     }
 
-    clearuser = () => {
-        {
-            this.setState({
-                person: {
-                    fname: "",
-                    lname: "",
-                    email: "",
-                    id: ""
-
+    getUserFromServer = () => {
+        axios.get("http://localhost:3000/user")
+            .then((response) => {
+                console.log("Fetched Users:", response.data); // ✅ Debugging
+                if (Array.isArray(response.data)) {
+                    this.setState({ user: response.data });
+                } else {
+                    console.error("Invalid API response format");
                 }
-
             })
-        }
-    }
+            .catch((error) => console.error("Error fetching users:", error));
+    };
+
+    handleEvent = (e) => {
+        this.setState({
+            person: { ...this.state.person, [e.target.name]: e.target.value },
+        });
+    };
+
+    addUser = () => {
+        axios.post("http://localhost:3000/user", this.state.person)
+            .then(() => {
+                this.getUserFromServer();
+                this.clearUser();
+            })
+            .catch((error) => console.error("Error adding user:", error));
+    };
+
+    handleDelete = (id) => {
+        axios.delete(`http://localhost:3000/user/${id}`)
+            .then(() => {
+                this.getUserFromServer();
+            })
+            .catch((error) => console.error("Error deleting user:", error));
+    };
+
+    handleEdit = (value, index) => {
+        this.setState({ person: { ...value }, editindex: index });
+    };
+
+    handleUpdate = () => {
+        const { person } = this.state;
+        axios.put(`http://localhost:3000/user/${person.id}`, person)
+            .then(() => {
+                this.getUserFromServer();
+                this.setState({ editindex: null });
+                this.clearUser();
+            })
+            .catch((error) => console.error("Error updating user:", error));
+    };
+
+    clearUser = () => {
+        this.setState({
+            person: { fname: "", lname: "", email: "", id: "" },
+        });
+    };
 
     render() {
-        return <div>
-            <form action="">
-                <label htmlFor="">firstname</label>
-                <input type="text" id="" value={this.state.person.fname} name="fname" onChange={this.handelevent} />{""}
-                <br />
-                <label htmlFor="">lastname</label>
-                <input type="text" id="" name="lname" value={this.state.person.lname} onChange={this.handelevent} />{""}
-                <label htmlFor="">Email</label>
-                <input type="text" id="" name="email" value={this.state.person.email} onChange={this.handelevent} />{""}
-                <label htmlFor="">ID</label>
-                <input type="text" id="" name="id" value={this.state.person.id} onChange={this.handelevent} />{""}
+        return (
+            <div>
+                <h2>User Management</h2>
+                <form>
+                    <label>First Name</label>
+                    <input type="text" name="fname" value={this.state.person.fname} onChange={this.handleEvent} />
+                    <br />
+                    <label>Last Name</label>
+                    <input type="text" name="lname" value={this.state.person.lname} onChange={this.handleEvent} />
+                    <br />
+                    <label>Email</label>
+                    <input type="text" name="email" value={this.state.person.email} onChange={this.handleEvent} />
+                    <br />
+                    <label>ID</label>
+                    <input type="text" name="id" value={this.state.person.id} onChange={this.handleEvent} />
+                    <br />
 
-                {this.state.editindex === null ? (<button type="button" onClick={this.adduser}>adduser</button>) : (<button type="button" onClick={this.handelupdate}> Update</button>)}
+                    {this.state.editindex === null ? (
+                        <button type="button" onClick={this.addUser}>Add User</button>
+                    ) : (
+                        <button type="button" onClick={this.handleUpdate}>Update</button>
+                    )}
+                </form>
 
-
-
-            </form>
-            <table border={1}>
-                <thead>
-                    <tr>
-                        <th>First name</th>
-                        <th>Lastname</th>
-                        <th>email</th>
-                        <th>Id</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {this.state.user.map((value, i) => {
-                        return <tr key={i}>
-                            <td>{value.fname}</td>
-                            <td>{value.lname}</td>
-                            <td>{value.email}</td>
-                            <td>{value.id}</td>
-                            <td><button type="button" onClick={() => { this.handeledit(value, i) }}>edit</button></td>
-
-                            <td ><button type="button" onClick={() => { this.handeldelete(i) }}>delete</button></td>
+                <h3>User List</h3>
+                <table border={1}>
+                    <thead>
+                        <tr>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Email</th>
+                            <th>ID</th>
+                            <th>Actions</th>
                         </tr>
-
-                    })}
-                </tbody>
-            </table>
-        </div>
+                    </thead>
+                    <tbody>
+                        {this.state.user.length > 0 ? (
+                            this.state.user.map((value, i) => (
+                                <tr key={i}>
+                                    <td>{value.fname}</td>
+                                    <td>{value.lname}</td>
+                                    <td>{value.email}</td>
+                                    <td>{value.id}</td>
+                                    <td>
+                                        <button type="button" onClick={() => this.handleEdit(value, i)}>Edit</button>
+                                        <button type="button" onClick={() => this.handleDelete(value.id)}>Delete</button>
+                                    </td>
+                                </tr>
+                            ))
+                        ) : (
+                            <tr>
+                                <td colSpan="5">No users found</td>
+                            </tr>
+                        )}
+                    </tbody>
+                </table>
+            </div>
+        );
     }
 }
+
 export default Server;
