@@ -51,6 +51,7 @@ class Socialmedia extends Component {
                 </thead>
                 <tbody>
                     {this.state.posts.map((val,i)=>{
+                        return
                         
 
                     })}
