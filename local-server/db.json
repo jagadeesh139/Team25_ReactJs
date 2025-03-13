@@ -38,5 +38,35 @@
       "comments": "h",
       "author": "GHH"
     }
+  ],
+  "task": [
+    {
+      "id": 1,
+      "title": "Design Homepage",
+      "description": "Create a responsive homepage layout using HTML, CSS, and JavaScript.",
+      "status": "Pending",
+      "createdAt": "2025-03-13T10:00:00Z"
+    },
+    {
+      "id": 2,
+      "title": "Develop API",
+      "description": "Build a RESTful API using Node.js and Express for user authentication.",
+      "status": "In-Progress",
+      "createdAt": "2025-03-12T14:30:00Z"
+    },
+    {
+      "id": 3,
+      "title": "Database Setup",
+      "description": "Configure MongoDB and create necessary collections for the project.",
+      "status": "Completed",
+      "createdAt": "2025-03-11T08:45:00Z"
+    },
+    {
+      "id": 4,
+      "title": "Write Documentation",
+      "description": "Prepare technical documentation for API endpoints and project setup.",
+      "status": "Pending",
+      "createdAt": "2025-03-13T12:15:00Z"
+    }
   ]
 }
