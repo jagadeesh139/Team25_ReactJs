@@ -1,6 +1,8 @@
 
 import { Component } from "react";
 import axios from "axios";
+import Socialmediaform from "./Socialmediaform";
+import Socialmediatable from "./Socialmediatable";
 
 class Socialmedia extends Component {
     constructor() {
@@ -44,81 +46,47 @@ class Socialmedia extends Component {
         { this.setState({ media: val, editindex: i }) }
     }
     handelupdate = () => {
-        axios.put("http://localhost:3000/posts/"+this.state.posts[this.state.editindex].id,this.state.media).then(() => {
+        axios.put("http://localhost:3000/posts/" + this.state.posts[this.state.editindex].id, this.state.media).then(() => {
             this.getdatafromserver()
             this.setState({ editindex: null })
             this.clearform()
 
         })
     }
-    clearform (){
-        
-            this.setState({
-                media: {
-                    id: "",
-                    content: "",
-                    likes: "",
-                    comments: "",
-                    author: "",
+    clearform() {
 
-                }
-            })
-        
+        this.setState({
+            media: {
+                id: "",
+                content: "",
+                likes: "",
+                comments: "",
+                author: "",
+
+            }
+        })
+
     }
 
     handeldelete = (val) => {
-        axios.delete("http://localhost:3000/posts/"+val.id).then(() => {
+        axios.delete("http://localhost:3000/posts/" + val.id).then(() => {
             this.getdatafromserver()
         })
     }
     render() {
         return <div>
-            <form action="">
-                <label htmlFor="">ID</label>
-                <input type="text" id="" name="id" value={this.state.media.id} onChange={this.handelevent} />{""}
-                <br />
-                <label htmlFor="">Content</label>
-                <input type="text" id="" name="content" value={this.state.media.content} onChange={this.handelevent} />{""}
-                <br />
-                <label htmlFor="">Likes</label>
-                <input type="text" id="" name="likes" value={this.state.media.likes} onChange={this.handelevent} />{""}
-                <br />
-                <label htmlFor="">Comments</label>
-                <input type="text" id="" name="comments" value={this.state.media.comments} onChange={this.handelevent} />{""}
-                <br />
-                <label htmlFor="">author</label>
-                <input type="text" id="" name="author" value={this.state.media.author} onChange={this.handelevent} />{""}
-                {this.state.editindex === null ? (<button type="button" onClick={this.adduser}>adduser</button>) : (<button type="button" onClick={this.handelupdate}>update</button>)}
-            </form>
-
-            <table border={1}>
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Content</th>
-                        <th>Likes</th>
-                        <th>Comments</th>
-                        <th>Authour</th>
-                        <th>Edit</th>
-                        <th>Delete</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {this.state.posts.map((val, i) => {
-                        return <tr key={val.id}>
-                            <td>{val.id}</td>
-                            <td>{val.content}</td>
-                            <td>{val.likes}</td>
-                            <td>{val.comments}</td>
-                            <td>{val.author}</td>
-                            <td><button type="button" onClick={() => { this.handeledit(val, i) }}>edit</button></td>
-                            <td><button type="button" onClick={() => { this.handeldelete(val) }}>Delete</button></td>
-                        </tr>
+            <Socialmediaform media={this.state.media}
+                editindex={this.state.editindex}
+                adduser={this.adduser}
+                handelevent={this.handelevent}
+                handelupdate={this.handelupdate} />
+            <hr />
+            <Socialmediatable posts={this.state.posts}
+                handeledit={this.handeledit}
+                handeldelete={this.handeldelete} />
 
 
-                    })}
-                </tbody>
-            </table>
+
         </div>
     }
 }

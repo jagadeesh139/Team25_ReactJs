@@ -35,7 +35,7 @@
       "id": "34",
       "content": "hhrefvrf",
       "likes": "hvhefefc",
-      "comments": "h",
+      "comments": "good",
       "author": "GHH"
     }
   ],
@@ -58,14 +58,14 @@
       "id": "3",
       "title": "Database Setup",
       "description": "Configure MongoDB and create necessary collections for the project.",
-      "status": "Completed",
+      "status": "Complete",
       "createdAt": "2025-03-11T08:45:00Z"
     },
     {
       "id": "4",
       "title": "Write Documentation",
       "description": "Prepare technical documentation for API endpoints and project setup.",
-      "status": "Pending",
+      "status": "Completed",
       "createdAt": "2025-03-13T12:15:00Z"
     }
   ],
@@ -149,7 +149,7 @@
       "title": "1984",
       "author": "George Orwell",
       "isAvailable": "false",
-      "borrower": "U456"
+      "borrower": "U4565"
     }
   ]
 }
