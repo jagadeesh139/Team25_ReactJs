@@ -1,5 +1,7 @@
 import { Component } from "react";
 import axios from "axios";
+import EComercetable from "./EComercetable";
+import EComerceform from "./EComerceform";
 
 class EComerce extends Component {
     constructor() {
@@ -75,60 +77,21 @@ class EComerce extends Component {
     render() {
         return (
             <div>
-                <form>
-                    <label>Id:</label>
-                    <input type="text" name="id" value={this.state.comerce.id} onChange={this.handelevent} />
-                    <br />
-                    <label>Name:</label>
-                    <input type="text" name="name" value={this.state.comerce.name} onChange={this.handelevent} />
-                    <br />
-                    <label>Price:</label>
-                    <input type="text" name="price" value={this.state.comerce.price} onChange={this.handelevent} />
-                    <br />
-                    <label>Quantity:</label>
-                    <input type="text" name="quantity" value={this.state.comerce.quantity} onChange={this.handelevent} />
-                    <br />
-                    <label>Total Price:</label>
-                    <input type="text" name="totalprice" value={this.state.comerce.totalprice} onChange={this.handelevent} />
-                    <br />
+                <EComerceform comerce={this.state.comerce}
+                    handelevent={this.handelevent}
+                    adduser={this.adduser}
+                    handelupdate={this.handelupdate}
+                    editindex={this.state.editindex} />
 
-                    {this.state.editindex === null ? (
-                        <button type="button" onClick={this.adduser}>Add User</button>
-                    ) : (
-                        <button type="button" onClick={this.handelupdate}>Update</button>
-                    )}
-                </form>
+                <hr />
+                <EComercetable
+                    total={this.state.total}
+                    handeledit={this.handeledit}
+                    handeldelete={this.handeldelete}
+                />
 
-                <table border={1}>
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Name</th>
-                            <th>Price</th>
-                            <th>Quantity</th>
-                            <th>Total Price</th>
-                            <th>Edit</th>
-                            <th>Delete</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {this.state.total.map((val, i) => (
-                            <tr key={i}>
-                                <td>{val.id}</td>
-                                <td>{val.name}</td>
-                                <td>{val.price}</td>
-                                <td>{val.quantity}</td>
-                                <td>{val.totalprice}</td>
-                                <td>
-                                    <button type="button" onClick={() => this.handeledit(val, i)}>Edit</button>
-                                </td>
-                                <td>
-                                    <button type="button" onClick={() => this.handeldelete(val)}>Delete</button>
-                                </td>
-                            </tr>
-                        ))}
-                    </tbody>
-                </table>
+
+
             </div>
         );
     }

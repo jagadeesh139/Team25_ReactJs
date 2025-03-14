@@ -2,10 +2,10 @@ import { useState } from 'react'
 // import reactLogo from './assets/react.svg'
 // import viteLogo from '/vite.svg'
 import './App.css'
-import LibraryManagement from './LibraryManagement'
+// import LibraryManagement from './LibraryManagement'
 // import Usermanagement from './Usermanagement'
 // import Quizapp from './Quizapp'
-// import EComerce from './EComerce'
+import EComerce from './EComerce'
 // import Socialmedia from './Socialmedia'
 // import Taskmanagement from './Taskmanagement'
 
@@ -15,12 +15,12 @@ function App() {
 
   return (
     <>
-     {/* <EComerce/> */}
+     <EComerce/>
      {/* <Socialmedia/> */}
      {/* <Taskmanagement/> */}
      {/* <Quizapp/> */}
      {/* <Usermanagement/> */}
-     <LibraryManagement/>
+     {/* <LibraryManagement/> */}
     </>
   )
 }
