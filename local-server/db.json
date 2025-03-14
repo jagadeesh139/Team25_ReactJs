@@ -44,7 +44,7 @@
       "id": "1",
       "title": "Design Homepage",
       "description": "Create a responsive homepage layout using HTML, CSS, and JavaScript.",
-      "status": "Updated",
+      "status": "Updat",
       "createdAt": "2025-03-13T10:00:00Z"
     },
     {
@@ -97,23 +97,9 @@
       "options": "Berlin",
       "correctAnswer": "Blue Whale",
       "score": "25"
-    },
-    {
-      "id": "45",
-      "question": "what is your name",
-      "options": "Berlin",
-      "correctAnswer": "25",
-      "score": "2"
     }
   ],
   "user": [
-    {
-      "id": "2",
-      "name": "Bob Smith",
-      "email": "bob@example.com",
-      "role": "Subscriber",
-      "preferences": "dark"
-    },
     {
       "id": "3",
       "name": "Charlie Brown",
@@ -129,11 +115,11 @@
       "preferences": "darkroom"
     },
     {
-      "id": "5",
-      "name": "Jagadeesh M",
-      "email": "18699A0438@mits.ac.in",
-      "role": "Admin",
-      "preferences": "darkness"
+      "id": "1 ",
+      "name": "smith",
+      "email": "smith@gmail.com",
+      "role": "admin",
+      "preferences": "dark"
     }
   ],
   "Book": [
@@ -150,13 +136,6 @@
       "author": "Harper Lee",
       "isAvailable": "true",
       "borrower": null
-    },
-    {
-      "id": "3",
-      "title": "1984",
-      "author": "George Orwell",
-      "isAvailable": "false",
-      "borrower": "U4565"
     }
   ]
 }

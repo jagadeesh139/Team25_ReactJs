@@ -1,5 +1,7 @@
 import axios from "axios";
 import { Component } from "react";
+import UserTable from "./UserTable";
+import UserForm from "./userForm";
 
 class Usermanagement extends Component {
     constructor() {
@@ -73,58 +75,17 @@ class Usermanagement extends Component {
     render() {
         return (
             <div>
-                <form>
-                    <label>Id</label>
-                    <input type="text" name="id" value={this.state.profile.id} onChange={this.handleEvent} />
-                    <br />
-                    <label>Name</label>
-                    <input type="text" name="name" value={this.state.profile.name} onChange={this.handleEvent} />
-                    <br />
-                    <label>Email</label>
-                    <input type="text" name="email" value={this.state.profile.email} onChange={this.handleEvent} />
-                    <br />
-                    <label>role</label>
-                    <input type="text" name="role" value={this.state.profile.role} onChange={this.handleEvent} />
-                    <br />
-                    <label>preferences</label>
-                    <input type="text" name="preferences" value={this.state.profile.preferences} onChange={this.handleEvent} />
-                    <br />
-                    {this.state.index === null ? (
-                        <button type="button" onClick={this.addData}>AddUser</button>
-                    ) : (
-                        <button type="button" onClick={this.handleUpdate}>Update</button>
-                    )}
-                </form>
-                <table border={1}>
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Name</th>
-                            <th>Email</th>
-                            <th>role</th>
-                            <th>Preferences</th>
-                            <th>Edit</th>
-                            <th>Delete</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {this.state.user.map((val, i) => {
-                            return <tr key={val.id}>
-                                <td>{val.id}</td>
-                                <td>{val.name}</td>
-                                <td>{val.email}</td>
-                                <td>{val.role}</td>
-                                <td>{val.preferences}</td>
-                                <td>
-                                    <button type="button" onClick={() => this.handleEdit(val, i)}>Edit</button>
-                                </td>
-                                <td>
-                                    <button type="button" onClick={() => this.handleDelete(val, i)}>Delete</button>
-                                </td>
-                            </tr>
-                        })}
-                    </tbody>
-                </table>
+                <UserForm profile={this.state.profile}
+                    index={this.state.index}
+                    addData={this.addData}
+                    handleEvent={this.handleEvent}
+                    handleUpdate={this.handleUpdate} />
+                <hr />
+                <UserTable user={this.state.user}
+                handleEdit={this.handleEdit}
+                handleDelete={this.handleDelete}/>
+
+
             </div>
         );
     }

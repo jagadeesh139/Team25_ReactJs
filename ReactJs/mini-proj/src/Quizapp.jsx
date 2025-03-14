@@ -49,7 +49,7 @@ class Quizapp extends Component {
         this.setState({ app: val, index: i });
     };
 
-    handleDelete = (val, i) => {
+    handleDelete = (val) => {
         axios.delete(`http://localhost:3000/quiz/` + val.id).then(() => {
             this.getDataFromServer();
         });
