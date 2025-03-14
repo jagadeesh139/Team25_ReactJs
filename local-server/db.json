@@ -82,7 +82,7 @@
       "question": "Which planet is known as the Red Planet?",
       "options": "Berlin",
       "correctAnswer": "Mars",
-      "score": 10
+      "score": "20"
     },
     {
       "id": "3",
@@ -96,7 +96,14 @@
       "question": "Which is the largest mammal?",
       "options": "Berlin",
       "correctAnswer": "Blue Whale",
-      "score": 15
+      "score": "25"
+    },
+    {
+      "id": "45",
+      "question": "what is your name",
+      "options": "Berlin",
+      "correctAnswer": "25",
+      "score": "2"
     }
   ],
   "user": [

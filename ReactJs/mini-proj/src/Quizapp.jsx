@@ -1,5 +1,7 @@
 import axios from "axios";
 import { Component } from "react";
+import Quizform from "./Quizform";
+import Quiztable from "./Quiztable";
 
 class Quizapp extends Component {
     constructor() {
@@ -47,14 +49,14 @@ class Quizapp extends Component {
         this.setState({ app: val, index: i });
     };
 
-    handleDelete = (id) => {
-        axios.delete(`http://localhost:3000/quiz/${id}`).then(() => {
+    handleDelete = (val, i) => {
+        axios.delete(`http://localhost:3000/quiz/` + val.id).then(() => {
             this.getDataFromServer();
         });
     };
 
     handleUpdate = () => {
-        axios.put(`http://localhost:3000/quiz/${this.state.app.id}`, this.state.app).then(() => {
+        axios.put(`http://localhost:3000/quiz/` + this.state.quiz[this.state.index].id, this.state.app).then(() => {
             this.getDataFromServer();
             this.setState({ index: null });
             this.clearForm();
@@ -76,58 +78,18 @@ class Quizapp extends Component {
     render() {
         return (
             <div>
-                <form>
-                    <label>Id</label>
-                    <input type="text" name="id" value={this.state.app.id} onChange={this.handleEvent} />
-                    <br />
-                    <label>Question</label>
-                    <input type="text" name="question" value={this.state.app.question} onChange={this.handleEvent} />
-                    <br />
-                    <label>Options</label>
-                    <input type="text" name="options" value={this.state.app.options} onChange={this.handleEvent} />
-                    <br />
-                    <label>Correct Answer</label>
-                    <input type="text" name="correctAnswer" value={this.state.app.correctAnswer} onChange={this.handleEvent} />
-                    <br />
-                    <label>Score</label>
-                    <input type="text" name="score" value={this.state.app.score} onChange={this.handleEvent} />
-                    <br />
-                    {this.state.index === null ? (
-                        <button type="button" onClick={this.addData}>Add Question</button>
-                    ) : (
-                        <button type="button" onClick={this.handleUpdate}>Update</button>
-                    )}
-                </form>
-                <table border={1}>
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Question</th>
-                            <th>Options</th>
-                            <th>Correct Answer</th>
-                            <th>Score</th>
-                            <th>Edit</th>
-                            <th>Delete</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {this.state.quiz.map((val, i) => (
-                            <tr key={val.id}>
-                                <td>{val.id}</td>
-                                <td>{val.question}</td>
-                                <td>{val.options}</td>
-                                <td>{val.correctAnswer}</td>
-                                <td>{val.score}</td>
-                                <td>
-                                    <button type="button" onClick={() => this.handleEdit(val, i)}>Edit</button>
-                                </td>
-                                <td>
-                                    <button type="button" onClick={() => this.handleDelete(val.id)}>Delete</button>
-                                </td>
-                            </tr>
-                        ))}
-                    </tbody>
-                </table>
+                <Quizform app={this.state.app}
+                    handleEvent={this.handleEvent}
+                    index={this.state.index}
+                    addData={this.addData}
+                    handleUpdate={this.handleUpdate} />
+
+
+                <Quiztable quiz={this.state.quiz}
+                    handleEdit={this.handleEdit}
+                    handleDelete={this.handleDelete} />
+
+
             </div>
         );
     }
