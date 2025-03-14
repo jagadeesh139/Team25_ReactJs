@@ -18,7 +18,7 @@ class Taskmanagement extends Component {
     }
 
     componentDidMount = () => {
-        getdatafromserver();
+        this.getdatafromserver();
     }
     handelevent = (e) => {
         const newmanagement = { ...this.state.management }
@@ -90,7 +90,7 @@ class Taskmanagement extends Component {
                 <input type="text" name="createdAt" value={this.state.management.createdAt} onChange={this.handelevent} />{""}
                 {this.state.index === null ? (<button type="button" onClick={this.adddata}>adddata</button>) : (<button type="button" onClick={this.handelupdate}>update</button>)}
             </form>
-            <table>
+            <table border={1}>
                 <thead>
                     <tr>
                         <th>ID</th>
@@ -101,7 +101,22 @@ class Taskmanagement extends Component {
 
                     </tr>
                 </thead>
-                <tbody></tbody>
+                <tbody>
+                    {this.state.task.map((val, i) => {
+                        return <tr key={i}>
+                            <td>{val.id}</td>
+                            <td>{val.title}</td>
+                            <td>{val.description}</td>
+                            <td>{val.status}</td>
+                            <td>{val.createdAt}</td>
+                            <td><button type="button" onClick={() => {
+                                this.handeledit(val, i)
+                            }}>edit</button></td>
+                            <td ><button type="button" onClick={() => { this.handeldelete(i) }}>delete</button></td>
+                        </tr>
+
+                    })}
+                </tbody>
             </table>
         </div>
 
