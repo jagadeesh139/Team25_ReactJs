@@ -137,5 +137,35 @@
       "isAvailable": "true",
       "borrower": null
     }
+  ],
+  "digit": [
+    {
+      "id": 1,
+      "name": "John Doe",
+      "email": "johndoe@example.com",
+      "phone": "+1-555-1234",
+      "address": "123 Main St, New York, NY 10001"
+    },
+    {
+      "id": 2,
+      "name": "Jane Smith",
+      "email": "janesmith@example.com",
+      "phone": "+1-555-5678",
+      "address": "456 Elm St, Los Angeles, CA 90001"
+    },
+    {
+      "id": 3,
+      "name": "Michael Johnson",
+      "email": "michaelj@example.com",
+      "phone": "+1-555-9101",
+      "address": "789 Oak St, Chicago, IL 60601"
+    },
+    {
+      "id": 4,
+      "name": "Emily Davis",
+      "email": "emilyd@example.com",
+      "phone": "+1-555-1122",
+      "address": "321 Pine St, Houston, TX 77001"
+    }
   ]
 }

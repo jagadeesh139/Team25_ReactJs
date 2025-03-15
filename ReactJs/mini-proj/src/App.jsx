@@ -2,9 +2,10 @@ import { useState } from 'react'
 // import reactLogo from './assets/react.svg'
 // import viteLogo from '/vite.svg'
 import './App.css'
+import Digital from './Digital'
 // import LibraryManagement from './LibraryManagement'
 // import Usermanagement from './Usermanagement'
-import Quizapp from './Quizapp'
+// import Quizapp from './Quizapp'
 // import EComerce from './EComerce'
 // import Socialmedia from './Socialmedia'
 // import Taskmanagement from './Taskmanagement'
@@ -18,9 +19,10 @@ function App() {
      {/* <EComerce/> */}
      {/* <Socialmedia/> */}
      {/* <Taskmanagement/> */}
-     <Quizapp/>
+     {/* <Quizapp/> */}
      {/* <Usermanagement/> */}
      {/* <LibraryManagement/> */}
+     <Digital/>
     </>
   )
 }
