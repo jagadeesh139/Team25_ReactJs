@@ -165,30 +165,23 @@
     {
       "id": "101",
       "name": "Wireless Mouse",
-      "quantity": 50,
-      "price": 25.99,
+      "quantity": "50",
+      "price": "25.99",
       "category": "Electronics"
     },
     {
       "id": "102",
       "name": "Running Shoes",
-      "quantity": 30,
-      "price": 59.99,
+      "quantity": "30",
+      "price": "59.99",
       "category": "Footwear"
     },
     {
       "id": "103",
       "name": "Coffee Maker",
-      "quantity": 20,
-      "price": 89.99,
+      "quantity": "20",
+      "price": "89.99",
       "category": "Home Appliances"
-    },
-    {
-      "id": "104",
-      "name": "Bluetooth Speaker",
-      "quantity": 40,
-      "price": 45.5,
-      "category": "Electronics"
     }
   ]
 }

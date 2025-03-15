@@ -2,7 +2,8 @@ import { useState } from 'react'
 // import reactLogo from './assets/react.svg'
 // import viteLogo from '/vite.svg'
 import './App.css'
-import Digital from './Digital'
+// import Digital from './Digital'
+import Intm from './Intm'
 // import LibraryManagement from './LibraryManagement'
 // import Usermanagement from './Usermanagement'
 // import Quizapp from './Quizapp'
@@ -22,7 +23,8 @@ function App() {
      {/* <Quizapp/> */}
      {/* <Usermanagement/> */}
      {/* <LibraryManagement/> */}
-     <Digital/>
+     {/* <Digital/> */}
+     <Intm/>
     </>
   )
 }
