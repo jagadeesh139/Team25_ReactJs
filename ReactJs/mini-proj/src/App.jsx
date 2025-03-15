@@ -2,7 +2,8 @@ import { useState } from 'react'
 // import reactLogo from './assets/react.svg'
 // import viteLogo from '/vite.svg'
 import './App.css'
-import ET from './ET'
+import Moviedata from './Moviedata'
+// import ET from './ET'
 // import Digital from './Digital'
 // import Intm from './Intm'
 // import LibraryManagement from './LibraryManagement'
@@ -26,7 +27,8 @@ function App() {
      {/* <LibraryManagement/> */}
      {/* <Digital/> */}
      {/* <Intm/> */}
-     <ET/>
+     {/* <ET/> */}
+     <Moviedata/>
     </>
   )
 }

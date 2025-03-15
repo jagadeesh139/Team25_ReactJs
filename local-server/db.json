@@ -213,5 +213,28 @@
       "description": "Movie tickets and snacks",
       "date": "2025-03-08"
     }
+  ],
+  "movie": [
+    {
+      "seatNumber": "A1",
+      "isBooked": "true",
+      "category": "VIP",
+      "userID": "1001",
+      "id": "6796"
+    },
+    {
+      "seatNumber": "B5",
+      "isBooked": "True",
+      "category": "Regular",
+      "userID": "null",
+      "id": "c195"
+    },
+    {
+      "seatNumber": "C10",
+      "isBooked": "true",
+      "category": "Economy",
+      "userID": "1003",
+      "id": "a9be"
+    }
   ]
 }
