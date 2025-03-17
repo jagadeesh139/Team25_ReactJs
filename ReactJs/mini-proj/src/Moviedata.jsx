@@ -15,7 +15,6 @@ class Moviedata extends Component {
             },
             movie: [],
             index: null
-
         }
     }
     componentDidMount = () => {
