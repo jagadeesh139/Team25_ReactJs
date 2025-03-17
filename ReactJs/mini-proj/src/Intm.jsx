@@ -35,6 +35,7 @@ class Intm extends Component {
         this.setState({ invent: newinvent })
 
     }
+    
     adddata = () => {
         axios.post("http://localhost:3000/system", this.state.invent).then(() => {
             this.getdatafromserver()
