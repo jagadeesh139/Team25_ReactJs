@@ -48,7 +48,7 @@ class ET extends Component {
 
     }
     handeldelete = (val) => {
-        axios.delete(`http://localhost:3000/expense/` + val.id).then(() => {
+        axios.delete("http://localhost:3000/expense/" + val.id).then(() => {
             this.getdatafromserver()
         })
     }
