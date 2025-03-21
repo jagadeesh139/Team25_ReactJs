@@ -15,7 +15,7 @@ class Moviedata extends Component {
             },
             movie: [],
             index: null
-            
+
         }
     }
     componentDidMount = () => {
@@ -76,10 +76,10 @@ class Moviedata extends Component {
                 handelevent={this.handelevent}
                 handelupdate={this.handelupdate}
                 index={this.state.index}
-                adddata={this.adddata}/>
+                adddata={this.adddata} />
             <Movietable movie={this.state.movie}
                 handeledit={this.handeledit}
-                handeldelete={this.handeldelete}/>
+                handeldelete={this.handeldelete} />
 
         </div>
     }
