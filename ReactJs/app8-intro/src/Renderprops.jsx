@@ -11,7 +11,6 @@ class Renderprops extends Component {
                 <Handelcount render={(count, handelIncreament, handelDecreament, handelReset) => (
                     <HandelClick count={count} handelIncreament={handelIncreament} handelDecreament={handelDecreament} handelReset={handelReset} />
 
-
                 )} />
 
                 <Handelcount render={(count, handelIncreament, handelDecreament, handelReset) => (
