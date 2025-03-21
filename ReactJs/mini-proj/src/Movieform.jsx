@@ -1,13 +1,13 @@
 import { Component } from "react";
 
-class Movieform extends Component{
-    constructor(){
+class Movieform extends Component {
+    constructor() {
         super()
     }
-    render(){
+    render() {
         return <div>
-            
-             <form>
+
+            <form>
                 <label>seatNumber</label>
                 <input type="text" name="seatNumber" value={this.props.Data.seatNumber} onChange={this.props.handelevent} />
                 <br />
@@ -19,7 +19,7 @@ class Movieform extends Component{
                 <br />
                 <label>userID</label>
                 <input type="text" name="userID" value={this.props.Data.userID} onChange={this.props.handelevent} />
-                
+
                 <br />
                 {this.props.index === null ? (
                     <button type="button" onClick={this.props.adddata}>Addform</button>
