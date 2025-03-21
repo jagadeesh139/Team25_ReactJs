@@ -235,13 +235,6 @@
       "category": "Economy",
       "userID": "1003",
       "id": "a9be"
-    },
-    {
-      "id": "6744",
-      "seatNumber": "D34",
-      "isBooked": "false",
-      "category": "VIP",
-      "userID": "1005"
     }
   ]
 }
