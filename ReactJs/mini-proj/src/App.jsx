@@ -3,6 +3,7 @@ import { useState } from 'react'
 // import viteLogo from '/vite.svg'
 import './App.css'
 import Moviedata from './Moviedata'
+import Practice from './Practice'
 // import ET from './ET'
 // import Digital from './Digital'
 // import Intm from './Intm'
@@ -28,7 +29,8 @@ function App() {
      {/* <Digital/> */}
      {/* <Intm/> */}
      {/* <ET/> */}
-     <Moviedata/>
+     {/* <Moviedata/> */}
+     <Practice/>
     </>
   )
 }
