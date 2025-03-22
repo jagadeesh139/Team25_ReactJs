@@ -20,7 +20,6 @@ class Renderprops extends Component {
                 )} />
 
             </div>
-
         </div>
     }
 }
