@@ -18,7 +18,7 @@ class Handelcount extends Component {
     }
     render() {
         return <div>
-            {this.props.render(this.state.count, this.handelIncreament, this.handelDecreament, this.handelReset)}
+            {this.props.render(this.state.count,this.handelIncreament, this.handelDecreament, this.handelReset)}
 
         </div>
     }
