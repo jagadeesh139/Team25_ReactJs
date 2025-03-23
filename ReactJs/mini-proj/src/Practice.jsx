@@ -1,5 +1,7 @@
 import { Component } from "react";
 import Practiceform from "./Practiceform";
+import axios from "axios";
+import PracticeTabel from "./PracticeTabel";
 
 class Practice extends Component {
     constructor() {
@@ -14,6 +16,14 @@ class Practice extends Component {
             index: null
         }
     }
+    componentDidMount = () => {
+        this.getdatafromsever()
+    }
+    getdatafromsever = () => {
+        axios.get("http://localhost:3000/register").then(({ data }) => {
+            this.setState({ register: data })
+        })
+    }
     handelevent = (e) => {
         const newuser = { ...this.state.user }
         newuser[e.target.name] = e.target.value
@@ -21,25 +31,41 @@ class Practice extends Component {
     }
 
     adduser = () => {
-        const newregister = [...this.state.register]
-        newregister.push(this.state.user)
-        this.setState({ register: newregister })
-        this.clearform()
-    }
-    handeledit = (val, i) => {
-        { this.setState({ user: val, index: i }) }
+        // const newregister = [...this.state.register]
+        // newregister.push(this.state.user)
+        // this.setState({ register: newregister })
+        // this.clearform()
+        axios.post("http://localhost:3000/register", this.state.user).then(() => {
+            this.getdatafromsever()
+            this.clearform()
+
+        })
 
     }
-    handeldelte = (i) => {
-        const newregister = [...this.state.register]
-        newregister.splice(i, 1)
-        this.setState({ register: newregister })
+    handeledit = (val, i) => {
+        this.setState({ user: val, index: i }) 
+
+    }
+    handeldelte = (val) => {
+        // const newregister = [...this.state.register]
+        // newregister.splice(i, 1)
+        // this.setState({ register: newregister })
+        axios.delete("http://localhost:3000/register/" + val.id).then(() => {
+            this.getdatafromsever()
+
+        })
     }
     handelupdate = () => {
-        const newregister = [...this.state.register]
-        newregister[this.state.index] = this.state.user
-        this.setState({ register: newregister, index: null })
-        this.clearform()
+        // const newregister = [...this.state.register]
+        // newregister[this.state.index] = this.state.user
+        // this.setState({ register: newregister, index: null })
+        // this.clearform()
+        axios.put("http://localhost:3000/register/" + this.state.register[this.state.index].id, this.state.user).then(() => {
+            this.getdatafromsever()
+            this.setState({ index: null })
+            this.clearform()
+
+        })
 
     }
     clearform = () => {
@@ -60,7 +86,18 @@ class Practice extends Component {
     render() {
         return <div>
 
-            <form action="">
+            <Practiceform index={this.state.index}
+                user={this.state.user}
+                adduser={this.adduser}
+                handelupdate={this.handelupdate}
+                handelevent={this.handelevent} />
+
+            <PracticeTabel register={this.state.register}
+                handeledit={this.handeledit}
+                handeldelte={this.handeldelte} />
+
+
+            {/* <form action="">
                 <label htmlFor="">Firstname</label>
                 <input type="text" name="fname" value={this.state.user.fname} onChange={this.handelevent} />{""}
                 <br />
@@ -74,9 +111,9 @@ class Practice extends Component {
 
 
 
-            </form>
+            </form> */}
             <br />
-            <table border={1}>
+            {/* <table border={1}>
                 <thead>
                     <tr>
                         <th>Firstname</th>
@@ -98,7 +135,7 @@ class Practice extends Component {
 
                     })}
                 </tbody>
-            </table>
+            </table> */}
         </div>
 
     }

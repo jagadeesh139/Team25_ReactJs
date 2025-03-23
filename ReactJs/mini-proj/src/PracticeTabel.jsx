@@ -22,8 +22,8 @@ class PracticeTabel extends Component {
                             <td>{val.fname}</td>
                             <td>{val.lname}</td>
                             <td>{val.email}</td>
-                            <td><button type="button" onClick={() => { this.handeledit(val, i) }}>edit</button></td>
-                            <td><button type="button" onClick={() => { this.handeldelte(val) }}>Delete</button></td>
+                            <td><button type="button" onClick={() => { this.props.handeledit(val, i) }}>edit</button></td>
+                            <td><button type="button" onClick={() => { this.props.handeldelte(val) }}>Delete</button></td>
                         </tr>
 
                     })}

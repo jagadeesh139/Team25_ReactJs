@@ -236,5 +236,27 @@
       "userID": "1003",
       "id": "a9be"
     }
+  ],
+  "register": [
+    {
+      "fname": "John",
+      "lname": "Doe",
+      "email": "john.doe@example.com"
+    },
+    {
+      "fname": "Jane",
+      "lname": "Smith",
+      "email": "jane.smith@example.com"
+    },
+    {
+      "fname": "Michael",
+      "lname": "Brown",
+      "email": "michael.brown@example.com"
+    },
+    {
+      "fname": "Emily",
+      "lname": "Davis",
+      "email": "emily.davis@example.com"
+    }
   ]
 }

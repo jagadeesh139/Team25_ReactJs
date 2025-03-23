@@ -16,7 +16,7 @@ class Practiceform extends Component {
                 <label htmlFor="">Email</label>
                 <input type="text" name="email" value={this.props.user.email} onChange={this.props.handelevent} />{""}
                 <br />
-                {this.props.index === null ? (<button type="button" onClick={this.props.adduser}>adduser</button>) : (<button type="button" onClick={this.props.update}>Update</button>)}
+                {this.props.index === null ? (<button type="button" onClick={this.props.adduser}>adduser</button>) : (<button type="button" onClick={this.props.handelupdate}>Update</button>)}
 
 
 
