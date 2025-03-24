@@ -2,7 +2,8 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
-import Props from './Props'
+import Props1 from './Props1'
+// import Props from './Props'
 // import Renderprops from './Renderprops'
 // import Renderprop from './Renderprop'
 
@@ -13,7 +14,8 @@ function App() {
     <>
     {/* <Renderprops/> */}
     {/* <Renderprop/> */}
-    <Props/>
+    {/* <Props/> */}
+    <Props1/>
 
     </>
   )
