@@ -10,13 +10,13 @@ const Hoc1 = (Click) => {
         }
 
         increament = () => {
-             this.setState({ count: this.state.count + 1 }) 
+            this.setState({ count: this.state.count + 1 })
         }
         decreament = () => {
-             this.setState({ count: this.state.count - 1 }) 
+            this.setState({ count: this.state.count - 1 })
         }
         reset = () => {
-             this.setState({ count: 0 }) 
+            this.setState({ count: 0 })
         }
 
         render() {
