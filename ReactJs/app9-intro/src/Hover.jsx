@@ -1,4 +1,4 @@
-import  { Component } from "react";
+import { Component } from "react";
 import Hoc1 from "./Hoc1";
 
 class Hover extends Component {
