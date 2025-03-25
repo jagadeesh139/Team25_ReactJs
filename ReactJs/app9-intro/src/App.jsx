@@ -13,14 +13,14 @@ function App() {
 
   return (
     <>
-    {/* <Handelclick/> */}
-    <hr />
-    {/* <Handelhover/> */}
-    <hr />
-    <Click/>
-    <hr />
-    <Hover/>
-     
+      {/* <Handelclick/> */}
+      <hr />
+      {/* <Handelhover/> */}
+      <hr />
+      <Click />
+      <hr />
+      <Hover />
+
     </>
   )
 }
