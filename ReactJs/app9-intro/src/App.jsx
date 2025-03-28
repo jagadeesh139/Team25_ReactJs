@@ -7,6 +7,7 @@ import './App.css'
 // import Handelhover from './handelhover'
 import Click from './Click'
 import Hover from './Hover'
+import ContextAPi from './Context APi'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -17,9 +18,10 @@ function App() {
       <hr />
       {/* <Handelhover/> */}
       <hr />
-      <Click />
+      {/* <Click /> */}
       <hr />
-      <Hover />
+      {/* <Hover /> */}
+      <ContextAPi/>
 
     </>
   )
