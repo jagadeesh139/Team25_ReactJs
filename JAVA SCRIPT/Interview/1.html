@@ -24,4 +24,27 @@
     console.log(isPalindrome("hello"));    // false
     console.log(isPalindrome("A man, a plan, a canal, Panama")); // true
 
+
+    // duplicate from polindrom
+
+    function removeDuplicates(str) {
+        let uniqueChars = new Set(); // Store unique characters
+        let result = '';
+
+        for (let char of str) {
+            if (!uniqueChars.has(char)) {
+                uniqueChars.add(char);
+                result += char;
+            }
+        }
+
+        return result;
+    }
+
+    // Example usage
+    console.log(removeDuplicates("banana"));   // "ban"
+    console.log(removeDuplicates("hello"));    // "helo"
+    console.log(removeDuplicates("aabbccdd")); // "abcd"
+
+
 </script>
