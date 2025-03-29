@@ -5,6 +5,7 @@
 
     // Example usage
     console.log(reverseString("Hello")); // Output: "olleH"
+    document.write(reverseString("Hello"))
 
 
     // polindrom
@@ -84,6 +85,25 @@ function reverseWords(sentence) {
 console.log(reverseWords("Hello World"));       // "olleH dlroW"
 console.log(reverseWords("JavaScript is fun")); // "tpircSavaJ si nuf"
 console.log(reverseWords("Keep coding!"));      // "peeK !gnidoc"
+
+
+// Find the Shortest Word in a String 
+
+function findShortestWord(str) {
+    let words = str.split(' ').filter(word => word.length > 0); // Split and remove extra spaces
+    if (words.length === 0) return null; // Handle empty input
+
+    return words.reduce((shortest, current) => 
+        current.length < shortest.length ? current : shortest
+    );
+}
+
+// Example usage
+console.log(findShortestWord("JavaScript is awesome")); // "is"
+console.log(findShortestWord("The quick brown fox"));   // "The"
+console.log(findShortestWord("  A big cat  "));         // "A"
+console.log(findShortestWord(""));                     // null
+
 
 
 
