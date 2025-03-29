@@ -5,4 +5,23 @@
 
     // Example usage
     console.log(reverseString("Hello")); // Output: "olleH"
+
+
+    // polindrom
+
+    function isPalindrome(str) {
+        // Convert string to lowercase and remove non-alphanumeric characters
+        let cleanStr = str.toLowerCase().replace(/[^a-z0-9]/g, '');
+
+        // Reverse the string and compare it with the original
+        let reversedStr = cleanStr.split('').reverse().join('');
+
+        return cleanStr === reversedStr;
+    }
+
+    // Example usage
+    console.log(isPalindrome("racecar"));  // true
+    console.log(isPalindrome("hello"));    // false
+    console.log(isPalindrome("A man, a plan, a canal, Panama")); // true
+
 </script>
