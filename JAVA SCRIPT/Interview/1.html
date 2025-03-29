@@ -47,4 +47,44 @@
     console.log(removeDuplicates("aabbccdd")); // "abcd"
 
 
+    // non reapeating character
+
+    function firstNonRepeatingChar(str) {
+    let charCount = {}; // Object to store character counts
+
+    // Count occurrences of each character
+    for (let char of str) {
+        charCount[char] = (charCount[char] || 0) + 1;
+    }
+
+    // Find the first character with count 1
+    for (let char of str) {
+        if (charCount[char] === 1) {
+            return char; // Return the first non-repeating character
+        }
+    }
+
+    return null; // Return null if no unique character is found
+}
+
+// Example usage
+console.log(firstNonRepeatingChar("swiss"));  // "w"
+console.log(firstNonRepeatingChar("racecar")); // "e"
+console.log(firstNonRepeatingChar("aabbcc"));  // null
+
+// Reverse Words in a Sentence 
+
+function reverseWords(sentence) {
+    return sentence.split(' ') // Split sentence into words
+                   .map(word => word.split('').reverse().join('')) // Reverse each word
+                   .join(' '); // Join words back into a sentence
+}
+
+// Example usage
+console.log(reverseWords("Hello World"));       // "olleH dlroW"
+console.log(reverseWords("JavaScript is fun")); // "tpircSavaJ si nuf"
+console.log(reverseWords("Keep coding!"));      // "peeK !gnidoc"
+
+
+
 </script>
