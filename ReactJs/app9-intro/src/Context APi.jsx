@@ -15,9 +15,7 @@ class ContextAPi extends Component {
             <UserContextProvider value={this.state.from}>
                 <Mainapi message={this.state.message} />
             </UserContextProvider>
-
-
-
+            
         </div>
 
     }
