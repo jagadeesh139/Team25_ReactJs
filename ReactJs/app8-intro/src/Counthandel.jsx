@@ -24,7 +24,6 @@ class Counthandel extends Component {
             </h1>
             {this.props.render(this.state.count, this.handelincreament, this.handelDecreament, this.handelReset)}
 
-
         </div>
     }
 }
