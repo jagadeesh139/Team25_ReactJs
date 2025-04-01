@@ -21,7 +21,6 @@ class Counthandel extends Component {
         return <div>
             <h1>
                 welcome to Count!!!
-
             </h1>
             {this.props.render(this.state.count, this.handelincreament, this.handelDecreament, this.handelReset)}
 
