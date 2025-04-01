@@ -9,7 +9,6 @@ const Hoc1 = (Click) => {
             }
         }
         
-
         increament = () => {
             this.setState({ count: this.state.count + 1 })
         }
