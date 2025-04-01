@@ -51,90 +51,106 @@
     // non reapeating character
 
     function firstNonRepeatingChar(str) {
-    let charCount = {}; // Object to store character counts
+        let charCount = {}; // Object to store character counts
 
-    // Count occurrences of each character
-    for (let char of str) {
-        charCount[char] = (charCount[char] || 0) + 1;
-    }
-
-    // Find the first character with count 1
-    for (let char of str) {
-        if (charCount[char] === 1) {
-            return char; // Return the first non-repeating character
+        // Count occurrences of each character
+        for (let char of str) {
+            charCount[char] = (charCount[char] || 0) + 1;
         }
-    }
 
-    return null; // Return null if no unique character is found
-}
-
-// Example usage
-console.log(firstNonRepeatingChar("swiss"));  // "w"
-console.log(firstNonRepeatingChar("racecar")); // "e"
-console.log(firstNonRepeatingChar("aabbcc"));  // null
-
-// Reverse Words in a Sentence 
-
-function reverseWords(sentence) {
-    return sentence.split(' ') // Split sentence into words
-                   .map(word => word.split('').reverse().join('')) // Reverse each word
-                   .join(' '); // Join words back into a sentence
-}
-
-// Example usage
-console.log(reverseWords("Hello World"));       // "olleH dlroW"
-console.log(reverseWords("JavaScript is fun")); // "tpircSavaJ si nuf"
-console.log(reverseWords("Keep coding!"));      // "peeK !gnidoc"
-
-
-// Find the Shortest Word in a String 
-
-function findShortestWord(str) {
-    let words = str.split(' ').filter(word => word.length > 0); // Split and remove extra spaces
-    if (words.length === 0) return null; // Handle empty input
-
-    return words.reduce((shortest, current) => 
-        current.length < shortest.length ? current : shortest
-    );
-}
-
-// Example usage
-console.log(findShortestWord("JavaScript is awesome")); // "is"
-console.log(findShortestWord("The quick brown fox"));   // "The"
-console.log(findShortestWord("  A big cat  "));         // "A"
-console.log(findShortestWord(""));                     // null
-
-
-// most frequent character
-
-function mostFrequentChar(str) {
-    let charCount = {};
-    let maxChar = '';
-    let maxCount = 0;
-
-    for (let char of str) {
-        charCount[char] = (charCount[char] || 0) + 1;
-        if (charCount[char] > maxCount) {
-            maxCount = charCount[char];
-            maxChar = char;
+        // Find the first character with count 1
+        for (let char of str) {
+            if (charCount[char] === 1) {
+                return char; // Return the first non-repeating character
+            }
         }
+
+        return null; // Return null if no unique character is found
     }
 
-    return maxChar;
-}
+    // Example usage
+    console.log(firstNonRepeatingChar("swiss"));  // "w"
+    console.log(firstNonRepeatingChar("racecar")); // "e"
+    console.log(firstNonRepeatingChar("aabbcc"));  // null
 
-// Example usage:
-console.log(mostFrequentChar("javascript")); // Output: "a"
+    // Reverse Words in a Sentence 
+
+    function reverseWords(sentence) {
+        return sentence.split(' ') // Split sentence into words
+            .map(word => word.split('').reverse().join('')) // Reverse each word
+            .join(' '); // Join words back into a sentence
+    }
+
+    // Example usage
+    console.log(reverseWords("Hello World"));       // "olleH dlroW"
+    console.log(reverseWords("JavaScript is fun")); // "tpircSavaJ si nuf"
+    console.log(reverseWords("Keep coding!"));      // "peeK !gnidoc"
 
 
-// remove white space
+    // Find the Shortest Word in a String 
 
-function removeSpaces(str) {
-    return str.split(' ').join('');
-}
+    function findShortestWord(str) {
+        let words = str.split(' ').filter(word => word.length > 0); // Split and remove extra spaces
+        if (words.length === 0) return null; // Handle empty input
 
-// Example usage:
-console.log(removeSpaces("Hello World! How are you?")); // Output: "HelloWorld!Howareyou?"
+        return words.reduce((shortest, current) =>
+            current.length < shortest.length ? current : shortest
+        );
+    }
+
+    // Example usage
+    console.log(findShortestWord("JavaScript is awesome")); // "is"
+    console.log(findShortestWord("The quick brown fox"));   // "The"
+    console.log(findShortestWord("  A big cat  "));         // "A"
+    console.log(findShortestWord(""));                     // null
+
+
+    // most frequent character
+
+    function mostFrequentChar(str) {
+        let charCount = {};
+        let maxChar = '';
+        let maxCount = 0;
+
+        for (let char of str) {
+            charCount[char] = (charCount[char] || 0) + 1;
+            if (charCount[char] > maxCount) {
+                maxCount = charCount[char];
+                maxChar = char;
+            }
+        }
+
+        return maxChar;
+    }
+
+    // Example usage:
+    console.log(mostFrequentChar("javascript")); // Output: "a"
+
+
+    // remove white space
+
+    function removeSpaces(str) {
+        return str.split(' ').join('');
+    }
+
+    // Example usage:
+    console.log(removeSpaces("Hello World! How are you?")); // Output: "HelloWorld!Howareyou?"
+
+    // 10. Compress a String (Run-Length Encoding)
+    function compressString(str) {
+        let compressed = "";
+        let count = 1;
+        for (let i = 0; i < str.length; i++) {
+            if (str[i] === str[i + 1]) {
+                count++;
+            } else {
+                compressed += str[i] + (count > 1 ? count : '');
+                count = 1;
+            }
+        }
+        return compressed;
+    }
+
 
 
 </script>
