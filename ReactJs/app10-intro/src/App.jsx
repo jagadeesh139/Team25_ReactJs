@@ -17,14 +17,14 @@ function App() {
         <nav>
           <Link to={''}>Home</Link>
           <Link to={'about'}>About</Link>
-          <Link to={'footer'}>Footer</Link>
           <Link to={'projects'}>Projects</Link>
+          <Link to={'footer'}>Footer</Link>
         </nav>
         <Routes>
           <Route path="" element={<Home />} />
-          <Route path="footer" element={<Footer />} />
           <Route path="projects" element={<Project />} />
           <Route path="about" element={<About />} />
+          <Route path="footer" element={<Footer />} />
         </Routes>
 
       </Router>
