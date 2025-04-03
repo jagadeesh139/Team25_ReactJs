@@ -3,7 +3,7 @@ import { Component } from "react";
 class Footer extends Component {
     render() {
         return <div>
-            <h2>welcome  to react Router Footer...!!!</h2>
+            <h1>welcome  to react Router Footer...!!!</h1>
         </div>
     }
 }
