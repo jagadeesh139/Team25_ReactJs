@@ -5,7 +5,9 @@ class User extends Component {
         super()
     }
     render() {
-        return
+        return <h2>
+            welcome to User details page...!!
+        </h2>
     }
 }
 export default User;

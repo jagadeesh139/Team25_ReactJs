@@ -263,5 +263,13 @@
       "id": "aab8"
     }
   ],
-  "Users": []
+  "Users": [
+    {
+      "id": "7534",
+      "fname": "Jagadeesh",
+      "lname": "Mattapalli",
+      "email": "18699A0438@mits.ac.in",
+      "password": "34"
+    }
+  ]
 }

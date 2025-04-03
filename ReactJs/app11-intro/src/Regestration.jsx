@@ -1,6 +1,7 @@
 import { Component } from "react";
 import Login from "./Login";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 export function handleRouterNavigate(Component) {
     return function (props) {
