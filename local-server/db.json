@@ -270,6 +270,13 @@
       "lname": "Mattapalli",
       "email": "18699A0438@mits.ac.in",
       "password": "34"
+    },
+    {
+      "id": "7ed0",
+      "fname": "Jagadeesh",
+      "lname": "M",
+      "email": "18699A0438@mits.ac.in",
+      "password": "2525"
     }
   ]
 }
