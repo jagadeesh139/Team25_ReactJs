@@ -25,22 +25,21 @@ class Login extends Component {
         console.log(this.state.user);
         // 1. Get ALL users from Server
         axios.get("http://localhost:3000/users").then(({ data }) => {
-          console.log(data);
-          const isUserExist = data.find((usr) => {
-            return (
-              usr.email === this.state.user.email &&
-              usr.password === this.state.user.password
-            );
-          });
-          if (isUserExist) {
-            this.props.navigate("/dashboard");
-          } else {
-            this.setState({ errorMessage: "Invalid Login " });
-          }
-          console.log(isUserExist);
+            console.log(data);
+            const isUserExist = data.find((usr) => {
+                return (
+                    usr.email === this.state.user.email &&
+                    usr.password === this.state.user.password
+                );
+            });
+            if (isUserExist) {
+                this.props.navigate("/dashboard");
+            } else {
+                this.setState({ errorMessage: "Invalid Login " });
+            }
+            console.log(isUserExist);
         });
     }
-    
     render() {
         const { email, password } = this.state.User;
         return <form action="">
