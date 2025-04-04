@@ -298,6 +298,27 @@
       "lname": "M",
       "email": "jagadeeshm139@outlook.com",
       "password": "121"
+    },
+    {
+      "id": "55eb",
+      "fname": "Jagadeesh",
+      "lname": "Mfdfd",
+      "email": "john.doe@example.com",
+      "password": "121"
+    },
+    {
+      "id": "0272",
+      "fname": "Jagadeesh",
+      "lname": "M",
+      "email": "Jagadeeshm139@outlook.com",
+      "password": "1215"
+    },
+    {
+      "id": "4a88",
+      "fname": "John",
+      "lname": "Doeo",
+      "email": "18699A0438@mits.ac.in",
+      "password": "121"
     }
   ]
 }

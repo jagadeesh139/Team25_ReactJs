@@ -1,13 +1,13 @@
 import { Component } from "react";
 import { handleRouterNavigate } from "./Regestration";
 import axios from "axios";
-import User from "./User";
+
 
 class Login extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            User: {
+            Users: {
                 email: "",
                 password: ""
             }
@@ -17,19 +17,19 @@ class Login extends Component {
         this.props.navigate("/dashboard");
     };
     handleChange = (e) => {
-        const newUser = { ...this.state.user };
+        const newUser = { ...this.state. Users };
         newUser[e.target.name] = e.target.value;
-        this.setState({ user: newUser });
+        this.setState({  Users: newUser });
     };
     handleLogin = () => {
-        console.log(this.state.user);
+        console.log(this.state. Users);
         // 1. Get ALL users from Server
         axios.get("http://localhost:3000/users").then(({ data }) => {
             console.log(data);
             const isUserExist = data.find((usr) => {
                 return (
-                    usr.email === this.state.user.email &&
-                    usr.password === this.state.user.password
+                    usr.email === this.state. Users.email &&
+                    usr.password === this.state.Users.password
                 );
             });
             if (isUserExist) {
@@ -41,7 +41,7 @@ class Login extends Component {
         });
     }
     render() {
-        const { email, password } = this.state.User;
+        const { email, password } = this.state. Users;
         return <form action="">
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">
@@ -51,7 +51,7 @@ class Login extends Component {
                     type="email"
                     class="form-control"
                     name="email"
-                    value={this.state.email}
+                    value={email}
                     onChange={this.handleChange}
                 />
             </div>
@@ -63,7 +63,7 @@ class Login extends Component {
                     type="password"
                     class="form-control"
                     name="password"
-                    value={this.state.password}
+                    value={password}
                     onChange={this.handleChange}
                 />
             </div>
