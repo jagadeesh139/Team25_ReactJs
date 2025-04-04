@@ -103,7 +103,7 @@ li a:hover {
 .img {
     width: 400px;
     height: 400px;
-    background: url(./3.png);
+    background: url(./image.png);
     background-position: center;
     background-size: cover;
 }
