@@ -36,9 +36,11 @@ class Login extends Component {
                 );
             });
             if (isUserExist) {
-                this.props.navigate("/dashboard");
-            } else {
+                // this.props.navigate("/dashboard");
                 this.setState({ errorMessage: "Invalid Login " });
+            } else {
+                // this.setState({ errorMessage: "Invalid Login " });
+                this.props.navigate("/dashboard");
             }
             console.log(isUserExist);
         });
