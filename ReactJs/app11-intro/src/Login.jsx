@@ -17,19 +17,22 @@ class Login extends Component {
         this.props.navigate("/dashboard");
     };
     handleChange = (e) => {
-        const newUser = { ...this.state. Users };
+        const newUser = { ...this.state.Users };
         newUser[e.target.name] = e.target.value;
-        this.setState({  Users: newUser });
+        this.setState({ Users: newUser });
     };
     handleLogin = () => {
-        console.log(this.state. Users);
+        console.log(this.state.Users);
         // 1. Get ALL users from Server
         axios.get("http://localhost:3000/users").then(({ data }) => {
             console.log(data);
             const isUserExist = data.find((usr) => {
                 return (
-                    usr.email === this.state. Users.email &&
-                    usr.password === this.state.Users.password
+                    usr.email === this.state.Users.email &&
+                    usr.password === this.state.Users.password,
+                    console.log(usr.email === this.state.Users.email &&
+                        usr.password === this.state.Users.password,)
+
                 );
             });
             if (isUserExist) {
@@ -41,7 +44,7 @@ class Login extends Component {
         });
     }
     render() {
-        const { email, password } = this.state. Users;
+        const { email, password } = this.state.Users;
         return <form action="">
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">
