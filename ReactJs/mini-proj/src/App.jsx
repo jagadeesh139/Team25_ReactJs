@@ -4,6 +4,7 @@ import { useState } from 'react'
 import './App.css'
 import Moviedata from './Moviedata'
 import Practice from './Practice'
+import RoomsToNights from './RoomsToNights'
 // import ET from './ET'
 // import Digital from './Digital'
 // import Intm from './Intm'
@@ -30,7 +31,8 @@ function App() {
      {/* <Intm/> */}
      {/* <ET/> */}
      {/* <Moviedata/> */}
-     <Practice/>
+     {/* <Practice/> */}
+     <RoomsToNights/>
     </>
   )
 }
