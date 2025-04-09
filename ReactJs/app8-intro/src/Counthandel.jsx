@@ -16,7 +16,7 @@ class Counthandel extends Component {
     handelReset = () => {
         { this.setState({ count: 1 }) }
     }
-
+    
     render() {
         return <div>
             <h1>
