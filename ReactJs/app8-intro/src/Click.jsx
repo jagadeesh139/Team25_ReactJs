@@ -7,9 +7,6 @@ class Click extends Component {
             <button onClick={this.props.handelincrement}>increament</button>
             <button onClick={this.props.handeldecrement}>decrement</button>
             <button onClick={this.props.handelreset}>reset</button>
-
-
-
         </div>
     }
 }
