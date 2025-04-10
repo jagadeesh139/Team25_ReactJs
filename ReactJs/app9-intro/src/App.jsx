@@ -8,6 +8,7 @@ import './App.css'
 import Click from './Click'
 import Hover from './Hover'
 import ContextAPi from './Context APi'
+import MainComponent from './Context-Component/MainComponent'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -21,7 +22,8 @@ function App() {
       {/* <Click /> */}
       <hr />
       {/* <Hover /> */}
-      <ContextAPi/>
+      {/* <ContextAPi/> */}
+      <MainComponent/>
 
     </>
   )
