@@ -1,4 +1,5 @@
 import { Component } from "react";
+import ChildComponent from "./ChildComponent";
 
 class ParentComponent extends Component {
     constructor() {
@@ -7,6 +8,7 @@ class ParentComponent extends Component {
     render() {
         return <div>
             <h1>welcome to parent Component...!!</h1>
+            <ChildComponent msg={this.props.msg} />
 
         </div>
     }

@@ -5,9 +5,9 @@ import './App.css'
 
 // import Handelclick from './Handelclick'
 // import Handelhover from './handelhover'
-import Click from './Click'
-import Hover from './Hover'
-import ContextAPi from './Context APi'
+// import Click from './Click'
+// import Hover from './Hover'
+// import ContextAPi from './Context APi'
 import MainComponent from './Context-Component/MainComponent'
 
 function App() {
@@ -16,13 +16,14 @@ function App() {
   return (
     <>
       {/* <Handelclick/> */}
-      <hr />
+      
       {/* <Handelhover/> */}
-      <hr />
+      
       {/* <Click /> */}
-      <hr />
+      
       {/* <Hover /> */}
       {/* <ContextAPi/> */}
+      <hr />
       <MainComponent/>
 
     </>
