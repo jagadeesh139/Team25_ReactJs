@@ -6,7 +6,7 @@ import './App.css'
 import Footer from './Footer';
 import Project from './Project';
 import About from './About';
-import Home from './Home';
+// import Home from './Home';
 import HomeComponent from './HomeComponent';
 import HeaderComponent from './HeaderComponent';
 
@@ -33,11 +33,11 @@ function App() {
 
       <Router>
         <nav>
-          <link to={""}>HomeComponent</link>
-          <link to={"header"}>HeaderComponent</link>
-          <link to={"about"}>About</link>
-          <link to={"project"}>Project</link>
-          <link to={"footer"}>Footer</link>
+          <Link to={""}>HomeComponent</Link>
+          <Link to={"header"}>HeaderComponent</Link>
+          <Link to={"about"}>About</Link>
+          <Link to={"project"}>Project</Link>
+          <Link to={"footer"}>Footer</Link>
         </nav>
         <Routes>
           <Route path="" element={<HomeComponent />}></Route>
