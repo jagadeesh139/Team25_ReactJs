@@ -7,13 +7,15 @@ import Footer from './Footer';
 import Project from './Project';
 import About from './About';
 import Home from './Home';
+import HomeComponent from './HomeComponent';
+import HeaderComponent from './HeaderComponent';
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
     <>
-      <Router>
+      {/* <Router>
         <nav>
           <Link to={''}>Home</Link>
           <Link to={'about'}>About</Link>
@@ -27,6 +29,23 @@ function App() {
           <Route path="footer" element={<Footer />} />
         </Routes>
 
+      </Router> */}
+
+      <Router>
+        <nav>
+          <link to={""}>HomeComponent</link>
+          <link to={"header"}>HeaderComponent</link>
+          <link to={"about"}>About</link>
+          <link to={"project"}>Project</link>
+          <link to={"footer"}>Footer</link>
+        </nav>
+        <Routes>
+          <Route path="" element={<HomeComponent />}></Route>
+          <Route path="header" element={<HeaderComponent />}></Route>
+          <Route path="about" element={<About />}></Route>
+          <Route path="project" element={<Project />}></Route>
+          <Route path="footer" element={<Footer />}></Route>
+        </Routes>
       </Router>
 
     </>

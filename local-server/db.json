@@ -354,6 +354,13 @@
       "lname": "M",
       "email": "chandu@123",
       "password": "123"
+    },
+    {
+      "id": "d436",
+      "fname": "Jagadeesh",
+      "lname": "M",
+      "email": "jagadeeshm139@outlook.com",
+      "password": "121"
     }
   ]
 }
