@@ -1,21 +1,21 @@
 import { Component } from "react";
 import Ch from "./Ch";
 
-class Jagadeesh extends Component{
-    constructor(){
+class Jagadeesh extends Component {
+    constructor() {
         super()
 
-        this.state={
-            fname:"jagadeesh",
-            lname:"M",
-            email:"jaga@gamil.com"
+        this.state = {
+            fname: "jagadeesh",
+            lname: "M",
+            email: "jaga@gamil.com"
         }
     }
-    render(){
+    render() {
         return <div>
-            <Ch all={this.state}/>
+            <Ch all={this.state} />
         </div>
-           
+
     }
 }
 export default Jagadeesh;
