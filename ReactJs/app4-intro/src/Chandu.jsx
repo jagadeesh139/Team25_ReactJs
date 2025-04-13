@@ -20,7 +20,7 @@ class Chandu extends Component {
                 email: "jaggu@gmail.com"
             },
 
-            person:["praveen","kiran","hari"]
+            person: ["praveen", "kiran", "hari"]
 
         })
 
