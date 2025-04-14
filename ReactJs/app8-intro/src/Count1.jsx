@@ -7,7 +7,7 @@ class Count1 extends Component {
             count: 0
         }
     }
-    
+
     handelincrement = () => {
         this.setState({ count: this.state.count + 1 })
 
