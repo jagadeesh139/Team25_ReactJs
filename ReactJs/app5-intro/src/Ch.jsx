@@ -1,7 +1,7 @@
 import { Component } from "react";
 
 class Ch extends Component {
-    
+
     render() {
         return <div>
             <h2>welcome to Class component topic !!!</h2>
