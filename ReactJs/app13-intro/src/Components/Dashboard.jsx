@@ -2,7 +2,6 @@ import axios from "axios";
 import React, { Component } from "react";
 
 import { useNavigate } from "react-router-dom";
-
 export function withNavigation(Component) {
     return function WrappedComponent(props) {
         const navigate = useNavigate();

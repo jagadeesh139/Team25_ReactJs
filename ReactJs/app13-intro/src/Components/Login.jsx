@@ -15,6 +15,7 @@ class Login extends Component {
         };
     }
 
+    
     handleDashboardNavigation = () => {
         this.props.navigate("/dashboard");
     };
