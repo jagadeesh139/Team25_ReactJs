@@ -82,8 +82,8 @@ class Usermanagement extends Component {
                     handleUpdate={this.handleUpdate} />
                 <hr />
                 <UserTable user={this.state.user}
-                handleEdit={this.handleEdit}
-                handleDelete={this.handleDelete}/>
+                    handleEdit={this.handleEdit}
+                    handleDelete={this.handleDelete} />
 
 
             </div>
