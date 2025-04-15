@@ -6,7 +6,6 @@ const employe = [
     "St Emp 5"
 ]
 
-
 export const EmployesReducers = (state = employe, action) => {
     switch (action.type) {
         case "Create":
