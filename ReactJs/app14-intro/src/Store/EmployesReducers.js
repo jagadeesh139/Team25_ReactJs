@@ -17,10 +17,5 @@ export const EmployesReducers = (state = employe, action) => {
             break;
         default:
             return state;
-
-
-
     }
-
-
 }
