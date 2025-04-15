@@ -1,11 +1,28 @@
 import { Component } from "react";
+import { connect } from "react-redux"
 
 class Users extends Component {
-    constructor() {
-        super()
+    constructor(props) {
+        super(props)
+        this.state = {
+            userdetails: ["kirankumar", "raviraju", "uma"]
+        }
     }
     render() {
-        return
+        return <div>
+            <ul>
+                {this.state.Users.map((usr) => {
+                    return <li>
+                        {usr}
+                    </li>
+
+                })}
+            </ul>
+        </div>
     }
 }
-export default Users;
+function mapstatetoprop(state) {
+    return state
+
+}
+export default connect(mapstatetoprop)(Users);
