@@ -20,12 +20,12 @@ class Digital extends Component {
     }
 
     componentDidMount = () => {
-       this.getdatafromserver()
+        this.getdatafromserver()
     }
     getdatafromserver = () => {
         axios.get("http://localhost:3000/digit").then(({ data }) => {
             this.setState({ digit: data })
-            
+
         })
     }
     handelevent = (e) => {
@@ -36,7 +36,7 @@ class Digital extends Component {
     }
 
     adddata = () => {
-        axios.post("http://localhost:3000/digit",this.state.Street).then(() => {
+        axios.post("http://localhost:3000/digit", this.state.Street).then(() => {
             this.getdatafromserver()
             this.clearform()
 
@@ -79,7 +79,7 @@ class Digital extends Component {
                 handelupdate={this.handelupdate}
                 index={this.state.index}
                 adddata={this.adddata} />
-                <hr />
+            <hr />
             <Digittabel digit={this.state.digit}
                 handeledit={this.handeledit}
                 handeldelete={this.handeldelete} />
