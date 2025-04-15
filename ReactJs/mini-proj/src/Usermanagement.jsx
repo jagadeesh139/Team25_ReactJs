@@ -1,7 +1,7 @@
 import axios from "axios";
 import { Component } from "react";
 import UserTable from "./UserTable";
-import UserForm from "./userForm";
+import UserForm from "./UserForm";
 
 class Usermanagement extends Component {
     constructor() {
