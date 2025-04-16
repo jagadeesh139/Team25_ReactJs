@@ -1,4 +1,5 @@
 import { Component } from "react";
+import { connect } from "react-redux";
 
 class Employes extends Component {
     constructor(props) {
@@ -21,5 +22,9 @@ class Employes extends Component {
         </div>
     }
 }
+function mapstatetoprop(state) {
+    return state
 
-export default Employes;
+}
+
+export default connect(mapstatetoprop)(Employes);
