@@ -11,7 +11,7 @@ class Users extends Component {
     render() {
         return <div>
             <ul>
-                {this.state.Users.map((usr) => {
+                {this.state.userdetails.map((usr) => {
                     return <li>
                         {usr}
                     </li>
