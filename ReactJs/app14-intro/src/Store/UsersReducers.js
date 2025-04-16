@@ -10,6 +10,8 @@ const UsersReducers = (state = Users, action) => {
             break;
         case "DELETE":
             break;
+            default:
+                return state;
 
     }
 
