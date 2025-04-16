@@ -1,9 +1,14 @@
 import { createStore, combineReducers } from "redux";
+import { EmployesReducers } from "./EmployesReducers";
+import StudentReducers from "./StudentReducers";
 
 
 const rootReducer = combineReducers({
+    employe: EmployesReducers,
+    Student: StudentReducers,
+    Users: null
 
-
-    
 })
-export default Stor
+
+const store = createStore(rootReducer)
+export default store
