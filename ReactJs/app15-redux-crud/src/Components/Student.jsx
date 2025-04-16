@@ -10,10 +10,12 @@ class Student extends Component {
     }
     render() {
         return <div>
-            {this.state.student.map((std) => {
+            {/* {this.state.student.map((std) => {
                 return <li>{std}</li>
+                
 
-            })}
+            })} */}
+            <input type="text" />
 
         </div>
     }
