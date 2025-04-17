@@ -15,6 +15,7 @@ class Student extends Component {
   };
 
   handleAdd = () => {
+    console.log("add user")
     this.props.dispatch({
       type: "CREATE",
       payload: this.state.student
@@ -27,6 +28,7 @@ class Student extends Component {
   };
 
   handleUpdate = () => {
+    console.log("update user")
     this.props.dispatch({
       type: "UPDATE",
       payload: {
@@ -38,6 +40,7 @@ class Student extends Component {
   };
 
   handleDelete = (i) => {
+    console.log(i)
     this.props.dispatch({
       type: "DELETE",
       payload:i
