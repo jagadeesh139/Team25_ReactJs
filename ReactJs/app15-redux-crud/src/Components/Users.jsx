@@ -15,9 +15,18 @@ class Users extends Component {
         }
     }
     handelchange = (e) => {
-        const newUser = [...this.state.user]
+        const newUser = { ...this.state.user }
         newUser[e.target.name] = e.target.value
         this.setState({ user: newUser })
+
+    }
+    handelAdduser = () => {
+
+    }
+    handeldelete = () => {
+
+    }
+    handeledit = () => {
 
     }
     render() {
@@ -33,7 +42,7 @@ class Users extends Component {
                 <input type="text" value={this.state.user.email} name="email" onChange={(e) => { this.handelchange(e) }} />{""}
                 <br />
                 <label htmlFor="">password</label>
-                <input type="text" value={this.state.user.password} name="pasword" onChange={(e) => { this.handelchange(e) }} />{""}
+                <input type="text" value={this.state.user.password} name="password" onChange={(e) => { this.handelchange(e) }} />{""}
                 <br />
                 {this.state.editindex === null ? (<button type="button" onClick={this.handelAdduser} style={{ background: "blue", color: "white" }}>AddUser</button>) : (<button type="button" onClick={this.handelUpdate} style={{ background: "orange", color: "white" }}> Update</button>)}
             </form>
