@@ -1,5 +1,6 @@
-import { Component } from "react";
+import React, { Component } from "react";
 import { connect } from "react-redux";
+import { adduserAction, deleteuserAction, UpdateuserAction } from "../Store/actions";
 
 class Users extends Component {
     constructor(props) {
@@ -21,12 +22,40 @@ class Users extends Component {
 
     }
     handelAdduser = () => {
+        this.props.dispatch(adduserAction(this.state.user))
+        this.setState({
+            user: {
+                fname: "",
+                lname: "",
+                email: "",
+                password: ""
+            }
+
+        })
 
     }
-    handeldelete = () => {
+    handeldelete = (user) => {
+        this.props.dispatch(deleteuserAction(user))
 
     }
-    handeledit = () => {
+    handeledit = (user, i) => {
+        this.setState({ user, editindex: i })
+
+    }
+    handelUpdate = () => {
+        const data = {
+            user: this.state.user,
+            index: this.state.editindex
+        }
+        this.props.dispatch(UpdateuserAction(data))
+        this.setState({
+            user: {
+                fname: "",
+                lname: "",
+                email: "",
+                password: ""
+            }
+        })
 
     }
     render() {
@@ -58,14 +87,14 @@ class Users extends Component {
                     </tr>
                 </thead>
                 <tbody>
-                    {this.props.users && this.props.users.map((user, editindex) => {
-                        return <tr>
+                    {this.props.users && this.props.users.map((user, i) => {
+                        return <tr key={i}>
                             <td>{user.fname}</td>
                             <td>{user.lname}</td>
                             <td>{user.email}</td>
                             <td>{user.password}</td>
-                            <td><button type="button" onClick={this.handeledit} style={{ background: "gray", color: "white" }}>Edit</button></td>
-                            <td><button type="button" onClick={this.handeldelete} style={{ background: "red", color: "white" }}>Edit</button></td>
+                            <td><button type="button" onClick={() => { this.handeledit(user, i) }} style={{ background: "gray", color: "white" }}>Edit</button></td>
+                            <td><button type="button" onClick={() => { this.handeldelete(user) }} style={{ background: "red", color: "white" }}>Edit</button></td>
                         </tr>
 
 

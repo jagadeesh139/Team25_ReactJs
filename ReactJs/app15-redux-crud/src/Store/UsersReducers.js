@@ -10,8 +10,10 @@ switch (action.type) {
         newuser[action.payload.index] = action.payload.user
         break;
     case "DELETE":
-        return state.filter((usr)=>{})
+        return state.filter((usr) => { })
         break;
+    default:
+        return state;
 
 }
 export default UsersReducers;
