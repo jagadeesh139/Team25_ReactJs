@@ -50,7 +50,7 @@ class Employee extends Component {
                 <br />
                 {this.state.editindex === null ? (<button type="button" onClick={this.handelAdduser}>Adddetails</button>) : (<button type="button" onClick={this.handelUpdate}>Update</button>)}
             </form>
-            <table>
+            <table border={1}>
                 <thead>
                     <tr>
                         <th>First Name</th>
@@ -63,13 +63,13 @@ class Employee extends Component {
                 </thead>
                 <tbody>
                     {this.state.Empdetails && this.state.Empdetails.map((emp, i) => {
-                        return <tr>
+                        return <tr key={i}>
                             <td>{emp.fname}</td>
                             <td>{emp.lname}</td>
                             <td>{emp.email}</td>
                             <td>{emp.password}</td>
-                            <td><button type="button" onClick={() => { this.handeledit(emp, i) }}>Edit</button></td>
-                            <td><button type="button" onClick={() => { this.handeldelete(emp) }}>Delete</button></td>
+                            <td><button type="button" style={{ background: "gray", color: "white" }} onClick={() => { this.handeledit(emp, i) }}>Edit</button></td>
+                            <td><button type="button" style={{ background: "red", color: "white" }} onClick={() => { this.handeldelete(emp) }}>Delete</button></td>
                         </tr>
 
                     })}

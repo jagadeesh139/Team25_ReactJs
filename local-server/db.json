@@ -362,5 +362,31 @@
       "email": "jagadeeshm139@outlook.com",
       "password": "121"
     }
+  ],
+  "emp": [
+    {
+      "fname": "John",
+      "lname": "Doe",
+      "email": "john.doe@example.com",
+      "password": "john123"
+    },
+    {
+      "fname": "Jane",
+      "lname": "Smith",
+      "email": "jane.smith@example.com",
+      "password": "jane123"
+    },
+    {
+      "fname": "Robert",
+      "lname": "Johnson",
+      "email": "robert.j@example.com",
+      "password": "robert123"
+    },
+    {
+      "fname": "Emily",
+      "lname": "Clark",
+      "email": "emily.clark@example.com",
+      "password": "emily123"
+    }
   ]
 }
