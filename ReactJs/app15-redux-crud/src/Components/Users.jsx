@@ -42,9 +42,9 @@ class Users extends Component {
         this.setState({ user, editindex: i })
 
     }
-    handelUpdate = () => {
+    handelUpdate = (user) => {
         const data = {
-            user: this.state.user,
+            value: this.state.user,
             index: this.state.editindex
         }
         this.props.dispatch(UpdateuserAction(data))
@@ -59,13 +59,14 @@ class Users extends Component {
 
     }
     render() {
+        console.log(this.props)
         return <div>
             <form action="">
                 <label htmlFor="">First Name:</label>
                 <input type="text" value={this.state.user.fname} name="fname" onChange={(e) => { this.handelchange(e) }} />{""}
                 <br />
                 <label htmlFor="">Last name:</label>
-                <input type="text" value={this.state.user.lnamename} name="lname" onChange={(e) => { this.handelchange(e) }} />{""}
+                <input type="text" value={this.state.user.lname} name="lname" onChange={(e) => { this.handelchange(e) }} />{""}
                 <br />
                 <label htmlFor="">Email:</label>
                 <input type="text" value={this.state.user.email} name="email" onChange={(e) => { this.handelchange(e) }} />{""}
@@ -87,14 +88,14 @@ class Users extends Component {
                     </tr>
                 </thead>
                 <tbody>
-                    {this.props.users && this.props.users.map((user, i) => {
+                    {this.props.user.map((user, i) => {
                         return <tr key={i}>
                             <td>{user.fname}</td>
                             <td>{user.lname}</td>
                             <td>{user.email}</td>
                             <td>{user.password}</td>
                             <td><button type="button" onClick={() => { this.handeledit(user, i) }} style={{ background: "gray", color: "white" }}>Edit</button></td>
-                            <td><button type="button" onClick={() => { this.handeldelete(user) }} style={{ background: "red", color: "white" }}>Edit</button></td>
+                            <td><button type="button" onClick={() => { this.handeldelete(user) }} style={{ background: "red", color: "white" }}>Delete</button></td>
                         </tr>
 
 
@@ -104,16 +105,10 @@ class Users extends Component {
 
         </div>
 
-
-
-
-
-
-
     }
 }
-function mapstatetoprop(state) {
+function mapsStateToProps(state) {
     return state
 
 }
-export default connect(mapstatetoprop)(Users)
+export default connect(mapsStateToProps)(Users)

@@ -1,19 +1,30 @@
-const user = ["user1", "user2", "user3", "user4"]
 
-const UsersReducers = (state = user, action)
-switch (action.type) {
-    case "CREATE":
-        return [...state, action.payload]
-        break;
-    case "UPDATE":
-        const newuser = [...state]
-        newuser[action.payload.index] = action.payload.user
-        break;
-    case "DELETE":
-        return state.filter((usr) => { })
-        break;
-    default:
-        return state;
+const users = [{
+    "fname": "jagadeesh",
+    "lname": "M",
+    "email": "jagadeesh123@gmail.com",
+    "password": "jagadeesh@123"
+},]
 
+
+const UsersReducer = (state = users, action) => {
+    switch (action.type) {
+        case "CREATE":
+            return [...state, action.payload]
+
+        case "UPDATE":
+            return state.map((user, idx) =>
+                idx === action.payload.index ? action.payload.value : user
+
+
+            )
+
+        case "DELETE":
+            return state.filter((user) => user !== action.payload)
+
+        default:
+            return state;
+
+    }
 }
-export default UsersReducers;
+export default UsersReducer;
