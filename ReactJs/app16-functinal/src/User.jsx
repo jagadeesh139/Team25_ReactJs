@@ -14,7 +14,7 @@ function MyComponent() {
     const handelevent = (e) => {
         const newformdata = { ...formdata }
         newformdata[e.target.name] = e.target.value
-        setformdata( newformdata )
+        setformdata(newformdata)
     }
     const handeladduser = () => {
         const newuser = [...user]
