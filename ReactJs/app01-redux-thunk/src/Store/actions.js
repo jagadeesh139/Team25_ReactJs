@@ -29,11 +29,15 @@ const deleteemployeeuser = (emp) => {
         }
 
     }
-
 }
-const updateemployeeuser=()=>{
-    return async (dispatch)=>{
-        
+const updateemployeeuser = () => {
+    return async (dispatch) => {
+        try {
+            const resp = await axios.put("http://localhost:3000/emp" + emp.id, emp)
+        } catch (error) {
+
+        }
+
     }
 }
 
