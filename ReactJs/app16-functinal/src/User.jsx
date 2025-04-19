@@ -2,21 +2,28 @@ import { useState } from "react";
 
 function MyComponent() {
     const [formdata, setformdata] = useState({
-        fistname: "",
-        lastname: "",
+        fname: "",
+        lname: "",
         email: "",
         password: ""
 
     })
     const [user, setuser] = useState([])
-    const [index, editindex] = useState(null)
+    const [i, editindex] = useState(null)
 
     const handelevent = (e) => {
         const newformdata = { ...formdata }
         newformdata[e.target.name] = e.target.value
-        setformdata({ newformdata })
+        setformdata( newformdata )
     }
-    const handeldelete = () => {
+    const handeladduser = () => {
+        const newuser = [...user]
+        newuser.push(formdata)
+        setuser(newuser)
+        setformdata({ fname: "", lname: "", email: "", password: "" })
+
+    }
+    const handeldelete = (i) => {
 
     }
     const handeledit = () => {
@@ -30,24 +37,25 @@ function MyComponent() {
             <h1>Hello from Functional Component</h1>
             <form action="">
                 <label htmlFor="">First Name:-</label>
-                <input type="text" name="firstname" value={formdata.fistname} onChange={handelevent} />
+                <input type="text" name="fname" value={formdata.fname} onChange={handelevent} />{""}
                 <br />
                 <label htmlFor="">Last name:-</label>
-                <input type="text" name="lastname" value={formdata.lastname} onChange={handelevent} />
+                <input type="text" name="lname" value={formdata.lname} onChange={handelevent} />{""}
                 <br />
                 <label htmlFor="">Email:-</label>
-                <input type="text" name="email" value={formdata.email} onChange={handelevent} />
+                <input type="text" name="email" value={formdata.email} onChange={handelevent} />{""}
                 <br />
                 <label htmlFor="">password:-</label>
-                <input type="text" name="password" value={formdata.password} onChange={handelevent} />
+                <input type="text" name="password" value={formdata.password} onChange={handelevent} />{""}
                 <br />
-                <button type="button" style={{ background: "blue", color: "white", margin: "10px", }} onClick={() => { handeladduser() }}>add user</button>
-                <button type="button" style={{ background: "red", color: "white", margin: "10px", }} onClick={() => { handelupdate() }}>Update user</button>
+                {i === null ? (<button type="button" style={{ background: "blue", color: "white", margin: "10px", }} onClick={() => { handeladduser() }}>adduser</button>) : (
+                    <button type="button" style={{ background: "red", color: "white", margin: "10px", }} onClick={() => { handelupdate() }}>Update user</button>)}
+
 
             </form>
             <table border={2}>
                 <thead>
-                    <tr>
+                    <tr >
                         <th>First name</th>
                         <th>last Name</th>
                         <th>Email</th>
@@ -57,14 +65,15 @@ function MyComponent() {
                     </tr>
                 </thead>
                 <tbody>
-                    {formdata.map((data, index) => {
-                        return <tr>
-                            <td>{data.fistname}</td>
-                            <td>{data.lastname}</td>
+                    {user.map((data, i) => {
+                        return <tr key={i}>
+                            <td>{data.fname}</td>
+                            <td>{data.lname}</td>
                             <td>{data.email}</td>
                             <td>{data.password}</td>
-                            <td><button type="button" onClick={() => { handeledit }}>Edit</button></td>
-                            <td><button type="button" onClick={() => { handeldelete }}>Delete</button></td>
+
+                            <td><button type="button" onClick={() => { handeledit(data, i) }}>Edit</button></td>
+                            <td><button type="button" onClick={() => { handeldelete(i) }}>Delete</button></td>
                         </tr>
                     })}
 
