@@ -26,10 +26,16 @@ function MyComponent() {
     const handeldelete = (i) => {
 
     }
-    const handeledit = () => {
+    const handeledit = (data, i) => {
+        const newformdata=[...formdata]
+        setformdata(data)
+        editindex(i)
 
     }
     const handelupdate = () => {
+        const newuser=[...user]
+        editindex(i)
+        
 
     }
     return (
