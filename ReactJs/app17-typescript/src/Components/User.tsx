@@ -6,10 +6,15 @@ const User: React.FC<UserInterface> = (props: UserInterface) => {
         return <div>
             <button type="button" onClick={() => { Changevalue(1, 2) }}>ChangeValue</button>
             <UserContextConsumer>
-                {(value)=>{
-
+                {(value) => {
+                    return <ul>
+                        {value.map((item) => {
+                            return <li>{item}</li>
+                        })}
+                    </ul>
                 }}
             </UserContextConsumer>
         </div>
     }
 }
+export default User
