@@ -5,7 +5,7 @@ interface ChildProps {
 
 const Child: React.FC<ChildProps> = ({ usersInfo })=>{
     return <div>
-        <
+        <User
     </div>
 }
 export default Child;
