@@ -3,6 +3,9 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import Props1 from './Props1'
+import FunCount from './Components/FunCount'
+import FunClick from './Components/FunClick'
+import FunHover from './Components/FunHover'
 // import Props from './Props'
 // import Renderprops from './Renderprops'
 // import Renderprop from './Renderprop'
@@ -12,10 +15,32 @@ function App() {
 
   return (
     <>
-    {/* <Renderprops/> */}
-    {/* <Renderprop/> */}
-    {/* <Props/> */}
-    <Props1/>
+      {/* <Renderprops/> */}
+      {/* <Renderprop/> */}
+      {/* <Props/> */}
+      {/* <Props1/> */}
+
+      <FunCount
+        render={(count, handelIncreament, handelDecreament, handelReset) => (
+          <FunClick
+            count={count}
+            handelIncreament={handelIncreament}
+            handelDecreament={handelDecreament}
+            handelReset={handelReset}
+          />
+        )}
+      />
+
+      <FunCount
+        render={(count, handelIncreament, handelDecreament, handelReset) => (
+          <FunHover
+            count={count}
+            handelIncreament={handelIncreament}
+            handelDecreament={handelDecreament}
+            handelReset={handelReset}
+          />
+        )}
+      />
 
     </>
   )

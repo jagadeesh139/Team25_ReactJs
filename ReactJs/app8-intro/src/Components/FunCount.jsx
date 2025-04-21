@@ -1,25 +1,25 @@
 import { useState } from "react";
 
-const FunCount = () => {
-    const FunCount = ({ }) => {
-        const [count, setcount] = useState(0)
-        const handelIncreament = () => {
-            setcount(count + 1)
+const FunCount = ({ render }) => {
+    const [count, setCount] = useState(0);
 
-        }
-        const handelDecreament = () => {
-            setcount(count - 1)
+    const handelIncrement = () => {
+        setCount(count + 1);
+    };
 
-        }
-        const handelReset = () => {
-            setcount(0)
+    const handelDecrement = () => {
+        setCount(count - 1);
+    };
 
-        }
+    const handelReset = () => {
+        setCount(0);
+    };
 
-    }
-    return <div>
-        {}
+    return (
+        <div>
+            {render(count, handelIncrement, handelDecrement, handelReset)}
+        </div>
+    );
+};
 
-    </div>
-}
 export default FunCount;
