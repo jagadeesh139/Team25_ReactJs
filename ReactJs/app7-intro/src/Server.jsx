@@ -94,13 +94,14 @@ class Server extends Component {
                     <label>ID</label>
                     <input type="text" name="id" value={this.state.person.id} onChange={this.handleEvent} />
                     <br />
-
+                    
                     {this.state.editindex === null ? (
                         <button type="button" onClick={this.addUser}>Add User</button>
                     ) : (
                         <button type="button" onClick={this.handleUpdate}>Update</button>
                     )}
                 </form>
+
 
                 <h3>User List</h3>
                 <table border={1}>
