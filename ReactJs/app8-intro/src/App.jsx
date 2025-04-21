@@ -2,10 +2,11 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
-import Props1 from './Props1'
-import FunCount from './Components/FunCount'
-import FunClick from './Components/FunClick'
-import FunHover from './Components/FunHover'
+// import Props1 from './Props1'
+
+import FunCountComponent from './Components/FunCountComponent'
+import FunClickComponent from './Components/FunClickComponent'
+import FunHoverComponent from './Components/FunHoverComponent'
 // import Props from './Props'
 // import Renderprops from './Renderprops'
 // import Renderprop from './Renderprop'
@@ -18,29 +19,15 @@ function App() {
       {/* <Renderprops/> */}
       {/* <Renderprop/> */}
       {/* <Props/> */}
-      {/* <Props1/> */}
+     
+  
 
-      <FunCount
-        render={(count, handelIncreament, handelDecreament, handelReset) => (
-          <FunClick
-            count={count}
-            handelIncreament={handelIncreament}
-            handelDecreament={handelDecreament}
-            handelReset={handelReset}
-          />
-        )}
-      />
-
-      <FunCount
-        render={(count, handelIncreament, handelDecreament, handelReset) => (
-          <FunHover
-            count={count}
-            handelIncreament={handelIncreament}
-            handelDecreament={handelDecreament}
-            handelReset={handelReset}
-          />
-        )}
-      />
+      <FunCountComponent render={(count, increment, decrement, reset) => (
+        <FunClickComponent count={count} increment={increment} decrement={decrement} reset={reset} />
+  )} />
+      <FunCountComponent render={(count, increment, decrement, reset) => (
+        <FunHoverComponent count={count} increment={increment} decrement={decrement} reset={reset} />
+  )} />
 
     </>
   )
