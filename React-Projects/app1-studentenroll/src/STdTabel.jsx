@@ -1,43 +1,47 @@
 import { Component } from "react";
 
-class STdTabel extends Component {
-    constructor() {
-        super()
-
-    }
+class StdTable extends Component {
     render() {
-        return <div>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Email</th>
-                        <th>Course</th>
-                        <th>Year</th>
-                        <th>gender</th>
-                        <th>Edit</th>
-                        <th>Delete</th>
-                    </tr>
-
-                </thead>
-                <tbody>
-                    {this.props.register.map((std, i) => {
-                        return <tr>
-                            <td>{std.name}</td>
-                            <td>{std.email}</td>
-                            <td>{std.course}</td>
-                            <td>{year}</td>
-                            <td>{gender}</td>
-                            <td><button type="button" onClick={() => { handeledit(std, i) }}>edit</button></td>
-                            <td><button type="button" onClick={() => { handeldelete(i) }}>Delete</button></td>
+        return (
+            <div>
+                <table border={1}>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Course</th>
+                            <th>Year</th>
+                            <th>Gender</th>
+                            <th>Edit</th>
+                            <th>Delete</th>
                         </tr>
-                    })}
+                    </thead>
+                    <tbody>
+                        {this.props.register.map((std, i) => {
+                            <tr key={i}>
 
-                </tbody>
-            </table>
-
-        </div>
+                                <td>{std.name}</td>
+                                <td>{std.email}</td>
+                                <td>{std.course}</td>
+                                <td>{std.year}</td>
+                                <td>{std.gender}</td>
+                                <td>
+                                    <button type="button" onClick={() => this.props.handleEdit(std, i)}>
+                                        Edit
+                                    </button>
+                                </td>
+                                <td>
+                                    <button type="button" onClick={() => this.props.handleDelete(i)}>
+                                        Delete
+                                    </button>
+                                </td>
+                            </tr>
+                        })}
+                    </tbody>
+                </table>
+            </div>
+        );
     }
-
 }
-export default STdTabel;
+
+export default StdTable;
