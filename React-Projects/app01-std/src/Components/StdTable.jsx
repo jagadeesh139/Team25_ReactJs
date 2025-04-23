@@ -1,4 +1,5 @@
 import { Component } from "react";
+import "./StdTable.css"
 
 class StdTable extends Component {
     constructor() {
@@ -6,14 +7,14 @@ class StdTable extends Component {
     }
     render() {
         return <div>
-            <table class="table">
+            <table class="table" border={1}>
                 <thead>
                     <tr>
-                        <th scope="col">#</th>
+
                         <th scope="col">Name</th>
-                        <th scope="col">Email</th>
                         <th scope="col">Gender</th>
-                        <th scope="col">COurce</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Course</th>
                         <th scope="col">Contact</th>
                         <th scope="col">Batch</th>
                         <th scope="col">EDIt</th>
@@ -23,10 +24,10 @@ class StdTable extends Component {
                 </thead>
                 <tbody>
                     {this.props.register.map((std, i) => {
-                        return <tr>
+                        return <tr key={i}>
                             <td>{std.name}</td>
-                            <td>{std.email}</td>
                             <td>{std.gender}</td>
+                            <td>{std.email}</td>
                             <td>{std.course}</td>
                             <td>{std.contact}</td>
                             <td>{std.batch}</td>
