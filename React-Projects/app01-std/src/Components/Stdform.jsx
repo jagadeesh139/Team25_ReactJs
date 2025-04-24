@@ -51,7 +51,7 @@ class Stdform extends Component {
                             <option value="Batch 03">Batch 03</option>
                         </select>
                     </div>
-                    {this.props.editindex === null ? (<button type="button" onClick={this.props.handelregister}>Register</button>) : (<button type="button" onClick={this.props.handelUpdate}>Update</button>)}
+                    {this.props.editindex === null ? (<button type="button" onClick={this.props.handelregister}>Register</button>) : (<button type="button" onClick={this.props.handelupdate}>Update</button>)}
 
 
                 </form>

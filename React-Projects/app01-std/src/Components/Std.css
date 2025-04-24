@@ -1,0 +1,180 @@
+/* StdApp.css */
+
+/* Container */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+  }
+  
+  #root {
+    padding: 20px;
+    background: #f5f7fa;
+    min-height: 100vh;
+  }
+  
+  /* Form */
+  .form-container {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    max-width: 600px;
+    margin: 0 auto 30px auto;
+  }
+  
+  .form-container h2 {
+    margin-bottom: 15px;
+    color: #333;
+  }
+  
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 12px;
+  }
+  
+  .form-group label {
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #555;
+  }
+  
+  .form-group input,
+  .form-group select {
+    padding: 8px 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .form-group input:focus,
+  .form-group select:focus {
+    outline: none;
+    border-color: #007BFF;
+  }
+  
+  /* Buttons inside form */
+  .form-container button {
+    margin-top: 15px;
+    padding: 10px 18px;
+    font-size: 15px;
+    border: none;
+    border-radius: 4px;
+    background-color: #007BFF;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color .2s ease;
+  }
+  
+  .form-container button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Filters */
+  .filters {
+    background: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 1px 6px rgba(0,0,0,0.1);
+    max-width: 800px;
+    margin: 0 auto 20px auto;
+  }
+  
+  .filters h3 {
+    margin-top: 0;
+    color: #333;
+  }
+  
+  .filter-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+  
+  .filter-group {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .filter-group label {
+    font-size: 14px;
+    margin-bottom: 4px;
+    color: #555;
+  }
+  
+  .filter-group select {
+    padding: 6px 8px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  /* Quick filter buttons (if still needed) */
+  button {
+    margin-right: 8px;
+    margin-bottom: 10px;
+    padding: 8px 14px;
+    font-size: 14px;
+    border: none;
+    border-radius: 4px;
+    background-color: #17a2b8;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color .2s ease;
+  }
+  
+  button:hover {
+    background-color: #117a8b;
+  }
+  
+  /* Table (StdTable) */
+  .std-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0 auto 30px auto;
+    max-width: 800px;
+    background: #fff;
+    box-shadow: 0 1px 6px rgba(0,0,0,0.1);
+  }
+  
+  .std-table th,
+  .std-table td {
+    padding: 10px 12px;
+    border: 1px solid #e1e4e8;
+    text-align: left;
+    font-size: 14px;
+  }
+  
+  .std-table th {
+    background-color: #f1f1f1;
+    color: #333;
+  }
+  
+  .std-table tbody tr:nth-child(even) {
+    background-color: #fafafa;
+  }
+  
+  /* Action buttons in table */
+  .std-table .action-btn {
+    padding: 5px 10px;
+    font-size: 13px;
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    cursor: pointer;
+    margin-right: 6px;
+  }
+  
+  .std-table .edit-btn {
+    background-color: #28a745;
+  }
+  
+  .std-table .delete-btn {
+    background-color: #dc3545;
+  }
+  
+  .std-table .action-btn:hover {
+    opacity: 0.9;
+  }
+  

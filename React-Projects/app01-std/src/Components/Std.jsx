@@ -1,6 +1,7 @@
 import { Component } from "react";
 import Stdform from "./Stdform";
 import StdTable from "./StdTable";
+import "./Std.css"
 
 class Std extends Component {
     constructor() {
@@ -44,14 +45,14 @@ class Std extends Component {
     }
     filterByCourse = course => {
         const filtered = this.state.allStudents.filter(
-          std => std.course.toLowerCase() === course.toLowerCase()
+            std => std.course.toLowerCase() === course.toLowerCase()
         );
         this.setState({ register: filtered });
-      }
-      
-      resetFilter = () => {
+    }
+
+    resetFilter = () => {
         this.setState({ register: this.state.allStudents });
-      }
+    }
 
     handeldelete = (i) => {
         const newregister = [...this.state.register]
@@ -71,7 +72,7 @@ class Std extends Component {
         if (this.state.editindex !== null) {
             newregister[this.state.editindex] = this.state.student;
 
-            // Find and update the matching student in allStudents based on a unique field, e.g. email
+
             const indexInAll = newAllStudents.findIndex(std => std.email === this.state.student.email);
             if (indexInAll !== -1) {
                 newAllStudents[indexInAll] = this.state.student;
@@ -107,8 +108,10 @@ class Std extends Component {
                 handelupdate={this.handelUpdate} />
             <br />
             <div>
-                <button onClick={() => this.filterByCourse("React")}>Front end</button>
-                <button onClick={() => this.filterByCourse("JavaScript")}>BackEnd</button>
+                <h2>Filter by course</h2>
+                <button onClick={() => this.filterByCourse("Front end")}>Front end</button>
+                <button onClick={() => this.filterByCourse("BackEnd")}>BackEnd</button>
+                <button onClick={() => this.filterByCourse("FullStack")}>FullStack</button>
                 <button onClick={this.resetFilter}>Reset Filter</button>
             </div>
 
