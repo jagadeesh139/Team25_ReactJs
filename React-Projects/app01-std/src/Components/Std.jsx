@@ -42,15 +42,16 @@ class Std extends Component {
 
         this.clearform();
     }
-    filterByCourse = (course) => {
-        const filtered = this.state.register.filter(std => std.course.toLowerCase() === course.toLowerCase());
+    filterByCourse = course => {
+        const filtered = this.state.allStudents.filter(
+          std => std.course.toLowerCase() === course.toLowerCase()
+        );
         this.setState({ register: filtered });
-    }
-
-    resetFilter = () => {
-        // Assuming the initial data is available in this.state.initialRegister
-        this.setState({ register: this.state.initialRegister });
-    }
+      }
+      
+      resetFilter = () => {
+        this.setState({ register: this.state.allStudents });
+      }
 
 
     handeldelete = (i) => {
