@@ -112,8 +112,6 @@ class Std extends Component {
                 <button onClick={this.resetFilter}>Reset Filter</button>
             </div>
 
-
-
             <StdTable register={this.state.register}
                 handeledit={this.handeledit}
                 handeldelete={this.handeldelete} />
