@@ -53,7 +53,6 @@ class Std extends Component {
         this.setState({ register: this.state.allStudents });
       }
 
-
     handeldelete = (i) => {
         const newregister = [...this.state.register]
         newregister.splice(i, 1)
