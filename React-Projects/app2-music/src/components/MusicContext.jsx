@@ -4,18 +4,18 @@ import React, { createContext, useReducer } from "react";
 export const MusicContext = createContext();
 
 
-    const initialState = {
-        tracks: [
-          {
-            id: 1,
-            title: "Test Track",
-            artist: "Test Artist",
-            url: "https://samplelib.com/lib/preview/mp3/sample-3s.mp3"
-          }
-        ],
-        currentTrack: null,
-        editingTrack: null,
-      };
+const initialState = {
+  tracks: [
+    {
+      id: 1,
+      title: "Test Track",
+      artist: "Test Artist",
+      url: "https://samplelib.com/lib/preview/mp3/sample-3s.mp3"
+    }
+  ],
+  currentTrack: null,
+  editingTrack: null,
+};
 
 
 function reducer(state, action) {
