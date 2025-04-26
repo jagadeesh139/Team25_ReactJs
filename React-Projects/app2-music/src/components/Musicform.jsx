@@ -26,41 +26,46 @@ export default function AddEditTrackForm() {
   };
 
   return (
-    <form
-      onSubmit={handleSubmit}
-      className="max-w-md mx-auto mt-10 p-6 bg-white rounded-2xl shadow-lg space-y-4"
-    >
-      <h2 className="text-2xl font-bold text-center text-gray-800">
-        {state.editingTrack ? "Edit Track" : "Add New Track"}
-      </h2>
-
-      <input
-        type="text"
-        placeholder="Track Title"
-        className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-        value={formData.title}
-        onChange={(e) => setFormData({ ...formData, title: e.target.value })}
-      />
-      <input
-        type="text"
-        placeholder="Artist"
-        className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-        value={formData.artist}
-        onChange={(e) => setFormData({ ...formData, artist: e.target.value })}
-      />
-      <input
-        type="text"
-        placeholder="Audio URL"
-        className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-        value={formData.url}
-        onChange={(e) => setFormData({ ...formData, url: e.target.value })}
-      />
-      <button
-        type="submit"
-        className="w-full py-3 px-6 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition duration-300"
+    <div className="min-h-screen bg-gradient-to-br from-blue-100 via-purple-100 to-pink-100 flex items-center justify-center px-4">
+      <form
+        onSubmit={handleSubmit}
+        className="w-full max-w-md p-8 bg-white/30 backdrop-blur-lg rounded-3xl shadow-xl space-y-6"
       >
-        {state.editingTrack ? "Update Track" : "Add Track"}
-      </button>
-    </form>
+        <h2 className="text-3xl font-bold text-center text-gray-800 drop-shadow-sm">
+          {state.editingTrack ? "Edit Track" : "Add New Track"}
+        </h2>
+
+        <div className="space-y-4">
+          <input
+            type="text"
+            placeholder="Track Title"
+            className="w-full p-4 bg-white/50 rounded-xl border border-gray-300 focus:outline-none focus:ring-4 focus:ring-blue-400 text-gray-700 placeholder-gray-500 transition"
+            value={formData.title}
+            onChange={(e) => setFormData({ ...formData, title: e.target.value })}
+          />
+          <input
+            type="text"
+            placeholder="Artist"
+            className="w-full p-4 bg-white/50 rounded-xl border border-gray-300 focus:outline-none focus:ring-4 focus:ring-blue-400 text-gray-700 placeholder-gray-500 transition"
+            value={formData.artist}
+            onChange={(e) => setFormData({ ...formData, artist: e.target.value })}
+          />
+          <input
+            type="text"
+            placeholder="Audio URL"
+            className="w-full p-4 bg-white/50 rounded-xl border border-gray-300 focus:outline-none focus:ring-4 focus:ring-blue-400 text-gray-700 placeholder-gray-500 transition"
+            value={formData.url}
+            onChange={(e) => setFormData({ ...formData, url: e.target.value })}
+          />
+        </div>
+
+        <button
+          type="submit"
+          className="w-full py-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold rounded-xl hover:from-blue-600 hover:to-purple-700 transition-all duration-300 shadow-md hover:shadow-xl"
+        >
+          {state.editingTrack ? "Update Track" : "Add Track"}
+        </button>
+      </form>
+    </div>
   );
 }
