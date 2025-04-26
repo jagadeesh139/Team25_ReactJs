@@ -62,6 +62,7 @@ function reducer(state, action) {
 export function MusicProvider({ children }) {
   const [state, dispatch] = useReducer(reducer, initialState);
 
+  
   return (
     <MusicContext.Provider value={{ state, dispatch }}>
       {children}

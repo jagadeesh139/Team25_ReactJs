@@ -111,7 +111,7 @@ export default function PlayerControls() {
                 className="w-32 accent-blue-500"
               />
             </label>
-
+            
             <button
               onClick={() => setLoop(!loop)}
               className={`px-3 py-1 rounded-md border ${loop ? "bg-blue-100 border-blue-400 text-blue-600" : "bg-gray-100"
