@@ -113,3 +113,77 @@ promiseAllSettled([
 // ]
 
 
+4. Implement the Function.bind, call, and apply methods on the Function prototype
+
+
+1. Polyfill for Function.prototype.call
+call: Immediately calls the function with a this context and arguments passed one by one.
+
+    javascript
+Copy
+Edit
+Function.prototype.myCall = function (context, ...args) {
+    context = context || globalThis; // fallback for null/undefined
+    const fnSymbol = Symbol(); // Create a unique property
+    context[fnSymbol] = this; // "this" is the function
+
+    const result = context[fnSymbol](...args); // Call function
+    delete context[fnSymbol]; // Clean up
+    return result;
+};
+
+// Example
+function greet(age) {
+    return `Hello ${this.name}, age ${age}`;
+}
+const user = { name: "Jagadeesh" };
+
+console.log(greet.myCall(user, 23)); // Hello Jagadeesh, age 23
+2. Polyfill for Function.prototype.apply
+apply: Like call, but arguments are passed as an array.
+
+    javascript
+Copy
+Edit
+Function.prototype.myApply = function (context, args = []) {
+    context = context || globalThis;
+    const fnSymbol = Symbol();
+    context[fnSymbol] = this;
+
+    const result = context[fnSymbol](...args);
+    delete context[fnSymbol];
+    return result;
+};
+
+// Example
+function greet(age, country) {
+    return `Hello ${this.name}, age ${age}, from ${country}`;
+}
+const user = { name: "Jagadeesh" };
+
+console.log(greet.myApply(user, [23, "India"]));
+// Hello Jagadeesh, age 23, from India
+3. Polyfill for Function.prototype.bind
+bind: Returns a new function bound to a specific this and optionally pre - filled arguments.It does not call immediately.
+
+    javascript
+Copy
+Edit
+Function.prototype.myBind = function (context, ...bindArgs) {
+    const originalFn = this;
+    return function (...callArgs) {
+        return originalFn.apply(context, [...bindArgs, ...callArgs]);
+    };
+};
+
+// Example
+function greet(age, country) {
+    return `Hello ${this.name}, age ${age}, from ${country}`;
+}
+const user = { name: "Jagadeesh" };
+
+const boundGreet = greet.myBind(user, 23);
+
+console.log(boundGreet("India"));
+// Hello Jagadeesh, age 23, from India
+
