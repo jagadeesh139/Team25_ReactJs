@@ -9,15 +9,15 @@ function App() {
 
   return (
     <>
-    <RecipeProvider>
-      <div className="container" style={{ padding: "20px" }}>
-        <h1>Recipe Book</h1>
-        <div style={{ display: "flex", gap: "20px" }}>
-          <RecipeForm/>
+      <RecipeProvider>
+        <div className="container" style={{ padding: "20px" }}>
+          <h1>Recipe Book</h1>
+          <div style={{ display: "flex", gap: "20px" }}>
+            <RecipeForm />
+          </div>
         </div>
-      </div>
-    </RecipeProvider>
-      
+      </RecipeProvider>
+
     </>
   )
 }
