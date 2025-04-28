@@ -50,5 +50,5 @@ function RecipeList({ onEdit }) {
         </div>
     );
 }
-
+ 
 export default RecipeList;

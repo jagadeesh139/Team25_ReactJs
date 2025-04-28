@@ -14,7 +14,7 @@ function RecipeForm() {
         cuisine: "Italian",
     });
     const [editIndex, setEditIndex] = useState(null);
-
+ 
     const ingredientOptions = ["Flour", "Sugar", "Eggs", "Milk", "Butter"];
     const categories = ["Breakfast", "Lunch", "Dinner", "Dessert"];
     const cuisines = ["Italian", "Chinese", "Indian", "Mexican"];
