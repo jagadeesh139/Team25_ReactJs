@@ -38,7 +38,6 @@ const CrudApp = () => {
   return (
     <div style={{ padding: 20 }}>
       <h2>React CRUD TODO App</h2>
-
       <input
         type="text"
         value={input}
