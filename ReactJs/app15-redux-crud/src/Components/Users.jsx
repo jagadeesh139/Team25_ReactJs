@@ -32,7 +32,6 @@ class Users extends Component {
             }
 
         })
-
     }
     handeldelete = (user) => {
         this.props.dispatch(deleteuserAction(user))
