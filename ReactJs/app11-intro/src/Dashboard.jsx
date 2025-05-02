@@ -9,7 +9,6 @@ class Dashboard extends Component {
             <h2>
                 welcome to dashboard details...!!!
             </h2>
-
         </div>
     }
 }
