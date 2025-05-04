@@ -196,3 +196,135 @@ class MyPromise {
     }
 }
 
+
+1. What are IIFE (Immediately Invoked Function Expressions)?
+An IIFE is a function that runs immediately after it's defined.
+It helps create a private scope, preventing variables from polluting the global scope.
+
+javascript
+Copy
+Edit
+(function() {
+  console.log("IIFE is running");
+})();
+You can also use arrow functions:
+
+javascript
+Copy
+Edit
+(() => {
+  console.log("Arrow IIFE");
+})();
+🔹 2. How to create a custom event in JavaScript
+Custom events allow you to define and dispatch your own events:
+
+javascript
+Copy
+Edit
+// Create the event
+const myEvent = new CustomEvent("myCustomEvent", {
+  detail: { name: "Jagadeesh", age: 21 }
+});
+
+// Add an event listener
+document.addEventListener("myCustomEvent", (e) => {
+  console.log("Custom event received:", e.detail);
+});
+
+// Dispatch the event
+document.dispatchEvent(myEvent);
+🔹 3. What is JSON, and how do you parse it?
+JSON (JavaScript Object Notation) is a lightweight format to store and exchange data.
+
+Parse (convert JSON string to object):
+
+javascript
+Copy
+Edit
+const jsonString = '{"name":"Jagadeesh","age":21}';
+const obj = JSON.parse(jsonString);
+console.log(obj.name); // Jagadeesh
+Stringify (convert object to JSON string):
+
+javascript
+Copy
+Edit
+const json = JSON.stringify(obj);
+console.log(json); // '{"name":"Jagadeesh","age":21}'
+🔹 4. How to implement a simple event emitter
+An event emitter allows components to communicate using events:
+
+javascript
+Copy
+Edit
+class EventEmitter {
+  constructor() {
+    this.events = {};
+  }
+
+  on(event, listener) {
+    (this.events[event] ||= []).push(listener);
+  }
+
+  emit(event, data) {
+    (this.events[event] || []).forEach(listener => listener(data));
+  }
+}
+
+// Usage
+const emitter = new EventEmitter();
+
+emitter.on("greet", (name) => {
+  console.log(`Hello, ${name}`);
+});
+
+emitter.emit("greet", "Jagadeesh");
+// 🔹 5. What are weak references in JavaScript?
+Weak references allow you to reference an object without preventing it from being garbage-collected.
+
+WeakMap and WeakSet are collections that hold weak references:
+
+javascript
+Copy
+Edit
+let obj = { name: "Jagadeesh" };
+const weakMap = new WeakMap();
+
+weakMap.set(obj, "some value");
+
+obj = null; // Now the object can be garbage collected
+Use cases: Caching, DOM element tracking without memory leaks.
+
+🔹 6. How to optimize performance in large-scale applications
+Common strategies:
+
+Code Splitting (using dynamic import() in React/Webpack)
+
+Debouncing & Throttling (for input or scroll handlers)
+
+Memoization (e.g., React.memo, useMemo)
+
+Lazy Loading (load components/data only when needed)
+
+Avoid unnecessary re-renders (using shouldComponentUpdate, useCallback)
+
+Web Workers for heavy computations
+
+Efficient DOM manipulation (batch changes, avoid layout thrashing)
+
+🔹 7. How to use localStorage and sessionStorage
+localStorage: persists even after browser is closed
+
+sessionStorage: cleared when the browser tab is closed
+
+javascript
+Copy
+Edit
+// localStorage
+localStorage.setItem("name", "Jagadeesh");
+console.log(localStorage.getItem("name")); // Jagadeesh
+
+// sessionStorage
+sessionStorage.setItem("token", "abc123");
+console.log(sessionStorage.getItem("token")); // abc123
+
