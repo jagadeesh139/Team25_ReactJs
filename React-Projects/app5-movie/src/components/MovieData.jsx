@@ -3,7 +3,7 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { removeMovie } from '../features/movies/moviesSlice';
 
-const MovieList = ({ onEdit }) => {
+const MovieData = ({ onEdit }) => {
   const { movies, searchGenre } = useSelector(state => state.movies);
   const dispatch = useDispatch();
 
@@ -33,4 +33,4 @@ const MovieList = ({ onEdit }) => {
   );
 };
 
-export default MovieList;
+export default MovieData;

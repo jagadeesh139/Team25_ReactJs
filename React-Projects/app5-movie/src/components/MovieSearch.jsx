@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { setSearchGenre } from '../features/movies/moviesSlice';
+import { setSearchGenre } from '../features/MoviesSlice';
 
 const MovieSearch = () => {
   const dispatch = useDispatch();

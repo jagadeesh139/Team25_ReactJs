@@ -3,6 +3,7 @@ import MovieForm from './components/MovieForm';
 import MovieList from './components/MovieList';
 import MovieSearch from './components/MovieSearch';
 import './styles.css';
+import MovieData from './components/MovieData';
 
 const App = () => {
   const [editData, setEditData] = useState(null);
@@ -12,7 +13,7 @@ const App = () => {
       <h1>🎬 Movie Database</h1>
       <MovieSearch />
       <MovieForm editData={editData} clearEdit={() => setEditData(null)} />
-      <MovieList onEdit={(data) => setEditData(data)} />
+      <MovieData onEdit={(data) => setEditData(data)} />
     </div>
   );
 };
