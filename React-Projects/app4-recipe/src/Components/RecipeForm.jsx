@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useRecipes } from "../context/RecipeContext";
-import RecipeList from "./RecipeList";
+
+import RecipeTable from "./RecipeTable";
 
 function RecipeForm() {
     const { addRecipe, updateRecipe } = useRecipes();
@@ -110,7 +111,7 @@ function RecipeForm() {
                 {editIndex !== null ? "Update Recipe" : "Add Recipe"}
             </button>
 
-            <RecipeList onEdit={startEditing} />
+            <RecipeTable onEdit={startEditing} />
         </div>
     );
 }

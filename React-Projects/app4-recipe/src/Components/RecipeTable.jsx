@@ -1,7 +1,7 @@
 import React from "react";
 import { useRecipes } from "../context/RecipeContext";
 
-function RecipeList({ onEdit }) {
+function RecipeTable({ onEdit }) {
     const { recipes, deleteRecipe } = useRecipes();
 
     return (
@@ -51,4 +51,4 @@ function RecipeList({ onEdit }) {
     );
 }
  
-export default RecipeList;
+export default RecipeTable;
