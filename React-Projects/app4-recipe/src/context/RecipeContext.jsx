@@ -15,7 +15,7 @@ export const RecipeProvider = ({ children }) => {
         setRecipes(newRecipes);
     };
 
-    const deleteRecipe = (index) => {
+    const deleteRecipe = (index) => { 
         setRecipes(recipes.filter((_, i) => i !== index));
     };
 
