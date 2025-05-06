@@ -13,7 +13,6 @@ const MovieForm = ({ editData, clearEdit }) => {
   });
 
   const dispatch = useDispatch();
-
   useEffect(() => {
     if (editData) {
       setForm({ ...editData, actors: editData.actors.join(', ') });
