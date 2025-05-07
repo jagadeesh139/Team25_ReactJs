@@ -3,7 +3,7 @@ import { useRecipes } from "../context/RecipeContext";
 
 function RecipeTable({ onEdit }) {
     const { recipes, deleteRecipe } = useRecipes();
-    
+
     return (
         <div style={{ width: "70%" }}>
             <h2>Recipes</h2>
