@@ -23,7 +23,7 @@ class Stdform extends Component {
                             <option value="male">Male</option>
                             <option value="female">Female</option>
                             <option value="other">Other</option>
-                        </select>
+                        </select> 
                     </div>
                     <div class="form-group">
                         <label for="email">Email Address</label>
