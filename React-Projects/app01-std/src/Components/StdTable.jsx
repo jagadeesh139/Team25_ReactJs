@@ -21,7 +21,7 @@ class StdTable extends Component {
                         <th scope="col">Delete</th>
 
                     </tr>
-                </thead>
+                </thead> 
                 <tbody>
                     {this.props.register.map((std, i) => {
                         return <tr key={i}>
