@@ -7,7 +7,7 @@ interface EnrollmentCounterProps {
   current: number;
   maximum: number;
 }
-
+ 
 export function EnrollmentCounter({ current, maximum }: EnrollmentCounterProps) {
   const percentage = Math.min((current / maximum) * 100, 100);
   
