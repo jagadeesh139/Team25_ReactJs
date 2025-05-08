@@ -85,7 +85,7 @@ class Std extends Component {
             });
             this.clearform();
         }
-    }
+    } 
     clearform = () => {
         this.setState({
             student: {
