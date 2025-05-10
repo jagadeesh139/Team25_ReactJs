@@ -1,0 +1,141 @@
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+  }
+  
+  body {
+    background-color: #f4f4f4;
+    color: #333;
+  }
+  
+  h1, h2, h3 {
+    color: #4CAF50;
+  }
+  
+  h2, h3 {
+    margin-top: 20px;
+  }
+  
+  /* App Container */
+  .app {
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  h1 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  /* Product Form */
+  .form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .form input {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+  }
+  
+  .form button {
+    padding: 10px;
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .form button:hover {
+    background-color: #45a049;
+  }
+  
+  .cancel {
+    background-color: #f44336;
+    margin-top: 10px;
+  }
+  
+  .cancel:hover {
+    background-color: #d32f2f;
+  }
+  
+  /* Product List */
+  .product-list {
+    margin-top: 20px;
+  }
+  
+  .product {
+    background-color: #f9f9f9;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .product.low-stock {
+    background-color: #ffeb3b;
+  }
+  
+  .product button {
+    background-color: #2196F3;
+    color: #fff;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .product button:hover {
+    background-color: #1976D2;
+  }
+  
+  .product div button {
+    margin-right: 10px;
+  }
+  
+  /* Search Bar */
+  .search-bar {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .search-bar input,
+  .search-bar select,
+  .search-bar button {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .search-bar button {
+    background-color: #4CAF50;
+    color: #fff;
+    cursor: pointer;
+  }
+  
+  .search-bar button:hover {
+    background-color: #45a049;
+  }
+  
+  /* Footer */
+  footer {
+    text-align: center;
+    margin-top: 30px;
+    color: #777;
+  }
+  
