@@ -12,7 +12,7 @@ const App = () => {
 
   const filteredMessages = messages.filter((msg) =>
     msg.message.toLowerCase().includes(searchTerm.toLowerCase())
-  );
+  ); 
 
   return (
     <div className="app">
