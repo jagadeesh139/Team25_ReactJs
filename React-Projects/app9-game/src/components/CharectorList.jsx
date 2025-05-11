@@ -23,7 +23,7 @@ const CharacterList = ({ setEditData }) => {
             <button onClick={() => dispatch(deleteCharacter(c.id))} className="bg-red-500 text-white px-3 py-1 rounded">Delete</button>
           </div>
         </div>
-      ))}
+      ))} 
     </div>
   );
 };
