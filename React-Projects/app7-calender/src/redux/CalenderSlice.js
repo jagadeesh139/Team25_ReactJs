@@ -11,7 +11,7 @@ const initialState = {
 const appointmentSlice = createSlice({
   name: 'appointment',
   initialState,
-  reducers: {
+  reducers: { 
     addAppointment: (state, action) => {
       state.appointments.push({ id: uuidv4(), ...action.payload });
     },
