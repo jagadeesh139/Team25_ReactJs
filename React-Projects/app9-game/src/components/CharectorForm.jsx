@@ -12,7 +12,7 @@ const CharacterForm = ({ editData, setEditData }) => {
     manaPoints: 50,
     strength: 10,
     agility: 10,
-  });
+  }); 
 
   useEffect(() => {
     if (editData) setForm(editData);
