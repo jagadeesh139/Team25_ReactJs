@@ -59,4 +59,4 @@ class Stdform extends Component {
         </div>
     }
 }
-export default Stdform;
+export default Stdform; 
