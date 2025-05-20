@@ -11,7 +11,7 @@ class Employes extends Component {
                 "St Emp 4",
                 "St Emp 5"]
         }
-    }
+    } 
     render() {
         return <div>
             {this.state.employe.map((emp) => {
