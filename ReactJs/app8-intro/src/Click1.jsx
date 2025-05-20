@@ -10,4 +10,4 @@ class Click1 extends Component {
         </div>
     }
 }
-export default Click1;
+export default Click1; 
