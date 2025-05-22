@@ -19,7 +19,7 @@ function QuizApp() {
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   const currentQuestion = questions[currentIndex];
-
+ 
   const handleSubmit = () => {
     if (!selectedOption) {
       setFeedback('Please select an option.');
