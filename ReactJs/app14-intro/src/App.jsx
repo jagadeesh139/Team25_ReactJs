@@ -12,6 +12,7 @@ function App() {
   return (
     <>
       <Users />
+      
       <hr />
       <Students />
       <hr />
