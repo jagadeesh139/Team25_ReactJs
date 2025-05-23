@@ -6,7 +6,7 @@ function QuizApp() {
       options: ['London', 'Paris', 'Berlin', 'Madrid'],
       correct: 'Paris',
     },
-    { 
+    {
       question: 'What is the capital of Germany?',
       options: ['Berlin', 'Munich', 'Frankfurt', 'Hamburg'],
       correct: 'Berlin',
@@ -18,7 +18,7 @@ function QuizApp() {
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   const currentQuestion = questions[currentIndex];
- 
+
   const handleSubmit = () => {
     if (!selectedOption) {
       setFeedback('Please select an option.');
@@ -26,7 +26,7 @@ function QuizApp() {
     }
 
     const isCorrect = selectedOption === currentQuestion.correct;
-    setFeedback(isCorrect ? 'Correct!' : Incorrect. The correct answer is ${currentQuestion.correct}.);
+    setFeedback(isCorrect ? 'Correct!' : Incorrect.The correct answer is ${ currentQuestion.correct }.);
     setIsSubmitted(true);
   };
 
@@ -46,7 +46,7 @@ function QuizApp() {
         {currentQuestion.options.map((opt) => (
           <div key={opt}>
             <label>
-              <input
+              <input 
                 type="radio"
                 name="option"
                 value={opt}
@@ -76,4 +76,4 @@ function QuizApp() {
 
 const container = document.getElementById('root');
 const root = createRoot(container);
-root.render(<QuizApp />);
+root.render(<QuizApp />);
