@@ -12,7 +12,6 @@ function QuizApp() {
       correct: 'Berlin',
     },
   ];
-
   const [currentIndex, setCurrentIndex] = useState(0);
   const [selectedOption, setSelectedOption] = useState('');
   const [feedback, setFeedback] = useState('');
