@@ -54,7 +54,7 @@ function QuizApp() {
                 onChange={() => setSelectedOption(opt)}
               />
               {' '}{opt}
-            </label>
+            </label> 
           </div>
         ))}
       </div>
