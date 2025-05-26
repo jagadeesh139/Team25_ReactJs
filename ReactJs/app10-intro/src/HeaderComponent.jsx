@@ -11,4 +11,4 @@ export default class HeaderComponent extends Component {
         </div>
     }
 
-}
+} 

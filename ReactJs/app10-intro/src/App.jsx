@@ -15,7 +15,7 @@ function App() {
 
   return (
     <>
-      {/* <Router>
+      {/* <Router> 
         <nav>
           <Link to={''}>Home</Link>
           <Link to={'about'}>About</Link>
