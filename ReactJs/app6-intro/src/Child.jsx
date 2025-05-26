@@ -9,6 +9,6 @@ class Child extends Component {
             <h2>welcome to my Component</h2>
             <h2>{this.props.all.fname}</h2>
         </div>
-    }
+    } 
 }
 export default Child;
