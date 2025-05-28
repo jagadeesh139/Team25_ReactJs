@@ -1,34 +1,39 @@
+
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+import Dashboard from './Dashboard'
+import TodoApp from './TodoApp'
+import { UserContext } from './UserContext'
+import Profile from './Profile'
+import Todolist1 from './Todolist1'
+import Todoapp1 from './Todoapp1'
+import SearchComponent from './Uscabk'
+import Filter from './Filterusecal'
 
 function App() {
   const [count, setCount] = useState(0)
+  const user = {
+    name: 'Alice Johnson',
+    email: 'alice@example.com'
+  };
 
   return (
     <>
+     <Todoapp1/> 
+    {/* <Dashboard/>
+    <TodoApp/>
+     <UserContext.Provider value={user}>
       <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+        <h1>Welcome to the App</h1>
+        <Profile />
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+    </UserContext.Provider>
+    <SearchComponent/> 
+    <Filter/> */}
     </>
+    
   )
 }
 
