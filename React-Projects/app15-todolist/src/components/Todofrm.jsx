@@ -9,9 +9,9 @@ const Todofrm1 = ({ addtodo }) => {
 
   const handleinput = (e) => {
 
-      addtodo(input);
-      setInput(''); 
-    
+    addtodo(input);
+    setInput('');
+
   };
 
   return (
@@ -20,10 +20,10 @@ const Todofrm1 = ({ addtodo }) => {
         type="text"
         value={input}
         onChange={handleevent}
-       
+
         placeholder="Enter todo and press Enter"
       />
-          <button type="button" onClick={handleinput}>Add Todo</button>
+      <button type="button" onClick={handleinput}>Add Todo</button>
     </div>
   );
 };
