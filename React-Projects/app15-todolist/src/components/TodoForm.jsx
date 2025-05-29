@@ -7,7 +7,7 @@ const TodoForm = ({ onAddTodo }) => {
     e.preventDefault();
     if (input.trim()) {
       onAddTodo(input);
-      setInput('');
+      setInput(''); 
     }
   };
 
