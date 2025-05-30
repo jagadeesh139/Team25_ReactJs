@@ -26,7 +26,7 @@ const ProductList = ({ onEdit }) => {
         ))
       ) : (
         <p>No low stock products!</p>
-      )}
+      )} 
 
       <h3>All Products</h3>
       {products.map((product) => (
