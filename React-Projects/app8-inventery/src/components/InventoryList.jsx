@@ -41,7 +41,7 @@ const ProductList = ({ onEdit }) => {
           </div>
         </div>
       ))}
-    </div>
+    </div> 
   );
 };
 
