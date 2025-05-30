@@ -5,7 +5,7 @@ import { removeProduct, updateQuantity } from '../features/inventory/inventorySl
 const ProductList = ({ onEdit }) => {
   const products = useSelector((state) => state.inventory.products);
   const lowStockProducts = useSelector((state) => state.inventory.products.filter((product) => product.quantity <= product.reorderLevel));
-  const dispatch = useDispatch();
+  const dispatch = useDispatch(); 
 
   // Function to calculate total price for each product
   const calculateTotalPrice = (product) => {
