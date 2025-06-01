@@ -12,7 +12,7 @@ const ProductList = ({ onEdit }) => {
     return product.quantity * product.price;
   };
 
-  return (
+  return ( 
     <div className="product-list">
       <h3>Low Stock Products</h3>
       {lowStockProducts.length > 0 ? (
