@@ -38,7 +38,7 @@ const ProductForm = ({ selectedProduct, clearSelection }) => {
     setName('');
     setCategory('');
     setQuantity(0);
-    setPrice(0);
+    setPrice(0); 
     setSupplier('');
     setReorderLevel(0);
   };
