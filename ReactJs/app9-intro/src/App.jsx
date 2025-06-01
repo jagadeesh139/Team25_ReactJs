@@ -11,7 +11,7 @@ import './App.css'
 import MainComponent from './Context-Component/MainComponent'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0) 
 
   return (
     <>
