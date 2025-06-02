@@ -16,7 +16,6 @@ const UsersReducer = (state = users, action) => {
             return state.map((user, idx) =>
                 idx === action.payload.index ? action.payload.value : user
 
-
             )
 
         case "DELETE":
