@@ -14,7 +14,7 @@ const StudentReducers = (state = student, action) => {
         case "DELETE":
             return state.filter((student) => (student !== action.payload))
             break;
-        default:
+        default: 
             return state;
 
     }
