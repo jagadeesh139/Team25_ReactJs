@@ -13,7 +13,7 @@ class Student extends Component {
     handleChange = (e) => {
         this.setState({ student: e.target.value });
     };
-
+ 
     handleAdd = () => {
         console.log("add user")
         this.props.dispatch({
