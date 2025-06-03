@@ -8,7 +8,7 @@ export  const adduserAction = (user) => {
     return {
         type: "DELETE",
         payload: user
-    }
+    } 
 }
  export const UpdateuserAction = (data) => {
     return {
