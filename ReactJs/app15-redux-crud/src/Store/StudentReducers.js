@@ -16,7 +16,7 @@ const StudentReducers = (state = student, action) => {
             break;
         default: 
             return state;
-
+ 
     }
 }
 export default StudentReducers;
