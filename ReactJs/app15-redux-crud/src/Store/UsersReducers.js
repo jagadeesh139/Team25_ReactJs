@@ -17,7 +17,7 @@ const UsersReducer = (state = users, action) => {
                 idx === action.payload.index ? action.payload.value : user
 
             )
-
+ 
         case "DELETE":
             return state.filter((user) => user !== action.payload)
 
