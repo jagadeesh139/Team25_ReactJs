@@ -1,0 +1,67 @@
+/* Reset and base styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+}
+
+header, section, footer {
+  padding: 1rem;
+}
+
+header {
+  background: #4a90e2;
+  color: white;
+  text-align: center;
+}
+
+h1, h2 {
+  margin: 0.5rem 0;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  margin: 0.5rem 0;
+}
+
+a {
+  color: #4a90e2;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+form input, form textarea {
+  width: 100%;
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Project section styling */
+.project {
+  background: #e0e0e0;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 5px;
+}
+
+/* Responsive layout */
+@media (min-width: 768px) {
+  .skills-projects-container {
+    display: flex;
+    gap: 2rem;
+  }
+
+  .skills, .projects {
+    flex: 1;
+  }
+}
