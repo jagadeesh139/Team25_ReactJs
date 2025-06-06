@@ -51,7 +51,6 @@ function Proto() {
         </section>
       </div>
 
-      
       <section>
         <h2>Links</h2>
         <ul>
