@@ -25,7 +25,6 @@ function Proto() {
         </p>
       </section>
 
-      
       <div className="skills-projects-container">
         
         <section className="skills">
