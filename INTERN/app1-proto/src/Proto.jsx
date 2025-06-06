@@ -16,7 +16,6 @@ function Proto() {
         <p>Full Stack Developer | React, Redux, JavaScript</p>
       </header>
 
-     
       <section>
         <h2>Professional Summary</h2>
         <p>
