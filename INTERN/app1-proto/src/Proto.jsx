@@ -39,7 +39,6 @@ function Proto() {
           </ul>
         </section>
 
-        
         <section className="projects">
           <h2>Project: RoomsTonite</h2>
           <div className="project">
