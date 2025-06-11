@@ -68,6 +68,7 @@ function Proto() {
         </ul>
       </section>
 
+      
       <section>
         <h2>Contact Me</h2>
         <button onClick={toggleContactForm}>
