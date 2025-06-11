@@ -62,7 +62,7 @@ const CrudApp = () => {
         ))}
       </ul>
     </div>
-  );
+  ); 
 };
 
 export default CrudApp;
