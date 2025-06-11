@@ -81,8 +81,8 @@ function MyComponent() {
                             <td><button type="button" onClick={() => { handeledit(data, i) }}>Edit</button></td>
                             <td><button type="button" onClick={() => { handeldelete(i) }}>Delete</button></td>
                         </tr>
-                    })}
-
+                    })}  
+                    
                 </tbody>
             </table>
         </div>
