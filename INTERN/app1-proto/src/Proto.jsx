@@ -93,5 +93,4 @@ function Proto() {
     </div>
   );
 }
-
 export default Proto;
