@@ -59,7 +59,7 @@ function Proto() {
               LinkedIn
             </a>
           </li>
-          <li>
+          <li> 
             <a href="https://github.com/jagadeesh139" target="_blank" rel="noopener noreferrer">
               GitHub
             </a>
