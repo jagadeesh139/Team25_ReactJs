@@ -32,7 +32,7 @@ function Proto() {
           <ul>
             <li>JavaScript, HTML5, CSS3, JSON, Bootstrap</li>
             <li>React.js 18, Redux</li>
-            <li>Git, GitHub, VS Code, NPM, Babel</li>
+            <li>Git, GitHub, VS Code</li>
             <li>AJAX, Responsive Design, SEO Principles</li>
             <li>Microsoft Azure, Azure Management, VPN, Networking</li>
             <li>BOM, DOM APIs</li>
