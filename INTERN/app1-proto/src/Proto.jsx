@@ -10,7 +10,7 @@ function Proto() {
 
   return (
     <div style={{ margin: 0 }}>
-     
+
       <header>
         <h1>Hi, I'm Jagadeesh 👋</h1>
         <p>Full Stack Developer | React, Redux, JavaScript</p>
@@ -26,7 +26,7 @@ function Proto() {
       </section>
 
       <div className="skills-projects-container">
-        
+
         <section className="skills">
           <h2>Technical Skills</h2>
           <ul>
@@ -43,8 +43,8 @@ function Proto() {
           <h2>Project: RoomsTonite</h2>
           <div className="project">
             <p>
-              <strong>Role:</strong> UI Developer<br/>
-              <strong>Tech Stack:</strong> HTML5, CSS3, JavaScript, React JS, Redux<br/>
+              <strong>Role:</strong> UI Developer<br />
+              <strong>Tech Stack:</strong> HTML5, CSS3, JavaScript, React JS, Redux<br />
               <strong>Description:</strong> RoomsTonite is a smart room selection platform tailored to users' preferences. I developed a user-friendly and responsive interface, collaborated with back-end developers, integrated RESTful APIs, and optimized the front-end for performance and SEO.
             </p>
           </div>
@@ -59,7 +59,7 @@ function Proto() {
               LinkedIn
             </a>
           </li>
-          <li> 
+          <li>
             <a href="https://github.com/jagadeesh139" target="_blank" rel="noopener noreferrer">
               GitHub
             </a>
@@ -75,12 +75,12 @@ function Proto() {
         </button>
         {showContact && (
           <form style={{ marginTop: "1rem" }}>
-            <label>Name:</label><br/>
-            <input type="text" name="name" /><br/>
-            <label>Email:</label><br/>
-            <input type="email" name="email" /><br/>
-            <label>Message:</label><br/>
-            <textarea name="message"></textarea><br/>
+            <label>Name:</label><br />
+            <input type="text" name="name" /><br />
+            <label>Email:</label><br />
+            <input type="email" name="email" /><br />
+            <label>Message:</label><br />
+            <textarea name="message"></textarea><br />
             <button type="submit">Send</button>
           </form>
         )}
