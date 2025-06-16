@@ -11,7 +11,6 @@ const MovieData = ({ onEdit }) => {
     ? movies.filter(movie => movie.genre.toLowerCase().includes(searchGenre.toLowerCase()))
     : movies;
 
-    
   return (
     <div className="movie-list">
       <h2>Movie List</h2>
