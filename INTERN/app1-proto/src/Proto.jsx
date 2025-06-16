@@ -57,7 +57,7 @@ function Proto() {
           <li>
             <a href="https://www.linkedin.com/in/jagadeesh-m-762b80238" target="_blank" rel="noopener noreferrer">
               LinkedIn
-            </a>
+            </a> 
           </li>
           <li>
             <a href="https://github.com/jagadeesh139" target="_blank" rel="noopener noreferrer">
