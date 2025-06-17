@@ -11,7 +11,6 @@ const FunCountComponent = ({ render }) => {
     const reset = () => {
         setCount(0)
     }
-
     return <div>
         {render(count, increment, decrement, reset)}
 

@@ -9,4 +9,4 @@ const FunClickComponent = (
 
     </div>)
 }
-export default FunClickComponent;
+export default FunClickComponent; 
