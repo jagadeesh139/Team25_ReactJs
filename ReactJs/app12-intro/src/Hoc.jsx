@@ -31,5 +31,5 @@ const Hoc = (Click) => {
     }
     return newComponent;
 
-}
+} 
 export default Hoc;
