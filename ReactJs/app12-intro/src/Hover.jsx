@@ -12,7 +12,6 @@ class Hover extends Component {
             <button onMouseOver={this.props.reset}>reset</button>
         </div>
 
-
     }
 
 }
