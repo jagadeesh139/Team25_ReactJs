@@ -73,7 +73,7 @@ class Student extends Component {
                 </ul>
             </div>
         );
-    }
+    } 
 }
 
 function mapStateToProps(state) {
