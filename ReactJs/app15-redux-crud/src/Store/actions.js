@@ -15,4 +15,4 @@ export  const adduserAction = (user) => {
         type: "UPDATE",
         payload: data
     }
-}
+} 
