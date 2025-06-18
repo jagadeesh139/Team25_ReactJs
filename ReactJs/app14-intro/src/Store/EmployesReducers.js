@@ -4,7 +4,7 @@ const employe = [
     "St Emp 3",
     "St Emp 4",
     "St Emp 5"
-]
+] 
 
 export const EmployesReducers = (state = employe, action) => {
     switch (action.type) {
