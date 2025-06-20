@@ -10,7 +10,7 @@ class Employes extends Component {
                 "St Emp 3",
                 "St Emp 4",
                 "St Emp 5"]
-        }
+        } 
     } 
     render() {
         return <div>
@@ -18,7 +18,6 @@ class Employes extends Component {
                 return <li>{emp}</li>
 
             })}
-
         </div>
     }
 }
