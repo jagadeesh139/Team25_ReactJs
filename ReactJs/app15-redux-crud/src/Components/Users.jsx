@@ -13,7 +13,7 @@ class Users extends Component {
                 password: ""
             },
             editindex: null
-        } 
+        }
     }
     handelchange = (e) => {
         const newUser = { ...this.state.user }
