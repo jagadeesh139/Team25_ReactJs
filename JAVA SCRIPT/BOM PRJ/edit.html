@@ -231,33 +231,33 @@
             </div>
 
             <script>
-                var urlAddress = location.href;          
-                var i = urlAddress.substr(urlAddress.indexOf("?")+1)
+                var urlAddress = location.href;
+                var i = urlAddress.substr(urlAddress.indexOf("?") + 1)
                 console.log(i)
                 var Book = JSON.parse(localStorage.getItem("user"))
-            
 
-                
-                    Iindex = i;
-                    document.getElementById("eventName").value = Book[i].EventName
-                    document.getElementById("date").value = Book[i].Date
-                    document.getElementById("time").value = Book[i].Time
-                    document.getElementById("location").value = Book[i].Location
-                    document.getElementById("description").value = Book[i].Description
 
-                    var allradio = document.getElementsByName("category")
-                    for (j = 0; j < allradio.length; j++) {
-                        allradio[j].checked = Book[i].category.includes(allradio[j].value)
-                    }
 
-                    var allCheckBoxes = document.getElementsByName("Options")
-                    for (k = 0; k < allCheckBoxes.length; k++) {
-                        allCheckBoxes[k].checked = Book[i].Options.includes(allCheckBoxes[k].value)
-                    }
+                Iindex = i;
+                document.getElementById("eventName").value = Book[i].EventName
+                document.getElementById("date").value = Book[i].Date
+                document.getElementById("time").value = Book[i].Time
+                document.getElementById("location").value = Book[i].Location
+                document.getElementById("description").value = Book[i].Description
 
-               
+                var allradio = document.getElementsByName("category")
+                for (j = 0; j < allradio.length; j++) {
+                    allradio[j].checked = Book[i].category.includes(allradio[j].value)
+                }
 
-                
+                var allCheckBoxes = document.getElementsByName("Options")
+                for (k = 0; k < allCheckBoxes.length; k++) {
+                    allCheckBoxes[k].checked = Book[i].Options.includes(allCheckBoxes[k].value)
+                }
+
+
+
+
 
                 function validform() {
 
@@ -301,7 +301,7 @@
                     }
 
                     // document.getElementById("appointbtn").disabled = !(isValid && isradiovalid && ischeckbox && Iindex === null);
-                    document.getElementById("updateBtn").disabled = !(isValid && isradiovalid && ischeckbox && i!== null);
+                    document.getElementById("updateBtn").disabled = !(isValid && isradiovalid && ischeckbox && i !== null);
                 }
 
                 function updateuser() {
@@ -344,7 +344,7 @@
                     validform();
                     localStorage.setItem("user", JSON.stringify(Book))
                     window.location.href = "indexbom.html"
-                   
+
 
 
 
@@ -354,7 +354,7 @@
                     // document.getElementById("location").value = ""
                     // document.getElementById("description").value = ""
                     // Iindex = null;
-                   }
+                }
 
             </script>
 </body>
