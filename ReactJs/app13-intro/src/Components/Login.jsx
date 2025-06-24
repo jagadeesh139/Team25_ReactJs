@@ -14,7 +14,7 @@ class Login extends Component {
             errorMessage: "",
         };
     }
-    
+
     handleDashboardNavigation = () => {
         this.props.navigate("/dashboard");
     };
