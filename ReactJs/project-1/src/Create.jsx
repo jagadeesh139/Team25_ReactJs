@@ -4,5 +4,5 @@ class Create extends Component {
     constructor() {
         super()
     }
-}
+} 
 export default Create;
