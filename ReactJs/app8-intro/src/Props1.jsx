@@ -7,7 +7,7 @@ import { Component } from "react";
 
 class Props1 extends Component {
     render() {
-        return <div>
+        return <div> 
             <h3>welcome to render props ...!!</h3>
             <Count1 render={(count, handelincrement, handeldecrement, handelReset) => (<Click1 count={count} handelincrement={handelincrement} handeldecrement={handeldecrement} handelReset={handelReset} />)} />
             <Count1 render={(count, handelincrement, handeldecrement, handelReset) => (<Hover1 count={count} handelincrement={handelincrement} handeldecrement={handeldecrement} handelReset={handelReset} />)} />
