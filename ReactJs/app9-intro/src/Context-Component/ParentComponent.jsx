@@ -11,6 +11,6 @@ class ParentComponent extends Component {
             <ChildComponent msg={this.props.msg} />
 
         </div>
-    } 
+    }  
 }
 export default ParentComponent;
