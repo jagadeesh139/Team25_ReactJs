@@ -1,4 +1,4 @@
-const FunHoverComponent = ({count,increment,decrement,reset}) => {
+const FunHoverComponent = ({ count, increment, decrement, reset }) => {
     return (<div>
         <h2>{count}</h2>
         <button type="button" onMouseOver={increment}>increment</button>
@@ -6,5 +6,6 @@ const FunHoverComponent = ({count,increment,decrement,reset}) => {
         <button type="button" onMouseOver={reset}>Reset</button>
 
     </div>
-)}
+    )
+}
 export default FunHoverComponent;
