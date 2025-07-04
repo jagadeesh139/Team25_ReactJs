@@ -8,7 +8,7 @@ class MainComponent extends Component {
         this.state = {
             msg: "welcome to Context api topic "
         }
-    }
+    } 
     render() {
         return <div>
             <h2>welcome to main Component..!</h2>

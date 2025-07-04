@@ -14,5 +14,5 @@ class ChildComponent extends Component {
 
         </div>
     }
-}
+} 
 export default ChildComponent;
