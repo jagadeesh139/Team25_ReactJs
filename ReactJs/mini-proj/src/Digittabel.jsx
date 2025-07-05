@@ -2,7 +2,7 @@ import { Component } from "react";
 
 class Digittabel extends Component {
     constructor() {
-        super()
+        super() 
     }
     render() {
         return <div>

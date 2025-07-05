@@ -4,7 +4,7 @@ class Digitform extends Component {
     constructor() {
         super()
     }
-    render() {
+    render() { 
         return <div>
             <form>
                 <label>Id</label>
