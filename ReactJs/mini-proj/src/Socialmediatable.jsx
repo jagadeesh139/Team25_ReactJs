@@ -8,7 +8,7 @@ class Socialmediatable extends Component{
         return <div>
             <table border={1}>
                 <thead>
-                    <tr>
+                    <tr> 
                         <th>ID</th>
                         <th>Content</th>
                         <th>Likes</th>
